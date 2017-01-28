@@ -78,19 +78,16 @@ class PSOParticle:
 
         self.personal_best = self.solution_weight if self.is_personal_best_deprecated() else self.personal_best
 
-    def calculate_velocity(self, global_best: int) -> float:
+    def calculate_velocity(self, global_best: int):
         """
         Calculates the velocity of a particle.
 
         Args:
             global_best: - Global best solution weight.
-
-        Returns:
-            Updated velocity of a particle.
         """
 
-        return random() * (self.learning_factors[0] * (self.personal_best - self.solution_weight) +
-                           self.learning_factors[1] * (global_best - self.solution_weight))
+        self.velocity = random() * (self.learning_factors[0] * (self.personal_best - self.solution_weight) +
+                                    self.learning_factors[1] * (global_best - self.solution_weight))
 
     def update_solution(self):
         """
@@ -107,8 +104,8 @@ class PSOParticle:
                 continue
             temp_diagonal_diff = diagonal_difference(edge)
             if in_convex_square(edge) and abs(temp_diagonal_diff + self.velocity) < offset:
-                offset = abs(temp_diagonal_diff - self.velocity)
                 diagonal_diff = temp_diagonal_diff
+                offset = abs(temp_diagonal_diff + self.velocity)
                 selected_edge = edge
 
         if selected_edge:

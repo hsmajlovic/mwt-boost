@@ -151,8 +151,8 @@ def randomise_solution(reconstructed_edges: List[Edge],
     new_weight = initial_weight
 
     for _ in range(number_of_steps):
-        temp_weight = flip_random_flippable(reconstructed_edges, initial_weight)
-        if new_weight is None:
+        temp_weight = flip_random_flippable(reconstructed_edges, new_weight)
+        if temp_weight is None:
             break
         new_weight = temp_weight
 

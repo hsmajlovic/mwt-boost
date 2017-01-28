@@ -58,10 +58,10 @@ def basic_pso(reconstructed_edges: List[Edge],
 
     for _ in range(number_of_iterations):
         for particle in particles:
+            particle.calculate_velocity(global_best)
+            particle.update_solution()
             particle.update_personal_best()
             if particle.get_personal_best() < global_best:
                 global_best = particle.get_personal_best()
 
-        for particle in particles:
-            particle.calculate_velocity(global_best)
-            particle.update_solution()
+    return global_best
