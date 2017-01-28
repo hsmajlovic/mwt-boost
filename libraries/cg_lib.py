@@ -1,6 +1,10 @@
+from random import choice
+from typing import List
+
 from helpers.utils import *
-from structures.point import Point
+from solutions.hill_climbing import flip_edge
 from structures.edge import Edge
+from structures.point import Point
 
 
 def return_simple_polygon(dots):
@@ -179,4 +183,44 @@ def in_convex_square(edge):
         return False
     return are_intersected({'tail': edge.tail, 'head': edge.head},
                            {'tail': edge.incident_dots[0], 'head': edge.incident_dots[1]})
+
+
+def flip_random_flippable(reconstructed_edges: List[Edge]) -> bool:
+    """
+    Flips a random flippable edge in the provided solution.
+
+    Args:
+        reconstructed_edges: - List of single solution edges prepared for edge flipping.
+
+    Returns:
+        True if some edge successfully flipped. False otherwise.
+    """
+
+    edge_candidates = []
+    for edge in reconstructed_edges:
+        if len(edge.incident_dots) == 0:
+            continue
+        if in_convex_square(edge):
+            edge_candidates.append(edge)
+    if len(edge_candidates):
+        random_valid_edge = choice(edge_candidates)
+        flip_edge(reconstructed_edges, random_valid_edge)
+        return True
+    else:
+        return False
+
+
+def randomise_solution(reconstructed_edges: List[Edge],
+                       number_of_steps = 33):
+    """
+    Takes the initial solution and flips it edges at random for a provided number of steps.
+
+    Args:
+        reconstructed_edges: - List of single solution edges prepared for edge flipping.
+        number_of_steps: - Number of times a random edge flipping is ought to be performed.
+    """
+
+    for _ in range(number_of_steps):
+        if not flip_random_flippable(reconstructed_edges):
+            break
 # End of heuristics related
