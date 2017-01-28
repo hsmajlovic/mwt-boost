@@ -1,8 +1,4 @@
-from random import choice
-from typing import List, Union
-
 from helpers.utils import *
-from solutions.hill_climbing import flip_edge
 from structures.edge import Edge
 from structures.point import Point
 
@@ -183,60 +179,4 @@ def in_convex_square(edge):
         return False
     return are_intersected({'tail': edge.tail, 'head': edge.head},
                            {'tail': edge.incident_dots[0], 'head': edge.incident_dots[1]})
-
-
-def flip_random_flippable(reconstructed_edges: List[Edge],
-                          initial_weight: int) -> Union[int, None]:
-    """
-    Flips a random flippable edge in the provided solution.
-
-    Args:
-        initial_weight: - Initial solution weight.
-        reconstructed_edges: - List of single solution edges prepared for edge flipping.
-
-    Returns:
-        Solution weight if some edge successfully flipped. None otherwise.
-    """
-
-    edge_candidates = []
-
-    for edge in reconstructed_edges:
-        if len(edge.incident_dots) == 0:
-            continue
-        if in_convex_square(edge):
-            edge_candidates.append(edge)
-    if len(edge_candidates):
-        random_valid_edge = choice(edge_candidates)
-        new_mwt_weight = initial_weight - diagonal_difference(random_valid_edge)
-        flip_edge(reconstructed_edges, random_valid_edge)
-        return new_mwt_weight
-
-    return None
-
-
-def randomise_solution(reconstructed_edges: List[Edge],
-                       initial_weight: int,
-                       number_of_steps: int = 33) -> int:
-    """
-    Takes the initial solution and flips it edges at random for a provided number of steps.
-
-    Args:
-        initial_weight: - Initial solution weight.
-        reconstructed_edges: - List of single solution edges prepared for edge flipping.
-        number_of_steps: - Number of times a random edge flipping is ought to be performed.
-
-    Returns:
-        Randomised solution weight.
-    """
-
-    new_weight = initial_weight
-
-    for _ in range(number_of_steps):
-        temp_weight = flip_random_flippable(reconstructed_edges, initial_weight)
-        if new_weight is None:
-            break
-        new_weight = temp_weight
-
-    return new_weight
-
 # End of heuristics related

@@ -3,8 +3,8 @@ from copy import deepcopy
 from random import random
 from typing import List, Tuple
 
-from libraries.cg_lib import randomise_solution, diagonal_difference, in_convex_square
-from solutions.hill_climbing import flip_edge
+from libraries.cg_lib import diagonal_difference, in_convex_square
+from solutions.hill_climbing import flip_edge, randomise_solution
 from structures.edge import Edge
 
 

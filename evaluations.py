@@ -10,6 +10,7 @@ from solutions.exhaustive_search import do_exhaustive_search
 from solutions.hill_climbing import first_choice_hill_climbing
 from solutions.hill_climbing import greedy_choice_hill_climbing
 from solutions.hill_climbing import stochastic_choice_hill_climbing
+from solutions.particle_swarm_optimization import basic_pso
 from solutions.simulated_annealing import simulated_annealing
 from structures.point import Point
 
@@ -159,6 +160,13 @@ for _ in range(instances_no):
     # print('\tHybrid Artificial Bee Colony:', hybrid_artificial_bee_colony_results[0], 's.',
     #       'Weight:', hybrid_artificial_bee_colony_results[1], '\n')
     # End of ABC algorithm related
+
+    # Begin of PSO solution related
+    pso_edges = deepcopy(get_gct_edges())
+    pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
+    print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
+          'Weight:', pso_results[1], '\n')
+    # End of PSO solution related
 
     # Begin of Exhaustive Search
     exhaustive_search_results = benchmark.evaluate_method(do_exhaustive_search, dots, convex_hull)

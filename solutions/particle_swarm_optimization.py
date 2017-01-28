@@ -7,11 +7,13 @@ from structures.pso_particle import PSOParticle
 
 def initialize_particles(reconstructed_edges: List[Edge],
                          particles_quantity: int,
+                         initial_weight: int,
                          randomise: bool) -> List[PSOParticle]:
     """
     Initializes provided number of initial random solutions.
 
     Args:
+        initial_weight: - Initial solution weight.
         reconstructed_edges: - List of single solution edges prepared for edge flipping.
         particles_quantity: - Number of particles that are ought to be instantiated.
         randomise: - Boolean flag. If True, the particles will be scattered around the search space.
@@ -22,10 +24,13 @@ def initialize_particles(reconstructed_edges: List[Edge],
         List of initial random solutions.
     """
 
-    return [PSOParticle(reconstructed_edges, randomise) for _ in range(particles_quantity)]
+    return [PSOParticle(reconstructed_edges=reconstructed_edges,
+                        initial_weight=initial_weight,
+                        randomise=randomise) for _ in range(particles_quantity)]
 
 
 def basic_pso(reconstructed_edges: List[Edge],
+              initial_weight: int,
               particles_quantity: int,
               number_of_iterations: int,
               randomised: bool):
@@ -33,6 +38,7 @@ def basic_pso(reconstructed_edges: List[Edge],
     Basic PSO implementation.
 
     Args:
+        initial_weight: - Initial solution weight.
         reconstructed_edges: - List of single solution edges prepared for edge flipping.
         particles_quantity: - Number of particles that are ought to be instantiated.
         number_of_iterations: - Number of iterations before PSO terminates.
@@ -46,6 +52,7 @@ def basic_pso(reconstructed_edges: List[Edge],
 
     particles = initialize_particles(reconstructed_edges=reconstructed_edges,
                                      particles_quantity=particles_quantity,
+                                     initial_weight=initial_weight,
                                      randomise=randomised)
     global_best = math.inf
 
