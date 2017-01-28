@@ -163,7 +163,7 @@ for _ in range(instances_no):
 
     # Begin of PSO solution related
     pso_edges = deepcopy(get_gct_edges())
-    pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, False)
+    pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
     print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
           'Weight:', pso_results[1], '\n')
     # End of PSO solution related

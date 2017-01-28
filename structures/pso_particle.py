@@ -16,7 +16,7 @@ class PSOParticle:
     def __init__(self,
                  reconstructed_edges: List[Edge],
                  initial_weight: int,
-                 learning_factors: Tuple[int, int] = (2, 2),
+                 learning_factors: Tuple[float, float] = (2.0, 2.0),
                  randomise: bool = False
                  ):
         """
