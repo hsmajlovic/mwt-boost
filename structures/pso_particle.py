@@ -31,7 +31,8 @@ class PSOParticle:
         """
 
         self.reconstructed_edges = deepcopy(reconstructed_edges)
-        self.solution_weight = randomise_solution(reconstructed_edges, initial_weight) if randomise else initial_weight
+        self.solution_weight = \
+            randomise_solution(self.reconstructed_edges, initial_weight) if randomise else initial_weight
         self.personal_best = self.solution_weight
         self.learning_factors = learning_factors
 
