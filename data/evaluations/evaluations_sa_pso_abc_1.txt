@@ -1,0 +1,67 @@
+1.
+	Instance size: 19
+	Optimal Weight: 1489601.
+	SA worst: 1503941.
+	SA mean: 1490079.0.
+	SA best: 1489601.
+	SA standard deviation: 2574.10877781.
+
+	PSO worst: 1489601.
+	PSO mean: 1489601.0.
+	PSO best: 1489601.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 1489601.
+	ABC mean: 1489601.0.
+	ABC best: 1489601.
+	ABC standard deviation: 0.0.
+
+2.
+	Instance size: 19
+	Optimal Weight: 1855090.
+	SA worst: 1855090.
+	SA mean: 1855090.0.
+	SA best: 1855090.
+	SA standard deviation: 0.0.
+
+	PSO worst: 1855090.
+	PSO mean: 1855090.0.
+	PSO best: 1855090.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 1855090.
+	ABC mean: 1855090.0.
+	ABC best: 1855090.
+	ABC standard deviation: 0.0.
+
+3.
+	Instance size: 19
+	Optimal Weight: 1811051.
+	SA worst: 1835887.
+	SA mean: 1812379.4333333333.
+	SA best: 1811051.
+	SA standard deviation: 5129.63654127.
+
+	PSO worst: 1811051.
+	PSO mean: 1811051.0.
+	PSO best: 1811051.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 1811051.
+	ABC mean: 1811051.0.
+	ABC best: 1811051.
+	ABC standard deviation: 0.0.
+
+4.
+	Instance size: 19
+	Optimal Weight: 1742996.
+	SA worst: 1756711.
+	SA mean: 1749277.8.
+	SA best: 1742996.
+	SA standard deviation: 6721.12841915.
+
+	PSO worst: 1742996.
+	PSO mean: 1742996.0.
+	PSO best: 1742996.
+	PSO standard deviation: 0.0.
+
