@@ -7,6 +7,7 @@ from helpers.benchmark import output_stats
 from libraries.st_lib import get_gct
 from libraries.st_lib import get_gct_edges
 from solutions.artificial_bee_colony import random_wandering_abc_algorithm
+from solutions.exhaustive_search import do_exhaustive_search
 from solutions.particle_swarm_optimization import basic_pso
 from solutions.simulated_annealing import simulated_annealing
 from structures.point import Point
@@ -24,9 +25,9 @@ dots = [
 ]
 
 instances_no = 5
-number_of_runs = 50
-min_dots_quantity = 40
-max_dots_quantity = 40
+number_of_runs = 10
+min_dots_quantity = 7
+max_dots_quantity = 7
 
 instances = [[Point(x=-299, y=-113), Point(x=-145, y=-149), Point(x=-106, y=41), Point(x=299, y=-255), Point(x=5, y=241), Point(x=-170, y=31), Point(x=-248, y=242), Point(x=9, y=88), Point(x=144, y=75), Point(x=-130, y=-241), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=-308, y=201), Point(x=111, y=164), Point(x=278, y=-130), Point(x=-179, y=38), Point(x=-150, y=-292)]
 , [Point(x=83, y=27), Point(x=-51, y=177), Point(x=-271, y=-146), Point(x=-168, y=-217), Point(x=-40, y=-54), Point(x=-316, y=-142), Point(x=74, y=277), Point(x=100, y=-257), Point(x=-299, y=119), Point(x=-60, y=199), Point(x=67, y=41), Point(x=-220, y=-196), Point(x=-42, y=-233), Point(x=-85, y=237), Point(x=261, y=84), Point(x=-40, y=1), Point(x=17, y=22)]
@@ -163,9 +164,9 @@ for instance_no in range(instances_no):
     # End of PSO solution related
 
     # Begin of Exhaustive Search
-    # exhaustive_search_results = benchmark.evaluate_method(do_exhaustive_search, dots, convex_hull)
-    # print('\tExhaustive Search:', exhaustive_search_results[0], 's.',
-    #       'Weight:', exhaustive_search_results[1], '\n')
+    exhaustive_search_results = benchmark.evaluate_method(do_exhaustive_search, dots, convex_hull)
+    print('\tExhaustive Search:', exhaustive_search_results[0], 's.',
+          'Weight:', exhaustive_search_results[1], '\n')
     # End of Exhaustive Search
 
     # Begin of debugging related
@@ -179,16 +180,17 @@ for instance_no in range(instances_no):
 
     # # Begin of results export
     with open(
-            'data/evaluations/evaluations_sa_pso_abc.txt',
+            'data/evaluations/evaluations_sa_pso_abc_test.txt',
             mode='w' if instance_no == 0 else 'a',
             encoding='utf-8') as eval_file:
-        eval_file.write(str(instance_no + 1) + '.\n')
-        # eval_file.write('[' + ''.join(str(e) + ', ' for e in dots) + ']')
+        eval_file.write(str(instance_no + 1) + '. ')
+        eval_file.write('[' + ','.join(str(e) for e in dots) + ']\n')
         eval_file.write('\tInstance size: ' + str(dots_quantity) + '\n')
+        eval_file.write('\tNumber of runs: ' + str(number_of_runs) + '\n')
         # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
         # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
-        # eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
-        # eval_file.write('Time lapsed: ' + str(exhaustive_search_results[0]) + 's\n\n')
+        eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
+        eval_file.write('\tTime lapsed for exhaustive search: ' + str(exhaustive_search_results[0]) + 's\n\n')
 
         # Begin of advanced stats evaluation
         output_stats(get_gct_edges(),
