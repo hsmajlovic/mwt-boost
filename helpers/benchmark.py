@@ -1,6 +1,6 @@
 import time
 from copy import deepcopy
-from typing import List, Callable, Any
+from typing import List, Callable, Any, Tuple, Union
 
 from numpy import std, ndarray
 
@@ -15,7 +15,7 @@ def evaluate_method(exe_method, *args):
     return end - start, solution
 
 
-def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_args) -> int:
+def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_args) -> Tuple[float, int]:
     """
     Single run evaluator.
 
@@ -26,7 +26,7 @@ def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_
         message: - Info message to display while processing.
 
     Returns:
-        Achieved solution weight.
+        Achieved solution weight and time taken to find it.
     """
 
     algorithm_edges = deepcopy(edges)
@@ -34,10 +34,10 @@ def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_
     print('\t{0}:'.format(message), algorithm_results[0], 's.',
           'Weight:', algorithm_results[1], '\n')
 
-    return algorithm_results[1]
+    return algorithm_results
 
 
-def get_worst_solution_weight(solution_weights: List[int]) -> int:
+def get_worst_solution_weight(solution_weights: List[Union[int, float]]) -> int:
     """
     Args:
         solution_weights: - List of solution weights
@@ -49,7 +49,7 @@ def get_worst_solution_weight(solution_weights: List[int]) -> int:
     return max(solution_weights)
 
 
-def get_best_solution_weight(solution_weights: List[int]) -> int:
+def get_best_solution_weight(solution_weights: List[Union[int, float]]) -> int:
     """
     Args:
         solution_weights: - List of solution weights
@@ -61,7 +61,7 @@ def get_best_solution_weight(solution_weights: List[int]) -> int:
     return min(solution_weights)
 
 
-def get_mean_solution_weight(solution_weights: List[int]) -> int:
+def get_mean_solution_weight(solution_weights: List[Union[int, float]]) -> int:
     """
     Args:
         solution_weights: - List of solution weights
@@ -73,7 +73,7 @@ def get_mean_solution_weight(solution_weights: List[int]) -> int:
     return mean(solution_weights)
 
 
-def calculate_standard_deviation(solution_weights: List[int]) -> ndarray:
+def calculate_standard_deviation(solution_weights: List[Union[int, float]]) -> ndarray:
     """
     Args:
         solution_weights: - List of solution weights
@@ -109,12 +109,18 @@ def output_stats(edges: List[Edge],
         single_run(edges, algorithm, '{0}. {1}'.format(i + 1, message), *algorithm_args)
         for i in range(number_of_runs)
         ]
-    worst = get_worst_solution_weight(all_results)
-    best = get_best_solution_weight(all_results)
-    mean_value = get_mean_solution_weight(all_results)
-    standard_deviation = calculate_standard_deviation(all_results)
+    all_times = [result[0] for result in all_results]
+    all_weights = [result[1] for result in all_results]
 
-    eval_file.write('\t{0} worst: '.format(message) + str(worst) + '.\n')
-    eval_file.write('\t{0} mean: '.format(message) + str(mean_value) + '.\n')
-    eval_file.write('\t{0} best: '.format(message) + str(best) + '.\n')
-    eval_file.write('\t{0} standard deviation: '.format(message) + str(standard_deviation) + '.\n\n')
+    weight_worst = get_worst_solution_weight(all_weights)
+    weight_best = get_best_solution_weight(all_weights)
+    weight_mean_value = get_mean_solution_weight(all_weights)
+    weight_standard_deviation = calculate_standard_deviation(all_weights)
+
+    time_mean_value = get_mean_solution_weight(all_times)
+
+    eval_file.write('\t{0} worst: {1}\n'.format(message, weight_worst))
+    eval_file.write('\t{0} mean: {1}\n'.format(message, weight_mean_value))
+    eval_file.write('\t{0} best: {1}\n'.format(message, weight_best))
+    eval_file.write('\t{0} standard deviation: {1}\n'.format(message, weight_standard_deviation))
+    eval_file.write('\t{0} average time: {1}s \n\n'.format(message, time_mean_value))

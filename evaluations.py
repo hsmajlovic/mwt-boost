@@ -24,7 +24,7 @@ dots = [
 ]
 
 instances_no = 5
-number_of_runs = 30
+number_of_runs = 50
 min_dots_quantity = 40
 max_dots_quantity = 40
 
@@ -178,7 +178,10 @@ for instance_no in range(instances_no):
     #     helpers.draw.draw_edges(mwt_edges)
 
     # # Begin of results export
-    with open('evaluations.txt', mode='w' if instance_no == 0 else 'a', encoding='utf-8') as eval_file:
+    with open(
+            'data/evaluations/evaluations_sa_pso_abc.txt',
+            mode='w' if instance_no == 0 else 'a',
+            encoding='utf-8') as eval_file:
         eval_file.write(str(instance_no + 1) + '.\n')
         # eval_file.write('[' + ''.join(str(e) + ', ' for e in dots) + ']')
         eval_file.write('\tInstance size: ' + str(dots_quantity) + '\n')
