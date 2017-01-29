@@ -1,9 +1,6 @@
-import collections
 import copy
-import math
-import random
 
-from operator import attrgetter
+from typing import Union, List
 
 
 def ccw(p1, p2, p3):
@@ -58,3 +55,15 @@ def count_collisions(l):
         if elem in [x for x in l if id(x) != id(elem)]:
             counter += 1
     return counter
+
+
+def mean(values: List[Union[float, int]]) -> Union[float, int]:
+    """
+    Args:
+        values: - List of Int or Float values
+
+    Returns:
+        The mean value of input list of values.
+    """
+
+    return float(sum(values)) / max(len(values), 1)

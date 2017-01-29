@@ -1,15 +1,12 @@
-from copy import deepcopy
-
 import helpers.draw
 import libraries.st_lib
 from helpers import benchmark
+from helpers.benchmark import output_stats
 from helpers.utils import random
 from libraries.st_lib import get_gct
 from libraries.st_lib import get_gct_edges
+from solutions.artificial_bee_colony import random_wandering_abc_algorithm
 from solutions.exhaustive_search import do_exhaustive_search
-from solutions.hill_climbing import first_choice_hill_climbing
-from solutions.hill_climbing import greedy_choice_hill_climbing
-from solutions.hill_climbing import stochastic_choice_hill_climbing
 from solutions.particle_swarm_optimization import basic_pso
 from solutions.simulated_annealing import simulated_annealing
 from structures.point import Point
@@ -26,9 +23,10 @@ dots = [
     Point(x=-27, y=-292)
 ]
 
-instances_no = 33
-min_dots_quantity = 15
-max_dots_quantity = 15
+instances_no = 5
+number_of_runs = 30
+min_dots_quantity = 21
+max_dots_quantity = 25
 
 instances = [[Point(x=-299, y=-113), Point(x=-145, y=-149), Point(x=-106, y=41), Point(x=299, y=-255), Point(x=5, y=241), Point(x=-170, y=31), Point(x=-248, y=242), Point(x=9, y=88), Point(x=144, y=75), Point(x=-130, y=-241), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=-308, y=201), Point(x=111, y=164), Point(x=278, y=-130), Point(x=-179, y=38), Point(x=-150, y=-292)]
 , [Point(x=83, y=27), Point(x=-51, y=177), Point(x=-271, y=-146), Point(x=-168, y=-217), Point(x=-40, y=-54), Point(x=-316, y=-142), Point(x=74, y=277), Point(x=100, y=-257), Point(x=-299, y=119), Point(x=-60, y=199), Point(x=67, y=41), Point(x=-220, y=-196), Point(x=-42, y=-233), Point(x=-85, y=237), Point(x=261, y=84), Point(x=-40, y=1), Point(x=17, y=22)]
@@ -47,10 +45,8 @@ test_char2 = [{'hull': [Point(x=-159, y=-292), Point(x=-299, y=-113), Point(x=-3
 
 print('!check', test_char == test_char2)
 
-i = 0
 # for dots in instances:
-for _ in range(instances_no):
-    i += 1
+for instance_no in range(instances_no):
     dots = []
     dots_quantity = random.randint(min_dots_quantity, max_dots_quantity)
 
@@ -66,7 +62,7 @@ for _ in range(instances_no):
     #     helpers.draw.draw_dots(dots)
     #     helpers.draw.draw_polygon(convex_hull)
 
-    print(str(i) + '. instance: {0}'.format(len(dots)), dots)
+    print(str(instance_no + 1) + '. instance: {0}'.format(len(dots)), dots)
     print('\nTime Complexities (Minimum Weight Triangulation):')
 
     # # Begin of develop related only
@@ -122,25 +118,25 @@ for _ in range(instances_no):
           'Weight:', gct_results[1], '\n')
 
     libraries.cg_lib.reconstruct_incident_dots(dots, get_gct_edges(), convex_hull)
-    fchc_edges = deepcopy(get_gct_edges())
-    fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, gct_results[1])
-    print('\tFirst Choice Hill Climbing Heuristic (Seed: GCT):', fchc_results[0], 's.',
-          'Weight:', fchc_results[1])
-
-    gchc_edges = deepcopy(get_gct_edges())
-    gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, gct_results[1])
-    print('\tGreedy Choice Hill Climbing Heuristic (Seed: GCT):', gchc_results[0], 's.',
-          'Weight:', gchc_results[1])
-
-    schc_edges = deepcopy(get_gct_edges())
-    schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, gct_results[1])
-    print('\tStochastic Choice Hill Climbing Heuristic (Seed: GCT):', schc_results[0], 's.',
-          'Weight:', schc_results[1])
-
-    sa_edges = deepcopy(get_gct_edges())
-    sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, gct_results[1])
-    print('\tSimulated Annealing Metaheuristic (Seed: GCT):', sa_results[0], 's.',
-          'Weight:', sa_results[1], '\n')
+    # fchc_edges = deepcopy(get_gct_edges())
+    # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, gct_results[1])
+    # print('\tFirst Choice Hill Climbing Heuristic (Seed: GCT):', fchc_results[0], 's.',
+    #       'Weight:', fchc_results[1])
+    #
+    # gchc_edges = deepcopy(get_gct_edges())
+    # gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, gct_results[1])
+    # print('\tGreedy Choice Hill Climbing Heuristic (Seed: GCT):', gchc_results[0], 's.',
+    #       'Weight:', gchc_results[1])
+    #
+    # schc_edges = deepcopy(get_gct_edges())
+    # schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, gct_results[1])
+    # print('\tStochastic Choice Hill Climbing Heuristic (Seed: GCT):', schc_results[0], 's.',
+    #       'Weight:', schc_results[1])
+    #
+    # sa_edges = deepcopy(get_gct_edges())
+    # sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, gct_results[1])
+    # print('\tSimulated Annealing Metaheuristic (Seed: GCT):', sa_results[0], 's.',
+    #       'Weight:', sa_results[1], '\n')
     # End of GCT seed
 
     # Begin of ABC algorithm related
@@ -162,10 +158,10 @@ for _ in range(instances_no):
     # End of ABC algorithm related
 
     # Begin of PSO solution related
-    pso_edges = deepcopy(get_gct_edges())
-    pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
-    print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
-          'Weight:', pso_results[1], '\n')
+    # pso_edges = deepcopy(get_gct_edges())
+    # pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
+    # print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
+    #       'Weight:', pso_results[1], '\n')
     # End of PSO solution related
 
     # Begin of Exhaustive Search
@@ -184,15 +180,37 @@ for _ in range(instances_no):
     #     helpers.draw.draw_edges(mwt_edges)
 
     # # Begin of results export
-    # with open('evaluations.txt', mode='w' if instance == 0 else 'a', encoding='utf-8') as eval_file:
-    #     eval_file.write(str(instance + 1) + '. Instance: ')
-    #     eval_file.write('[' + ''.join(str(e) + ', ' for e in dots) + ']')
-    #     eval_file.write('\n')
-    #     eval_file.write('\tInstance size: ' + str(dots_quantity) + '\n')
-    #     eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
-    #     eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
-    #     eval_file.write('\tMWT SE Weight: ' + str(exhaustive_search_results[1]) + '. ')
-    #     eval_file.write('Time lapsed: ' + str(exhaustive_search_results[0]) + 's\n\n')
+    with open('evaluations.txt', mode='w' if instance_no == 0 else 'a', encoding='utf-8') as eval_file:
+        eval_file.write(str(instance_no + 1) + '.\n')
+        # eval_file.write('[' + ''.join(str(e) + ', ' for e in dots) + ']')
+        eval_file.write('\tInstance size: ' + str(dots_quantity) + '\n')
+        # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
+        # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
+        eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
+        # eval_file.write('Time lapsed: ' + str(exhaustive_search_results[0]) + 's\n\n')
+
+        # Begin of advanced stats evaluation
+        output_stats(get_gct_edges(),
+                     simulated_annealing,
+                     number_of_runs,
+                     'SA',
+                     eval_file,
+                     gct_results[1])
+        output_stats(get_gct_edges(),
+                     basic_pso,
+                     number_of_runs,
+                     'PSO',
+                     eval_file,
+                     gct_results[1], 33, 33, True)
+        output_stats(get_gct_edges(),
+                     random_wandering_abc_algorithm,
+                     number_of_runs,
+                     'ABC',
+                     eval_file,
+                     gct_results[1])
+        # End of advanced stats evaluation
+
     # # End of results export
+
 if animate:
     helpers.draw.turtle.done()
