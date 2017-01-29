@@ -1,0 +1,39 @@
+1.
+	Instance size: 40
+	SA worst: 2776302
+	SA mean: 2765680.56
+	SA best: 2765238
+	SA standard deviation: 2168.092361132247
+	SA average time: 2.923488960266113s 
+
+	PSO worst: 2770163
+	PSO mean: 2766444.64
+	PSO best: 2765238
+	PSO standard deviation: 2002.7009637986396
+	PSO average time: 3.6891946744918824s 
+
+	ABC worst: 2765238
+	ABC mean: 2765238.0
+	ABC best: 2765238
+	ABC standard deviation: 0.0
+	ABC average time: 50.413894462585446s 
+
+2.
+	Instance size: 40
+	SA worst: 2505964
+	SA mean: 2501009.12
+	SA best: 2500908
+	SA standard deviation: 707.8399999999999
+	SA average time: 2.166157350540161s 
+
+	PSO worst: 2519285
+	PSO mean: 2511475.46
+	PSO best: 2502858
+	PSO standard deviation: 4026.415508662761
+	PSO average time: 3.4815424394607546s 
+
+	ABC worst: 2500908
+	ABC mean: 2500908.0
+	ABC best: 2500908
+	ABC standard deviation: 0.0
+	ABC average time: 49.315548725128174s
