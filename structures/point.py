@@ -1,5 +1,6 @@
 # Point class represents a single point in a plane, described by its x and y coordinates
-from helpers.utils import collections
+import collections
+
 from helpers.draw import turtle
 
 

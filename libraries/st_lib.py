@@ -1,9 +1,10 @@
-from helpers import utils
-from libraries import cg_lib
-from structures.edge import Edge
+import math
 from random import choice
 
+from helpers import utils
+from libraries import cg_lib
 from solutions.exhaustive_search import return_left_hull, return_right_hull, return_new_hull
+from structures.edge import Edge
 
 fct_edges = []
 gct_edges = []
@@ -58,7 +59,7 @@ def find_valid_dot(dots, tail_dot, head_dot, hull):
 
 def find_greedy_dot(dots, tail_dot, head_dot, hull):
     greedy_dot = None
-    temp_weight = utils.math.inf
+    temp_weight = math.inf
     for dot in dots:
         if utils.ccw(tail_dot, head_dot, dot) < 0 and \
            cg_lib.form_empty_triangle(dots, tail_dot, head_dot, dot) and \
