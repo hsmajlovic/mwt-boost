@@ -1,0 +1,30 @@
+1. [Point(x=82, y=39),Point(x=-329, y=57),Point(x=-87, y=271),Point(x=282, y=70),Point(x=223, y=-243),Point(x=150, y=96),Point(x=311, y=-210),Point(x=104, y=92),Point(x=-323, y=-137),Point(x=15, y=332),Point(x=95, y=264),Point(x=-57, y=-177),Point(x=87, y=24),Point(x=-120, y=283),Point(x=202, y=330),Point(x=-110, y=-257),Point(x=215, y=-165),Point(x=-119, y=1),Point(x=-161, y=-274),Point(x=308, y=193),Point(x=-207, y=-65),Point(x=-292, y=-107),Point(x=-189, y=224)]
+	Instance size: 23
+	Number of runs: 50
+	Optimal Weight: 2044147.
+	Time lapsed for exhaustive search: 4681.2926659584045s
+
+	SA worst: 2050794
+	SA mean: 2046406.98
+	SA best: 2044147
+	SA standard deviation: 3148.7422027851057
+	SA average time: 0.4200775098800659s 
+
+	PSO worst: 2044147
+	PSO mean: 2044147.0
+	PSO best: 2044147
+	PSO standard deviation: 0.0
+	PSO average time: 1.6840432214736938s 
+
+	ABC worst: 2044147
+	ABC mean: 2044147.0
+	ABC best: 2044147
+	ABC standard deviation: 0.0
+	ABC average time: 38.82157253742218s 
+
+2. [Point(x=-211, y=-25),Point(x=-293, y=-268),Point(x=230, y=-262),Point(x=9, y=82),Point(x=-150, y=-125),Point(x=254, y=-137),Point(x=-203, y=-18),Point(x=-102, y=50),Point(x=269, y=-46),Point(x=268, y=255),Point(x=153, y=32),Point(x=-118, y=-250),Point(x=246, y=-225),Point(x=-38, y=-256),Point(x=-133, y=-171),Point(x=213, y=135),Point(x=-329, y=-148),Point(x=159, y=131),Point(x=-318, y=-283),Point(x=142, y=-15),Point(x=-285, y=-299),Point(x=161, y=166),Point(x=125, y=-57)]
+	Instance size: 23
+	Number of runs: 50
+	Optimal Weight: 1753118.
+	Time lapsed for exhaustive search: 6060.356518983841s
+

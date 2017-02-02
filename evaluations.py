@@ -25,9 +25,9 @@ dots = [
 ]
 
 instances_no = 5
-number_of_runs = 10
-min_dots_quantity = 7
-max_dots_quantity = 7
+number_of_runs = 50
+min_dots_quantity = 23
+max_dots_quantity = 23
 
 instances = [[Point(x=-299, y=-113), Point(x=-145, y=-149), Point(x=-106, y=41), Point(x=299, y=-255), Point(x=5, y=241), Point(x=-170, y=31), Point(x=-248, y=242), Point(x=9, y=88), Point(x=144, y=75), Point(x=-130, y=-241), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=-308, y=201), Point(x=111, y=164), Point(x=278, y=-130), Point(x=-179, y=38), Point(x=-150, y=-292)]
 , [Point(x=83, y=27), Point(x=-51, y=177), Point(x=-271, y=-146), Point(x=-168, y=-217), Point(x=-40, y=-54), Point(x=-316, y=-142), Point(x=74, y=277), Point(x=100, y=-257), Point(x=-299, y=119), Point(x=-60, y=199), Point(x=67, y=41), Point(x=-220, y=-196), Point(x=-42, y=-233), Point(x=-85, y=237), Point(x=261, y=84), Point(x=-40, y=1), Point(x=17, y=22)]
