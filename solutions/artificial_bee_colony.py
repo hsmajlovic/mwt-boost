@@ -1,10 +1,11 @@
-from libraries.st_lib import get_rct, get_characteristic, get_rct_edges
-from random import randint, random, choice
-from math import inf
-from libraries.cg_lib import diagonal_difference, in_convex_square
-from solutions.hill_climbing import flip_edge
 from copy import deepcopy
+from math import inf
 from operator import itemgetter
+from random import randint, random, choice
+
+from libraries.cg_lib import diagonal_difference, in_convex_square
+from libraries.st_lib import get_rct, get_characteristic, get_rct_edges
+from solutions.hill_climbing import flip_edge
 
 
 def find_non_final_hull(characteristic):
@@ -193,14 +194,14 @@ def wander_the_bee(bee, wandering_depth):
         fly_the_bee(bee, True)
 
 
-def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=33):
+def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=10):
     employed_bees = spawn_employed_bees(reconstructed_edges, init_weight, food_sources_no)
     onlooker_bees = []
     for bee in employed_bees:
         onlooker_bees.append(bee['fitness'])
     halt = False
     # while not halt:
-    for _ in range(100):
+    for _ in range(33):
         # Begin of employed bees phase
         for bee in employed_bees:
             fly_the_bee(bee)

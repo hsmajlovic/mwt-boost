@@ -1,0 +1,115 @@
+1. [Point(x=-122, y=260),Point(x=249, y=-30),Point(x=292, y=292),Point(x=235, y=63),Point(x=-196, y=-163),Point(x=41, y=18),Point(x=-84, y=-134),Point(x=309, y=-236),Point(x=-122, y=15),Point(x=-26, y=-120),Point(x=86, y=100),Point(x=-189, y=300),Point(x=-19, y=-9),Point(x=220, y=-316),Point(x=-68, y=268),Point(x=250, y=257),Point(x=207, y=-102),Point(x=-18, y=-283),Point(x=-43, y=231)]
+	Number of runs: 50
+	Optimal Weight: 2327325.
+	Time lapsed for exhaustive search: 504.30796694755554s
+
+	SA worst: 2327325
+	SA mean: 2327325.0
+	SA best: 2327325
+	SA standard deviation: 0.0
+	SA average time: 0.3317072868347168s 
+
+	PSO worst: 2327325
+	PSO mean: 2327325.0
+	PSO best: 2327325
+	PSO standard deviation: 0.0
+	PSO average time: 1.6032879734039307s 
+
+	ABC worst: 2327325
+	ABC mean: 2327325.0
+	ABC best: 2327325
+	ABC standard deviation: 0.0
+	ABC average time: 0.7769508266448975s 
+
+2. [Point(x=-208, y=-219),Point(x=243, y=-5),Point(x=181, y=7),Point(x=288, y=247),Point(x=201, y=133),Point(x=48, y=-268),Point(x=77, y=-256),Point(x=-138, y=-288),Point(x=-209, y=-121),Point(x=-252, y=-178),Point(x=-178, y=-67),Point(x=-289, y=231),Point(x=-19, y=52),Point(x=158, y=-290),Point(x=-102, y=277),Point(x=118, y=-94),Point(x=188, y=-146),Point(x=-261, y=-1),Point(x=164, y=-218)]
+	Number of runs: 50
+	Optimal Weight: 1832742.
+	Time lapsed for exhaustive search: 124.99560904502869s
+
+	SA worst: 1832742
+	SA mean: 1832742.0
+	SA best: 1832742
+	SA standard deviation: 0.0
+	SA average time: 0.40421855449676514s 
+
+	PSO worst: 1832742
+	PSO mean: 1832742.0
+	PSO best: 1832742
+	PSO standard deviation: 0.0
+	PSO average time: 1.3797760009765625s 
+
+	ABC worst: 1832742
+	ABC mean: 1832742.0
+	ABC best: 1832742
+	ABC standard deviation: 0.0
+	ABC average time: 0.7410631752014161s 
+
+3. [Point(x=55, y=-259),Point(x=-240, y=-22),Point(x=-239, y=-265),Point(x=-193, y=50),Point(x=-296, y=-184),Point(x=246, y=-205),Point(x=129, y=38),Point(x=328, y=-11),Point(x=149, y=291),Point(x=-196, y=19),Point(x=-158, y=135),Point(x=-269, y=-8),Point(x=155, y=-47),Point(x=-24, y=183),Point(x=326, y=215),Point(x=116, y=115),Point(x=113, y=76),Point(x=-123, y=194),Point(x=-228, y=152)]
+	Number of runs: 50
+	Optimal Weight: 1515948.
+	Time lapsed for exhaustive search: 220.03688597679138s
+
+	SA worst: 1530662
+	SA mean: 1518184.22
+	SA best: 1515948
+	SA standard deviation: 4247.615440644315
+	SA average time: 0.33059152603149417s 
+
+	PSO worst: 1515948
+	PSO mean: 1515948.0
+	PSO best: 1515948
+	PSO standard deviation: 0.0
+	PSO average time: 1.3356744289398192s 
+
+	ABC worst: 1515948
+	ABC mean: 1515948.0
+	ABC best: 1515948
+	ABC standard deviation: 0.0
+	ABC average time: 0.6171706104278565s 
+
+4. [Point(x=52, y=10),Point(x=168, y=36),Point(x=219, y=-149),Point(x=278, y=134),Point(x=106, y=134),Point(x=-216, y=-100),Point(x=74, y=65),Point(x=7, y=166),Point(x=111, y=-136),Point(x=-237, y=260),Point(x=237, y=74),Point(x=223, y=248),Point(x=320, y=-268),Point(x=-319, y=103),Point(x=301, y=-155),Point(x=230, y=118),Point(x=254, y=298),Point(x=34, y=302),Point(x=93, y=-292)]
+	Number of runs: 50
+	Optimal Weight: 1755223.
+	Time lapsed for exhaustive search: 667.0997521877289s
+
+	SA worst: 1758975
+	SA mean: 1755373.08
+	SA best: 1755223
+	SA standard deviation: 735.2388411937987
+	SA average time: 0.3584849739074707s 
+
+	PSO worst: 1755223
+	PSO mean: 1755223.0
+	PSO best: 1755223
+	PSO standard deviation: 0.0
+	PSO average time: 1.5112359762191772s 
+
+	ABC worst: 1755223
+	ABC mean: 1755223.0
+	ABC best: 1755223
+	ABC standard deviation: 0.0
+	ABC average time: 0.6975562095642089s 
+
+5. [Point(x=125, y=27),Point(x=-99, y=-28),Point(x=100, y=260),Point(x=-207, y=-111),Point(x=251, y=59),Point(x=-260, y=-114),Point(x=-247, y=-57),Point(x=298, y=-199),Point(x=258, y=301),Point(x=80, y=-306),Point(x=57, y=38),Point(x=-212, y=-88),Point(x=-186, y=-256),Point(x=-329, y=229),Point(x=77, y=189),Point(x=225, y=176),Point(x=-191, y=-55),Point(x=-54, y=318),Point(x=-221, y=-114)]
+	Number of runs: 50
+	Optimal Weight: 2079963.
+	Time lapsed for exhaustive search: 302.48207902908325s
+
+	SA worst: 2156935
+	SA mean: 2084579.3
+	SA best: 2079963
+	SA standard deviation: 15967.71767191542
+	SA average time: 0.3961784267425537s 
+
+	PSO worst: 2079963
+	PSO mean: 2079963.0
+	PSO best: 2079963
+	PSO standard deviation: 0.0
+	PSO average time: 2.333754510879517s 
+
+	ABC worst: 2079963
+	ABC mean: 2079963.0
+	ABC best: 2079963
+	ABC standard deviation: 0.0
+	ABC average time: 1.2516307020187378s 
+

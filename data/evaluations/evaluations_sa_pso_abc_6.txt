@@ -20,11 +20,4 @@
 	ABC mean: 2044147.0
 	ABC best: 2044147
 	ABC standard deviation: 0.0
-	ABC average time: 38.82157253742218s 
-
-2. [Point(x=-211, y=-25),Point(x=-293, y=-268),Point(x=230, y=-262),Point(x=9, y=82),Point(x=-150, y=-125),Point(x=254, y=-137),Point(x=-203, y=-18),Point(x=-102, y=50),Point(x=269, y=-46),Point(x=268, y=255),Point(x=153, y=32),Point(x=-118, y=-250),Point(x=246, y=-225),Point(x=-38, y=-256),Point(x=-133, y=-171),Point(x=213, y=135),Point(x=-329, y=-148),Point(x=159, y=131),Point(x=-318, y=-283),Point(x=142, y=-15),Point(x=-285, y=-299),Point(x=161, y=166),Point(x=125, y=-57)]
-	Instance size: 23
-	Number of runs: 50
-	Optimal Weight: 1753118.
-	Time lapsed for exhaustive search: 6060.356518983841s
-
+	ABC average time: 38.82157253742218s
