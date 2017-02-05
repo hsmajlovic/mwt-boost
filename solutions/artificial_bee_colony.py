@@ -194,7 +194,7 @@ def wander_the_bee(bee, wandering_depth):
         fly_the_bee(bee, True)
 
 
-def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=10):
+def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=13):
     employed_bees = spawn_employed_bees(reconstructed_edges, init_weight, food_sources_no)
     onlooker_bees = []
     for bee in employed_bees:
