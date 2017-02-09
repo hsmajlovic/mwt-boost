@@ -1,100 +1,60 @@
 1. [Point(x=260, y=-54),Point(x=294, y=82),Point(x=2, y=10),Point(x=273, y=-160),Point(x=185, y=138),Point(x=327, y=164),Point(x=-311, y=-319),Point(x=-124, y=158),Point(x=146, y=164),Point(x=54, y=189),Point(x=267, y=70),Point(x=-279, y=122),Point(x=35, y=-301),Point(x=-112, y=281),Point(x=-173, y=84),Point(x=268, y=-242),Point(x=39, y=108),Point(x=-127, y=-238)]
 	Number of runs: 50
-	SA worst: 2293666
-	SA mean: 2278307.8
+	SA worst: 2325490
+	SA mean: 2279221.7
 	SA best: 2275043
-	SA standard deviation: 5510.621903197496
-	SA average time: 0.5120907354354859s 
+	SA standard deviation: 8754.844652533819
+	SA average time: 0.6138042259216309s 
 
 	PSO worst: 2275043
 	PSO mean: 2275043.0
 	PSO best: 2275043
 	PSO standard deviation: 0.0
-	PSO average time: 2.4997477912902832s 
+	PSO average time: 3.3605055618286133s 
 
-	ABC worst: 2279795
-	ABC mean: 2275138.04
+	ABC worst: 2275043
+	ABC mean: 2275043.0
 	ABC best: 2275043
-	ABC standard deviation: 665.28
-	ABC average time: 1.7199797201156617s 
+	ABC standard deviation: 0.0
+	ABC average time: 5.024574542045594s 
 
 2. [Point(x=27, y=229),Point(x=-11, y=-211),Point(x=-129, y=209),Point(x=-131, y=-312),Point(x=-301, y=196),Point(x=179, y=-318),Point(x=138, y=153),Point(x=62, y=-83),Point(x=171, y=-178),Point(x=315, y=252),Point(x=199, y=107),Point(x=202, y=-327),Point(x=181, y=-254),Point(x=62, y=230),Point(x=141, y=-314),Point(x=-217, y=281),Point(x=-205, y=323),Point(x=189, y=250)]
 	Number of runs: 50
 	SA worst: 2703399
-	SA mean: 2698401.0
+	SA mean: 2697544.2
 	SA best: 2696259
-	SA standard deviation: 3271.95904619847
-	SA average time: 0.5193563032150269s 
+	SA standard deviation: 2743.0984233162326
+	SA average time: 0.595149598121643s 
 
 	PSO worst: 2696259
 	PSO mean: 2696259.0
 	PSO best: 2696259
 	PSO standard deviation: 0.0
-	PSO average time: 2.8228528356552123s 
+	PSO average time: 3.337471227645874s 
 
 	ABC worst: 2696259
 	ABC mean: 2696259.0
 	ABC best: 2696259
 	ABC standard deviation: 0.0
-	ABC average time: 1.9030908679962157s 
+	ABC average time: 4.08230613231659s 
 
-3. [Point(x=96, y=-128),Point(x=253, y=-213),Point(x=308, y=19),Point(x=-246, y=-25),Point(x=-230, y=-45),Point(x=312, y=-132),Point(x=118, y=-102),Point(x=243, y=-12),Point(x=-147, y=-72),Point(x=-79, y=-58),Point(x=300, y=326),Point(x=-1, y=-68),Point(x=-240, y=-211),Point(x=131, y=99),Point(x=-148, y=-202),Point(x=-7, y=-204),Point(x=-213, y=-280),Point(x=-129, y=-153)]
-	Number of runs: 50
-	SA worst: 2023911
-	SA mean: 2023911.0
-	SA best: 2023911
-	SA standard deviation: 0.0
-	SA average time: 0.5330324983596801s 
-
-	PSO worst: 2023911
-	PSO mean: 2023911.0
-	PSO best: 2023911
-	PSO standard deviation: 0.0
-	PSO average time: 2.354615020751953s 
-
-	ABC worst: 2023911
-	ABC mean: 2023911.0
-	ABC best: 2023911
-	ABC standard deviation: 0.0
-	ABC average time: 1.755752158164978s 
-
-4. [Point(x=175, y=-199),Point(x=44, y=304),Point(x=-11, y=-43),Point(x=307, y=-276),Point(x=49, y=153),Point(x=110, y=-94),Point(x=-191, y=42),Point(x=-325, y=54),Point(x=-140, y=-129),Point(x=122, y=-169),Point(x=227, y=81),Point(x=52, y=-236),Point(x=103, y=-200),Point(x=212, y=-232),Point(x=-9, y=-52),Point(x=301, y=-328),Point(x=-83, y=155),Point(x=-160, y=-197)]
-	Number of runs: 50
-	SA worst: 1806271
-	SA mean: 1806271.0
-	SA best: 1806271
-	SA standard deviation: 0.0
-	SA average time: 0.6461858892440796s 
-
-	PSO worst: 1806271
-	PSO mean: 1806271.0
-	PSO best: 1806271
-	PSO standard deviation: 0.0
-	PSO average time: 2.4648355865478515s 
-
-	ABC worst: 1806271
-	ABC mean: 1806271.0
-	ABC best: 1806271
-	ABC standard deviation: 0.0
-	ABC average time: 1.5693090534210206s 
-
-5. [Point(x=287, y=-133),Point(x=273, y=-29),Point(x=134, y=-98),Point(x=-42, y=-102),Point(x=114, y=-56),Point(x=-243, y=-177),Point(x=172, y=-120),Point(x=70, y=272),Point(x=-227, y=79),Point(x=55, y=-96),Point(x=173, y=-127),Point(x=-230, y=-115),Point(x=-120, y=91),Point(x=-214, y=-53),Point(x=199, y=259),Point(x=236, y=115),Point(x=190, y=-137),Point(x=-285, y=96)]
+3. [Point(x=287, y=-133),Point(x=273, y=-29),Point(x=134, y=-98),Point(x=-42, y=-102),Point(x=114, y=-56),Point(x=-243, y=-177),Point(x=172, y=-120),Point(x=70, y=272),Point(x=-227, y=79),Point(x=55, y=-96),Point(x=173, y=-127),Point(x=-230, y=-115),Point(x=-120, y=91),Point(x=-214, y=-53),Point(x=199, y=259),Point(x=236, y=115),Point(x=190, y=-137),Point(x=-285, y=96)]
 	Number of runs: 50
 	SA worst: 1756330
-	SA mean: 1755797.56
+	SA mean: 1755620.08
 	SA best: 1755344
-	SA standard deviation: 491.4198677302333
-	SA average time: 0.32506504058837893s 
+	SA standard deviation: 442.7129020030928
+	SA average time: 0.42395968437194825s 
 
 	PSO worst: 1656804
 	PSO mean: 1656804.0
 	PSO best: 1656804
 	PSO standard deviation: 0.0
-	PSO average time: 1.3849810647964478s 
+	PSO average time: 1.8005609273910523s 
 
 	ABC worst: 1656804
 	ABC mean: 1656804.0
 	ABC best: 1656804
 	ABC standard deviation: 0.0
-	ABC average time: 1.0054087018966675s 
+	ABC average time: 2.317334089279175s 
 

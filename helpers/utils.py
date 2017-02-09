@@ -1,4 +1,5 @@
 import copy
+import random
 
 from typing import Union, List
 
@@ -67,3 +68,28 @@ def mean(values: List[Union[float, int]]) -> Union[float, int]:
     """
 
     return float(sum(values)) / max(len(values), 1)
+
+
+def get_random_from_range(lower_limit: float,
+                          upper_limit: float,
+                          integer: bool = False,
+                          gauss: bool = False
+                          ) -> Union[int, float]:
+    """
+    TODO prettify the way of setting distributions
+    TODO Write doctring
+    Args:
+        lower_limit:
+        upper_limit:
+        integer:
+        gauss:
+
+    Returns:
+
+    """
+
+    if integer:
+        return random.randint(lower_limit, upper_limit)
+    if gauss:
+        return random.gauss(0.0, 1.0)
+    return random.uniform(lower_limit, upper_limit)
