@@ -194,17 +194,27 @@ def wander_the_bee(bee, wandering_depth):
         fly_the_bee(bee, True)
 
 
-def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=13):
+def random_wandering_abc_algorithm(reconstructed_edges,
+                                   init_weight,
+                                   optimum=None,
+                                   iterations_count=0,
+                                   food_sources_no=13,
+                                   e=0.00001
+                                   ):
     employed_bees = spawn_employed_bees(reconstructed_edges, init_weight, food_sources_no)
     onlooker_bees = []
     for bee in employed_bees:
         onlooker_bees.append(bee['fitness'])
     halt = False
     # while not halt:
+    iterations_count_hit = 1
     for _ in range(33):
         # Begin of employed bees phase
         for bee in employed_bees:
+            iterations_count += 1 * iterations_count_hit
             fly_the_bee(bee)
+            if iterations_count_hit and optimum and abs(bee['fitness'] - optimum) < e:
+                iterations_count_hit = 0
         # End of employed bees phase
         # Begin of onlooker bees phase
         for bee in employed_bees:
