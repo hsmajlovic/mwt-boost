@@ -204,13 +204,13 @@ def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_source
     for _ in range(33):
         # Begin of employed bees phase
         for bee in employed_bees:
-            fly_the_bee(bee)
+            fly_the_bee(bee, True)
         # End of employed bees phase
         # Begin of onlooker bees phase
         for bee in employed_bees:
             fitness_weight = calculate_fitness_weight(employed_bees, bee)
             if random() > fitness_weight:
-                fly_the_bee_to_the_top(bee)
+                wander_the_bee(bee, food_sources_no)
             index, max_value = max(enumerate(onlooker_bees), key=itemgetter(1))
             if bee['fitness'] < max_value:
                 onlooker_bees[index] = bee['fitness']
