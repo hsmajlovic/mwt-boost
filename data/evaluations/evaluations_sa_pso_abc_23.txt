@@ -1,0 +1,22 @@
+1. [Point(x=-57, y=200),Point(x=-232, y=-281),Point(x=194, y=49),Point(x=190, y=-188),Point(x=190, y=-17),Point(x=151, y=249),Point(x=235, y=-20),Point(x=52, y=327),Point(x=308, y=-173),Point(x=-240, y=11),Point(x=-2, y=313),Point(x=123, y=241),Point(x=-239, y=112),Point(x=279, y=93),Point(x=-164, y=-152),Point(x=-218, y=284),Point(x=189, y=-333),Point(x=-103, y=152),Point(x=-127, y=-96),Point(x=-144, y=28),Point(x=-220, y=-240),Point(x=186, y=-170),Point(x=-123, y=202),Point(x=319, y=295),Point(x=-76, y=-164),Point(x=-298, y=316),Point(x=261, y=-18),Point(x=293, y=-312),Point(x=-153, y=83),Point(x=-71, y=-319),Point(x=200, y=327),Point(x=-13, y=290),Point(x=-330, y=142),Point(x=309, y=-208),Point(x=-17, y=20),Point(x=82, y=99),Point(x=89, y=176),Point(x=21, y=205),Point(x=18, y=149),Point(x=-44, y=238),Point(x=-114, y=170)]
+	Number of runs: 50
+	SA worst: 2849983
+	SA mean: 2848273.6
+	SA best: 2847134
+	SA standard deviation: 1395.7192554378548
+	SA average time: 3.05567813873291s 
+
+	PSO worst: 2851232
+	PSO mean: 2848588.86
+	PSO best: 2847134
+	PSO standard deviation: 1279.3483655361429
+	PSO average time: 3.4983023595809937s 
+
+	ABC worst: 2847134
+	ABC mean: 2847134.0
+	ABC best: 2847134
+	ABC standard deviation: 0.0
+	ABC average time: 15.179692397117615s 
+
+2. [Point(x=-68, y=-3),Point(x=-26, y=-303),Point(x=-43, y=280),Point(x=-141, y=124),Point(x=-104, y=-41),Point(x=90, y=-159),Point(x=265, y=-38),Point(x=50, y=294),Point(x=138, y=-70),Point(x=-34, y=170),Point(x=-202, y=-35),Point(x=-19, y=164),Point(x=-134, y=-174),Point(x=-21, y=-17),Point(x=-118, y=-71),Point(x=131, y=57),Point(x=42, y=109),Point(x=-237, y=169),Point(x=-127, y=110),Point(x=-218, y=-73),Point(x=317, y=-9),Point(x=237, y=-279),Point(x=272, y=-77),Point(x=25, y=-272),Point(x=-125, y=-142),Point(x=256, y=-304),Point(x=89, y=34),Point(x=218, y=-316),Point(x=284, y=183),Point(x=129, y=71),Point(x=-266, y=-241),Point(x=312, y=-288),Point(x=-52, y=-105),Point(x=232, y=-194),Point(x=110, y=-138),Point(x=-190, y=21),Point(x=82, y=-64),Point(x=80, y=144),Point(x=234, y=66),Point(x=302, y=70),Point(x=238, y=102),Point(x=174, y=-73),Point(x=-310, y=-211)]
+	Number of runs: 50

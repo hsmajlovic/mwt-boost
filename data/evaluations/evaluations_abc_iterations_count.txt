@@ -1,0 +1,70 @@
+1. [Point(x=188, y=52),Point(x=87, y=430),Point(x=-239, y=-7),Point(x=470, y=-177),Point(x=363, y=-108),Point(x=-250, y=-219),Point(x=312, y=-81),Point(x=178, y=364),Point(x=271, y=-310),Point(x=100, y=295),Point(x=487, y=53),Point(x=16, y=114),Point(x=487, y=-478),Point(x=434, y=361),Point(x=99, y=-38)]
+	Instance size: 15
+	Number of runs: 50
+	Optimal Weight: 3485552.
+	Time lapsed for exhaustive search: 10.656345129013062s
+
+	SA worst: 5132928
+	SA mean: 3941808.16
+	SA best: 3493196
+	SA standard deviation: 428476.6150433584
+	SA average time: 0.06407381534576416s 
+
+	PSO worst: 3485552
+	PSO mean: 3485552.0
+	PSO best: 3485552
+	PSO standard deviation: 0.0
+	PSO average time: 1.1335658788681031s 
+
+	ABC worst: 3485552
+	ABC mean: 3485552.0
+	ABC best: 3485552
+	ABC standard deviation: 0.0
+	ABC average time: 0.7846616172790527s 
+
+	ABC iterations count: 0
+
+2. [Point(x=276, y=310),Point(x=497, y=-396),Point(x=68, y=-8),Point(x=-263, y=-337),Point(x=370, y=-83),Point(x=-443, y=-500),Point(x=125, y=-142),Point(x=232, y=63),Point(x=-475, y=-464),Point(x=454, y=-77),Point(x=491, y=52),Point(x=42, y=-375),Point(x=445, y=243),Point(x=-484, y=51),Point(x=-313, y=453)]
+	Instance size: 15
+	Number of runs: 50
+	Optimal Weight: 4976378.
+	Time lapsed for exhaustive search: 13.316061019897461s
+
+	SA worst: 7380612
+	SA mean: 5597082.36
+	SA best: 4976378
+	SA standard deviation: 623406.4421364528
+	SA average time: 0.06541386604309082s 
+
+	PSO worst: 4976378
+	PSO mean: 4976378.0
+	PSO best: 4976378
+	PSO standard deviation: 0.0
+	PSO average time: 1.0467546701431274s 
+
+	ABC worst: 4976378
+	ABC mean: 4976378.0
+	ABC best: 4976378
+	ABC standard deviation: 0.0
+	ABC average time: 0.7313147211074829s 
+
+	ABC iterations count: 0
+
+3. [Point(x=-92, y=-102),Point(x=26, y=-63),Point(x=-275, y=326),Point(x=-271, y=499),Point(x=-487, y=-479),Point(x=15, y=143),Point(x=-235, y=-34),Point(x=493, y=476),Point(x=67, y=153),Point(x=-15, y=67),Point(x=89, y=20),Point(x=227, y=42),Point(x=-207, y=280),Point(x=101, y=-386),Point(x=-310, y=-373)]
+	Instance size: 15
+	Number of runs: 50
+	Optimal Weight: 6339460.
+	Time lapsed for exhaustive search: 5.952728986740112s
+
+	SA worst: 8028814
+	SA mean: 6922679.48
+	SA best: 6339460
+	SA standard deviation: 500027.2366840527
+	SA average time: 0.07221444606781006s 
+
+	PSO worst: 6339460
+	PSO mean: 6339460.0
+	PSO best: 6339460
+	PSO standard deviation: 0.0
+	PSO average time: 1.4037441825866699s 
+
