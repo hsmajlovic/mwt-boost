@@ -1,5 +1,5 @@
 import math
-from typing import List
+from typing import List, Union
 
 from structures.edge import Edge
 from structures.pso_particle import PSOParticle
@@ -33,7 +33,7 @@ def basic_pso(reconstructed_edges: List[Edge],
               initial_weight: int,
               particles_quantity: int,
               number_of_iterations: int,
-              randomised: bool):
+              randomised: bool) -> Union[int, float]:
     """
     Basic PSO implementation.
 
