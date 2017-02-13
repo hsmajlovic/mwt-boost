@@ -14,11 +14,11 @@ def write_to_file(
 ) -> None:
     """
     Writes the provided data to specified file of specified file format.
+    Accepts .txt and .yaml file types only.
 
     Args:
         data: - Any writable data.
         path_to_file: - Path to file in which data is ought to be stored.
-        file_type: - File extension: .yaml, .txt
         **kwargs: - Any other relevant kwargs to be passed to the actual writing method.
     """
 
