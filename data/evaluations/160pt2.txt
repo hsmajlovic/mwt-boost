@@ -1,0 +1,36 @@
+1. [Point(x=680, y=267),Point(x=372, y=552),Point(x=777, y=103),Point(x=132, y=473),Point(x=306, y=307),Point(x=304, y=842),Point(x=578, y=531),Point(x=379, y=789),Point(x=802, y=33),Point(x=37, y=8),Point(x=63, y=362),Point(x=582, y=668),Point(x=5, y=134),Point(x=35, y=415),Point(x=514, y=454),Point(x=910, y=541),Point(x=510, y=673),Point(x=179, y=290),Point(x=405, y=26),Point(x=691, y=864),Point(x=913, y=547),Point(x=444, y=671),Point(x=483, y=240),Point(x=180, y=877),Point(x=607, y=980),Point(x=403, y=245),Point(x=308, y=353),Point(x=367, y=287),Point(x=140, y=928),Point(x=498, y=458),Point(x=161, y=737),Point(x=306, y=986),Point(x=103, y=552),Point(x=30, y=925),Point(x=520, y=774),Point(x=560, y=951),Point(x=50, y=415),Point(x=22, y=848),Point(x=623, y=125),Point(x=661, y=410),Point(x=198, y=563),Point(x=902, y=944),Point(x=114, y=229),Point(x=664, y=616),Point(x=242, y=772),Point(x=534, y=532),Point(x=986, y=385),Point(x=479, y=33),Point(x=76, y=570),Point(x=990, y=924),Point(x=91, y=492),Point(x=162, y=305),Point(x=559, y=749),Point(x=587, y=468),Point(x=515, y=3),Point(x=215, y=121),Point(x=162, y=490),Point(x=593, y=150),Point(x=87, y=755),Point(x=611, y=670),Point(x=71, y=696),Point(x=79, y=666),Point(x=388, y=2),Point(x=175, y=541),Point(x=536, y=323),Point(x=47, y=825),Point(x=627, y=449),Point(x=462, y=276),Point(x=183, y=771),Point(x=669, y=329),Point(x=157, y=319),Point(x=480, y=251),Point(x=76, y=435),Point(x=387, y=139),Point(x=273, y=126),Point(x=558, y=411),Point(x=316, y=360),Point(x=814, y=798),Point(x=721, y=425),Point(x=962, y=541),Point(x=559, y=353),Point(x=42, y=169),Point(x=484, y=916),Point(x=446, y=83),Point(x=610, y=27),Point(x=669, y=798),Point(x=935, y=193),Point(x=210, y=378),Point(x=280, y=633),Point(x=969, y=310),Point(x=630, y=794),Point(x=741, y=372),Point(x=775, y=344),Point(x=884, y=943),Point(x=703, y=387),Point(x=628, y=357),Point(x=97, y=524),Point(x=204, y=834),Point(x=628, y=422),Point(x=578, y=907),Point(x=931, y=820),Point(x=993, y=583),Point(x=366, y=965),Point(x=760, y=282),Point(x=624, y=176),Point(x=873, y=419),Point(x=954, y=190),Point(x=957, y=619),Point(x=331, y=980),Point(x=332, y=484),Point(x=530, y=54),Point(x=985, y=668),Point(x=214, y=201),Point(x=586, y=176),Point(x=290, y=558),Point(x=816, y=673),Point(x=862, y=222),Point(x=257, y=268),Point(x=966, y=817),Point(x=71, y=733),Point(x=428, y=116),Point(x=162, y=730),Point(x=504, y=430),Point(x=664, y=900),Point(x=334, y=351),Point(x=113, y=711),Point(x=469, y=683),Point(x=419, y=222),Point(x=67, y=722),Point(x=714, y=797),Point(x=613, y=280),Point(x=685, y=434),Point(x=676, y=26),Point(x=783, y=883),Point(x=47, y=871),Point(x=133, y=162),Point(x=139, y=772),Point(x=509, y=763),Point(x=529, y=279),Point(x=815, y=600),Point(x=980, y=132),Point(x=611, y=841),Point(x=186, y=127),Point(x=842, y=860),Point(x=342, y=719),Point(x=197, y=425),Point(x=343, y=192),Point(x=200, y=74),Point(x=187, y=38),Point(x=833, y=709),Point(x=339, y=620),Point(x=420, y=813),Point(x=446, y=77),Point(x=929, y=799),Point(x=762, y=702),Point(x=744, y=285),Point(x=998, y=523),Point(x=241, y=512),Point(x=519, y=473),Point(x=496, y=426)]
+	Instance size: 160
+	Number of runs: 30
+	PSO worst: 6824978
+	PSO mean: 6769870.233333333
+	PSO best: 6721486
+	PSO standard deviation: 25268.401348566204
+	PSO average time: 15.122585988044738s 
+
+	Raw ABC worst: 7097812
+	Raw ABC mean: 7070472.9
+	Raw ABC best: 7014303
+	Raw ABC standard deviation: 24651.079776688617
+	Raw ABC average time: 6.349605973561605s 
+
+	Improved ABC worst: 6428766
+	Improved ABC mean: 6418092.2
+	Improved ABC best: 6400641
+	Improved ABC standard deviation: 8343.790774781768
+	Improved ABC average time: 19.41268746852875s 
+
+2. [Point(x=933, y=972),Point(x=617, y=923),Point(x=539, y=758),Point(x=748, y=790),Point(x=154, y=54),Point(x=212, y=748),Point(x=693, y=966),Point(x=696, y=510),Point(x=697, y=934),Point(x=456, y=312),Point(x=578, y=94),Point(x=885, y=94),Point(x=284, y=879),Point(x=892, y=82),Point(x=216, y=331),Point(x=901, y=475),Point(x=53, y=986),Point(x=823, y=906),Point(x=315, y=242),Point(x=962, y=361),Point(x=835, y=48),Point(x=287, y=698),Point(x=373, y=722),Point(x=141, y=560),Point(x=864, y=961),Point(x=685, y=662),Point(x=980, y=628),Point(x=521, y=746),Point(x=243, y=396),Point(x=393, y=897),Point(x=928, y=914),Point(x=55, y=686),Point(x=489, y=603),Point(x=997, y=456),Point(x=461, y=396),Point(x=798, y=221),Point(x=767, y=404),Point(x=492, y=573),Point(x=84, y=9),Point(x=904, y=521),Point(x=750, y=661),Point(x=567, y=572),Point(x=207, y=337),Point(x=593, y=539),Point(x=242, y=525),Point(x=387, y=954),Point(x=799, y=867),Point(x=72, y=554),Point(x=636, y=417),Point(x=620, y=659),Point(x=825, y=746),Point(x=832, y=452),Point(x=370, y=102),Point(x=491, y=146),Point(x=976, y=26),Point(x=247, y=455),Point(x=345, y=904),Point(x=440, y=925),Point(x=27, y=818),Point(x=708, y=46),Point(x=718, y=420),Point(x=952, y=392),Point(x=511, y=448),Point(x=426, y=175),Point(x=275, y=952),Point(x=163, y=38),Point(x=639, y=705),Point(x=33, y=600),Point(x=808, y=333),Point(x=601, y=149),Point(x=664, y=551),Point(x=558, y=480),Point(x=663, y=922),Point(x=159, y=818),Point(x=601, y=291),Point(x=304, y=377),Point(x=393, y=526),Point(x=538, y=288),Point(x=728, y=22),Point(x=143, y=897),Point(x=887, y=439),Point(x=572, y=140),Point(x=331, y=421),Point(x=462, y=237),Point(x=480, y=222),Point(x=671, y=230),Point(x=331, y=317),Point(x=755, y=816),Point(x=644, y=513),Point(x=312, y=448),Point(x=891, y=684),Point(x=67, y=732),Point(x=422, y=217),Point(x=814, y=632),Point(x=297, y=174),Point(x=858, y=563),Point(x=385, y=876),Point(x=763, y=547),Point(x=587, y=101),Point(x=776, y=399),Point(x=307, y=767),Point(x=210, y=601),Point(x=520, y=167),Point(x=691, y=858),Point(x=495, y=934),Point(x=844, y=496),Point(x=887, y=132),Point(x=891, y=132),Point(x=693, y=897),Point(x=430, y=483),Point(x=266, y=37),Point(x=182, y=778),Point(x=520, y=162),Point(x=548, y=773),Point(x=326, y=213),Point(x=937, y=566),Point(x=490, y=418),Point(x=601, y=534),Point(x=711, y=454),Point(x=245, y=303),Point(x=676, y=497),Point(x=831, y=444),Point(x=35, y=481),Point(x=363, y=561),Point(x=826, y=398),Point(x=143, y=112),Point(x=622, y=339),Point(x=431, y=211),Point(x=611, y=596),Point(x=449, y=309),Point(x=897, y=19),Point(x=521, y=594),Point(x=804, y=37),Point(x=85, y=937),Point(x=299, y=708),Point(x=257, y=847),Point(x=776, y=995),Point(x=894, y=953),Point(x=522, y=855),Point(x=102, y=544),Point(x=272, y=669),Point(x=813, y=84),Point(x=233, y=560),Point(x=910, y=724),Point(x=394, y=600),Point(x=680, y=949),Point(x=228, y=922),Point(x=690, y=539),Point(x=378, y=210),Point(x=3, y=160),Point(x=341, y=555),Point(x=620, y=500),Point(x=910, y=36),Point(x=372, y=846),Point(x=88, y=173),Point(x=224, y=598),Point(x=406, y=506),Point(x=404, y=707),Point(x=458, y=820),Point(x=401, y=975)]
+	Instance size: 160
+	Number of runs: 30
+	PSO worst: 8202169
+	PSO mean: 8171384.966666667
+	PSO best: 8130168
+	PSO standard deviation: 16102.928802929677
+	PSO average time: 15.36060307820638s 
+
+	Raw ABC worst: 8736665
+	Raw ABC mean: 8677401.733333332
+	Raw ABC best: 8560505
+	Raw ABC standard deviation: 53618.13956422666
+	Raw ABC average time: 6.382365242640177s 
+
