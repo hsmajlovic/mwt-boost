@@ -173,7 +173,7 @@ def fly_the_bee(bee, wander=False):
         if len(edge.incident_dots) == 0:
             continue
         diagonal_diff = diagonal_difference(edge)
-        if in_convex_square(edge) and (diagonal_diff >= 0 or wander):
+        if in_convex_square(edge) and (diagonal_diff > 0 or wander):
             edge_candidates.append(edge)
     if len(edge_candidates):
         random_valid_edge = choice(edge_candidates)
