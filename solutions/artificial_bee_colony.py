@@ -173,7 +173,7 @@ def fly_the_bee(bee, wander=False):
         if len(edge.incident_dots) == 0:
             continue
         diagonal_diff = diagonal_difference(edge)
-        if in_convex_square(edge) and (diagonal_diff > 0 or wander):
+        if in_convex_square(edge) and (diagonal_diff >= 0 or wander):
             edge_candidates.append(edge)
     if len(edge_candidates):
         random_valid_edge = choice(edge_candidates)
@@ -194,7 +194,7 @@ def wander_the_bee(bee, wandering_depth):
         fly_the_bee(bee, True)
 
 
-def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=13):
+def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_sources_no=13, raw=False):
     employed_bees = spawn_employed_bees(reconstructed_edges, init_weight, food_sources_no)
     onlooker_bees = []
     for bee in employed_bees:
@@ -204,13 +204,13 @@ def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_source
     for _ in range(33):
         # Begin of employed bees phase
         for bee in employed_bees:
-            fly_the_bee(bee)
+            fly_the_bee(bee, raw)
         # End of employed bees phase
         # Begin of onlooker bees phase
         for bee in employed_bees:
             fitness_weight = calculate_fitness_weight(employed_bees, bee)
             if random() > fitness_weight:
-                fly_the_bee_to_the_top(bee)
+                fly_the_bee_to_the_top(bee) if not raw else fly_the_bee(bee, True)
             index, max_value = max(enumerate(onlooker_bees), key=itemgetter(1))
             if bee['fitness'] < max_value:
                 onlooker_bees[index] = bee['fitness']

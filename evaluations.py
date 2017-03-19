@@ -1,12 +1,14 @@
+import random
+
 import helpers.draw
 import libraries.st_lib
 from helpers import benchmark
 from helpers.benchmark import output_stats
+from helpers.utils import get_random_from_range
 from libraries.st_lib import get_gct
 from libraries.st_lib import get_gct_edges
 from solutions.artificial_bee_colony import random_wandering_abc_algorithm
 from solutions.particle_swarm_optimization import basic_pso
-from solutions.simulated_annealing import simulated_annealing
 from structures.point import Point
 
 animate = False
@@ -21,13 +23,13 @@ dots = [
     Point(x=-27, y=-292)
 ]
 
-instances_no = 5
-number_of_runs = 50
-min_dots_quantity = 15
-max_dots_quantity = 15
-lower_value_limit = -500
-upper_value_limit = 500
-use_ints = False
+instances_no = 16
+number_of_runs = 30
+min_dots_quantity = 40
+max_dots_quantity = 40
+lower_value_limit = 0
+upper_value_limit = 1000
+use_ints = True
 use_gauss = False
 
 instances = [[Point(x=-211, y=-25),Point(x=-293, y=-268),Point(x=230, y=-262),Point(x=9, y=82),Point(x=-150, y=-125),Point(x=254, y=-137),Point(x=-203, y=-18),Point(x=-102, y=50),Point(x=269, y=-46),Point(x=268, y=255),Point(x=153, y=32),Point(x=-118, y=-250),Point(x=246, y=-225),Point(x=-38, y=-256),Point(x=-133, y=-171),Point(x=213, y=135),Point(x=-329, y=-148),Point(x=159, y=131),Point(x=-318, y=-283),Point(x=142, y=-15),Point(x=-285, y=-299),Point(x=161, y=166),Point(x=125, y=-57)]
@@ -127,179 +129,191 @@ Point(x= -5.176380902050413,  y=19.318516525781366),Point(x= -14.142135623730949
 test_char = [{'hull': [Point(x=-159, y=-292), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2400030, 'final': False, 'length': 29}, {'hull': [Point(x=-150, y=-292), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2345788, 'final': False, 'length': 28}, {'hull': [Point(x=-150, y=-292), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2325314, 'final': False, 'length': 27}, {'hull': [Point(x=-150, y=-292), Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2322313, 'final': False, 'length': 26}, {'hull': [Point(x=156, y=-286), Point(x=-150, y=-292), Point(x=-22, y=30)], 'final': True}, {'hull': [Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2108573, 'final': False, 'length': 24}, {'hull': [Point(x=-22, y=30), Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2023468, 'final': False, 'length': 23}, {'hull': [Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1362809, 'final': False, 'length': 11}, {'hull': [Point(x=-22, y=30), Point(x=-248, y=242), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1202779, 'final': False, 'length': 9}, {'hull': [Point(x=5, y=241), Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1185614, 'final': False, 'length': 8}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241)], 'weight': 955421, 'final': False, 'length': 6}, {'hull': [Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 917945, 'final': False, 'length': 4}, {'hull': [Point(x=156, y=-286), Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 786405, 'final': False, 'length': 3}, {'hull': [Point(x=5, y=241), Point(x=278, y=-130), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 653482, 'final': False, 'length': 11}, {'hull': [Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 564693, 'final': False, 'length': 9}, {'hull': [Point(x=-145, y=-149), Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 539681, 'final': False, 'length': 8}, {'hull': [Point(x=-106, y=41), Point(x=-145, y=-149), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 469035, 'final': False, 'length': 6}, {'hull': [Point(x=-170, y=31), Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 431658, 'final': False, 'length': 5}, {'hull': [Point(x=-248, y=242), Point(x=-106, y=41), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 316162, 'final': False, 'length': 3}, {'hull': [Point(x=-248, y=242), Point(x=-179, y=38), Point(x=-299, y=-113)], 'final': True}, {'hull': [Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149)], 'final': True}]
 test_char2 = [{'hull': [Point(x=-159, y=-292), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2400030, 'final': False, 'length': 29}, {'hull': [Point(x=-150, y=-292), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2345788, 'final': False, 'length': 28}, {'hull': [Point(x=-150, y=-292), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2325314, 'final': False, 'length': 27}, {'hull': [Point(x=-150, y=-292), Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2322313, 'final': False, 'length': 26}, {'hull': [Point(x=156, y=-286), Point(x=-150, y=-292), Point(x=-22, y=30)], 'final': True}, {'hull': [Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2108573, 'final': False, 'length': 24}, {'hull': [Point(x=-22, y=30), Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2023468, 'final': False, 'length': 23}, {'hull': [Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1362809, 'final': False, 'length': 11}, {'hull': [Point(x=-22, y=30), Point(x=-248, y=242), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1202779, 'final': False, 'length': 9}, {'hull': [Point(x=5, y=241), Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1185614, 'final': False, 'length': 8}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241)], 'weight': 955421, 'final': False, 'length': 6}, {'hull': [Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 917945, 'final': False, 'length': 4}, {'hull': [Point(x=156, y=-286), Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 786405, 'final': False, 'length': 3}, {'hull': [Point(x=5, y=241), Point(x=278, y=-130), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 653482, 'final': False, 'length': 11}, {'hull': [Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 564693, 'final': False, 'length': 9}, {'hull': [Point(x=-145, y=-149), Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 539681, 'final': False, 'length': 8}, {'hull': [Point(x=-106, y=41), Point(x=-145, y=-149), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 469035, 'final': False, 'length': 6}, {'hull': [Point(x=-170, y=31), Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 431658, 'final': False, 'length': 5}, {'hull': [Point(x=-248, y=242), Point(x=-106, y=41), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 316162, 'final': False, 'length': 3}, {'hull': [Point(x=-248, y=242), Point(x=-179, y=38), Point(x=-299, y=-113)], 'final': True}, {'hull': [Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149)], 'final': True}]
 
-for instance_no, dots in enumerate(peculiar_instances):
-# for instance_no in range(instances_no):
-#     dots = []
-#     dots_quantity = random.randint(min_dots_quantity, max_dots_quantity)
-#
-#     for i in range(0, dots_quantity):
-#         dot_to_append = Point(x=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss), y=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss))
-#         while dot_to_append in dots:
-#             dot_to_append = Point(x=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss), y=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss))
-#         dots.append(dot_to_append)
+# for instance_no, dots in enumerate(peculiar_instances):
+for in_size in [120, 160]:
+    min_dots_quantity = in_size
+    max_dots_quantity = in_size
+    for instance_no in range(instances_no):
+        dots = []
+        dots_quantity = random.randint(min_dots_quantity, max_dots_quantity)
 
-    convex_hull = libraries.cg_lib.return_convex_hull(dots)
+        for i in range(0, dots_quantity):
+            dot_to_append = Point(x=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss), y=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss))
+            while dot_to_append in dots:
+                dot_to_append = Point(x=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss), y=get_random_from_range(lower_value_limit, upper_value_limit, use_ints, use_gauss))
+            dots.append(dot_to_append)
 
-    # if animate:
-    #     helpers.draw.draw_dots(dots)
-    #     helpers.draw.draw_polygon(convex_hull)
+        convex_hull = libraries.cg_lib.return_convex_hull(dots)
 
-    print(str(instance_no + 1) + '. instance: {0}'.format(len(dots)), dots)
-    print('\nTime Complexities (Minimum Weight Triangulation):')
+        # if animate:
+        #     helpers.draw.draw_dots(dots)
+        #     helpers.draw.draw_polygon(convex_hull)
 
-    # # Begin of develop related only
-    # seed_triangulations = get_seed_triangulations(dots, convex_hull)
-    #
-    # # print('\tFCT:', seed_triangulations['first_choice'], calculate_triangulation_weight(get_fct_edges()))
-    # # print('\tCollision data: ', len(get_fct_edges()), count_collisions(get_fct_edges()))
-    # # if animate:
-    # #     helpers.draw.draw_edges(get_fct_edges())
-    #
-    # print('\tGCT:', seed_triangulations['greedy_choice'], calculate_triangulation_weight(get_gct_edges()))
-    # print('\tCollision data: ', len(get_gct_edges()), count_collisions(get_gct_edges()))
-    # if animate:
-    #     # helpers.draw.turtle.color("red")
-    #     # helpers.draw.turtle.clear()
-    #     helpers.draw.draw_dots(dots)
-    #     helpers.draw.draw_edges(get_gct_edges())
-    #
-    # libraries.cg_lib.reconstruct_incident_dots(get_gct_edges(), convex_hull)
-    # print('\tFCHC:', first_choice_hill_climbing(get_gct_edges(), seed_triangulations['greedy_choice']))
-    # # End of develop related only
+        print(str(instance_no + 1) + '. instance: {0}'.format(len(dots)), dots)
+        print('\nTime Complexities (Minimum Weight Triangulation):')
 
-    # # Begin of FCT seed
-    # fct_results = benchmark.evaluate_method(get_fct, dots, convex_hull)
-    # print('\tFirst Choice Triangulation:', fct_results[0], 's.',
-    #       'Weight:', fct_results[1], '\n')
-    #
-    # libraries.cg_lib.reconstruct_incident_dots(dots, get_fct_edges(), convex_hull)
-    # fchc_edges = deepcopy(get_fct_edges())
-    # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, fct_results[1])
-    # print('\tFirst Choice Hill Climbing Heuristic (Seed: FCT):', fchc_results[0], 's.',
-    #       'Weight:', fchc_results[1])
-    #
-    # gchc_edges = deepcopy(get_fct_edges())
-    # gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, fct_results[1])
-    # print('\tGreedy Choice Hill Climbing Heuristic (Seed: FCT):', gchc_results[0], 's.',
-    #       'Weight:', gchc_results[1])
-    #
-    # schc_edges = deepcopy(get_fct_edges())
-    # schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, fct_results[1])
-    # print('\tStochastic Choice Hill Climbing Heuristic (Seed: FCT):', schc_results[0], 's.',
-    #       'Weight:', schc_results[1])
-    #
-    # sa_edges = deepcopy(get_fct_edges())
-    # sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, fct_results[1])
-    # print('\tSimulated Annealing Metaheuristic (Seed: FCT):', sa_results[0], 's.',
-    #       'Weight:', sa_results[1], '\n')
-    # # End of FCT seed
+        # # Begin of develop related only
+        # seed_triangulations = get_seed_triangulations(dots, convex_hull)
+        #
+        # # print('\tFCT:', seed_triangulations['first_choice'], calculate_triangulation_weight(get_fct_edges()))
+        # # print('\tCollision data: ', len(get_fct_edges()), count_collisions(get_fct_edges()))
+        # # if animate:
+        # #     helpers.draw.draw_edges(get_fct_edges())
+        #
+        # print('\tGCT:', seed_triangulations['greedy_choice'], calculate_triangulation_weight(get_gct_edges()))
+        # print('\tCollision data: ', len(get_gct_edges()), count_collisions(get_gct_edges()))
+        # if animate:
+        #     # helpers.draw.turtle.color("red")
+        #     # helpers.draw.turtle.clear()
+        #     helpers.draw.draw_dots(dots)
+        #     helpers.draw.draw_edges(get_gct_edges())
+        #
+        # libraries.cg_lib.reconstruct_incident_dots(get_gct_edges(), convex_hull)
+        # print('\tFCHC:', first_choice_hill_climbing(get_gct_edges(), seed_triangulations['greedy_choice']))
+        # # End of develop related only
 
-    # Begin of GCT seed
-    gct_results = benchmark.evaluate_method(get_gct, dots, convex_hull)
-    print('\tGreedy Choice Triangulation:', gct_results[0], 's.',
-          'Weight:', gct_results[1], '\n')
+        # # Begin of FCT seed
+        # fct_results = benchmark.evaluate_method(get_fct, dots, convex_hull)
+        # print('\tFirst Choice Triangulation:', fct_results[0], 's.',
+        #       'Weight:', fct_results[1], '\n')
+        #
+        # libraries.cg_lib.reconstruct_incident_dots(dots, get_fct_edges(), convex_hull)
+        # fchc_edges = deepcopy(get_fct_edges())
+        # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, fct_results[1])
+        # print('\tFirst Choice Hill Climbing Heuristic (Seed: FCT):', fchc_results[0], 's.',
+        #       'Weight:', fchc_results[1])
+        #
+        # gchc_edges = deepcopy(get_fct_edges())
+        # gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, fct_results[1])
+        # print('\tGreedy Choice Hill Climbing Heuristic (Seed: FCT):', gchc_results[0], 's.',
+        #       'Weight:', gchc_results[1])
+        #
+        # schc_edges = deepcopy(get_fct_edges())
+        # schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, fct_results[1])
+        # print('\tStochastic Choice Hill Climbing Heuristic (Seed: FCT):', schc_results[0], 's.',
+        #       'Weight:', schc_results[1])
+        #
+        # sa_edges = deepcopy(get_fct_edges())
+        # sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, fct_results[1])
+        # print('\tSimulated Annealing Metaheuristic (Seed: FCT):', sa_results[0], 's.',
+        #       'Weight:', sa_results[1], '\n')
+        # # End of FCT seed
 
-    libraries.cg_lib.reconstruct_incident_dots(dots, get_gct_edges(), convex_hull)
-    # fchc_edges = deepcopy(get_gct_edges())
-    # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, gct_results[1])
-    # print('\tFirst Choice Hill Climbing Heuristic (Seed: GCT):', fchc_results[0], 's.',
-    #       'Weight:', fchc_results[1])
-    #
-    # gchc_edges = deepcopy(get_gct_edges())
-    # gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, gct_results[1])
-    # print('\tGreedy Choice Hill Climbing Heuristic (Seed: GCT):', gchc_results[0], 's.',
-    #       'Weight:', gchc_results[1])
-    #
-    # schc_edges = deepcopy(get_gct_edges())
-    # schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, gct_results[1])
-    # print('\tStochastic Choice Hill Climbing Heuristic (Seed: GCT):', schc_results[0], 's.',
-    #       'Weight:', schc_results[1])
-    #
-    # sa_edges = deepcopy(get_gct_edges())
-    # sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, gct_results[1])
-    # print('\tSimulated Annealing Metaheuristic (Seed: GCT):', sa_results[0], 's.',
-    #       'Weight:', sa_results[1], '\n')
-    # End of GCT seed
+        # Begin of GCT seed
+        gct_results = benchmark.evaluate_method(get_gct, dots, convex_hull)
+        print('\tGreedy Choice Triangulation:', gct_results[0], 's.',
+              'Weight:', gct_results[1], '\n')
 
-    # Begin of ABC algorithm related
-    # abc_edges = deepcopy(get_gct_edges())
-    # abc_results = benchmark.evaluate_method(random_wandering_abc_algorithm, abc_edges, gct_results[1])
-    # print('\tRandom wandering ABC algorithm (Seed: GCT):', abc_results[0], 's.',
-    #       'Weight:', abc_results[1], '\n')
+        libraries.cg_lib.reconstruct_incident_dots(dots, get_gct_edges(), convex_hull)
+        # fchc_edges = deepcopy(get_gct_edges())
+        # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, gct_results[1])
+        # print('\tFirst Choice Hill Climbing Heuristic (Seed: GCT):', fchc_results[0], 's.',
+        #       'Weight:', fchc_results[1])
+        #
+        # gchc_edges = deepcopy(get_gct_edges())
+        # gchc_results = benchmark.evaluate_method(greedy_choice_hill_climbing, gchc_edges, gct_results[1])
+        # print('\tGreedy Choice Hill Climbing Heuristic (Seed: GCT):', gchc_results[0], 's.',
+        #       'Weight:', gchc_results[1])
+        #
+        # schc_edges = deepcopy(get_gct_edges())
+        # schc_results = benchmark.evaluate_method(stochastic_choice_hill_climbing, schc_edges, gct_results[1])
+        # print('\tStochastic Choice Hill Climbing Heuristic (Seed: GCT):', schc_results[0], 's.',
+        #       'Weight:', schc_results[1])
+        #
+        # sa_edges = deepcopy(get_gct_edges())
+        # sa_results = benchmark.evaluate_method(simulated_annealing, sa_edges, gct_results[1])
+        # print('\tSimulated Annealing Metaheuristic (Seed: GCT):', sa_results[0], 's.',
+        #       'Weight:', sa_results[1], '\n')
+        # End of GCT seed
 
-    # artificial_bee_colony_results = benchmark.evaluate_method(artificial_bee_colony_algorithm, dots, convex_hull)
-    # print('\tArtificial Bee Colony:', artificial_bee_colony_results[0], 's.',
-    #       'Weight:', artificial_bee_colony_results[1])
+        # Begin of ABC algorithm related
+        # abc_edges = deepcopy(get_gct_edges())
+        # abc_results = benchmark.evaluate_method(random_wandering_abc_algorithm, abc_edges, gct_results[1])
+        # print('\tRandom wandering ABC algorithm (Seed: GCT):', abc_results[0], 's.',
+        #       'Weight:', abc_results[1], '\n')
 
-    # hybrid_artificial_bee_colony_results = benchmark.evaluate_method(
-    #                                                                   hybrid_artificial_bee_colony_algorithm,
-    #                                                                   dots,
-    #                                                                   convex_hull)
-    # print('\tHybrid Artificial Bee Colony:', hybrid_artificial_bee_colony_results[0], 's.',
-    #       'Weight:', hybrid_artificial_bee_colony_results[1], '\n')
-    # End of ABC algorithm related
+        # artificial_bee_colony_results = benchmark.evaluate_method(artificial_bee_colony_algorithm, dots, convex_hull)
+        # print('\tArtificial Bee Colony:', artificial_bee_colony_results[0], 's.',
+        #       'Weight:', artificial_bee_colony_results[1])
 
-    # Begin of PSO solution related
-    # pso_edges = deepcopy(get_gct_edges())
-    # pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
-    # print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
-    #       'Weight:', pso_results[1], '\n')
-    # End of PSO solution related
+        # hybrid_artificial_bee_colony_results = benchmark.evaluate_method(
+        #                                                                   hybrid_artificial_bee_colony_algorithm,
+        #                                                                   dots,
+        #                                                                   convex_hull)
+        # print('\tHybrid Artificial Bee Colony:', hybrid_artificial_bee_colony_results[0], 's.',
+        #       'Weight:', hybrid_artificial_bee_colony_results[1], '\n')
+        # End of ABC algorithm related
 
-    # Begin of Exhaustive Search
-    # exhaustive_search_results = benchmark.evaluate_method(do_exhaustive_search, dots, convex_hull)
-    # print('\tExhaustive Search:', exhaustive_search_results[0], 's.',
-    #       'Weight:', exhaustive_search_results[1], '\n')
-    # End of Exhaustive Search
+        # Begin of PSO solution related
+        # pso_edges = deepcopy(get_gct_edges())
+        # pso_results = benchmark.evaluate_method(basic_pso, pso_edges, gct_results[1], 33, 33, True)
+        # print('\tBasic PSO solution (Seed: GCT):', pso_results[0], 's.',
+        #       'Weight:', pso_results[1], '\n')
+        # End of PSO solution related
 
-    # Begin of debugging related
-    # mwt_edges = get_triangulation_from_dots_order(dots, get_testing_dots_order(), convex_hull)
-    # print('\tCollision data: ', len(mwt_edges), count_collisions(mwt_edges))
-    # # End of debugging related
+        # Begin of Exhaustive Search
+        # exhaustive_search_results = benchmark.evaluate_method(do_exhaustive_search, dots, convex_hull)
+        # print('\tExhaustive Search:', exhaustive_search_results[0], 's.',
+        #       'Weight:', exhaustive_search_results[1], '\n')
+        # End of Exhaustive Search
 
-    # if animate:
-    #     helpers.draw.turtle.color("red")
-    #     helpers.draw.draw_edges(mwt_edges)
+        # Begin of debugging related
+        # mwt_edges = get_triangulation_from_dots_order(dots, get_testing_dots_order(), convex_hull)
+        # print('\tCollision data: ', len(mwt_edges), count_collisions(mwt_edges))
+        # # End of debugging related
 
-    # # Begin of results export
-    with open(
-            'data/evaluations/evaluations_abc_sa_limited_to_1000_floats_peculiar_instances.txt',
-            mode='w' if instance_no == 0 else 'a',
-            encoding='utf-8') as eval_file:
-        eval_file.write(str(instance_no + 1) + '. ')
-        eval_file.write('[' + ','.join(str(e) for e in dots) + ']\n')
-        eval_file.write('\tInstance size: ' + str(len(dots)) + '\n')
-        eval_file.write('\tNumber of runs: ' + str(number_of_runs) + '\n')
-        # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
-        # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
-        # eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
-        # eval_file.write('\tTime lapsed for exhaustive search: ' + str(exhaustive_search_results[0]) + 's\n\n')
+        # if animate:
+        #     helpers.draw.turtle.color("red")
+        #     helpers.draw.draw_edges(mwt_edges)
 
-        # Begin of advanced stats evaluation
-        try:
-            output_stats(get_gct_edges(),
-                         simulated_annealing,
-                         number_of_runs,
-                         'SA',
-                         eval_file,
-                         gct_results[1])
-            output_stats(get_gct_edges(),
-                         basic_pso,
-                         number_of_runs,
-                         'PSO',
-                         eval_file,
-                         gct_results[1], 33, 33, True)
-            output_stats(get_gct_edges(),
-                         random_wandering_abc_algorithm,
-                         number_of_runs,
-                         'ABC',
-                         eval_file,
-                         gct_results[1])
-        except Exception as e:
-            print(e)
-        # End of advanced stats evaluation
+        # # Begin of results export
+        with open(
+                'data/evaluations/{}pt2.txt'.format(in_size),
+                mode='w' if instance_no == 0 else 'a',
+                encoding='utf-8') as eval_file:
+            eval_file.write(str(instance_no + 1) + '. ')
+            eval_file.write('[' + ','.join(str(e) for e in dots) + ']\n')
+            eval_file.write('\tInstance size: ' + str(len(dots)) + '\n')
+            eval_file.write('\tNumber of runs: ' + str(number_of_runs) + '\n')
+            # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
+            # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
+            # eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
+            # eval_file.write('\tTime lapsed for exhaustive search: ' + str(exhaustive_search_results[0]) + 's\n\n')
 
-    # # End of results export
+            # Begin of advanced stats evaluation
+            try:
+                # output_stats(get_gct_edges(),
+                #              simulated_annealing,
+                #              number_of_runs,
+                #              'SA',
+                #              eval_file,
+                #              gct_results[1])
+                output_stats(get_gct_edges(),
+                             basic_pso,
+                             number_of_runs,
+                             'PSO',
+                             eval_file,
+                             gct_results[1], 33, 33, True)
+                output_stats(get_gct_edges(),
+                             random_wandering_abc_algorithm,
+                             number_of_runs,
+                             'Raw ABC',
+                             eval_file,
+                             gct_results[1],
+                             13,
+                             True)
+                output_stats(get_gct_edges(),
+                             random_wandering_abc_algorithm,
+                             number_of_runs,
+                             'Improved ABC',
+                             eval_file,
+                             gct_results[1],
+                             13)
+            except Exception as e:
+                print(e)
+            # End of advanced stats evaluation
 
-if animate:
-    helpers.draw.turtle.done()
+        # # End of results export
+
+    if animate:
+        helpers.draw.turtle.done()
