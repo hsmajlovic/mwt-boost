@@ -1,0 +1,1225 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[12pt,twoside]\{report\}\
+\\usepackage\{graphicx\}\
+\\graphicspath\{ \{images/\} \}\
+\
+\\usepackage[croatian]\{babel\}\
+\\usepackage\{amsmath\}\
+\\usepackage\{amssymb\}\
+\\usepackage\{amsthm\}\
+\\usepackage\{accents\}\
+\\usepackage\{hyperref\}\
+\
+\\setcounter\{chapter\}\{0\}\
+\
+\\newtheorem\{theorem\}\{Teorema\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{thmy\}\{Teorema\}[section]\
+\\renewcommand*\{\\thethmy\}\{\\thesection.\\Alph\{thmy\}\} % "letter-numbered" theorems\
+\\newenvironment\{theoremx\}\{\\stepcounter\{theorem\}\\begin\{thmy\}\}\{\\end\{thmy\}\}\
+\
+\\newtheorem\{proposition\}\{Propozicija\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{propy\}\{Propozicija\}[section]\
+\\renewcommand*\{\\thepropy\}\{\\thesection.\\Alph\{propy\}\} % "letter-numbered" theorems\
+\\newenvironment\{propositionx\}\{\\stepcounter\{proposition\}\\begin\{propy\}\}\{\\end\{propy\}\}\
+\
+\\newtheorem\{corollary\}\{Posljedica\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{cory\}\{Posljedica\}[section]\
+\\renewcommand*\{\\thecory\}\{\\thesection.\\Alph\{cory\}\} % "letter-numbered" theorems\
+\\newenvironment\{corollaryx\}\{\\stepcounter\{corollary\}\\begin\{cory\}\}\{\\end\{cory\}\}\
+\
+\\newtheorem\{definition\}\{Definicija\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{defy\}\{Definicija\}[section]\
+\\renewcommand*\{\\thedefy\}\{\\thesection.\\Alph\{defy\}\} % "letter-numbered" theorems\
+\\newenvironment\{definitionx\}\{\\stepcounter\{definition\}\\begin\{defy\}\}\{\\end\{defy\}\}\
+\
+\\newtheorem\{lemma\}\{Lema\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{lemy\}\{Lema\}[section]\
+\\renewcommand*\{\\thelemy\}\{\\thesection.\\Alph\{lemy\}\} % "letter-numbered" theorems\
+\\newenvironment\{lemmax\}\{\\stepcounter\{lemma\}\\begin\{lemy\}\}\{\\end\{lemy\}\}\
+\
+\\newtheorem\{remark\}\{Napomena\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{remy\}\{Napomena\}[section]\
+\\renewcommand*\{\\theremy\}\{\\thesection.\\Alph\{remy\}\} % "letter-numbered" theorems\
+\\newenvironment\{remarkx\}\{\\stepcounter\{remark\}\\begin\{remy\}\}\{\\end\{remy\}\}\
+\
+\
+\
+\\date\{\}\
+\\linespread\{1.7\}\
+\\begin\{document\}\
+\\pagenumbering\{roman\}\
+\\thispagestyle\{empty\}\
+\\begin\{center\}\
+\\large\{\\textsf\{Univerzitet u Sarajevu\\\\\
+Prirodno-matemati\\v cki fakultet\\\\\
+Odsjek za matematiku\\\\\}\}\
+\
+\\vspace\{1.6cm\}\
+% \\includegraphics\{logo.jpg\}\
+\
+\\vspace\{1.2cm\}\
+\
+\\Large\{\\textsf\{\\textbf\{Haris Smajlovi\\'\{c\}\}\\\\\}\} \\vspace\{1cm\} \\LARGE\
+\{\\textsf\{\\textbf\{Primjena heuristi\\v ckih algoritama za rje\\v\{s\}avanje Minimum-Weight Triangulation problema\}\\\\\}\} \\vspace\{1cm\}\
+\
+ \\Large\{\\textsf\{\\textbf\{-- Master rad --\}\\\\\}\} \\vspace\{1cm\}\
+Sarajevo, 2017\
+\
+\
+\\end\{center\}\
+\
+\\newpage\
+\\null\
+\\vfill\
+\\begin\{paragraph\}\{\} Ova disertacija je podnesena Vije\\'\{c\}u Prirodno-matemati\\v\{c\}kog fakulteta Univerziteta u Sarajevu kao zavr\\v\{s\}ni rad drugog ciklusa studija ura\\dj\{\}en pod mentorstvom doc. dr. Adisa Alihod\\v\{z\}i\\'\{c\}a u postupku stjecanja stru\\v\{c\}nog stepena magistra softverskog in\\v\{z\}injerstva.\
+\\tableofcontents\
+\\end\{paragraph\}\
+\
+\\chapter\{Problem Minimum-Te\'9einske Triangulacije (Minimum-Weight Triangulation problem)\}\
+\\pagenumbering\{arabic\}\
+\
+\
+\\section\{O geometrijskoj triangulaciji skupa ta\\v\{c\}aka u ravni\}\
+\
+\
+Mo\'9eemo kazati da je pojam triangulacije \'9airok. Ukoliko isti upotrijebimo u dru\'9atvu psihologa govorili bismo o jednom od na\\v\{c\}ina interakcije medju ljudima, dok bismo u dru\'9atvu \'9aahista bili shva\uc0\u263 eni kao poznavaoc popularnog manevra za \'93odgadjanje\'94 poteza. Isti pojam \u263 e poprimiti druga\\v\{c\}ije zna\\v\{c\}enje i u dru\'9atvu ekonomista, politi\\v\{c\}ara, geodeta, sociologa, in\'9eenjera i matemati\\v\{c\}ara. Vi\'9aezna\\v\{c\}nost se nastavlja i u unutardisciplinarnim opsezima. Naime, ukoliko razgovaramo o pojmu triangulacije sa in\'9eenjerom telekomunikacija, gotovo sigurno \u263 emo razgovarati o lociranju mobilnih uredjaja, dok bi sa in\'9eenjerom ra\\v\{c\}unarstva govorili o kompjuterskoj viziji i pronala\'9eenju ta\\v\{c\}ke u prostoru na osnovu njenih projekcija na odredjene ravni. U matematici se takodjer susre\u263 emo sa razli\\v\{c\}itim oblicima istog pojma. Tako triangulaciju razlikujemo u topologiji, linearnoj algebri, teoriji kategorija, teoriji grafova i geometriji.\
+S obzirom da je triangulacija u geometriji (geometrijska triangulacija) od posebnog zna\\v\{c\}aja u ovom radu, u nastavku joj pridajemo posebnu pa\'9enju.\
+\
+\\begin\{defy\}(Geometrijska triangulacija) Podjelu vi\'9aedimenzionalnog geometrijskog objekta u simplekse\\footnote\{Appendix B\} nazivamo geometrijskom triangulacijom.\
+\\end\{defy\}\
+\
+U zavisnosti od objekta kojeg dijelimo i na\uc0\u269 ina diobe istog razlikujemo sljede\u263 e geometrijske triangulacije\\footnote\{Definicije 1.2 - 1.4 pokrivaju tek neke varijacije geometrijske triangulacije. Lista svih varijacija se mo\'9ee na\u263 i na sljede\u263 oj adresi: \
+	\\url\{https://en.wikipedia.org/w/index.php?title=Triangulation_(geometry)&oldid=765885593\}\}.\
+\
+\\begin\{defy\}(Geometrijska triangulacija prostora $\\mathbb\{R\}^n$)\
+ 	Podjelu prostora $\\mathbb\{R\}^n$ na $n$-simplekse, takvu da je presjek bilo koja dva susjedna $n$-simpleksa isklju\uc0\u269 ivo $t$-simpleks takav da je $0 \\leq t < n$, nazivamo geometrijskom triangulacijom prostora $\\mathbb\{R\}^n$.\
+\\end\{defy\}\
+\
+\\begin\{defy\}(Geometrijska triangulacija skupa ta\uc0\u269 aka)\
+ 	Podjelu konveksnog omota\uc0\u269 a diskretnog skupa ta\u269 aka $P < \\mathbb\{R\}^n$ na $n$-simplekse, takvu da je presjek bilo koja dva susjedna $n$-simpleksa isklju\u269 ivo $t$-simpleks takav da je $0 \\leq t < n$, te takvu da svaki vrh (\u269 vor) bilo kojeg $n$-simpleksa pripada skupu $P$, nazivamo geometrijskom triangulacijom skupa ta\u269 aka $P$.\
+\\end\{defy\}\
+\
+\\begin\{defy\}(Geometrijska triangulacija prostog poligona\\footnote\{Ili samo "poligon"\})\
+ 	Podjelu poligona $PL$ na trouglove, takvu da je presjek bilo koja dva susjedna trougla isklju\uc0\u269 ivo $1$-simpleks (du\'9e), te takvu da svaki vrh bilo kojeg trougla pripada skupu vrhova poligona $PL$, nazivamo geometrijskom triangulacijom poligona $PL$.\
+\\end\{defy\}\
+\
+Specijalan slu\uc0\u269 aj geometrijske triangulacija skupa ta\u269 aka je geometrijska triangulacija skupa ta\u269 aka u ravni.\
+\
+\\begin\{defy\}(Geometrijska triangulacija skupa ta\uc0\u269 aka u ravni)\
+ 	Podjelu konveksnog omota\uc0\u269 a diskretnog skupa ta\u269 aka $P \\subset \\mathbb\{R\}^2$ na $2$-simplekse, takvu da je presjek bilo koja dva susjedna $2$-simpleksa isklju\u269 ivo $t$-simpleks takav da je $0 \\leq t < 2$, te takvu da svaki vrh (\u269 vor) bilo kojeg $2$-simpleksa pripada skupu $P$, nazivamo geometrijskom triangulacijom skupa ta\u269 aka u ravni.\\newline\
+To jeste, podjelu konveksnog omota\uc0\u269 a diskretnog skupa ta\u269 aka $P \\subset \\mathbb\{R\}^2$ na trouglove u $\\mathbb\{R\}^2$, takvu da je presjek bilo koja dva susjedna trougla ili zajedni\u269 ka du\'9e ili zajedni\u269 ki vrh ta dva trougla, te takvu da svaki vrh bilo kojeg trougla pripada skupu $P$, nazivamo geometrijskom triangulacijom skupa ta\u269 aka u ravni.\
+\\end\{defy\}\
+\
+Problem nala\'9eenja geometrijske triangulacije skupa ta\uc0\u269 aka u ravni i problem nala\'9eenja geometrijske triangulacije poligona (u nastavku redom triangulacije skupa ta\u269 aka i triangulacije poligona) spadaju medju najpopularnije probleme Kompjuterske Geometrije\\footnote\{Kompjuterska Geometrija (Computational Geometry) je grana kompjuterske nauke koja se bavi izu\u269 avanjem izra\u269 unljivosti i kompleksnosti problema koji se mogu geometrijski iskazati. S obzirom da izra\u269 unljivost i kompleksnot nala\'9eenja triangulacija sa odredjenim osobinama \u269 ine sr\'9e na\'9aeg rada, to aspekt na\'9aeg istra\'9eivanja dolazi iz oblasti Kompjuterske Geometrije.\}, te im u nastavku pridajemo posebnu pa\'9enju.\
+\
+\
+\\section\{Problem nala\'9eenja triangulacije poligona\}\
+\
+\
+U svojoj knjizi Osnove geometrije \\cite\{\}, objavljenoj 1899. godine, David Hilbert defini\'9ae povr\'9ainu poligona kao sumu povr\'9aina trouglova na koje se isti mo\'9ee podijeliti. Nedugo poslije, 1911. godine, prvi\\footnote\{Prvi poznat autoru.\} algoritam za podjelu poligona na trouglove bilje\'9ei Lennes. Iako ovo razdoblje bilje\'9ei prve korake teorije izra\uc0\u269 unljivosti, malo govora je bilo o teoriji kompleksnosti, tako Lennes ne navodi da njegov algoritam takodjer posjeduje i veoma prihvatljivu kvadratnu kompleksnost, koja pobjedjuje kubnu kompleksnost Wickham-Jones algoritma iste svrhe iz 1994. godine.\
+Pored navedenih algoritama, algoritam koji \uc0\u263 emo najprije na\u263 i u \'9akolskim ud\'9ebenicima je algoritam "monotonih poligona" \\cite\{\}, kompleksnosti $O(n\\textit\{log\}n)$ koja je smatrana optimalnom sve dok Tarjan i van Wyk nisu ponudili O(n\\textit\{loglog\}n) rje\'9aenje, a nedugo zatim i Chazelle svoje rje\'9aenje linearne kompleksnosti za \u269 iju implementaciju Skiena tvrdi da je "prili\u269 no beznada\'9ena".\\newline\
+Iako je Hilbert pokrenuo "talas" triangulacije poligona u smislu izra\uc0\u269 unljivosti, ova tematika je jo\'9a i mnogo ranije plijenila pa\'9enju. Tako Leonhard Euler (1707\'96 1783) dokazuje da je broj razli\u269 itih triangulacija konveksnog $n$-tougla jednak $C_\{n-2\}$, gdje je $C_n$ Katalanov broj\\footnote\{Iako nazvani po Eug\'e8ne Charles Catalan-u (1814 - 1893), Katalanovi brojevi su kori\'9ateni jo\'9a i mnogo ranije. Ve\u263  smo pomenuli da ih je koristio Leonhard Euler, medjutim isti su pronadjeni u djelu mongolskog matemati\u269 ara Mingantu-a \\textit\{The Quick Method for Obtaining the Precise Ratio of Division of a Circle (Ge Yuan Mi Lu Jie Fa)\}. Smatra se da je Mingantu koristio Katalanove brojeve jo\'9a u samom za\u269 etku pisanja djela davne 1730. godine. Jedan od primjera Mingantu-ove primjene istih bi bila uoptreba Katalanovog niza za razvoj redova koji aproksimiraju (ili daju egzaktnu vrijednost od) $sin(2\\beta)$ i $sin(4\\beta)$ u zavisnosti od $sin(\\beta)$. Katalanov broj, koji se naj\u269 e\'9a\u263 e ozna\u269 ava kao $C_n$, je jednak $\\displaystyle\\frac\{1\}\{n+1\}\\binom\{2n\}\{n\}$ ili $\\displaystyle\\frac\{\\left(2n\\right)!\}\{\\left(n+1\\right)!n!\}$ ili $\\displaystyle\\prod_\{k=2\}^\{n\}\\frac\{n+k\}\{k\}$. Ono \'9ato je od posebne va\'9enosti za na\'9ae istra\'9eivanje jeste da $C_n$ pripada $O(2^n)$.\}. Ova \u269 injenica nas po prvi put upoznaje sa veli\u269 inom prostora pretrage problema triangulacije.\
+\
+\
+\\chapter\{Harmonijske funkcije i njihove osobine\}\
+\\pagenumbering\{arabic\}\
+U ovom poglavlju \\'\{c\}emo se koncentrisati na predstavljanje\
+osnovnih pojmova iz teorije harmonijskih funkcija.\
+\\section\{Definicija i osnovne osobine\} Ozna\\v\{c\}imo s $\\mathbb\{R\}^\{n\}$ skup svih ure\\dj\{\}enih\
+$n$-torki realnih brojeva. Neka je $\\Omega$ neprazni otvoreni podskup od\
+$\\mathbb\{R\}^\{n\}$, gdje je u $\\mathbb\{R\}^\{n\}$ standardna topologija.\
+Neka je $u$ dva puta neprekidno diferencijabilna funkcija na\
+$\\Omega$. Ako vrijedi da je\
+$$\\sum_\{j=1\}^\{n\}\\frac\{\\partial^\{2\}u\}\{\\partial x_\{j\}^\{2\}\}\\left(x\\right)=0,$$ za sve  $x\\in\\Omega$, onda ka\\v\{z\}emo da je funkcija $u$ harmonijska\
+funkcija na $\\Omega$. To se kra\\'\{c\}e zapisuje kao $$\\Delta\
+u\\left(x\\right)=0,$$ gdje je\
+$\\Delta=\\sum_\{j=1\}^\{n\}\\frac\{\\partial^\{2\}\}\{\\partial x_\{j\}^\{2\}\}$\
+Laplasov operator u $\\mathbb\{R\}^\{n\}$.\
+\\newline U skupu svih harmonijskih funkcija na $\\Omega$ uvedimo\
+operaciju sabiranja na sljede\\'\{c\}i na\\v\{c\}in:\
+$$\\left(u_\{1\}+u_\{2\}\\right)\\left(x\\right)=u_\{1\}\\left(x\\right)+u_\{2\}\\left(x\\right),$$\
+odakle slijedi da je zbir dviju harmonijskih funkcija harmonijska\
+funkcija. Prilikom posmatranja analiti\\v\{c\}ke funkcije na nekom domenu\
+kompleksne ravni, poznato nam je da je proizvod dviju\
+analiti\\v\{c\}kih funkcija analiti\\v\{c\}ka funkcija. \\v\{S\}ta\
+mo\\v\{z\}emo re\\'\{c\}i za proizvod dviju harmonijskih funkcije? Je li proizvod dviju harmonijskih funkcija harmonijska funkcija? To,\
+na\\v\{z\}alost, nije uvijek ispunjeno. Naime, za dvije dva puta\
+neprekidno diferencijabilne funkcije $u_\{1\}$ i $u_\{2\}$ vrijedi da\
+je $$\\Delta\\left(u_\{1\}u_\{2\}\\right)=u_\{1\}\\Delta u_\{2\}+u_\{2\}\\Delta\
+u_\{1\}+2\\triangledown u_\{1\}\\cdot\\triangledown u_\{2\},$$ odakle\
+slijedi da ako su $u_\{1\}$ i $u_\{2\}$ harmonijske funkcije na\
+$\\Omega$, tada je i proizvod $u_\{1\}u_\{2\}$ harmonijska funkcija ako\
+i samo ako vrijedi $\\triangledown u_\{1\}\\cdot\\triangledown u_\{2\}=0$\
+na $\\Omega$. Ovo nije uvijek ispunjeno. Ovdje je\
+$\\triangledown=\\left(\\frac\{\\partial\}\{\\partial\
+x_\{1\}\},...,\\frac\{\\partial\}\{\\partial x_\{n\}\}\\right)$. \\newline Mnoge\
+osobine analiti\\v\{c\}kih funkcija u kompleksnoj ravni se dokazuju\
+pretpostavljaju\\'\{c\}i tu osobinu zatvorenosti u odnosu na\
+mno\\v\{z\}enje. Me\\dj\{\}utim, analogne osobine vrijede i u\
+slu\\v\{c\}aju harmonijskih funkcija, ali je tehnika dokaza samih tih\
+osobina zbog nedostatka zatvorenosti druga\\v\{c\}ija.\
+ \\begin\{defy\}Ka\\v\{z\}emo da je funkcija $u$ harmonijska na nekom nepraznom skupu $A\\subseteq\\mathbb\{R\}^\{n\}$ ako je harmonijska na nekom otvorenom skupu $\\Omega$ koji sadr\\v\{z\}i $A$.\
+ \\end\{defy\}\
+ Neka je $r>0$ i $B\\left(x,r\\right)=\\\{y\\in\\mathbb\{R\}^\{n\}:\\vert\
+y-x\\vert<r\\\}$. Vrijedi sljede\\'\{c\}a teorema (vidjeti dio 1.4 u \\cite\{axler\}).\
+\\begin\{thmy\} Neka je $u$ harmonijska funkcija na\
+$\\overline\{B\\left(a,r\\right)\}$. Tada je\
+$$u\\left(a\\right)=\\int_\{S\}u\\left(a+r\\xi\\right)d\\sigma\\left(\\xi\\right).$$\
+\\end\{thmy\}\
+Sa $S$ ozna\\v\{c\}avamo granicu jedini\\v\{c\}ne kugle $B=B\\left(0,1\\right)$, a  $\\sigma$ je jedinstvena Borelova mjera na $S$ koja je rotaciono invarijantna. Pod rotacionom invarijantno\\v\{s\}\\'\{c\}u smatramo  da vrijedi $\\sigma\\left(T\\left(E\\right)\\right)=\\sigma\\left(E\\right)$ za svaki Borelov skup $E\\subset S$ i za svaku ortogonalnu transformaciju $T$. Pri tome za linearno preslikavanje $T:\\mathbb\{R\}^\{n\}\\rightarrow \\mathbb\{R\}^\{n\}$ ka\\v\{z\}emo da je ortogonalno ako je $\\|Tx\\|=\\|x\\|$ za sve $x\\in\\mathbb\{R\}^\{n\}$.\
+\\newline Prethodna teorema je motivacija za uvo\\dj\{\}enje pojma harmonijske\
+funkcije na onim strukturama koje ne posjeduju termin izvoda\
+funkcije na toj strukturi. Tako \\'\{c\}emo u nekom od narednih\
+poglavlja posmatrati harmonijske funkcije na beskona\\v\{c\}nim drvima, gdje\
+\\'\{c\}e sama definicija harmonijske funkcije na drvetu biti\
+motivisana upravo prethodnom teoremom. Prethodna teorema se naziva\
+teoremom srednje vrijednosti za harmonijske funkcije. Sljede\\'\{c\}a\
+teorema je varijanta teoreme srednje vrijednosti u slu\\v\{c\}aju volumena (vidjeti dio 1.25 u \\cite\{axler\}).\
+\\begin\{thmy\} Ako je $u$ harmonijska funkcija na\
+$\\overline\{B\\left(a,r\\right)\}$, tada je $u\\left(a\\right)$ jednako\
+srednjoj vrijednosti od $u$ nad $B\\left(a,r\\right)$. Preciznije,\
+$$u\\left(a\\right)=\\frac\{1\}\{V\\left(a,r\\right)\}\\int_\{B\\left( a,r\\right)\}udV$$\
+\\end\{thmy\}\
+Ovdje je $V=V_\{n\}$ Lebegova mjera na $\\mathbb\{R\}^\{n\}$.\
+ Kad su analiti\\v\{c\}ke funkcije u pitanju, poznato je da\
+vrijedi princip maksimalnog modula. On ka\\v\{z\}e da ako je\
+funkcija analiti\\v\{c\}ka na nekom ograni\\v\{c\}enom domenu te ako\
+u unutra\\v\{s\}njosti tog domena dosti\\v\{z\}e maksimum, onda je ta funkcija\
+konstantna na \\v\{c\}itavom domenu. Vrijedi li takvo ne\\v\{s\}to i\
+u slu\\v\{c\}aju harmonijskih funkcija? Pozitivan odgovor na ovo\
+pitanje daje sljede\\'\{c\}a teorema (vidjeti dijelove 1.8 i 1.9 u \\cite\{axler\}).\
+\\begin\{thmy\} Pretpostavimo da je $\\Omega$ povezan, a $u$ realna harmonijska funkcija na $\\Omega$, te da $u$ dosti\\v\{z\}e  maksimum ili minimimum unutar\
+$\\Omega$. Tada je $u$ konstantna funkcija.\
+\\end\{thmy\}\
+\\begin\{cory\} Neka je $\\Omega$ ograni\\v\{c\}en i neka je $u$\
+neprekidna realna funkcija na $\\overline\{\\Omega\}$ koja je\
+harmonijska na $\\Omega$. Tada postoji maksimalna i minimalna\
+vrijednost od $u$ na $\\overline\{\\Omega\}$ i ta vrijednost se\
+dosti\\v\{z\}e na $\\partial\\Omega$.\
+\\end\{cory\}\
+\\section\{Dirichletov problem za kuglu\}\
+Neka je $B=B\\left(0,1\\right)$ jedini\\v\{c\}na kugla u\
+$\\mathbb\{R\}^\{n\}$. Neka je $S=\\partial B$. Postavlja se\
+sljede\\'\{c\}e pitanje: Ako je $f$ neprekidna funkcija na $S$, postoji li neprekidna funkcija na $\\overline\{B\}$ takva da je\
+$u$ harmonijska na $B$ i $u=f$ na $S$? Odgovor na ovo pitanje je\
+potvrdan i jedinstven.\
+\\newline Ideja pronalaska rje\\v\{s\}enja Dirichletovog problema je\
+sljede\\'\{c\}a. Prvo se za neprekidnu funkciju $f$ posmatra\
+funkcija $P\\left[f\\right]$ definisana s\
+$$P\\left[f\\right]\\left(x\\right)=\\int_\{S\}f\\left(\\xi\\right)P\\left(x,\\xi\\right)d\\sigma\\left(\\xi\\right),$$\
+gdje je $P\\left(x,\\xi\\right)=\\frac\{1-\\vert x\\vert^\{2\}\}\{\\vert\
+x-\\xi\\vert^\{n\}\}$ Poissonovo jezgro za jedini\\v\{c\}nu kuglu. Ova\
+funkcija $P\\left[f\\right]$ je harmonijska funkcija na $B$. Ako\
+na $\\overline\{B\}$ posmatramo funkciju $u$ definisanu s\
+$u=P\\left[f\\right]$ na $B$ i $u=f$ na $S$, mo\\v\{z\}e se dokazati da\
+je ova funkcija neprekidna na $\\overline\{B\}$. Na taj na\\v\{c\}in se\
+konstrui\\v\{s\}e neprekidna funkcija s tim osobinama. (vidjeti \\cite\{axler\}). Jedinstvenost rje\\v\{s\}enja Dirichletovog problema slijedi\
+odmah iz principa maksimuma.\
+\\newline Dirichletov problem ima svoju formulaciju i u slu\\v\{c\}aju\
+drugih domena. Me\\dj\{\}utim, ne postoji uvijek rje\\v\{s\}enje, a i\
+ako postoji, ne mora biti jedinstveno, ako je neograni\\v\{c\}eni\
+domen u pitanju.\
+\\newline U ovoj disertaciji \\'\{c\}emo posmatrati novi rubni problem za\
+harmonijske funkcije. Taj rubni problem \\'\{c\}e se odnositi za\
+funkcije koje su harmonijske na skupovima oblika $\\Omega\\backslash\
+K$, gdje je $\\Omega$ otvoreni podskup od $\\mathbb\{R\}^\{n\}$, a $K$\
+kompaktni podskup od $\\Omega$. U slu\\v\{c\}aju anularnih\
+oblasti \\'\{c\}emo dokazati da taj rubni problem ima jedinstveno\
+rje\\v\{s\}enje.\
+\\section\{Singulariteti\}\
+Neka je $\\Omega$ otvoreni podskup od $\\mathbb\{R\}^\{n\}$. Za\
+ta\\v\{c\}ku $a\\in\\Omega$ ka\\v\{z\}emo da je izolovani singularitet\
+bilo koje funkcije $u$ definisane na $\\Omega\\backslash \\\{a\\\}$.\
+Ako je $u$ harmonijska funkcija na $\\Omega\\backslash\\\{a\\\}$, za\
+$a$ ka\\v\{z\}emo da je otklonjivi singularitet od $u$ ako se $u$\
+mo\\v\{z\}e harmonijski produ\\v\{z\}iti na $\\Omega$.\
+\\newline Mo\\v\{z\}e se pokazati da je izolovani singularitet\
+ograni\\v\{c\}ene harmonijske funkcije otklonjiv(vidjeti dio 2.3 u \\cite\{axler\}).\
+\\newline U slu\\v\{c\}aju da je funkcija $u$ pozitivna i harmonijska na\
+$B\\backslash\\\{0\\\}$, tada postoji harmonijska funkcija $v$ na $B$ i\
+konstanta $b\\geq 0$ takva da je\
+$u\\left(x\\right)=v\\left(x\\right)+b\\log\\frac\{1\}\{\\vert x\\vert\}$ za\
+$n=2$ i $u\\left(x\\right)=v\\left(x\\right)+b\\vert x\\vert^\{2-n\}$ u\
+slu\\v\{c\}aju $n>2$, za sve $x\\in B\\backslash\\\{0\\\}$ (vidjeti dio 3.9 u \\cite\{axler\}).\
+\\newline Ako je $u$ harmonijska funkcija  na jedini\\v\{c\}noj\
+kugli $B$, tada vrijedi dekompozicija\
+$$u\\left(x\\right)=\\sum_\{m=0\}^\{\\infty\}p_\{m\}\\left(x\\right),$$ gdje\
+su $p_\{m\}$ harmonijski homogeni polinomi stepena $m$ i red\
+konvergira apsolutno i uniformno na kompaktnim podskupovima od\
+$B$(vidjeti dijelove 1.31 i 5.34 u \\cite\{axler\}). U slu\\v\{c\}aju da je funkcija harmonijska na anularnoj\
+oblasti, postoji sli\\v\{c\}na dekompozicija. Naime, vrijedi teorema (vidjeti dio 10.1 u \\cite\{axler\}).\
+\\begin\{thmy\}$\\left(n>2\\right)$ Neka je $u$ harmonijska funkcija na\
+anularnoj oblasti $A=\\\{x\\in\\mathbb\{R\}^\{n\}:r_\{0\}<\\vert\
+x\\vert<r_\{1\}\\\}$, gdje je $0\\leq r_\{0\}<\\infty$ i\
+$0<r_\{1\}\\leq\\infty$. Tada postoje jedinstveni harmonijski homogeni\
+polinomi $p_\{m\}$ i $q_\{m\}$ stepena $m$ takvi da je\
+$$u\\left(x\\right)=\\sum_\{m=0\}^\{\\infty\}p_\{m\}\\left(x\\right)+\\sum_\{m=0\}^\{\\infty\}\\frac\{q_\{m\}\\left(x\\right)\}\{\\vert\
+x\\vert^\{2m+n-2\}\}$$na $A$. Konvergencija je apsolutna i uniformna\
+na kompaktnim podskupovima od $A$.\
+\\end\{thmy\}\
+Neka je $n>2$, $a\\in\\Omega$ i $u$ harmonijska funkcija na\
+$\\Omega\\backslash\\\{a\\\}$. Prema prethodnoj teoremi, postoje homogeni\
+harmonijski polinomi $p_\{m\}$ i $q_\{m\}$ takvi da je\
+$$u\\left(x\\right)=\\sum_\{m=0\}^\{\\infty\}p_\{m\}\\left(x\\right)+\\sum_\{m=0\}^\{\\infty\}\\frac\{q_\{m\}\\left(x\\right)\}\{\\vert\
+x\\vert^\{2m+n-2\}\}$$ za $x$ u nekoj izbrisanoj okolini od $a$.\
+Funkciju $\\sum_\{m=0\}^\{\\infty\}\\frac\{q_\{m\}\\left(x-a\\right)\}\{\\vert\
+x-a\\vert^\{2m+n-2\}\}$ nazivamo glavni dio od $u$ u $a$ i prema tome\
+mo\\v\{z\}emo klasificirati singularitet od $a$. Za $u$ ka\\v\{z\}emo da\
+ima otklonjivi singularitet u $a$ ako je svaki \\v\{c\}lan glavnog\
+dijela jednak nuli. Za $u$ ka\\v\{z\}emo da ima pol u $a$ ako je\
+glavni dio kona\\v\{c\}na suma nenultih \\v\{c\}lanova. Za $u$\
+ka\\v\{z\}emo da ima esencijalni singularitet u ta\\v\{c\}ki $a$ ako\
+glavni dio ima beskona\\v\{c\}no mnogo nenultih \\v\{c\}lanova. Vrijedi\
+sljede\\'\{c\}a teorema (vidjeti dio 10.5 u \\cite\{axler\}). U slu\\v\{c\}aju $n=2$ vrijedi sli\\v\{c\}na teorema.\
+\\begin\{thmy\}$\\left(n>2\\right)$: Ako je $u$ harmonijska funkcija\
+s izolovanim singularitetom u $a$, tada $u$ ima:\
+\\newline i) izolovani singularitet u ta\\v\{c\}ki $a$ ako i samo ako\
+$$\\lim_\{x\\rightarrow a\}\\vert x-a\\vert^\{n-2\}\\vert u\\left(x\\right)\\vert=0$$\
+\\newline ii) pol u ta\\v\{c\}ki $a$ reda $M+n-2$ ako i samo ako $$0<\\limsup_\{x\\rightarrow a\}\\vert x-a\\vert^\{M+n-2\}\\vert u\\left(x\\right)\\vert<\\infty$$\
+\\newline iii) esencijalni singularitet u $a$ ako i samo ako $$\\limsup_\{x\\rightarrow a\}\\vert x-a\\vert^\{N\}\\vert\
+u\\left(x\\right)\\vert=\\infty,$$za svaki prirodni broj $N$.\
+\\end\{thmy\}\
+\
+\
+\\chapter\{Teorema\
+dekompozicije u kontekstu harmonijskih Bergmanovih prostora\}\
+Kako navodi Miroslav Engli\\v\{s\} u \\cite\{miroslav\}, teorija harmonijskih Bergmanovih prostora je vjerovatno zapo\\v\{c\}eta knjigom Bergmana i Schiffera \\cite\{bergman1\}. Bergmanovi prostori su analiti\\v\{c\}ki analog te teorije i literatura koja ih prou\\v\{c\}ava je znatno obimnija (vidjeti \\cite\{bergman\},\\cite\{hedenmalm\}). Pitanje nula funkcija u Bergmanovom prostoru je jedno od otvorenih pitanja u matematici.Harmonijske funkcije imaju osobine sli\\v\{c\}ne osobinama analiti\\v\{c\}kih funkcija. Me\\dj\{\}utim, budu\\'\{c\}i da harmonijske funkcije nisu Banahova algebra u odnosu na mno\\v\{z\}enje dokazivanje istih nije mogu\\'\{c\}e uraditi istim putem kao u analiti\\v\{c\}kom slu\\v\{c\}aju.\
+\\newline Teorema dekompozicije je generalizacija Laurentove teoreme o razvoju analiti\\v\{c\}ke funkcije u anularnoj oblasti. Ta generalizacija se mo\\v\{z\}e prona\\'\{c\}i u knjizi \\cite\{axler\}. Drugi dokaz iste teoreme se mo\\v\{z\}e prona\\'\{c\}i u \\cite\{chung\} i to metodama mikrolokalne analize i teorijom hiperfunkcija. Teorema dekompozicije je, ustvari, generalizacija pri\\v\{c\}e o singularnosti harmonijske funkcije u nekoj ta\\v\{c\}ki na neki kompaktni skup. Dekompozicija je jedinstvena pod odre\\dj\{\}enim uvjetima i ti uvjeti su upravo motivacija za uvo\\dj\{\}enje prostora $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Taj prostor objedinjuje harmonijske Bergmanove prostore i teoremu dekompozicije za harmonijske funkcije.\
+\\section\{Harmonijski Bergmanovi prostori\} Za funkciju $u$\
+ka\\v\{z\}emo da je harmonijska funkcija na $\\Omega$, gdje je\
+$\\Omega$ otvoreni neprazni podskup od $\\mathbb\{R\}^\{n\}$, ako je\
+$$\\Delta u=0$$ na $\\Omega$, gdje je $\\Delta$ Laplasov operator na $\\mathbb\{R\}^\{n\}$ definisan s\
+$$\\Delta=\\sum_\{i=1\}^\{n\}\\frac\{\\partial^\{2\}\}\{\\partial x_\{i\}^\{2\}\}.$$\
+Neka je $1\\leq p<\\infty$. Skup svih harmonijskih funkcija $u$ na\
+$\\Omega$ takvih da je $u\\in L^\{p\}\\left(\\Omega\\right)$\
+ozna\\v\{c\}avamo s $b^\{p\}\\left(\\Omega\\right)$. Vrijedi sljede\\'\{c\}a teorema (vidjeti dio 8.1 u \\cite\{axler\}).\
+\\begin\{thmy\}\
+\\label\{tacka\} Neka je $x\\in\\Omega$. Tada je $$\\vert u\\left(x\\right)\\vert\\leq\\frac\{1\}\{V\\left(B\\right)^\{1/p\}d\\left(x,\\partial\\Omega\\right)^\{n/p\}\}\\|u\\|_\{b^\{p\}\}$$ za sve $u\\in b^\{p\}\\left(\\Omega\\right)$.\
+ \\end\{thmy\}\
+\
+ U odnosu na $L^\{p\}$ normu, $b^\{p\}\\left(\\Omega\\right)$ je zatvoreni potprostor od $L^\{p\}\\left(\\Omega\\right)$, o \\v\{c\}emu govori i sljede\\'\{c\}a teorema (vidjeti dio 8.3 u \\cite\{axler\}).\
+\\begin\{thmy\} Ako je $1\\leq p<\\infty$ i $\\Omega$ otvoreni neprazni podskup od $\\mathbb\{R\}^\{n\}$, tada je $b^\{p\}\\left(\\Omega\\right)$ zatvoreni potprostor od $L^\{p\}\\left(\\Omega\\right)$.\
+\\end\{thmy\}\
+\
+Prethodna teorema implicira da je $b^\{2\}\\left(\\Omega\\right)$ Hilbertov prostor u odnosu na skalarni proizvod $$\\langle u,v\\rangle=\\int_\{\\Omega\}u\\overline\{v\}dV.$$ Za svako $x\\in\\Omega$ preslikavanje $u\\longmapsto u\\left(x\\right)$ je ograni\\v\{c\}eni linearni funkcional na $b^\{2\}\\left(\\Omega\\right)$. Slijedi da postoji jedinstvena funkcija $R_\{\\Omega\}\\left(x,\\cdot\\right)\\in b^\{2\}\\left(\\Omega\\right)$ takva da je $$u\\left(x\\right)=\\int_\{\\Omega\}u\\left(y\\right)\\overline\{R_\{\\Omega\}\\left(x,y\\right)\}dy,$$ za svako $u\\in b^\{2\}\\left(\\Omega\\right)$.\
+\\begin\{defy\} Funkcija $R_\{\\Omega\}$ na $\\Omega\\times\\Omega$ naziva se reproduciraju\\'\{c\}e jezgro od $\\Omega$.\
+\\end\{defy\}\
+U sljede\\'\{c\}oj teoremi \\'\{c\}emo dati osnovne osobine reproduciraju\\'\{c\}eg jezgra (vidjeti dio 8.4 u \\cite\{axler\}).\
+\\begin\{thmy\}\
+\\label\{reproducirano\} Reproduciraju\\'\{c\}e jezgro od $\\Omega$ ima sljede\\'\{c\}e osobine:\
+\\newline i) $R_\{\\Omega\}$ je realna funkcija\
+\\newline ii) Ako je $\\left(u_\{m\}\\right)$ ortonormirana baza od $b^\{2\}\\left(\\Omega\\right)$, tada je $$R_\{\\Omega\}\\left(x,y\\right)=\\sum_\{m=1\}^\{\\infty\}\\overline\{u_\{m\}\\left(x\\right)\}u_\{m\}\\left(y\\right)$$ za sve $x,y\\in\\Omega$.\
+\\newline iii) $$R_\{\\Omega\}\\left(x,y\\right)=R_\{\\Omega\}\\left(y,x\\right)$$ za sve $x,y\\in\\Omega$.\
+\\newline iv) $$\\|R_\{\\Omega\}\\left(x,\\cdot\\right)\\|_\{b^\{2\}\\left(\\Omega\\right)\}=\\sqrt\{R_\{\\Omega\}\\left(x,x\\right)\}$$ za sve $x\\in\\Omega$.\
+\\end\{thmy\}\
+\
+Po\\v\{s\}to je $b^\{2\}\\left(\\Omega\\right)$ zatvoreni potprostor Hilbetovog prostora $L^\{2\}\\left(\\Omega\\right)$, postoji jedinstvena ortogonalna projekcija od $L^\{2\}\\left(\\Omega\\right)$ na $b^\{2\}\\left(\\Omega\\right)$. Ova samoadjungovana projekcija se zove Bergmanova projekcija na $\\Omega$. Ozna\\v\{c\}imo je s $Q_\{\\Omega\}$. U sljede\\'\{c\}oj teoremi imamo vezu izme\\dj\{\}u Bergmanove projekcije i reproduciraju\\'\{c\}eg jezgra (vidjeti dio 8.5 u \\cite\{axler\}).\
+\\begin\{thmy\} Za svako $x\\in\\Omega$ vrijedi $$Q_\{\\Omega\}\\left[u\\right]\\left(x\\right)=\\int_\{\\Omega\}u\\left(y\\right)R_\{\\Omega\}\\left(x,y\\right)dy$$ za sve $u\\in L^\{2\}\\left(\\Omega\\right)$.\
+\\end\{thmy\}\
+\
+\
+\\section\{Definicija prostora\
+$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ i njegove\
+osobine\} Neka je $\\Omega$ otvoreni podskup od $\\mathbb\{R\}^n$ i\
+neka je $K\\subset\\Omega$ kompaktni podskup od $\\Omega$. Za $1\\leq\
+p<\\infty$, posmatrajmo harmonijski Bergmanov prostor\
+$b^p\\left(\\Omega\\right)$, tj. skup svih harmonijskih funkcija na\
+$\\Omega$ koje su iz $L^\{p\}\\left(\\Omega\\right)$.\
+\\begin\{thmy\}\
+\\label\{decomposition\} 1. $\\left(n>2\\right)$: Neka je $\\Omega$ otvoreni podskup od  $\\mathbb\{R\}^\{n\}$ i $K$ kompaktni podskup od\
+$\\Omega$. Ako je $u$ harmonijska funkcija na $\\Omega\\backslash K$, tada $u$ ima jedinstvenu dekompoziciju oblika $$u=v+w,$$ gdje je $v$ harmonijska na $\\Omega$ i  $w$ harmonijska na\
+$\\mathbb\{R\}^\{n\}\\backslash K$ i koja zadovoljava uvjet $$\\lim_\{x\\rightarrow\\infty\}\
+w\\left(x\\right)=0.$$\
+\\newline 2. $\\left(n=2\\right)$: Neka je $\\Omega$ otvoreni podskup od  $\\mathbb\{R\}^\{n\}$ i $K$ kompaktni podskup od\
+$\\Omega$. Ako je $u$ harmonijska funkcija na $\\Omega\\backslash K$, tada $u$ ima jedinstvenu dekompoziciju oblika $$u=v+w,$$ gdje je $v$ harmonijska funkcija na  $\\Omega$ i $w$ harmonijska funkcija na\
+$\\mathbb\{R\}^\{2\}\\backslash K$ i koja zadovoljava\
+$$\\lim_\{x\\rightarrow\\infty\}w\\left(x\\right)-b \\log \\vert x\\vert=0$$\
+za neku konstantu $b$.\
+\\end\{thmy\}\
+Za dokaz prethodne teoreme vidjeti dio 9.6 i 9.7 u \\cite\{axler\}.\
+U \\cite\{watson\}, analogni rezultat je dokazan u slu\\v\{c\}aju paraboli\\v\{c\}kih parcijalih diferencijalnih jedna\\v\{c\}ina. U ovom radu posmatrat \\'\{c\}emo skup  $\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)$ svih funkcija $u\\in b^p\\left(\\Omega\\backslash K\\right)$ koje imaju jedinstvenu dekompoziciju $u=v+w$, gdje je $v\\in b^p\\left(\\Omega\\right)$, $w\\in b^p\\left(\\mathbb\{R\}^n\\backslash K\\right)$, a uvjet za $w$ u beskona\\v\{c\}nosti ostaje isti (kasnije \\'\{c\}emo pokazati da on uop\\'\{c\}e nije ni potreban).\
+\\newline  Iz definicije je o\\v\{c\}igledno da je  $\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)$ vektorski potprostor od  $b^\{p\}\\left(\\Omega\\backslash K\\right)$ i da je $b^p\\left(\\Omega\\right)$ vektorski potprostor od $\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)$. Sama oznaka za prostor $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ govori nam da taj prostor zavisi samo od $p$ i $\\Omega\\backslash K$, \\v\{s\}to nije ta\\v\{c\}no, nego zavisi i od $\\Omega$ i od $K$. Oznaka bi trebala biti $\\mathcal\{A\}^\{p\}_\{\\Omega,K\}\\left(\\Omega\\backslash K\\right)$. Mi \\'\{c\}emo u nastavku koristiti i dalje oznaku koju smo uveli, a iz samog konteksta \\'\{c\}emo vidjeti \\v\{s\}ta je $\\Omega$, a \\v\{s\}ta $K$.\
+\\newline Defini\\v\{s\}imo normu u $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ na sljede\\'\{c\}i na\\v\{c\}in.\
+\\begin\{definition\}\
+Za $1\\leq p<\\infty$ i $u\\in\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)$, defini\\v\{s\}imo\
+\\[\\|u\\|_\{\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)\}^\{p\}=\\|v\\|_\{b^p\\left(\\Omega\\right)\}^\{p\}+\\|w\\|_\{b^\{p\}\\left(\\mathbb\{R\}^n\\backslash K\\right)\}^\{p\}.\\]\
+\\end\{definition\}\
+\
+Sa ovako definisanom normom $\\mathcal\{A\}^p\\left(\\Omega\\backslash K\\right)$ postaje normirani prostor. Sada \\'\{c\}emo dokazati da je to Banahov prostor i da je  $b^\{p\}\\left(\\Omega\\right)$ njegov zatvoreni potprostor.\
+\
+\\begin\{lemma\}\
+\\label\{bp\}\
+Neka je $1\\leq p<\\infty$ i $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ proizvoljno. Tada je\
+ \\[ \\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}\\leq 2^\{\\frac\{p-1\}\{p\}\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\} \\]\
+\\end\{lemma\}\
+ \\begin\{proof\}\
+Rezultat vrijedi iz sljede\\'\{c\}ih nejednakosti\
+ \\begin\{align*\}\
+ \\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}= \\|v+w\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}&\\leq \\left(\\|v\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}+\\|w\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}\\right)^\{p\}\\\\& \\leq  2^\{p-1\}\\left(\\|v\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}+\\|w\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}\\right)\\\\& \\leq  2^\{p-1\}\\left(\\|v\\|_\{b^\{p\}\\left(\\Omega\\right)\}^\{p\}+\\|w\\|_\{b^\{p\}\\left(\\mathbb\{R\}^n\\backslash K\\right)\}^\{p\}\\right)\\\\&= 2^\{p-1\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}.\
+ \\end\{align*\}\
+\
+\
+ \\end\{proof\}\
+Ova lema implicira da je svaki Ko\\v\{s\}ijev niz u $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ ujedno Ko\\v\{s\}ijev i u $b^\{p\}\\left(\\Omega\\backslash K\\right)$(ovo isto vrijedi i za konvergentne nizove).\
+\\begin\{lemma\}\
+\\label\{bounded\} Pretpostavimo da je $x\\in\\Omega\\backslash K$. Tada je $$\\vert\
+u\\left(x\\right)\\vert\\leq\\frac\{2^\{\\frac\{p-1\}\{p\}\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)\}\}\{V\\left(B\\right)^\{1/p\}d\\left(x,\\partial\
+\\left(\\Omega\\backslash K\\right)\\right)^\{n/p\}\}$$ za svako\
+$u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{lemma\}\
+\
+\\begin\{proof\}\
+Dokaz slijedi odmah iz prethodne leme, \\v\{c\}injenice da je\
+$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\subseteq\
+b^\{p\}\\left(\\Omega\\backslash K\\right)$ i teoreme \\ref\{tacka\}.\
+\\end\{proof\}\
+\\begin\{lemma\}\
+\\label\{lema2\}\
+Neka je $1\\leq p<\\infty$, $n\\geq 2$. Ako je $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K \\right)$, tada je  $\\lim_\{x\\rightarrow\\infty\}w\\left(x\\right)=0$.\
+\\end\{lemma\}\
+\\begin\{proof\}\
+Tvrdnja slijedi odmah iz \\v\{c\}injenice da je $\\lim_\{\\vert\
+x\\vert\\to\\infty\}d\\left(x,\\partial\\left(\\mathbb\{R\}^\{n\}\\backslash\
+K\\right)\\right)=\\infty$ i iz teoreme \\ref\{tacka\}.\
+\\end\{proof\}\
+\\begin\{theorem\}\
+Neka je $1\\leq p<\\infty$. $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ u odnosu na normu  $\\|.\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$ je Banahov prostor.\
+\\end\{theorem\}\
+\
+\\begin\{proof\}\
+Neka je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Slijedi da je  $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u $b^\{p\}\\left(\\Omega\\backslash K\\right)$. $b^\{p\}\\left(\\Omega\\backslash K\\right)$ je Banahov prostor, pa postoji $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ tako da je $u_\{m\}\\to u$ u $b^\{p\}\\left(\\Omega\\backslash K\\right)$. Tako\\dj\{\}er,  \\[\\|u_\{m\}-u_\{k\}\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}=\\|v_\{m\}-v_\{k\}\\|_\{b^\{p\}\\left(\\Omega\\right)\}^\{p\}+\\|w_\{m\}-w_\{k\}\\|_\{b^\{p\}\\left(\\mathbb\{R\}^n\\backslash K\\right)\}^\{p\},\\] gdje je $u_\{m\}=v_\{m\}+w_\{m\}$ na  $\\Omega\\backslash K$, dekompozicija iz definicije od  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to je  $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$, slijedi da je $\\left(v_\{m\}\\right)$ Ko\\v\{s\}ijev niz u  $b^\{p\}\\left(\\Omega\\right)$ i $\\left(w_\{m\}\\right)$ Ko\\v\{s\}ijev niz u  $b^\{p\}\\left(\\mathbb\{R\}^n\\backslash K\\right)$. Po\\v\{s\}to su $b^\{p\}\\left(\\Omega\\right)$ i $b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ Banahovi prostori, slijedi da postoje $v\\in b^\{p\}\\left(\\Omega\\right)$ i $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ takvi da je $v_\{m\}\\to v$ u $b^\{p\}\\left(\\Omega\\right)$ i $w_\{m\}\\to w$ in $b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$. Sada defini\\v\{s\}imo $u'=v+w$. Zbog prethodne leme $u'\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Sada je\
+\\[\\|u_\{m\}-u'\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}=\\|v_\{m\}-v\\|_\{b^\{p\}\\left(\\Omega\\right)\}^\{p\}+\\|w_\{m\}-w\\|_\{b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}^\{p\},\\] pa $u_\{m\}\\to u'$ u $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to je $u_\{m\}\\to u$ u $b^\{p\}\\left(\\Omega\\backslash K\\right)$, pa kako $u_\{m\}\\to u'$ u $b^\{p\}\\left(\\Omega\\backslash K\\right)$, slijedi da je  $u=u'\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Ovo implicira da je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ Banahov prostor, pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{lemma\}\
+Neka je $1\\leq p<\\infty$. Norma $\\|.\\|_\{b^\{p\}\\left(\\Omega\\right)\}$ na  $b^\{p\}\\left(\\Omega\\right)$ jednaka je restrikciji norme  $\\|.\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$ na  $b^\{p\}\\left(\\Omega\\right)$.\
+\\end\{lemma\}\
+\
+\\begin\{proof\}\
+Neka je $u\\in b^\{p\}\\left(\\Omega\\right)$ proizvoljno. Tada je $u=v+w$, gdje je $v=u$ na $\\Omega$ i $w=0$ na $\\mathbb\{R\}^\{n\}\\backslash K$. Uvjet u beskona\\v\{c\}nosti na $w$ je o\\v\{c\}igledno zadovoljen. Slijedi da je $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K \\right)$ i  $\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}^\{p\}=\\|u\\|_\{b^\{p\}\\left(\\Omega\\right)\}^\{p\}+\\|0\\|_\{b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}^\{p\}=\\|u\\|_\{b^\{p\}\\left(\\Omega\\right)\}^\{p\}$, \\v\{s\}to dokazuje ovu lemu.\
+\\end\{proof\}\
+\\begin\{theorem\}\
+\\label\{closed\}\
+Neka je $1\\leq p<\\infty$. Tada je $b^\{p\}\\left(\\Omega\\right)$ zatvoreni potprostor od $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\
+\\begin\{proof\}\
+Prethodna lema implicira da je topologija na $b^\{p\}\\left(\\Omega\\right)$ ista kao potprostorna topologija iz $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to je potprostor kompletnog metri\\v\{c\}kog prostora kompletan ako i samo ako je zatvoren u potprostornoj topologiji, slijedi da je $b^\{p\}\\left(\\Omega\\right)$ zatvoren u $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{proof\}\
+\
+\\begin\{theorem\}\
+\\label\{ap\}\
+\\begin\{equation\}\
+\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=V\\oplus W,\
+\\end\{equation\}\
+gdje je $V=b^\{p\}\\left(\\Omega\\right)\\vert_\{\\Omega\\backslash K\}$ i  $W=b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\\vert_\{\\Omega\\backslash K\}$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Dovoljno je dokazati da je $V\\cap W=\\left\\\{0\\right\\\}.$ Neka je $u\\in V\\cap W$ proizvoljno. Postoje $v\\in b^\{p\}\\left(\\Omega\\right)$ takvi da je  $u\\left(x\\right)=v\\left(x\\right)$ za sve $x\\in \\Omega\\backslash K.$ Tako\\dj\{\}er, postoji $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ tako da  $u\\left(x\\right)=w\\left(x\\right)$ za sve $x\\in\\Omega\\backslash K.$ Slijedi da je  $v\\left(x\\right)=w\\left(x\\right)$ for all $x\\in\\Omega\\backslash K.$ Defini\\v\{s\}imo sada funkciju $$\\psi(x) = \\left\\\{ \\begin\{array\}\{rcl\}\
+v\\left(x\\right) & \\mbox\{for\}\
+& x\\in\\Omega\\\\ w\\left(x\\right) & \\mbox\{for\} & x\\in\\mathbb\{R\}^\{n\}\\backslash K\
+\\end\{array\}\\right.$$ Ovako definisana funkcija $\\psi\\left(x\\right)$ je harmonijska funkcija na $\\mathbb\{R\}^\{n\}$ i $$\\int_\{\\mathbb\{R\}^\{n\}\}\\vert \\psi\\left(x\\right)\\vert^\{p\}dx\\leq \\int_\{\\Omega\}\\vert v\\left(x\\right)\\vert^\{p\}dx+\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\vert w\\left(x\\right)\\vert^\{p\}dx<\\infty,$$ pa $\\psi\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)=\\left\\\{0\\right\\\}$ (see \\cite\{axler\}). Slijedi da je $v=0$ na $\\Omega$ i $w=0$ na $\\mathbb\{R\}^\{n\}\\backslash K$. Odavde je $V\\cap W=\\left\\\{0\\right\\\}.$ Time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{proposition\} Neka je $\\Omega'$ otvoreni skup u $\\mathbb\{R\}^\{n\}$ takav da je $\\Omega\\subseteq\\Omega'$ i neka je $K'$ kompaktan skup takav da je $K'\\subseteq K$. Tada je $$\\mathcal\{A\}^\{p\}\\left(\\Omega'\\backslash K'\\right)=b^\{p\}\\left(\\Omega'\\backslash K' \\right)\\cap\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right).$$\
+\\end\{proposition\}\
+\
+\\begin\{proof\}\
+Dokaz \\'\{c\}emo izvesti iz dva dijela.\
+$"\\subseteq"$ Ako je $u\\in \\mathcal\{A\}^\{p\}\\left(\\Omega'\\backslash K'\\right)$, tada je $u=v+w$ na $\\Omega'\\backslash K'$, gdje je $v\\in b^\{p\}\\left(\\Omega'\\right)\\subseteq b^\{p\}\\left(\\Omega\\right)$ i $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K'\\right)\\subseteq b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$. Prema tome, imamo  $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Odavde je  $\\mathcal\{A\}^\{p\}\\left(\\Omega'\\backslash K'\\right)\\subseteq b^\{p\}\\left(\\Omega'\\backslash K'\\right)$, pa je ovaj smjer dokazan.\
+\\newline $"\\supseteq"$ Neka je $u\\in b^\{p\}\\left(\\Omega'\\backslash K'\\right)\\cap\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right).$. Teorema dekompozicije za harmonijske funkcije i \\v\{c\}injenica da vrijedi   $b^\{p\}\\left(\\Omega'\\backslash K'\\right)\\subseteq h\\left(\\Omega'\\backslash K'\\right)$ implicira da je $u=v+w$ on $\\Omega'\\backslash K'$, gdje je $v\\in h\\left(\\Omega'\\right)$, $w\\in h\\left(\\mathbb\{R\}^\{n\}\\backslash K'\\right)$, $v\\in b^\{p\}\\left(\\Omega\\right)$ i $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$. Dovoljno je dokazati da je $v\\in L^\{p\}\\left(\\Omega'\\right)$ i $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K'\\right)$. Iz $u\\in L^\{p\}\\left(\\Omega'\\backslash K'\\right)\\subseteq L^\{p\}\\left(\\Omega'\\backslash \\Omega\\right)$ i $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K'\\right)\\subseteq L^\{p\}\\left(\\Omega'\\backslash\\Omega\\right)$ slijedi da je $v=u-w\\in L^\{p\}\\left(\\Omega'\\backslash\\Omega\\right)$. Ali, vrijedi da je $v\\in b^\{p\}\\left(\\Omega\\right)\\subseteq L^\{p\}\\left(\\Omega\\right)$, pa imamo $v\\in L^\{p\}\\left(\\Omega'\\right)$. Tako\\dj\{\}er je $u\\in L^\{p\}\\left(\\Omega'\\backslash K'\\right)\\subseteq L^\{p\}\\left( K\\backslash K'\\right)$ i $v\\in L^\{p\}\\left(\\Omega\\right)\\subseteq L^\{p\}\\left(K\\backslash K'\\right)$, pa slijedi  $w=u-v\\in L^\{p\}\\left(K\\backslash K'\\right)$. Dodatno je  $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\\subseteq L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$, pa je  $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K'\\right)$, pa je time i drugi dio smjer dokazan. Time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{corollary\}\
+Ako je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K \\right)$, tada je $\\mathcal\{A\}^\{p\}\\left(\\Omega'\\backslash K'\\right)=b^\{p\}\\left(\\Omega'\\backslash K'\\right)$ za sve $K'\\subseteq K$ i $\\Omega'\\supseteq\\Omega$.\
+\\end\{corollary\}\
+\
+\\begin\{corollary\}\
+Ako je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$, tada je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)=b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, za svako $a\\in K$.\
+\\end\{corollary\}\
+\\begin\{theorem\}\
+Neka je $a\\in\\Omega$ proizvoljno. Tada je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)=b^\{p\}\\left(\\Omega\\backslash\\left\\\{a\\right\\\}\\right)$ ako i samo ako je $a$ otklonjivi singularitet za svako $u\\in b^\{p\}\\left(\\Omega\\backslash\\left\\\{a\\right\\\}\\right)$.\
+\\end\{theorem\}\
+\
+\\begin\{proof\}\
+Vrijedi da je $$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)=V\\oplus W,$$ gdje je  $V=b^\{p\}\\left(\\Omega\\right)\\vert_\{\\Omega\\backslash \\left\\\{a\\right\\\}\}$ i  $W=b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash \\left\\\{a\\right\\\}\\right)\\vert_\{\\Omega\\backslash \\left\\\{a\\right\\\}\}=\\left\\\{0\\right\\\}$. Slijedi da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)=b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$ ako i samo ako $b^\{p\}\\left(\\Omega\\right)\\vert_\{\\Omega\\backslash \\left\\\{a\\right\\\}\}=b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$. Po\\v\{s\}to je $b^\{p\}\\left(\\Omega\\right)\\vert_\{\\Omega\\backslash \\left\\\{a\\right\\\}\}\\subseteq b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, $"\\supseteq"$ slijedi ako i samo ako za svako $u\\in b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, postoji $v\\in h\\left(\\Omega\\right)$ tako da je $v=u$ na $\\Omega\\backslash \\left\\\{a\\right\\\}$ tj. ako i samo ako za svako $u\\in b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, $a$ je otklonjivi singularitet od $u$. Time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\
+\\begin\{theorem\}\
+\\label\{th6\}\
+Ako je $n\\geq 3$ i $p\\geq \\frac\{n\}\{n-2\}$, tada je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)=b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, za svako $a\\in\\Omega$.\
+\\end\{theorem\}\
+\
+\\begin\{proof\}\
+Dovoljno je dokazati da je $a$ otklonjivi singularitet za svako $u\\in b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$. Mo\\v\{z\}e se pokazati  (vidjeti dio 10.5 u \\cite\{axler\}) da $u$ ima otklonjivi singularitet u $a$ ako i samo ako  $$\\lim_\{x\\rightarrow a\}\\vert x-a\\vert^\{n-2\}\\vert u\\left(x\\right)\\vert=0. $$ Tako\\dj\{\}er, koriste\\'\{c\}i teoremu \\ref\{tacka\} mo\\v\{z\}emo dokazati da ako je $u\\in b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)$, vrijedi  $$u\\left(x\\right)=o\\left(\\vert x-a\\vert^\{n/p\}\\right),$$ kad $x\\rightarrow a$. Time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{remark\}\
+\\label\{prvi\} Za $n=2$, mo\\v\{z\}emo na\\'\{c\}i funkciju $u\\in \\bigcap_\{1\\leq p<\\infty\} b^\{p\}\\left(B\\backslash \\left\\\{0\\right\\\}\\right)$ takvu da $0$ nije otklonjivi singularitet od $u$(vidjeti vje\\v\{z\}bu 8.6 u \\cite\{axler\}). Slijedi da za $n=2$, $\\mathcal\{A\}^\{p\}\\left(B\\backslash \\left\\\{0\\right\\\}\\right)\\neq b^\{p\}\\left(B\\backslash \\left\\\{0\\right\\\}\\right)$, za sve  $1\\leq p<\\infty$, gdje je $B$ jedini\\v\{c\}na kugla u $\\mathbb\{R\}^\{n\}$ (vidjeti  \\cite\{axler\}).\
+\\end\{remark\}\
+\\begin\{remark\} Bilo bi zanimljivo okarakterizirati skup $M$ svih $\\left(n,p,\\Omega, K\\right)$ takvih da je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$. Iz posljednje teoreme vidimo da je $\\left(n,p,\\Omega,\\left\\\{a\\right\\\}\\right)\\in M$ za $n\\geq 3, p\\geq\\frac\{n\}\{n-2\}$ i $a\\in\\Omega$, proizvoljno. Tako\\dj\{\}er, iz napomene \\ref\{prvi\} i posljedice 2 imamo da za sve $p\\geq 1$ i proizvoljni kompaktni skup  $K\\subseteq B$, gdje je $B$ jedini\\v\{c\}na kugla u $\\mathbb\{R\}^\{n\}$, $\\left(2,p,B,K\\right)\\notin M$.\
+\\end\{remark\}\
+\\section\{Prostor $\\mathcal\{A\}^\{p\}\\left(E\\right)$ i\
+$p$-produ\\v\{z\}ivost harmonijskih funkcija\} Neka je $n\\geq 2$,\
+$\\Omega$ otvoreni podskup od $\\mathbb\{R\}^\{n\}$ i $K$ kompaktni\
+podskup od $\\Omega$. Ako je $u$ harmonijska funkcija na\
+$\\Omega\\backslash K$, postoje funkcije $v$ i $w$ takve da je\
+$u=v+w$ na $\\Omega\\backslash K$, gdje je $v$ harmonijska funkcija\
+na $\\Omega$ i $w$ harmonijska funkcija na\
+$\\mathbb\{R\}^\{n\}\\backslash K$. Ako dodamo uvjet na $w$ da je\
+$\\lim_\{\\vert x\\vert\\to\\infty\}w\\left(x\\right)=0$ u slu\\v\{c\}aju da\
+je $n>2$, ili $\\lim_\{\\vert\
+x\\vert\\to\\infty\}w\\left(x\\right)-\\alpha\\log\\vert x\\vert=0$ (za neku\
+konstantu $\\alpha$) u slu\\v\{c\}aju $n=2$, tada je dekompozicija\
+$u=v+w$ jedinstvena. Neka je $1\\leq p<\\infty$.\
+ S $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ smo ozna\\v\{c\}ili skup svih funkcija $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ takvih da je $u=v+w$ na $\\Omega\\backslash K$, gdje je $v\\in b^\{p\}\\left(\\Omega\\right)$ i $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$. U prethodnom dijelu smo dokazali da je $$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\right)\\vert_\{\\Omega\\backslash K\}\\oplus b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\\vert_\{\\Omega\\backslash K\}.$$ Ovo je motivacija za sljede\\'\{c\}u definiciju.\
+ \\begin\{definition\} Neka je $1\\leq p<\\infty$, $\\Omega$ otvoreni podskup od  $\\mathbb\{R\}^\{n\}$ i $K$  kompaktni podskup od $\\Omega$. Neka je $E$ proizvoljni neprazni otvoreni podskup od $\\Omega\\backslash K$. Defini\\v\{s\}imo  $$\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(\\Omega\\right)\\vert_\{E\}\\oplus b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\\vert_\{E\}.$$\
+ \\end\{definition\}\
+   \\begin\{remark\} Umjesto notacije $\\mathcal\{A\}^\{p\}_\{\\Omega,K\}\\left(E\\right)$ trebali bismo koristiti notaciju $\\mathcal\{A\}^\{p\}\\left(E\\right)$ jer prethodna definicija zavisi od $\\Omega$ i  $K$, ne samo od $E$. Nastavit \\'\{c\}emo s kori\\v\{s\}tenjem notacije $\\mathcal\{A\}^\{p\}\\left(E\\right)$, a $\\Omega$ i $K$ \\'\{c\}emo prepoznati iz konteksta.\
+   \\end\{remark\}\
+   \\begin\{lemma\} Za svaki otvoreni skup $E$ u $\\Omega\\backslash K$ vrijedi da je  $$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=\\mathcal\{A\}^\{p\}\\left(E\\right).$$\
+   \\end\{lemma\}\
+   \\begin\{proof\} Neka je $u\\in\\mathcal\{A\}^\{p\}\\left(E\\right)$. Postoje $v\\in b^\{p\}\\left(\\Omega\\right)$ i $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ takvi da je $u=v+w$ on $E$. O\\v\{c\}igledno $v+w$ je harmonijska na  $\\Omega\\backslash K$. Neka je $U=v+w$ na $\\Omega\\backslash K$. Imamo da je  $U\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ i $u=U\\vert_\{E\}$, pa je  $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}$. Drugi smjer je o\\v\{c\}igledan.\
+   \\end\{proof\}\
+  Rekli smo kako bi bilo dobro okarakterisati sve  $\\left(n,p,\\Omega,K\\right)$ takve da je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$. Posmatrajmo sli\\v\{c\}an problem, tj. da vidimo kad je $\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(E\\right)$ za neki otvoreni skup $E$ u $\\Omega\\backslash K$. Sada \\'\{c\}emo dokazati sljede\\'\{c\}u teoremu.\
+  \\begin\{theorem\} Neka je $E$ neprazni otvoreni podskup od $\\Omega\\backslash K$. Tada je $\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(E\\right)$ ako i samo ako  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$ i $b^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(E\\right)$.\
+  \\end\{theorem\}\
+ \\begin\{proof\} Pretpostavimo da je  $\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(E\\right)$. Zbog prethodne leme slijedi  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(E\\right)$. Neka je $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$. Tada je $u\\vert_\{E\}\\in b^\{p\}\\left(E\\right)=\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}$, pa postoji $\\widetilde\{u\}\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ takvo da je  $u\\vert_\{E\}=\\widetilde\{u\}\\vert_\{E\}$. Ovo i \\v\{c\}injenica da su $u$ i $\\widetilde\{u\}$ harmonijske na $\\Omega\\backslash K$, implicira $u=\\widetilde\{u\}$ na $\\Omega\\backslash K$. Slijedi da je  $u=\\widetilde\{u\}\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Zaklju\\v\{c\}ujemo da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$. Odavde dobijamo  $b^\{p\}\\left(E\\right)=\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}$, pa je jedan smjer dokazan.\
+ \\newline Pretpostavimo sada da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$ i $b^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(E\\right)$. Imamo  $\\mathcal\{A\}^\{p\}\\left(E\\right)=\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(E\\right)$, pa je i drugi smjer dokazan. Time je dokaz zavr\\v\{s\}en.\
+  \\end\{proof\}\
+Ova teorema je motivacija za sljede\\'\{c\}u definiciju.\
+\\begin\{definition\} Neka je $n\\geq 2$ i $1\\leq p<\\infty$. Neka je $\\Omega$ otvoreni podskup od $\\mathbb\{R\}^\{n\}$ i $K$ kompaktni podskup od $\\Omega$. Ka\\v\{z\}emo da je neprazni otvoreni podskup $E$ od $\\Omega\\backslash K$ harmonijski $p$-produ\\v\{z\}iv na $\\Omega\\backslash K$ ako vrijedi $b^\{p\}\\left(\\Omega\\backslash K\\right)\\vert_\{E\}=b^\{p\}\\left(E\\right)$.\
+\\end\{definition\}\
+Prethodna teorema ka\\v\{z\}e da je  $\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(E\\right)$ ako i samo ako je $E$  harmonijski $p$-produ\\v\{z\}iv na $\\Omega\\backslash K$ i  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\begin\{corollary\} Ako je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\neq b^\{p\}\\left(\\Omega\\backslash K\\right)$, tada je $\\mathcal\{A\}^\{p\}\\left(E\\right)\\neq b^\{p\}\\left(E\\right)$ za svaki neprazni otvoreni podskup $E$ od $\\Omega\\backslash K$.\
+\\end\{corollary\}\
+\\begin\{corollary\} Ako je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K\\right)$, tada je  $\\mathcal\{A\}^\{p\}\\left(E\\right)=b^\{p\}\\left(E\\right)$ ako i samo ako je $E$ harmonijski $p$-produ\\v\{z\}iv na $\\Omega\\backslash K$.\
+\\end\{corollary\}\
+\\begin\{remark\}\
+Bilo bi zanimljivo okarakterizirati sve harmonijski\
+$p$-produ\\v\{z\}ive skupove $E$ na $\\Omega\\backslash K$.\
+\\end\{remark\}\
+\
+\
+\\chapter\{Teorema dekompozicije u kontekstu reproduciraju\\'\{c\}ih jezgara\}\
+Reproduciraju\\'\{c\}a jezgra rekonstrui\\v\{s\}u vrijednost funkcije iz nekog Hilbertovog prostora kori\\v\{s\}tenjem skalarnog proizvoda definisanog na tom prostoru. Teorija reproduciraju\\'\{c\}ih jezgara je zapo\\v\{c\}eta radom Aronszajna (vidjeti \\cite\{aronszajn\}). Danas je ova ista teorija uzela maha u primijenjenoj matematici i to u podru\\v\{c\}jima vje\\v\{s\}ta\\v\{c\}ke inteligencije (vidjeti \\cite\{hofmann\}). Imamo i primjenu reproduciraju\\'\{c\}ih jezgara u numeri\\v\{c\}kom rje\\v\{s\}avanju parcijalnih diferencijalnih jedna\\v\{c\}ina (vidjeti \\cite\{vratislava\}).\
+\\newline Reproduciraju\\'\{c\}a jezgra se pojavljuju i u teoriji Bergmanovih prostora. Bergmanovo jezgro kao i harmonijsko Bergmanovo jezgro su predmetom  istra\\v\{z\}ivanja mnogih nau\\v\{c\}nih radova. Upravo otvoreni skup na kojem se ti prostori posmatraju, dosta uti\\v\{c\}e na pona\\v\{s\}anje tog jezgra. Izra\\v\{c\}unavanje harmonijskog Bergmanovog jezgra je prvo zapo\\v\{c\}eto za jedini\\v\{c\}nu kuglu (vidjeti \\cite\{axler\},\\cite\{stroethoff\},\\cite\{miao\},\\cite\{pavlovic\}). Kasnije su osobine istih druga\\v\{c\}ijim metodama dokazane za ograni\\v\{c\}ene oblasti s glatkom granicom kao i za gornji poluprostor (vidjeti \\cite\{ramey\}). Isto je ura\\dj\{\}eno i za te\\v\{z\}inska Bergmanova jezgra (vidjeti \\cite\{brent\}). Harmonijsko Bergmanovo jezgro na komplementu jedini\\v\{c\}ne kugle je tek dobiveno u \\cite\{zhao\}. Nakon \\v\{s\}to uvedemo reproduciraju\\'\{c\}e jezgro za $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, na\\'\{c\}i \\'\{c\}emo eksplicitnu formulu istog za slu\\v\{c\}aj anularnih oblasti i za komplement kugle u gornjem poluprostoru. Upravo nepostojanje eksplicitne formule za harmonijske Bergmanove prostore na takvim skupovima, daje prednost reproduciraju\\'\{c\}em jezgru koje \\'\{c\}emo uvesti u sljede\\'\{c\}em dijelu ovog poglavlja.\
+\\section\{Reproduciraju\\'\{c\}e jezgro za\
+$\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$\} Za $p=2$,\
+$\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ je Hilbertov\
+prostor sa skalarnim proizvodom definisanim sa $$\\langle\
+u_\{1\},u_\{2\}\\rangle_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\
+\\right)\}=\\langle\
+v_\{1\},v_\{2\}\\rangle_\{b^\{2\}\\left(\\Omega\\right)\}+\\langle\
+w_\{1\},w_\{2\}\\rangle_\{b^\{2\}\\left(\\mathbb\{R\}^\{n\}\\backslash\
+K\\right)\},$$ gdje su $u_\{1\}=v_\{1\}+w_\{1\}$ i $u_\{2\}=v_\{2\}+w_\{2\}$\
+dekompozicije od $u_\{1\}$ i $u_\{2\}$ u\
+$\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, respektivno.\
+\\newline  Za svako $x\\in\\Omega\\backslash K,$ preslikavanje $u\\longmapsto u\\left(x\\right)$ je ograni\\v\{c\}eni linearni funkcional na $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Prema tome, postoji  $S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ takav da  $u\\left(x\\right)=\\langle u, S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\},$ za svako $u\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right).$\
+\\newline Kako je $S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, postoji jedistveno $V_\{\\Omega\}\\left(x,\\cdot\\right)\\in b^\{2\}\\left(\\Omega\\right)$ i $W_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)\\in b^\{2\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right),$ takvo da je $S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)=V_\{\\Omega\}\\left(x,\\cdot\\right)+W_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)$ na $\\Omega\\backslash K$. Neka je $x\\in\\Omega\\backslash K$ proizvoljno. Slijedi da je  $$u\\left(x\\right)=\\int_\{\\Omega\}v\\left(y\\right)\\overline\{V_\{\\Omega\}\\left(x,y\\right)\}dy +\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}w\\left(y\\right)\\overline\{W_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,y\\right)\}dy,$$ gdje je $u=v+w$ dekompozicija od $u$ u $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to je $b^\{2\}\\left(\\Omega\\right)\\subseteq \\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ i $b^\{2\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\\subseteq\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, to slijedi da je  $V_\{\\Omega\}\\left(x,\\cdot\\right)=R_\{\\Omega\}\\left(x,\\cdot\\right)$ na $\\Omega$ i $W_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)=R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)$ on $\\mathbb\{R\}^\{n\}\\backslash K,$ gdje su $R_\{\\Omega\}$ i $R_\{\\mathbb\{R\}^\{n\}\\backslash K\}$ reproduciraju\\'\{c\}a jezgra na $\\Omega$ i $\\mathbb\{R\}^\{n\}\\backslash K,$ respektivno. Dokazali smo sljede\\'\{c\}u teoremu.\
+\\begin\{theorem\}\
+\\label\{kernel\}\
+Vrijedi da je  $$S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)=R_\{\\Omega\}\\left(x,\\cdot\\right)+R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)$$ na $\\Omega\\backslash K.$\
+\\end\{theorem\}\
+\
+Neke korisne osobine reproduciraju\\'\{c\}eg jezgra $S_\{\\Omega\\backslash K\}$ na  $\\Omega\\backslash K$ su date sljede\\'\{c\}om teoremom.\
+\
+\\begin\{theorem\}\
+\\label\{properties\}\
+Reproduciraju\\'\{c\}e jezgro $S_\{\\Omega\\backslash K\}$ na $\\Omega\\backslash K$ ima sljede\\'\{c\}e osobine:\
+\\newline 1. $S_\{\\Omega\\backslash K\}$ je realna funkcija.\
+\\newline 2. Ako je $\\left(u_\{m\}\\right)$ ortonormirana baza od  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, tada je $$S_\{\\Omega\\backslash K\}\\left(x,y\\right)=\\sum_\{m=1\}^\{\\infty\}\\overline\{u_\{m\}\\left(x\\right)\}u_\{m\}\\left(y\\right)$$ za sve $x,y\\in\\Omega\\backslash K.$\
+\\newline 3. $S_\{\\Omega\\backslash K\}\\left(x,y\\right)=S_\{\\Omega\\backslash K\}\\left(y,x\\right)$ za sve $x,y\\in\\Omega\\backslash K.$\
+\\newline 4. $\\|S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\|^\{2\}_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\}=S_\{\\Omega\\backslash K\}\\left(x,x\\right)$ for all $x\\in\\Omega\\backslash K$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+1. i 3. slijede odmah iz teoreme \\ref\{kernel\} i teoreme \\ref\{reproducirano\}.\
+\\newline 2. Ako je $u_\{m\}=v_\{m\}+w_\{m\}$ dekompozicija u  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, tada vrijedi\
+\\begin\{align*\}\
+S_\{\\Omega\\backslash K\}\\left(x,y\\right)&=\\sum_\{m=1\}^\{\\infty\}\\langle S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right),u_\{m\}\\rangle_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\} u_\{m\}\\left(y\\right)\\\\&=\\sum_\{m=1\}^\{\\infty\}\\left(\\langle R_\{\\Omega\}\\left(x,\\cdot\\right),v_\{m\}\\rangle_\{b^\{2\}\\left(\\Omega\\right)\}+\\langle R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,\\cdot\\right)w_\{m\}\\rangle\\right)u_\{m\}\\left(y\\right)\\\\&=\\sum_\{m=1\}^\{\\infty\}\\left(\\overline\{v_\{m\}\\left(x\\right)\}+\\overline\{w_\{m\}\\left(x\\right)\}\\right)u_\{m\}\\left(y\\right)\
+ \\end\{align*\}\
+pa 2. slijedi.\
+\\newline 4. \\begin\{align*\}\\|S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\|_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\}^\{2\}&=\\|R_\{\\Omega\}\\left(x,\\cdot\\right)\\|_\{b^\{2\}\\left(\\Omega\\right)\}^\{2\}+\\|R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\|_\{b^\{2\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}^\{2\}\\\\&=R_\{\\Omega\}\\left(x,x\\right)+R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,x\\right)\\\\&=S_\{\\Omega\\backslash K\}\\left(x,x\\right)\
+\\end\{align*\}\
+\\end\{proof\}\
+\
+Sljede\\'\{c\}a lema se mo\\v\{z\}e na\\'\{c\}i u \\cite\{axler\}.\
+\\begin\{lemy\}\
+\\label\{limes\}\
+Pretpostavimo da je $\\Omega_\{1\}\\subseteq\\Omega_\{2\}\\subseteq...$ rastu\\'\{c\}i niz otvorenih podskupova od $\\mathbb\{R\}^\{n\}$ i $\\Omega=\\bigcup_\{k=1\}^\{\\infty\}\\Omega_\{k\}.$ Tada  $R_\{\\Omega\}\\left(x,y\\right)=\\lim_\{k\\rightarrow\\infty\}R_\{\\Omega_\{k\}\}\\left(x,y\\right),$ za sve $x,y\\in\\Omega$.\
+\\end\{lemy\}\
+\\begin\{theorem\}\
+\\label\{sequence\}\
+Pretpostavimo da je $\\Omega_\{1\}\\subseteq\\Omega_\{2\}\\subseteq...$ rastu\\'\{c\}i niz otvorenih podskupova od $\\mathbb\{R\}^\{n\}$, $K_\{1\}\\supseteq K_\{2\}\\supseteq...$ opadaju\\'\{c\}i niz kompaktnih skupova, $K_\{1\}\\subset\\Omega_\{1\}$. Ako ozna\\v\{c\}imo  $\\Omega_\{j\}'=\\Omega_\{j\}\\backslash K_\{j\}, \\Omega=\\bigcup_\{j=1\}^\{\\infty\}\\Omega_\{j\}, K=\\bigcap_\{j=1\}^\{\\infty\} K_\{j\}$ tada $S_\{\\Omega\\backslash K\}\\left(x,y\\right)=\\lim_\{j\\rightarrow\\infty\}S_\{\\Omega_\{j\}'\}\\left(x,y\\right)$ za sve $x,y\\in\\Omega\\backslash K$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Vrijedi da je  \\begin\{align*\}\
+S_\{\\Omega\\backslash K\}\\left(x,y\\right)&=R_\{\\Omega\}\\left(x,y\\right)+R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,y\\right)\\\\&=\\lim_\{j\\rightarrow\\infty\}R_\{\\Omega_\{j\}\}\\left(x,y\\right)+\\lim_\{j\\rightarrow\\infty\} R_\{\\mathbb\{R\}^\{n\}\\backslash K_\{j\}\}\\left(x,y\\right)\\\\&=\\lim_\{j\\rightarrow\\infty\} S_\{\\Omega_\{j\}\\backslash K_\{j\}\}\\left(x,y\\right)=\\lim_\{j\\rightarrow\\infty\} S_\{\\Omega_\{j\}'\}\\left(x,y\\right)\
+\\end\{align*\} za sve $x,y\\in\\Omega\\backslash K$ pa je teorema dokazana.\
+\\end\{proof\}\
+\
+\\begin\{remark\}\
+Ako je $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)=b^\{2\}\\left(\\Omega\\backslash K\\right)$, tada za svako $x\\in\\Omega\\backslash K$ vrijedi $R_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, pa bi bilo zanimljivo vidjeti relacije izme\\dj\{\}u $S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$ i $R_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$ i njihovih komponenti u $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Lahko se mo\\v\{z\}e pokazati kori\\v\{s\}tenjem teoreme \\ref\{th6\} da  $S_\{\\Omega\\backslash\\left(a\\right)\}\\left(x,\\cdot\\right)=R_\{\\Omega\\backslash \\left\\\{a\\right\\\}\}\\left(x,\\cdot\\right)$ vrijedi za $n\\geq 4$ i svako $a\\in\\Omega$. Te\\v\{s\}ko\\'\{c\}a problema da se prona\\dj\{\}e kompaktan skup za koji reproduciraju\\'\{c\}a jezgra nisu jednaka (ako takav uop\\'\{c\}e postoji), posljedica je toga \\v\{s\}to nemamo eksplicitnu formulu za reproduciraju\\'\{c\}a jezgra u harmonijskim Bergmanovim prostorima na skupovima oblika $\\Omega\\backslash K$.\
+\\end\{remark\}\
+\
+\\begin\{remark\}\
+Bilo bi zanimljivo posmatrati ove ideje u slu\\v\{c\}aju rje\\v\{s\}enja paraboli\\v\{c\}kih parcijalnih diferencijalnih jedna\\v\{c\}ina, jer i u tom slu\\v\{c\}aju imamo analogni teorem dekompozicije (vidjeti \\cite\{watson\}).\
+\\end\{remark\}\
+\
+\
+\\section\{Eksplicitna formula od $S_\{\\Omega\\backslash K\}$ za anularne oblasti\}\
+Nedavno je Zhao (vidjeti \\cite\{zhao\}) prona\\v\{s\}ao eksplicitnu formulu za harmonijsko Bergmanovo jezgro na komplementu jedini\\v\{c\}ne kugle u $\\mathbb\{R\}^\{n\}$. Harmonijsko Bergmanovo jezgro za anularne oblasti jo\\v\{s\} nije poznato. Nije \\v\{c\}ak ni poznato Bergmanovo jezgro u slu\\v\{c\}aju analiti\\v\{c\}kih funkcija na anularnim oblastima. Smatramo da, upravo reproduciraju\\'\{c\}e jezgro uvedeno u prethodnom dijelu, daje zamjenu za harmonijsko Bergmanovo jezgro.\
+\\newline Neka je $\\mathbb\{A\}=\\\{x: x\\in\\mathbb\{R^\{n\}\}, r_\{0\}<\\|x-a\\|<r_\{1\}\\\}$, pri \\v\{c\}emu je $0<r_\{0\}<r_\{1\}<\\infty$ i $a\\in\\mathbb\{R\}^\{n\}$. Sada je $$S_\{\\mathbb\{A\}\}\\left(x,y\\right)=R_\{r_\{1\}B+a\}\\left(x,y\\right)+R_\{r_\{0\}G+a\}\\left(x,y\\right),$$ pri \\v\{c\}emu je $G=\\\{x\\in\\mathbb\{R\}^\{n\}:\\|x\\|>1\\\}$.\
+\\begin\{lemy\} Neka je $\\Omega$ otvoreni neprazni skup u $\\mathbb\{R\}^\{n\}$. Za svako $a\\in\\mathbb\{R\}^\{n\}$ i $r>0$ vrijedi $$R_\{r\\Omega+a\}\\left(x,y\\right)=\\frac\{1\}\{r^\{n\}\}R_\{\\Omega\}\\left(\\frac\{x-a\}\{r\},\\frac\{y-a\}\{r\}\\right).$$\
+\\end\{lemy\}\
+Ova lema je vje\\v\{z\}ba 8.9 u \\cite\{axler\}. Kori\\v\{s\}tenjem ove leme sada imamo\
+$$S_\{\\mathbb\{A\}\}\\left(x,y\\right)=\\frac\{1\}\{r_\{1\}^\{n\}\}R_\{B\}\\left(\\frac\{x-a\}\{r_\{1\}\},\\frac\{y-a\}\{r_\{1\}\}\\right)+\\frac\{1\}\{r_\{0\}^\{n\}\}R_\{G\}\\left(\\frac\{x-a\}\{r_\{0\}\},\\frac\{y-a\}\{r_\{0\}\}\\right)$$\
+\\begin\{lemy\}Neka je $x,y\\in B$. Tada je $$R_\{B\}\\left(x,y\\right)=\\frac\{\\left(n-4\\right)\\| x\\|^\{4\}\\| y\\|^\{4\}+\\left(8x\\cdot y-2n-4\\right)\\| x\\|^\{2\}\\| y\\|^\{2\}+n\}\{n V\\left(B\\right)\\left(1-2x\\cdot y+\\| x\\|^\{2\}\\| y\\|^\{2\}\\right)^\{1+n/2\}\}$$\
+\\end\{lemy\}\
+Ova lema je dio 8.13 u \\cite\{axler\}. Vrijedi sljede\\'\{c\}a teorema (za dokaz vidjeti \\cite\{zhao\}).\
+\\begin\{thmy\} Neka je $x,y\\in G=\\\{x\\in\\mathbb\{R\}^\{n\}:\\|x\\|>1\\\}$.\
+\\newline Ako je $n\\geq 4$, onda je $$R_\{G\}\\left(x,y\\right)=\\|x\\|^\{2-n\}\\|y\\|^\{2-n\}\\left[R_\{B\}\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)-\\frac\{4\}\{n V\\left(B\\right)\}P\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)\\right]$$\
+Ako je $n=3$, onda je $$R_\{G\}\\left(x,y\\right)=\\|x\\|^\{-1\}\\|y\\|^\{-1\}\\left[R_\{B\}\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)-\\frac\{1\}\{\\pi\} P\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)+\\frac\{1\}\{4\\pi\}\\right]$$\
+Ako je $n=2$, onda je $$R_\{G\}\\left(x,y\\right)=R_\{B\}\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)-\\frac\{2\}\{\\pi\}P\\left(\\frac\{x\}\{\\|x\\|^\{2\}\},\\frac\{y\}\{\\|y\\|^\{2\}\}\\right)+\\frac\{1\}\{\\pi\}$$\
+Ovdje je $P$ pro\\v\{s\}ireno Poissonovo jezgro na $B$ definisano s $$P\\left(s,t\\right)=\\frac\{1-\\|s\\|^\{2\}\\|t\\|^\{2\}\}\{\\left(1-2s\\cdot t +\\|s\\|^\{2\}\\|t\\|^\{2\}\\right)^\{n/2\}\}.$$\
+\\end\{thmy\}\
+\
+Iz prethodne leme i teoreme dobijamo eksplicitnu formulu za $S_\{\\mathbb\{A\}\}\\left(x,y\\right)$ koju zbog glomaznosti izostavljamo. Mo\\v\{z\}e se, tako\\dj\{\}er, izra\\v\{c\}unati eksplicitna formula i u slu\\v\{c\}aju komplementa kugle u gornjem poluprostoru.\
+\
+\
+\
+\\section\{Ekvivalencija normi\}\
+ U prethodnom poglavlju smo dokazali sljede\\'\{c\}u lemu.\
+\\begin\{lemma\} Neka je $1\\leq p<\\infty$ i $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ proizvoljno. Tada  $$\\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}\\leq 2^\{\\frac\{p-1\}\{p\}\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}.$$\
+\\end\{lemma\}\
+Na osnovu ove mogli bismo se zapitati: Da li postoji $C>0$ takvo da je  $\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}\\leq C\\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$ za sve  $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$?\
+\\begin\{remark\} Ako je $\\Omega=\\mathbb\{R\}^\{n\}$ i $K$ proizvoljni kompaktni skup od  $\\mathbb\{R\}^\{n\}$, tada su ove norme jednake, jer je $u=v+w$, gdje je $v=0$ na $\\mathbb\{R\}^\{n\}$. Tako\\dj\{\}er, u slu\\v\{c\}aju kada je $K=\\left\\\{a\\right\\\}$, gdje  $a\\in\\Omega$, vrijedi $u=v+w$, gdje $v\\in b^\{p\}\\left(\\Omega\\right)$, $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash\\left\\\{a\\right\\\}\\right)=\\left\\\{0\\right\\\}$. Slijedi da je $w=0$ on $\\mathbb\{R\}^\{n\}\\backslash\\left\\\{a\\right\\\}$ i $\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)\}=\\|v\\|_\{b^\{p\}\\left(\\Omega\\right)\}=\\|v\\|_\{b^\{p\}\\left(\\Omega\\backslash \\left\\\{a\\right\\\}\\right)\}=\\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash\\left\\\{a\\right\\\}\\right)\}$. U oba slu\\v\{c\}aja imamo $C=1$. Op\\'\{c\}i slu\\v\{c\}aj ostaje otvoren.\
+\\end\{remark\}\
+U ovom dijelu \\'\{c\}emo posmatrati slu\\v\{c\}aj $\\left(n,p,\\Omega,K\\right)$ takav da  $$\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}\\leq C\\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$$ za svako  $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Ovaj uvjet zajedno sa prethodnom lemom je ekvivalentan da su  $\\|\\cdot\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$ i  $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$ ekvivalentne. Bez daljnje napomene pretpostavimo u ostatku ovog dijela da je ekivalencija normi zadovoljena.\
+\
+\\begin\{proposition\} Ako su $\\|\\cdot\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$ i $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$ ekvivalentne, tada je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ zatvoreni potprostor od  $b^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{proposition\}\
+\\begin\{proof\} U prethodnom poglavlju smo dokazali da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ Banahov prostor u odnosu na  $\\|\\cdot\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$. Ako su ove norme ekvivalentne, tada je $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ Banahov prostor u odnosu na $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$. Po\\v\{s\}to je $b^\{p\}\\left(\\Omega\\backslash K\\right)$ Banahov prostor u odnosu na  $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$ i $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ Banahov prostor u odnosu na  $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$, slijedi da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ zatvoreni potprostor od  $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\},$ pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+Ako pretpostavimo uvjet da su norme $\\|\\cdot\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$ i $\\|\\cdot\\|_\{b^\{p\}\\left(\\Omega\\backslash K\\right)\}$ ekvivalentne, tada vrijedi $$\\vert\
+u\\left(x\\right)\\vert\\leq\\frac\{2^\{\\frac\{p-1\}\{p\}\}C\\|u\\|_\{b^\{p\}\\left(\\Omega\\backslash\
+K\\right)\}\}\{V\\left(B\\right)^\{1/p\}d\\left(x,\\partial\
+\\left(\\Omega\\backslash K\\right)\\right)^\{n/p\}\}$$\
+U slu\\v\{c\}aju $p=2$ ovo zna\\v\{c\}i da je ra\\v\{c\}unanje u ta\\v\{c\}ki ograni\\v\{c\}eni linearni funkcional na Hilbertovom prostoru  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ u odnosu na  $\\|\\cdot\\|_\{b^\{2\}\\left(\\Omega\\backslash K\\right)\}$.Ovo implicira da je $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ Hilbertov prostor s reproduciranim jezgrom. Ako je $x\\in\\Omega\\backslash K$ proizvoljno, tada postoji  $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ takav da  $$u\\left(x\\right)=\\langle u, K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle$$ za sve $u\\in\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ u odnosu na skalarni proizvod iz $b^\{2\}\\left(\\Omega\\backslash K\\right)$.\
+\\newline Po\\v\{s\}to je $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ zatvoreni potprostor od $b^\{2\}\\left(\\Omega\\backslash K\\right)$ i $b^\{2\}\\left(\\Omega\\backslash K\\right)$ zatvoreni potprostor od  $L^\{2\}\\left(\\Omega\\backslash K\\right)$, imamo da je  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ zatvoreni potprostor Hilbertovog prostora $L^\{2\}\\left(\\Omega\\backslash K\\right)$, \\v\{s\}to implicira da postoji jedinstvena ortogonalna projekcija od $L^\{2\}\\left(\\Omega\\backslash K\\right)$ na  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Ozna\\v\{c\}imo ovu projekciju s  $P_\{\\Omega\\backslash K\}$.\
+ Neka je $R_\{\\Omega\\backslash K\}$ reproduciraju\\'\{c\}e jezgro za  $b^\{2\}\\left(\\Omega\\backslash K\\right)$. Slijedi da je $$u\\left(x\\right)=\\langle u, R_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle$$ za svako $u\\in b^\{2\}\\left(\\Omega\\backslash K\\right)$. Ako iskoristimo \\v\{c\}injenicu da je  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\\subseteq b^\{2\}\\left(\\Omega\\backslash K\\right)$, imamo da je $K_\{\\Omega\\backslash K\}$ projekcija od $R_\{\\Omega\\backslash K\}$ u $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$.\
+ \\begin\{theorem\} Ako je $x\\in\\Omega\\backslash K$, tada $$P_\{\\Omega\\backslash K\}\\left[u\\right]\\left(x\\right)=\\int_\{\\Omega\\backslash K\}u\\left(y\\right)K_\{\\Omega\\backslash K\}\\left(x,y\\right)dy$$ za sve $u\\in L^\{2\}\\left(\\Omega\\backslash K\\right)$.\
+ \\end\{theorem\}\
+ \\begin\{proof\} Neka je $x\\in\\Omega\\backslash K$ i $u\\in L^\{2\}\\left(\\Omega\\backslash K\\right)$. Tada \\begin\{equation*\}\
+\\begin\{aligned\}\
+P_\{\\Omega\\backslash K\}\\left[u\\right]\\left(x\\right)&=\\langle P_\{\\Omega\\backslash K\}\\left[u\\right], K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle\\\\&=\\langle u, K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle\\\\&=\\int_\{\\Omega\\backslash K\}u\\left(y\\right)K_\{\\Omega\\backslash K\}\\left(x,y\\right)dy,\
+\\end\{aligned\}\
+\\end\{equation*\} gdje prva jednakost slijedi iz osobine reproduciranog jezgra $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$, a druga zbog toga \\v\{s\}to je $P_\{\\Omega\\backslash K\}$ samoadjungovana projekcija na potprostor koji sadr\\v\{z\}i $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$, a tre\\'\{c\}a iz definicije skalarnog proizvoda i dijela 1. sljede\\'\{c\}e teoreme.\
+ \\end\{proof\}\
+ \\begin\{theorem\} Reproduciraju\\'\{c\}e jezgro $K_\{\\Omega\\backslash K\}$ ima sljede\\'\{c\}e osobine:\
+ \\newline 1. $K_\{\\Omega\\backslash K\}$ je realna funkcija.\
+ \\newline 2. Ako je $\\left(u_\{m\}\\right)$ je ortonormirana baza od  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ u odnosu na  $\\|\\cdot\\|_\{b^\{2\}\\left(\\Omega\\backslash K\\right)\}$, tada je $$K_\{\\Omega\\backslash K\}\\left(x,y\\right)=\\sum_\{m=1\}^\{\\infty\}\\overline\{u_\{m\}\\left(x\\right)\}u_\{m\}\\left(y\\right)$$ za sve $x,y\\in\\Omega\\backslash K$.\
+ \\newline 3. $K_\{\\Omega\\backslash K\}\\left(x,y\\right)=K_\{\\Omega\\backslash K\}\\left(y,x\\right)$ za sve $x,y\\in\\Omega\\backslash K$.\
+ \\newline 4. $$\\|K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\|_\{b^\{2\}\\left(\\Omega\\backslash K\\right)\}^\{2\}=K_\{\\Omega\\backslash K\}\\left(x,x\\right)$$\
+ \\end\{theorem\}\
+ \\begin\{proof\}1. Neka je $u$ realna funkcija iz  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Tada imamo \\begin\{equation*\}\
+\\begin\{aligned\}\
+0=Im\\left( u\\left(x\\right)\\right)&=Im\\left(\\int_\{\\Omega\\backslash K\}u\\left(y\\right)\\overline\{K_\{\\Omega\\backslash K\}\\left(x,y\\right)\}dy\\right)\\\\&=-\\int_\{\\Omega\\backslash K\}u\\left(y\\right)Im\\left(K_\{\\Omega\\backslash K\}\\left(x,y\\right)\\right)dy\
+\\end\{aligned\}\
+\\end\{equation*\} Ako stavimo $u=Im\\left(K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\right)$ dobijamo da je $\\int_\{\\Omega\\backslash K\}\\left( Im\\left(K_\{\\Omega\\backslash K\}\\left(x,y\\right)\\right)\\right)^\{2\}dy,$ \\v\{s\}to implicira $Im\\left(K_\{\\Omega\\backslash K\}\\right)\\equiv 0$, pa je  $K_\{\\Omega\\backslash K\}$ realna funkcija.\
+\\newline 2. Neka je $\\left(u_\{m\}\\left(x\\right)\\right)$ bilo koja ortonormirana baza od $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Prema standardnoj teoriji Hilbertovih prostora, vrijedi $$K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)=\\sum_\{m=1\}^\{\\infty\}\\langle K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right),u_\{m\}\\rangle=\\sum_\{m=1\}^\{\\infty\}\\overline\{u_\{m\}\\left(x\\right)\}u_\{m\},$$ gdje beskona\\v\{c\}na suma konvergira u normi koja je restrikcija s  $b^\{2\}\\left(\\Omega\\backslash K\\right)$ na  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to je ra\\v\{c\}unanje u ta\\v\{c\}ki ograni\\v\{c\}eni linearni funkcional na  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$, gornja jedna\\v\{c\}ina implicira da 2. vrijedi.\
+\\newline 3. Ovaj dio slijedi odmah iz 1. i 2.\
+\\newline 4. Neka je $x\\in\\Omega\\backslash K$. Tada je $\\|K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\|_\{b^\{2\}\\left(\\Omega\\backslash K\\right)\}^\{2\}=\\langle K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right),K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)\\rangle=K_\{\\Omega\\backslash K\}\\left(x,x\\right)$, gdje druga jednakost slijedi iz reproducirane osobine od  $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$.\
+\
+ \\end\{proof\}\
+ \\begin\{remark\} U prethodnom dijelu smo se upoznali s reproduciraju\\'\{c\}im jezgrom  $S_\{\\Omega\\backslash K\}$ za Hilbertov prostor $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ u odnosu na  $\\|\\cdot\\|_\{\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)\}$. Bilo bi zanimljivo posmatrati vezu izme\\dj\{\}u $K_\{\\Omega\\backslash K\}$ i $S_\{\\Omega\\backslash K\}$.\
+\\end\{remark\}\
+\\begin\{remark\} Notacije $K_\{\\Omega\\backslash K\}$ i $S_\{\\Omega\\backslash K\}$ nisu dobre, jer u stvarnosti ova jezgra zavise i od $\\Omega$ i $K$, a ne samo od  $\\Omega\\backslash K$. Koristit \\'\{c\}emo i dalje ove notacije, jer nam ih je lak\\v\{s\}e pisati, a \\v\{s\}ta su $\\Omega$ i $K$ mo\\v\{z\}emo zaklju\\v\{c\}iti iz konteksta.\
+\\end\{remark\}\
+\\section\{Integralni operator\}\
+ \\begin\{definition\}  Za $u\\in L^\{2\}\\left(\\Omega\\backslash K\\right)$ defini\\v\{s\}imo  $M_\{\\Omega\\backslash K\}\\left[u\\right]$ s $$M_\{\\Omega\\backslash K\}\\left[u\\right]\\left(x\\right)=\\int_\{\\Omega\\backslash K\}u\\left(y\\right)S_\{\\Omega\\backslash K\}\\left(x,y\\right)dy$$ za sve  $x\\in\\Omega\\backslash K$.\
+ \\end\{definition\}\
+ \\begin\{lemma\} Ako je $$\\int_\{\\Omega\\backslash K\}\\int_\{\\Omega\\backslash K\}\\vert S_\{\\Omega\\backslash K\}\\left(x,y\\right)\\vert^\{2\} dxdy<\\infty,$$ tada je  $M_\{\\Omega\\backslash K\}$ ograni\\v\{c\}eni linearni operator na  $L^\{2\}\\left(\\Omega\\backslash K\\right)$.\
+ \\end\{lemma\}\
+ \\begin\{proof\} Linearnost je o\\v\{c\}igledna. Ograni\\v\{c\}enost je direktna posljedica Schwartzove nejednakosti.\
+ \\end\{proof\}\
+ \\begin\{remark\} Uvjet za $S_\{\\Omega\\backslash K\}$ u prethodnoj lemi je trivijalno zadovoljen u slu\\v\{c\}aju kad je $\\Omega=\\mathbb\{R\}^\{n\}$ i $K=\\left\\\{a\\right\\\}$ za proizvoljno $a\\in \\mathbb\{R\}^\{n\}$. Bilo bi zanimljivo okarakterizirati sve $\\Omega$ i $K$ takve da je ovaj uvjet zadovoljen. Mo\\v\{z\}e se tako\\dj\{\}er posmatrati pitanje o uvjetima za $\\Omega$ i $K$ koji impliciraju ograni\\v\{c\}enost od $M_\{\\Omega\\backslash K\}$ na $L^\{2\}\\left(\\Omega\\backslash K\\right)$.\
+ \\end\{remark\}\
+ \\begin\{lemma\} $M_\{\\Omega\\backslash K\}\\left[u\\right]=u$ za sve $u\\in \\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ ako i samo ako $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)=S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$ za sve $x\\in\\Omega\\backslash K$.\
+ \\end\{lemma\}\
+ \\begin\{proof\}$"\\Longrightarrow"$. If $M_\{\\Omega\\backslash K\}\\left[u\\right]=u$ za sve $u\\in \\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ tada  $$\\int_\{\\Omega\\backslash K\}u\\left(y\\right)S_\{\\Omega\\backslash K\}\\left(x,y\\right)dy=\\int_\{\\Omega\\backslash K\}u\\left(y\\right)K_\{\\Omega\\backslash K\}\\left(x,y\\right)dy,$$za sve $x\\in\\Omega\\backslash K$. Ovo implicira da  $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)-S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$ pripada ortogonalnom komplementu od  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ i samom prostoru  $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$. Slijedi da pripada njihovom presjeku, a ovo je nula skup. Odavde mo\\v\{z\}emo zaklju\\v\{c\}iti da je  $K_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)=S_\{\\Omega\\backslash K\}\\left(x,\\cdot\\right)$.\
+ \\newline $"\\Longleftarrow"$. Ovaj smjer slijedi odmah iz osobina reproduciranog jezgra $K_\{\\Omega\\backslash K\}$.\
+ \\end\{proof\}\
+ Iz \\v\{c\}injenice da je $S_\{\\Omega\\backslash K\}\\left(x,y\\right)=R_\{\\Omega\}\\left(x,y\\right)+R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,y\\right)$ za sve $x,y\\in\\Omega\\backslash K$ (vidjeti  \\cite\{memic\}), dobijamo\
+ $$M_\{\\Omega\\backslash K\}\\left[u\\right]\\left(x\\right)=\\int_\{\\Omega\\backslash K\}u\\left(y\\right)R_\{\\Omega\}\\left(x,y\\right)dy+\\int_\{\\Omega\\backslash K\}u\\left(y\\right)R_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\left(x,y\\right)dy.$$\
+\
+\\chapter\{$\\left(\\Omega,K\\right)$ pojmovi u kontekstu teoreme dekompozicije\}\
+ \\section\{$(\\Omega,K)$-rubni problem za parcijalne diferencijalne jedna\\v\{c\}ine\}\
+ Neka je $\\Omega$ otvoreni podskup od $\\mathbb\{R\}^\{n\}$ i $K$ kompaktni podskup od  $\\Omega$. Pretpostavimo da je $f$ neprekidna funkcija na $\\partial\\Omega$ i $g$ neprekidna funkcija na $\\partial K$. Posmatrajmo sljede\\'\{c\}i problem.\
+ \\newline Problem: Mo\\v\{z\}e li se na\\'\{c\}i harmonijska funkcija $u$ na $\\Omega\\backslash K$ koja je neprekidna na $\\overline\{\\Omega\\backslash K\}$ i koja ima dekompoziciju $u=v+w$ na $\\Omega\\backslash K$, gdje je $v$ rje\\v\{s\}enje Dirichletovog problema od $\\Omega$ s grani\\v\{c\}nim podatkom $f$, a $w$ rje\\v\{s\}enje Dirichletovog problema od $\\mathbb\{R\}^\{n\}\\backslash K$ s grani\\v\{c\}nim podatkom  $g$?\
+ Ovdje su $v$ i $w$ iz teoreme dekompozicije za harmonijske funkcije. Ovaj problem \\'\{c\}emo nazvati $\\left(\\Omega,K\\right)$-rubni problem sa graniv\{c\}nim podacima $f$ i $g$.\
+  \\begin\{definition\} Za $\\left(\\Omega,K\\right)$ rubni problem ka\\v\{z\}emo da je rje\\v\{s\}iv ako za svaku neprekidnu funkciju $f$ na $\\partial\\Omega$ i svaku neprekidnu funkciju $g$ na $\\partial K$ postoji rje\\v\{s\}enje $\\left(\\Omega,K\\right)$-rubnog problema s grani\\v\{c\}nim podacima $f$ i $g$.\
+ \\end\{definition\}\
+Posmatrajmo preslikavanje $F\\left(x\\right)=\\frac\{x\}\{\\|x\\|^\{2\}\}$ za $x\\neq 0,\\infty$, te $F\\left(0\\right)=\\infty$ i $F\\left(\\infty\\right)=0$. Ozna\\v\{c\}imo s $E^\{*\}$ skup $F\\left(E\\right)$, gdje je $E\\subset\\mathbb\{R\}^\{n\}$. Ovo preslikavanje je Kelvinova transformacija (vidjeti 4. poglavlje u \\cite\{axler\}).  Vrijedi sljede\\'\{c\}a lema (vidjeti dio 4.11 u \\cite\{axler\}).\
+ \\begin\{lemy\} Neka je $f\\in C\\left(S\\right)$. Tada postoji jedinstvena funkcija $u$, harmonijska na $B^\{*\}$ i neprekidna na $\\overline\{B\}^\{*\}$, takva da je  $u\\vert_\{S\}=f$. Dalje, $u=P_\{e\}\\left[f\\right]$ na  $B^\{*\}\\backslash\\left\\\{\\infty\\right\\\}$.\
+ \\end\{lemy\}\
+ \\begin\{theorem\}  Neka je $n>2$, $0<r_\{0\}<r_\{1\}$. Posmatrajmo anularnu oblast   $\\mathbb\{A\}=\\Omega\\backslash K$, gdje je $\\Omega=\\left\\\{x\\in\\mathbb\{R\}^\{n\},\\vert x\\vert< r_\{1\}\\right\\\}$ i $K=\\left\\\{x\\in\\mathbb\{R\}^\{n\},\\vert x\\vert\\leq r_\{0\}\\right\\\}$. Tada je $\\left(\\Omega,K\\right)$-rubni problem rje\\v\{s\}iv i ima jedinstveno rje\\v\{s\}enje.\
+ \\end\{theorem\}\
+ \\begin\{proof\}\
+\
+Ako modifikujemo dokaz prethodne leme, mo\\v\{z\}emo dokazati analognu teoremu za proizvoljnu kuglu (vidjeti vje\\v\{z\}bu 4.8 \\cite\{axler\}). Posmatrajmo sada  $\\left(\\Omega,K\\right)$-rubni problem za anularnu oblast $\\Omega\\backslash K$. Neka su $f$ i $g$ neprekidne funkcije na $\\partial\\Omega=r_\{1\}S$ i $\\partial K=r_\{0\}S$, respektivno, gdje je $S$ jedini\\v\{c\}na sfera. U ovom slu\\v\{c\}aju dobijamo jedinstveno rje\\v\{s\}enje $v$ Dirichletovog problema za $\\Omega$ s grani\\v\{c\}nim podatkom $f$ i jedinstveno rje\\v\{s\}enje $w$ Dirichletovog problema za $\\mathbb\{R\}^\{n\}\\backslash K$ s grani\\v\{c\}nim podatkom $g$. Zbog prethodne leme $w$ je harmonijska u beskona\\v\{c\}nosti i za $n>2$ ovo je ekvivalentno s tim da je limes od $w\\left(x\\right)$ jednak nuli kad $\\vert x\\vert\\longrightarrow\\infty$. Neka je $u=v+w$. Tada je $u$ harmonijska funkcija na $\\Omega\\backslash K$ i uvjet u beskona\\v\{c\}nosti od $w$ je zadovoljen u teoremi dekompozicije za harmonijske funkcije. Neprekidnost od $v$ na $\\overline\{\\Omega\}$ i $w$ na  $\\overline\{\\mathbb\{R\}^\{n\}\\backslash K\}$ impliciraju neprekidnost od $u$ na  $\\overline\{\\Omega\\backslash K\}$. Mo\\v\{z\}emo zaklju\\v\{c\}iti da u slu\\v\{c\}aju anularne oblasti u $\\mathbb\{R\}^\{n\}$, gdje je $n>2$, $\\left(\\Omega,K\\right)$- rubni problem je rje\\v\{s\}iv s jedinstvenim rje\\v\{s\}enjem, pa je time dokaz zavr\\v\{s\}en.\
+ \\end\{proof\}\
+\
+U op\\'\{c\}em slu\\v\{c\}aju ne postoji rje\\v\{s\}enje $\\left(\\Omega,K\\right)$-rubnog problema, jer Dirichletov problem nije rje\\v\{s\}iv za proizvoljni otvoreni skup. Ako je  $\\Omega$ ograni\\v\{c\}eni otvoreni podskup i ako postoji rje\\v\{s\}enje Dirichletovog problema (ovdje pretpostavljamo da je grani\\v\{c\}ni podatak neprekidna funkcija), tada je ovo rje\\v\{s\}enje jedistveno, \\v\{s\}to je posljedica principa maksimuma za harmonijske funkcije. Postoje neograni\\v\{c\}eni otvoreni skupovi gdje, tako\\dj\{\}er, imamo da vrijedi jedistvenost rje\\v\{s\}enja Dirichletovog problema, kao \\v\{s\}to je to slu\\v\{c\}aj gornjeg poluprostora (vidjeti poglavlje 7   u \\cite\{axler\}), ali generalno, ako je Dirichletov problem rje\\v\{s\}iv za neograni\\v\{c\}ene oblasti, ne mo\\v\{z\}emo tvrditi da je to rje\\v\{s\}enje jedistveno, jer princip maksimuma za harmonijske funkcije nije zadovoljen u neograni\\v\{c\}enim oblastima (vidjeti \\cite\{axler\}).\
+ \\begin\{remark\} Neka je $1\\leq p<\\infty$. Ako je $u=v+w$ rje\\v\{s\}enje od  $\\left(\\Omega,K\\right)$-rubnog problema i ako su $v\\in L^\{p\}\\left(\\Omega\\right)$, $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$, tada je  $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Bilo bi zanimljivo posmatrati prostor $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ u kontekstu  $\\left(\\Omega,K\\right)$-rubnog problema za harmonijske funkcije.\
+ \\end\{remark\}\
+\
+\\begin\{remark\} Ove rezultate mo\\v\{z\}emo primijeniti analogno u slu\\v\{c\}aju rje\\v\{s\}enja paraboli\\v\{c\}kih parcijalnih diferencijalnih jedna\\v\{c\}ina, jer postoji analogni teorem dekompozicije i u tom slu\\v\{c\}aju (vidjeti \\cite\{watson\}).\
+\\end\{remark\}\
+\\section\{$(\\Omega,K)$-regularnost za distribucije\}\
+Navedimo prvo definicije koje \\'\{c\}emo koristiti, a mogu se na\\'\{c\}i u \\cite\{bhat\}. Neka je $\\Omega$ otvoreni neprazni podskup od $\\mathbb\{R\}^\{n\}$. Za neprekidnu funkciju $\\phi$ na $\\Omega$ sa $supp\\left(\\phi\\right)=\\overline\{\\\{x\\in\\Omega:\\phi\\left(x\\right)\\neq 0\\\}\}$ ozna\\v\{c\}avamo nosa\\v\{c\} funkcije $\\phi$ u $\\Omega$. S $\\mathcal\{D\}\\left(\\Omega\\right)$ ozna\\v\{c\}imo skup test funkcija na $\\Omega$, tj. beskona\\v\{c\}no diferencijabilnih s kompaktnim nosa\\v\{c\}em u $\\Omega$.  Za niz $\\phi_\{n\}$ funkcija iz $\\mathcal\{D\}\\left(\\Omega\\right)$ ka\\v\{z\}emo da konvergira ka $\\phi\\in\\mathcal\{D\}\\left(\\Omega\\right)$ i pi\\v\{s\}emo $\\phi_\{n\}\\rightarrow\\phi$, ako vrijedi:\
+\\newline 1. postoji kompaktni podskup $K$ od $\\Omega$ takav da je $supp\\left(\\phi_\{n\}-\\phi\\right)\\subset K$ za sve $n\\in\\mathbb\{N\}$.\
+\\newline 2. $\\partial^\{\\alpha\}\\phi_\{n\}\\rightarrow\\partial^\{\\alpha\}\\phi$ uniformno u $\\Omega$ kad $n\\rightarrow\\infty$ za svako fiksno $\\alpha=\\left(\\alpha_\{1\},...,\\alpha_\{n\}\\right)\\in\\mathbb\{N\}_\{0\}^\{n\}$ i $\\vert\\alpha\\vert=\\alpha_\{1\}+...+\\alpha_\{n\}\\in\\mathbb\{N\}$. Ovdje je $\\mathbb\{N\}$ skup prirodnih brojeva, a $\\mathbb\{N\}_\{0\}$ jo\\v\{s\} dodatno sadr\\v\{z\}i nulu.\
+\\newline Neka je $\\mathcal\{D\}\\left(\\Omega\\right)^\{*\}$ skup svih linearnih funkcionala na $\\mathcal\{D\}\\left(\\Omega\\right)$. Za linearan funkcional $T\\in\\mathcal\{D\}\\left(\\Omega\\right)^\{*\}$ ka\\v\{z\}emo da je neprekidan na $\\mathcal\{D\}\\left(\\Omega\\right)$ ako $\\phi_\{n\}\\rightarrow\\phi$ u $\\mathcal\{D\}\\left(\\Omega\\right)$ implicira  $T\\left(\\phi_\{n\}\\right)\\rightarrow T\\left(\\phi\\right)$ u $\\mathbb\{R\}$ kad $n\\rightarrow\\infty$. Neprekidni linearni funkcional se naziva distribucija. Skup svih distribucija na $\\Omega$ ozna\\v\{c\}avamo s $\\mathcal\{D\}'\\left(\\Omega\\right)$. Za distribuciju $T\\in\\mathcal\{D\}'\\left(\\Omega\\right)$ vrijedi da za svaki kompaktni podskup $K$ od $\\Omega$ postoji cijeli broj $m\\left(K\\right)\\geq 0$ i konstanta $C_\{K\}>0$ takva da za sve $\\phi\\in\\mathcal\{D\}\\left(\\Omega\\right)$ sa $supp\\left(\\phi\\right)\\subset K$ vrijedi $T\\left(\\phi\\right)\\leq C_\{K\}\\max_\{\\vert\\alpha\\vert\\leq m\\left(K\\right)\}\\max_\{x\\in K\}\\vert\\partial^\{\\alpha\}\\phi\\left(x\\right)\\vert$. Za distribuciju $T\\in\\mathcal\{D\}'\\left(\\Omega\\right)$ ka\\v\{z\}emo da je reda $m_\{0\}\\geq 0$ ako za svaki kompaktni podskup $K$ od $\\Omega$ $m_\{0\}$ je najmanji cijeli broj takav da u prethodnoj nejednakosti vrijedi $m\\left(K\\right)\\leq m_\{0\}$.\
+\
+\\begin\{definition\} Za $u\\in h\\left(\\Omega\\backslash K\\right)$, defini\\v\{s\}imo $T^\{u\}_\{\\Omega, K\}:\\mathcal\{D\}\\left(\\mathbb\{R\}^\{n\}\\right)\\longrightarrow \\mathbb\{R\}$ as $$T^\{u\}_\{\\Omega, K\}\\left(\\phi\\right)=\\int_\{\\Omega\}v\\left(x\\right)\\phi\\left(x\\right)dx+\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}w\\left(x\\right)\\phi\\left(x\\right)dx$$ za sve $\\phi\\in\\mathcal\{D\}\\left(\\mathbb\{R\}^\{n\}\\right)$, gdje je $u=v+w$ dekompozicija od $u$.\
+\\end\{definition\}\
+\\begin\{theorem\} $T^\{u\}_\{\\Omega, K\}$ je distribucija reda 0 na $\\mathbb\{R\}^\{n\}$.\
+\\end\{theorem\}\
+\\begin\{proof\} Linearnost je o\\v\{c\}igledna. Neka je $K'\\subset\\subset\\mathbb\{R\}^\{n\}$ i $\\phi\\in\\mathcal\{D\}\\left(\\mathbb\{R\}^\{n\}\\right)$, tako da je  $supp\\left(\\phi\\right)\\subset K'$ proizvoljno. Sada je $$\
+\\begin\{aligned\}\
+\\vert &T^\{u\}_\{\\Omega, K\}\\left(\\phi\\right)\\vert=\\vert\\int_\{\\Omega\}v\\left(x\\right)\\phi\\left(x\\right)dx+\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}w\\left(x\\right)\\phi\\left(x\\right)dx\\vert \\\\&\\leq \\int_\{\\Omega\}\\vert v\\left(x\\right)\\vert\\vert\\phi\\left(x\\right)\\vert dx+\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}\\vert w\\left(x\\right)\\vert\\vert\\phi\\left(x\\right)\\vert dx\\\\&=\\int_\{K'\\cap\\Omega\}\\vert v\\left(x\\right)\\vert\\vert\\phi\\left(x\\right)\\vert dx+\\int_\{K'\\cap\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}\\vert w\\left(x\\right)\\vert\\vert\\phi\\left(x\\right)\\vert dx\\\\&\\leq \\max_\{x\\in K'\\cap\\Omega\}\\vert\\phi\\left(x\\right)\\vert\\int_\{K'\\cap\\Omega\}\\vert v\\left(x\\right)\\vert dx+\\max_\{x\\in K'\\cap\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}\\vert\\phi\\left(x\\right)\\vert\\int_\{K'\\cap\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}\\vert w\\left(x\\right)\\vert dx\\\\&\\leq\\max \\left\\\{C_\{K'\}^\{1\},C_\{K'\}^\{2\}\\right\\\}\\left(\\max_\{x\\in K'\\cap\\Omega\}\\vert\\phi\\left(x\\right)\\vert +\\max_\{x\\in K'\\cap\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}\\vert\\phi\\left(x\\right)\\vert \\right)\\\\&\\leq 2\\max\\left\\\{C_\{K'\}^\{1\},C_\{K'\}^\{2\}\\right\\\}\\max_\{x\\in K'\}\\vert\\phi\\left(x\\right)\\vert\\\\&=C_\{K'\}\\max_\{x\\in K'\}\\vert\\phi\\left(x\\right)\\vert.\
+\\end\{aligned\}\
+$$\
+Imamo $C_\{K'\}=2\\max\\left\\\{C_\{K'\}^\{1\},C_\{K'\}^\{2\}\\right\\\}$ i \\newline $C_\{K'\}^\{1\}=\\int_\{K'\\cap\\Omega\}\\vert v\\left(x\\right)\\vert dx$, $C_\{K'\}^\{2\}=\\int_\{K'\\cap\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)\}\\vert w\\left(x\\right)\\vert dx$. Kori\\v\{s\}tenjem propozicije 1.3.1 iz \\cite\{bhat\} slijedi dokaz.\
+\\end\{proof\}\
+\\begin\{definition\} Neka je $\\Omega\\subset\\mathbb\{R\}^\{n\}$ otvoreni skup i $K\\subset\\subset\\Omega$. Ka\\v\{z\}emo da je distribucija $T\\in\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$  $\\left(\\Omega,K\\right)$-regularna ako postoji $u\\in h\\left(\\Omega\\backslash K\\right)$ takvo da je $T=T^\{u\}_\{\\Omega,K\}$ u $\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$. U suprotnom ka\\v\{z\}emo da je $\\left(\\Omega,K\\right)$-singularna.\
+\\end\{definition\}\
+\\begin\{definition\} Za distribuciju $T\\in\\mathcal\{D\}\\left(\\mathbb\{R\}^\{n\}\\right)$ ka\\v\{z\}emo da je $h$-regularna ako je $\\left(\\Omega,K\\right)$-regularna za neki otvoreni skup $\\Omega\\subset\\mathbb\{R\}^\{n\}$ i kompaktni skup  $K\\subset\\subset\\Omega$. U suprotnom ka\\v\{z\}emo da je $h$-singularna.\
+\\end\{definition\}\
+Ako je $u\\in h\\left(\\mathbb\{R\}^\{n\}\\right)$, tada za svaki otvoreni skup $\\Omega\\subset\\mathbb\{R\}^\{n\}$ i svaki  $K\\subset\\subset\\Omega$, $u=v+w$ na $\\Omega\\backslash K$, gdje je $v=u$ na $\\Omega$ i $w=0$ na $\\mathbb\{R\}^\{n\}\\backslash K$. Prema tome, u ovom slu\\v\{c\}aju dobijamo $$T^\{u\}_\{\\Omega, K \}\\left(\\phi\\right)=\\int_\{\\Omega\}u\\left(x\\right)\\phi\\left(x\\right)dx.$$ U ovom slu\\v\{c\}aju $T^\{u\}_\{\\Omega, K\}$ ne zavisi od $K$, pa je ozna\\v\{c\}imo s $T^\{u\}_\{\\Omega\}$.\
+\\begin\{definition\} Neka je $\\Omega\\subset\\mathbb\{R\}^\{n\}$ otvoreni skup. Ka\\v\{z\}emo da je distribucija  $T\\in\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$ $\\Omega$-regularna ako postoji $u\\in h\\left(\\mathbb\{R\}^\{n\}\\right)$ tako da je $T=T^\{u\}_\{\\Omega\}$ u $\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$. U suprotnom ka\\v\{z\}emo da je $\\Omega$-singularna.\
+\\end\{definition\}\
+\\begin\{definition\} Ka\\v\{z\}emo da je distribucija $T\\in\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$  $m$-regularna ako je $\\Omega$-regularna za neki otvoreni skup $\\Omega\\subset\\mathbb\{R\}^\{n\}$. U suprotnom ka\\v\{z\}emo da je $m$-singularna.\
+\\end\{definition\}\
+U teoriji distribucija nam je poznato da se distribucija $T$ naziva regularnom ako postoji $f\\in L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$ tako da je $T=T_\{f\}$ u $\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$. Ovdje je $T_\{f\}$ definisano s $$T_\{f\}\\left(\\phi\\right)=\\int_\{\\mathbb\{R\}^\{n\}\}f\\left(x\\right)\\phi\\left(x\\right)dx$$ za sve  $\\phi\\in\\mathcal\{D\}\\left(\\mathbb\{R\}^\{n\}\\right).$ U sljede\\'\{c\}oj teoremi \\'\{c\}emo vidjeti da je svaka $h$-regularna distribucija regularna.\
+\\begin\{proposition\} Svaka $h$-regularna distribucija je regularna.\
+\\end\{proposition\}\
+ \\begin\{proof\} Neka je $T$ proizvoljno odabrana $h$-regularna distribucija.Postoji otvoreni skup $\\Omega\\subset\\mathbb\{R\}^\{n\}$, $K\\subset\\subset\\Omega$ i $u\\in h\\left(\\Omega\\backslash K\\right)$ takav da je  $T=T^\{u\}_\{\\Omega,K\}$. Imamo  $$T\\left(\\phi\\right)=\\int_\{\\Omega\}v\\left(x\\right)\\phi\\left(x\\right)dx+\\int_\{\\mathbb\{R\}\\backslash K\}w\\left(x\\right)\\phi\\left(x\\right)dx=T_\{g\}\\left(\\phi\\right)+T_\{h\}\\left(\\phi\\right),$$ gdje je  $g\\left(x\\right)=v\\left(x\\right)$ na $\\Omega$ i nula van $\\Omega$, a $h\\left(x\\right)=w\\left(x\\right)$ na  $\\mathbb\{R\}^\{n\}\\backslash K$ i nula na $K$. Ovo implicira da je $T=T_\{g+h\}$. Po\\v\{s\}to su $g$ i $h$ u $L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$, to je i $g+h$. Ovo implicira da je $T$ regularna distribucija u  $\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$.\
+ \\end\{proof\}\
+Iz dokaza teoreme vidimo da je $T^\{u\}_\{\\Omega,K\}=T_\{f\}$, gdje je $f=u$ na $\\Omega\\backslash K$, $f=v$ na $K$ i $f=w$ na  $\\mathbb\{R\}^\{n\}\\backslash \\Omega$. To je motivacija za uvo\\dj\{\}enje sljede\\'\{c\}e definicije.\
+\\begin\{definition\} Neka je $\\Omega\\subset\\mathbb\{R\}^\{n\}$ otvoreni skup i $K\\subset\\subset\\Omega$. Ka\\v\{z\}emo da je funkcija $f\\in L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$ is $\\left(\\Omega,K\\right)$-harmonijska ako postoji $u\\in h\\left(\\Omega\\backslash K\\right)$ takvo da je $f=u$ na $\\Omega\\backslash K$, $f=v$ na $K$ i $f=w$ na  $\\mathbb\{R\}^\{n\}\\backslash\
+\\Omega$. Koristimo notaciju $f=u\\chi_\{\\Omega\\backslash\
+K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash \\Omega\}$ za funkciju tog oblika.\
+\\end\{definition\}\
+Skup svih $\\left(\\Omega,K\\right)$-harmonijskih funkcija na $\\mathbb\{R\}^\{n\}$ je vektorski potprostor od  $L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$. Ozna\\v\{c\}imo ga s $H\\left(\\Omega,K\\right)$.\
+\\begin\{corollary\} Neka je $f\\in L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$. Tada je $T_\{f\}$  $\\left(\\Omega,K\\right)$-regularna ako i samo ako je $f\\in H\\left(\\Omega,K\\right)$.\
+\\end\{corollary\}\
+\\begin\{proposition\} Neka je $\\Omega\\subset\\mathbb\{R\}^\{n\}$ otvoreni skup i $K\\subset\\subset\\Omega$. Ako su $u_\{1\},u_\{2\}\\in h\\left(\\Omega\\backslash K\\right)$ takvi da je $T^\{u_\{1\}\}_\{\\Omega,K\}=T^\{u_\{2\}\}_\{\\Omega,K\}$ u $\\mathcal\{D\}'\\left(\\mathbb\{R\}^\{n\}\\right)$, tada je $u_\{1\}=u_\{2\}$ na $\\Omega\\backslash K$.\
+\\end\{proposition\}\
+\\begin\{proof\} Neka su $u_\{1\}=v_\{1\}+w_\{1\}$ i $u_\{2\}=v_\{2\}+w_\{2\}$ dekompozicije od $u_\{1\}$ i $u_\{2\}$. Tada  $T^\{u_\{1\}\}_\{\\Omega,K\}=T_\{f_\{1\}\}$, $T^\{u_\{2\}\}_\{\\Omega,K\}=T_\{f_\{2\}\}$ implicira $T_\{f_\{1\}\}=T_\{f_\{2\}\}$ odakle dobijamo  $f_\{1\}=f_\{2\}$ u $L_\{loc\}^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$. Ovdje je $f_\{1\}=u_\{1\}\\chi_\{\\Omega\\backslash K\}+v_\{1\}\\chi_\{K\}+w_\{1\}\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$ i $f_\{2\}=u_\{2\}\\chi_\{\\Omega\\backslash K\}+v_\{2\}\\chi_\{K\}+w_\{2\}\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$. Odavde dobijamo $u_\{1\}=u_\{2\}$ gotovo svuda na  $\\Omega\\backslash K$ pa po\\v\{s\}to su obje harmonijske na $\\Omega\\backslash K$, vrijedi da je $u_\{1\}=u_\{2\}$ na  $\\Omega\\backslash K$ pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\\begin\{proposition\}Neka je $1\\leq p<\\infty$ i $\\Omega\\subset\\mathbb\{R\}^\{n\}$ otvoreni skup i $K\\subset\\subset\\Omega$. Neka je $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ proizvoljno odabran.Ako je $f=u\\chi_\{\\Omega\\backslash K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash \\Omega\}\\in H\\left(\\Omega,K\\right)$ harmonijska na $\\mathbb\{R\}^\{n\}$, tada $u$ mora biti nula funkcija na $\\Omega\\backslash K$.\
+\\end\{proposition\}\
+\\begin\{proof\} Ako je $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$, tada je $u\\in L^\{p\}\\left(\\Omega\\backslash K\\right)$, $v\\in L^\{p\}\\left(\\Omega\\right)$ i $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$. Odavde zaklju\\v\{c\}ujemo da $f\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$. Ako pretpostavimo da je $f$ harmonijska na $\\mathbb\{R\}^\{n\}$, tada imamo $f\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)=\\left\\\{0\\right\\\}$, pa je $f=0$ na $\\mathbb\{R\}^\{n\}$. Ovo implicira da je $u=0$ na $\\Omega\\backslash K$, pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\\begin\{remark\} Vidimo da funkcije $f\\in H\\left(\\Omega,K\\right)$ nisu harmonijske, nego su ne\\v\{s\}to kao po dijelovima harmonijske. Ovo je razlog za\\v\{s\}to smo iskoristili naziv $\\left(\\Omega,K\\right)$-harmonijska za definiciju ovakve funkcije.\
+\\end\{remark\}\
+\\begin\{definition\} Neka je $1\\leq p<\\infty$. Defini\\v\{s\}imo skup $H^\{p\}\\left(\\Omega,K\\right)$ da bude skup svih funkcija $f\\in H\\left(\\Omega,K\\right)$, $f=u\\chi_\{\\Omega\\backslash  K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$ takvih da je $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{definition\}\
+\\begin\{proposition\} Neka je $1\\leq p<\\infty$. Slijedi da je $H^\{p\}\\left(\\Omega,K\\right)\\subseteq H\\left(\\Omega,K\\right)\\cap L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$.\
+\\end\{proposition\}\
+\\begin\{proof\} Dokaz slijedi odmah iz primjene definicije od prostora $H^\{p\}\\left(\\Omega,K\\right)$ i  $\\mathcal\{A\}^\{p\}\\left(\\Omega,K\\right)$.\
+\\end\{proof\}\
+Pitamo se kad vrijedi jednakost, tj. kada je $L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)\\cap H\\left(\\Omega,K\\right)=H^\{p\}\\left(\\Omega,K\\right)$? Za tu svrhu uvedimo sljede\\'\{c\}u definiciju.\
+\\begin\{definition\} Neka je $1\\leq p<\\infty$. Defini\\v\{s\}imo $\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$ da bude skup svih $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ takvih da je $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash\\Omega\\right)$ u dekompoziciji $u=v+w$ od $u$.\
+\\end\{definition\}\
+\\begin\{definition\}Let $1\\leq p<\\infty$. Defini\\v\{s\}imo $\\mathcal\{M\}^\{p\}\\left(\\Omega\\backslash K\\right)$ kao skup svih funkcija $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ takvih da je $v\\in L^\{p\}\\left(\\Omega\\backslash K\\right)$ i $w\\in L^\{p\}\\left(\\Omega\\backslash K\\right)$ u dekompoziciji $u=v+w$ od $u$.\
+\\end\{definition\}\
+\\begin\{theorem\}Neka je $1\\leq p<\\infty$. Tada su sljede\\'\{c\}e tvrdnje ekvivalentne:\
+\\newline (i) $H^\{p\}\\left(\\Omega,K\\right)=H\\left(\\Omega,K\\right)\\cap L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$\
+\\newline (ii) $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$\
+\\newline (iii) $\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)\\subseteq\\mathcal\{M\}^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+$\\left(i\\right)\\Rightarrow\\left(ii\\right)$. Pretpostavimo da vrijedi $\\left(i\\right)$. O\\v\{c\}igledno je da je  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\\subseteq\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Neka je  $u\\in\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$ proizvoljno. Tada je $u=v+w$, gdje je $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ i $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash \\Omega\\right)$. Ovo implicira da  $f=u\\chi_\{\\Omega\\backslash K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$ pripada  $L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)\\cap H\\left(\\Omega,K\\right)$, koje je zbog $\\left(i\\right)$ jednako  $H^\{p\}\\left(\\Omega,K\\right)$. Slijedi, $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ i dokazali smo da je  $\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)\\subseteq\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$, pa  $\\left(ii\\right)$ vrijedi.\
+\\newline $\\left(ii\\right)\\Rightarrow\\left(iii\\right)$. Pretpostavimo da je $u\\in\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$ proizvoljno. Tada iz $\\left(ii\\right)$ slijedi $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ i ovo o\\v\{c\}igledno implicira $u\\in\\mathcal\{M\}^\{p\}\\left(\\Omega\\backslash K\\right)$, pa  $\\left(iii\\right)$ vrijedi.\
+\\newline $\\left(iii\\right)\\Rightarrow\\left(i\\right)$. Dovoljno je dokazati da je $L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)\\cap H\\left(\\Omega,K\\right)\\subseteq H^\{p\}\\left(\\Omega,K\\right)$. Neka je $f=u\\chi_\{\\Omega\\backslash K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$ u $L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$ proizvoljno odabrano. Odavde slijedi da $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ i $w\\in\\L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash\\Omega\\right)$ tj.  $u\\in\\mathcal\{B\}^\{p\}\\left(\\Omega\\backslash K\\right)$ pa prema $\\left(iii\\right)$ vrijedi da je  $u\\in\\mathcal\{M\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Ovo implicira da $v\\in L^\{p\}\\left(\\Omega\\backslash K\\right)$ i  $w\\in L^\{p\}\\left(\\Omega\\backslash K\\right)$. Po\\v\{s\}to znamo da je $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash\\Omega\\right)$ \\v\{s\}to implicira $v\\in L^\{p\}\\left(\\Omega\\right)$ i $w\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ tj. $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Ovo implicira $f\\in H^\{p\}\\left(\\Omega,K\\right)$, pa $\\left(i\\right)$ vrijedi. Time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{definition\} Neka je $1\\leq p<\\infty$. Neka je $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$. Mo\\v\{z\}emo produ\\v\{z\}iti $T^\{u\}_\{\\Omega,K\}$ na $L^\{q\}\\left(\\mathbb\{R\}^\{n\}\\right)$, gdje je  $\\frac\{1\}\{p\}+\\frac\{1\}\{q\}=1$, sa $$T^\{u\}_\{\\Omega,K\}\\left(f\\right)=\\int_\{\\Omega\}v\\left(x\\right)f\\left(x\\right)dx+\\int_\{\\mathbb\{R\}^\{n\}\\backslash K\}w\\left(x\\right)f\\left(x\\right)dx$$ for all $f\\in L^\{q\}\\left(\\mathbb\{R\}^\{n\}\\right)$.\
+\\end\{definition\}\
+\\begin\{theorem\} Neka je $1<p<\\infty$. Tada je $T^\{u\}_\{\\Omega, K\}$ ograni\\v\{c\}eni linearni funkcional na  $L^\{q\}\\left(\\mathbb\{R\}^\{n\}\\right)$ \\v\{c\}ija norma je jednaka $\\|f\\|_\{p\}$, gdje je $f=u\\chi_\{\\Omega\\backslash K\}+v\\chi_\{K\}+w\\chi_\{\\mathbb\{R\}^\{n\}\\backslash\\Omega\}$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Lahko dobijamo da je  $$T^\{u\}_\{\\Omega,K\}\\left(g\\right)=\\int_\{\\mathbb\{R\}^\{n\}\}f\\left(x\\right)g\\left(x\\right)dx,$$ pa je  $T^\{u\}_\{\\Omega,K\}=T_\{f\}$, odakle slijedi tvrdnja.\
+\\end\{proof\}\
+\\begin\{remark\} Ovaj novi tip regularnosti se mo\\v\{z\}e posmatrati u slu\\v\{c\}aju paraboli\\v\{c\}kih parcijalnih diferencijalnih jedna\\v\{c\}ina, jer analogna teorema dekompozicije postoji i u tom slu\\v\{c\}aju (vidjeti  \\cite\{watson\}). Ovo je novi alat koji daje novi pristup problemima povezanim s rubnim problemima za paraboli\\v\{c\}ke parcijalne diferencijalne jedna\\v\{c\}ine na domenima oblika $\\Omega\\backslash K$.\
+\\end\{remark\}\
+\\section\{$(\\Omega,K)$-maksimalna funkcija za harmonijske funkcije\}\
+\
+U ovom dijelu \\'\{c\}emo uvesti novi tip maksimalne funkcije za harmonijske funkcije na $\\Omega\\backslash K$.\
+\\newline Prema Lebegovom teoremu diferenciranja,\
+$$\\lim_\{r\\rightarrow\
+0\}\\frac\{1\}\{m\\left(B\\left(x,r\\right)\\right)\}\\int_\{B\\left(x,r\\right)\}f\\left(y\\right)dy=f\\left(x\\right)$$\
+vrijedi za skoro sve $x\\in\\mathbb\{R\}^\{n\}$, kadgod je $f$\
+lokalno integrabilna funkcija definisana na $\\mathbb\{R\}^\{n\}$. Ovo je bila motivacija za uvo\\dj\{\}enje maksimalne funkcije (vidjeti \\cite\{stein\})\
+$$M\\left(f\\right)\\left(x\\right)=\\sup_\{r>0\}\\frac\{1\}\{m\\left(B\\left(x,r\\right)\\right)\}\\int_\{B\\left(x,r\\right)\}\\vert f\\left(y\\right)\\vert dy.$$\
+Neka je $u$ harmonijska funkcija na $\\Omega\\backslash K$. Defini\\v\{s\}imo novu maksimalnu funkciju u odnosu na $u$ na sljede\\'\{c\}i na\\v\{c\}in.\
+$$M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)= \\sup_\{r>0,B\\left(x,r\\right)\\subset\\Omega\}\\frac\{1\}\{m\\left(B\\left(x,r\\right)\\right)\}\\int_\{B\\left(x,r\\right)\}\\vert v\\left(y\\right)\\vert dy$$$$+\\sup_\{r>0,B\\left(x,r\\right)\\subset\\mathbb\{R\}^\{n\}\\backslash K\}\\frac\{1\}\{m\\left(B\\left(x,r\\right)\\right)\}\\int_\{B\\left(x,r\\right)\}\\vert w\\left(y\\right)\\vert dy.$$\
+Neka je $1\\leq p<\\infty$. Ako je $f\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$,\
+onda je funkcija $M\\left(f\\right)$ kona\\v\{c\}na gotovo svuda.\
+U na\\v\{s\}em slu\\v\{c\}aju doka\\v\{z\}imo sljede\\'\{c\}u teoremu.\
+\\begin\{theorem\}\
+\
+ Neka je $1\\leq p<\\infty$ i $u\\in\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)$. Tada je $M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)<\\infty$\
+za skoro sve $x\\in\\Omega\\backslash K$.\
+\
+\\end\{theorem\}\
+\\begin\{proof\} Neka je $f$ funkcija definisana na $\\mathbb\{R\}^\{n\}$ tako da\
+$f\\left(y\\right)=v\\left(y\\right)$ u slu\\v\{c\}aju da $y\\in\\Omega$ i\
+$f\\left(y\\right)=0$ ina\\v\{c\}e. Pretpostavimo da je $g$ funkcija definisana na\
+ $\\mathbb\{R\}^\{n\}$ kao $g\\left(y\\right)=w\\left(y\\right)$ ako\
+$y\\in\\mathbb\{R\}^\{n\}\\backslash K$ i $g\\left(y\\right)=0$\
+ina\\v\{c\}e. \\v\{C\}injenica da $v\\in b^\{p\}\\left(\\Omega\\right)$ i $w\\in\
+b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$ sada impliciraju da\
+$f,g\\in L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$. Za\
+$x\\in\\Omega\\backslash K$ sada dobijamo\
+$M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)\\leq\
+M\\left(f\\right)\\left(x\\right)+M\\left(g\\right)\\left(x\\right)$ i ovo je kona\\v\{c\}no za skoro sve $x\\in\\Omega\\backslash K$.\
+\\end\{proof\}\
+Ako je $f\\in L^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$, tada za svako\
+$\\alpha>0$ vrijedi\
+$$m\\\{x:M\\left(f\\right)\\left(x\\right)>\\alpha\\\}\\leq\\frac\{A\}\{\\alpha\}\\int_\{\\mathbb\{R\}^\{n\}\}\\vert f\\left(x\\right)\\vert\
+dx,$$gdje je $A$ konstanta koja zavisi samo od\
+$n$. U na\\v\{s\}em slu\\v\{c\}aju doka\\v\{z\}imo sljede\\'\{c\}u teoremu.\
+\\begin\{theorem\}Neka je $u\\in\\mathcal\{A\}^\{1\}\\left(\\Omega\\backslash\
+K\\right)$ i $\\alpha>0$ proizvoljno odabrano. Tada postoji $A>0$\
+takvo da je\
+$$m\\\{x: M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)>\\alpha\\\}\\leq\\frac\{A\}\{\\alpha\}\\|u\\|_\{\\mathcal\{A\}^\{1\}\\left(\\Omega\\backslash K\\right)\}.$$\
+\\end\{theorem\}\
+\\begin\{proof\} Ozna\\v\{c\}imo $f$ i $g$ kao u dokazu prethodne teoreme, pa imamo $$\\\{x:\
+M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)>\\alpha\\\}\\subset\\\{x:M\\left(f\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}\\cup\\\{x:M\\left(g\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}.$$\
+Ovo implicira $$m\\\{x:\
+M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)>\\alpha\\\}\\leq\
+m\\\{x:M\\left(f\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}+m\\\{x:M\\left(g\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}.$$Kako su\
+$f,g\\in L^\{1\}\\left(\\mathbb\{R\}^\{n\}\\right)$, to postoje konstante\
+$A_\{1\},A_\{2\}>0$ takve da je\
+$$m\\\{x:M\\left(f\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}\\leq\
+\\frac\{2A_\{1\}\}\{\\alpha\}\\|f\\|_\{1\}$$ i\
+$$m\\\{x:M\\left(g\\right)\\left(x\\right)>\\frac\{\\alpha\}\{2\}\\\}\\leq\\frac\{2A_\{2\}\}\{\\alpha\}\\|g\\|_\{1\}.$$Ako ozna\\v\{c\}imo $A=max\\\{2A_\{1\},2A_\{2\}\\\}$, ovo implicira $$m\\\{x:\
+M_\{\\Omega,K\}\\left(u\\right)\\left(x\\right)>\\alpha\\\}\\leq\\frac\{A\}\{\\alpha\}\\left(\\|f\\|_\{1\}+\\|g\\|_\{1\}\\right).$$\
+Ali\
+$\\|f\\|_\{1\}+\\|g\\|_\{1\}=\\|u\\|_\{\\mathcal\{A\}^\{1\}\\left(\\Omega\\backslash\
+K\\right)\}$, \\v\{s\}to upotpunjava dokaz.\
+\\end\{proof\}\
+\\begin\{theorem\} Neka je $1<p<\\infty$. $M_\{\\Omega,K\}$ je ograni\\v\{c\}eni operator s  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)$ u $L^\{p\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\} Vrijedi da je\
+$M_\{\\Omega,K\}\\left(u\\right)\\leq M\\left(f\\right)+M\\left(g\\right)$.\
+Iz \\v\{c\}injenice da je $M$ ograni\\v\{c\}eni operator na\
+$L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$, dobijamo da je\
+$M\\left(f\\right),M\\left(g\\right)\\in\
+L^\{p\}\\left(\\mathbb\{R\}^\{n\}\\right)$ i postoje $A_\{1\},A_\{2\}>0$\
+tako da $\\|M\\left(f\\right)\\|_\{p\}\\leq A_\{1\}\\|f\\|_\{p\}$ i\
+$\\|M\\left(g\\right)\\|_\{p\}\\leq A_\{2\}\\|g\\|_\{p\}$. Ako ozna\\v\{c\}imo\
+$A=max\\\{A_\{1\},A_\{2\}\\\}$, te ako iskoristimo nejednakost\
+$\\left(x+y\\right)^\{p\}\\leq 2^\{p-1\}\\left(x^\{p\}+y^\{p\}\\right)$, dobijamo\
+$$\\|M_\{\\Omega,K\}\\left(u\\right)\\|_\{L^\{p\}\\left(\\Omega\\backslash K\\right)\}\\leq\
+2^\{p-1\}A\\left(\\|f\\|_\{p\}^\{p\}+\\|g\\|_\{p\}^\{p\}\\right),$$i.e.\
+$$\\|\\|M_\{\\Omega,K\}u\\|\\|_\{p\}^\{p\}\\leq 2^\{p-1\}A\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)\}^\{p\},$$\\v\{s\}to dokazuje teoremu.\
+\\end\{proof\}\
+\
+Neka je $1\\leq p<\\infty$,$1\\leq q\\leq\\infty$. Neka je $T$ operator s $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ u prostor svih izmjerivih funkcija na $\\Omega\\backslash K$.\
+\\begin\{definition\} Ka\\v\{z\}emo da je $T$ $\\left(\\Omega,K\\right)$-jakog tipa\
+$\\left(p,q\\right)$ ako je $T$ ograni\\v\{c\}eni operator s\
+$\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ u\
+$L^\{q\}\\left(\\Omega\\backslash K\\right)$.\
+\\end\{definition\}\
+\\begin\{definition\} Neka je $q<\\infty$. Ka\\v\{z\}emo da je $T$ $\\left(\\Omega,K\\right)$-slabog tipa\
+$\\left(p,q\\right)$ ako je $$m\\\{x:\\vert\
+Tu\\left(x\\right)\\vert>\\alpha\\\}\\leq\
+\\left(\\frac\{A\\cdot\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)\}\}\{\\alpha\}\\right)^\{q\}.$$Ka\\v\{z\}emo da je $T$\
+$\\left(\\Omega,K\\right)$-slabog tipa $\\left(p,\\infty\\right)$ ako je $\\left(\\Omega,K\\right)$-jakog tipa $\\left(p,\\infty\\right)$.\
+\\end\{definition\}\
+\\begin\{corollary\} $M_\{\\Omega,K\}$ je\
+$\\left(\\Omega,K\\right)$-jakog tipa $\\left(p,p\\right)$ za svako\
+$1<p<\\infty$ i $\\left(\\Omega,K\\right)$-slabog tipa\
+$\\left(1,1\\right)$.\
+\\end\{corollary\}\
+\\begin\{lemma\} Neka je $1\\leq p<\\infty,1\\leq q\\leq\\infty$. Svaki operator $\\left(\\Omega,K\\right)$-jakog tipa  $\\left(p,q\\right)$ je, tako\\dj\{\}er, i $\\left(\\Omega,K\\right)$-slabog tipa $\\left(p,q\\right)$.\
+\\end\{lemma\}\
+\\begin\{proof\} Ako je $q=\\infty$, tada dokaz slijedi iz definicije. Pretpostavimo da je $q<\\infty$. Trebamo dokazati da je $$m\\\{x:\\vert\
+Tu\\left(x\\right)\\vert>\\alpha\\\}\\leq\\left(\\frac\{A\\cdot\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash\
+K\\right)\}\}\{\\alpha\}\\right)^\{q\}.$$ Dobijamo da je\
+$$\\int_\{\\Omega\\backslash K\}\\vert Tu\\left(x\\right)\\vert^\{q\}dx\\geq\\int_\{\\\{\\vert Tu\\vert>\\alpha\\\}\}\\vert Tu\\left(x\\right)\\vert^\{q\}dx>\\alpha^\{q\}\\cdot m\\\{x:\\vert\
+Tu\\left(x\\right)\\vert>\\alpha\\\}.$$ Ovo implicira\
+$$m\\\{x:\\vert\
+Tu\\left(x\\right)\\vert>\\alpha\\\}\\leq\\frac\{1\}\{\\alpha^\{q\}\}\\|Tu\\|_\{q\}^\{q\}.$$Pretpostavka da je $T$ $\\left(\\Omega,K\\right)$-jakog tipa $\\left(p,q\\right)$\
+sada implicira da je $\\|Tu\\|_\{q\}\\leq\
+A\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)\}$, odakle slijedi lema.\
+\\end\{proof\}\
+\
+\
+\
+\\chapter\{Teorema dekompozicije na beskona\\v\{c\}nim drvima i u kompleksnoj ravni\}\
+\
+  \\section\{Beskona\\v\{c\}na drva\}\
+Neka je $X$ prebrojivi skup ta\\v\{c\}aka (kona\\v\{c\}an ili beskona\\v\{c\}an) i neka su neke od tih ta\\v\{c\}aka povezane. Ove ta\\v\{c\}ke nazivamo \\v\{c\}vorovima, a veze granama. S $x\\sim y$ ozna\\v\{c\}imo da postoji grana $\\left [x,y\\right]$ koja spaja \\v\{c\}vorove $x$ i $y$. S $Y$ ozna\\v\{c\}imo skup grana. Stazom iz $x$ u $y$ smatramo kolekciju \\v\{c\}vorova $\\\{x=x_\{0\},x_\{1\},...,x_\{n\}=y\\\}$, gdje $x_\{i\}\\sim x_\{i+1\}$ za $0\\leq i\\leq n-1$. Za ovu stazu ka\\v\{z\}emo da je du\\v\{z\}ine $n$. Ako se \\v\{c\}vorovi u stazi ne ponavljaju, stazu nazivamo putem. Udaljenost dviju ta\\v\{c\}aka $x$ i $y$ je najkra\\'\{c\}a mogu\\'\{c\}a du\\v\{z\}ina staze koja spaja te dvije ta\\v\{c\}ke. Ozna\\v\{c\}avamo je s $d\\left(x,y\\right)$. Neka je $t$ funkcija na $X^\{2\}$ takva da je $t\\left(x,y\\right)\\geq 0$ za sve $x,y\\in X$, a $t\\left(x,y\\right)>0$ ako i samo ako je $x\\sim y$. Ure\\dj\{\}enu trojku $N=(X,Y,t)$ nazivamo mre\\v\{z\}a ako su sljede\\'\{c\}i uvjeti zadovoljeni:\
+\\newline 1. Nema grana oblika $\\left[x,x\\right]$ u $Y$.\
+\\newline 2. $X$ je povezan, tj. za svaka dva razli\\v\{c\}ita \\v\{c\}vora u $X$ postoji grana u $Y$ koja iz povezuje.\
+\\newline 3. Svaki \\v\{c\}vor u $X$ ima kona\\v\{c\}no mnogo susjeda, tj. $X$ je lokalno-kona\\v\{c\}an.\
+\\newline Umjesto da pi\\v\{s\}emo ure\\dj\{\}enu trojku  $N=(X,Y,t)$, pisat \\'\{c\}emo samo $X$. Za mre\\v\{z\}u $X$ ka\\v\{z\}emo da je drvo ako nema ciklusa u $X$, tj. ako ne postoji zatvoreni put $\\\{x_\{1\},x_\{2\},...,x_\{n\},x_\{1\}\\\}$ za $n\\geq 3$ s elementima iz $X$.\
+\\newline Neka je\
+$T$ beskona\\v\{c\}no drvo. Za proizvoljni podskup $E$ od $T$,\
+defini\\v\{s\}imo $\\accentset\{\\circ\}\{E\} $ kao skup svih $x\\in T$\
+takvih da su $x$ i svi susjedi od $x$ u $E$. Ozna\\v\{c\}imo\
+$\\partial E=E\\backslash \\accentset\{\\circ\}\{E\}$. Neka je\
+$V\\left(E\\right)=E\\cup \\\{y:y\\sim x$ za neko $x\\in E\\\}$. Za $x\\in\
+T$, pa za funkciju $f$ definisanu na $V\\left (x\\right )$,\
+defini\\v\{s\}imo\
+\\begin\{equation*\}\\Delta f\\left(x\\right)=\\sum_\{x\\sim\
+x_\{i\}\}t\\left(x,x_\{i\}\\right)\\left\
+[f\\left(x_\{i\}\\right)-f\\left(x\\right)\\right]. \\end\{equation*\}\
+Ka\\v\{z\}emo da je $f$ harmonijska u $x$ ako je $\\Delta f\\left(x\\right)=0$. Za funkciju $f$ definisanu na proizvoljnom skupu $E$ ka\\v\{z\}emo da je harmonijska na $E$ ako je $\\Delta f\\left(x\\right)=0$ za svako $x\\in\
+\\accentset\{\\circ\}\{E\} $. Neka je $1\\leq p<\\infty$. S\
+$L^\{p\}\\left(E\\right)$ ozna\\v\{c\}imo skup svih funkcija $f$ na\
+$E$ takav da $\\|f\\|_\{p\}:=\\left(\\sum_\{x\\in E\}\\vert\
+f\\left(x\\right)\\vert^\{p\}\\right)^\{1/p\}<\\infty$. Neka\
+$b^\{p\}\\left(E\\right)$ ozna\\v\{c\}ava Bergmanov prostor na $E$, tj. skup svih harmonijskih funkcija $f$ na $E$ takvih da je $f\\in\
+L^\{p\}\\left(E\\right)$.\
+\\begin\{lemma\}\
+Neka je $1\\leq p<\\infty$ i $E$ podskup od $T$. Tada je\
+$b^\{p\}\\left(E\\right)$ Banahov prostor u odnosu na $\\|\\cdot\\|_\{p\}$\
+norm.\
+\\end\{lemma\}\
+\\begin\{proof\}\
+Neka je $f_\{n\}$ Ko\\v\{s\}ijev niz u $b^\{p\}\\left(E\\right)$. Po\\v\{s\}to je\
+$L^\{p\}\\left(E\\right)$ Banahov prostor, to postoji $f\\in\
+L^\{p\}\\left(E\\right)$ takvo da $\\|f_\{n\}-f\\|_\{p\}\\rightarrow 0$, kad\
+$n\\rightarrow\\infty$. Sada za $x\\in E$ imamo\
+\\begin\{equation*\}\
+\\vert f_\{n\}\\left(x\\right)-f\\left(x\\right)\\vert\\leq\
+\\left(\\sum_\{x\\in E\}\\vert\
+f_\{n\}\\left(x\\right)-f\\left(x\\right)\\vert^\{p\}\\right)^\{1/p\}=\
+\\|f_\{n\}-f\\|_\{p\}\\rightarrow 0, \\end\{equation*\} kad\
+$n\\rightarrow\\infty$. Slijedi da je $f_\{n\}\\left(x\\right)\\rightarrow\
+f\\left(x\\right)$ kad $n\\rightarrow\\infty$. Sada za $x\\in\
+\\accentset\{\\circ\}\{E\}$,\
+\\begin\{equation*\}\
+\\begin\{aligned\}\
+\\Delta f\\left(x\\right)&=\\sum_\{x\\sim\
+x_\{i\}\}t\\left(x,x_\{i\}\\right)\\left(f\\left(x_\{i\}\\right)-f\\left(x\\right)\\right)\\\\&=\\lim_\{n\\rightarrow\\infty\}\\sum_\{x\\sim\
+x_\{i\}\}t\\left(x,x_\{i\}\\right)\\left(f_\{n\}\\left(x_\{i\}\\right)-f_\{n\}\\left(x\\right)\\right)\\\\&=\\lim_\{n\\rightarrow\\infty\}\\Delta\
+f_\{n\}\\left(x\\right)\\\\&=\\lim_\{n\\rightarrow\\infty\} 0\\\\&=0,\
+\\end\{aligned\}\
+\\end\{equation*\} pa je $f$ harmonijska na $E$ i lema je dokazana.\
+\\end\{proof\}\
+\
+U \\cite\{anandam\} mo\\v\{z\}emo na\\'\{c\}i dokaz sljede\\'\{c\}e teoreme.\
+\\begin\{thmy\}\
+\\label\{decomposition2\}\
+Neka je $T$ beskona\\v\{c\}no drvo u kojem svaki \\v\{c\}vor koji nije krajnji ima barem dva takva susjeda. Neka je $E$ kona\\v\{c\}an povezan podskup od $T$ i $F=V\\left(E\\right)$. Neka je $A$ neprazan podskup od $E$. Neka je $u$ harmonijska funkcija na\
+$F\\backslash \\accentset\{\\circ\}\{A\}$. Tada postoji harmonijska funkcija $s$ na $T\\backslash \\accentset\{\\circ\}\{A\}$ i harmonijska funkcija $t$ na $F$ takva da je $u=s+t$ na $F\\backslash \\accentset\{\\circ\}\{A\}$. Dalje vrijedi,\
+\\newline i. Ako postoje pozitivni potencijali na $T$, tada su $s$ i $t$ jedinstveno odre\\dj\{\}eni ako posmatramo restrikciju $\\vert s\\vert\\leq p$ van kona\\v\{c\}nog skupa, gdje je $p$ pozitivan potencijal na $T$.\
+\\newline ii. Ako nema pozitivnih potencijala na $T$, tada su $s$ i $t$ jedinstveno odre\\dj\{\}eni do na aditivnu konstantu, ako dodamo uvjet da za neko $\\alpha$, $\\left[s-\\alpha H\\right]$ je ograni\\v\{c\}en van kona\\v\{c\}nog skupa, gdje je $H\\left(x\\right)$ analog od $\\log\\vert x\\vert$ u $T$ (naime, $H\\geq 0$  je neograni\\v\{c\}en na $T$, $\\Delta H\\left(x\\right)=\\delta_\{e\}\\left(x\\right)$ gdje je $e$ fiksni \\v\{c\}vor i $H>0$ van kona\\v\{c\}nog skupa u $T$).\
+\
+\\end\{thmy\}\
+\
+Neka je $1\\leq p<\\infty$. Defini\\v\{s\}imo prostor\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$ kao skup svih funkcija $u\\in b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$ \\v\{c\}ija jedinstvena dekompozicija $u=s+t$ iz teoreme \\ref\{decomposition2\}, tako\\dj\{\}er, zadovoljava $s\\in\
+b^\{p\}\\left(T\\backslash \\accentset\{\\circ\}\{A\}\\right)$ i $t\\in\
+b^\{p\}\\left(F\\right)$.\
+\
+\\begin\{lemma\}\
+\\label\{bp2\} Neka je $1\\leq p<\\infty$ i\
+$u=s+t\\in\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$ proizvoljno. Tada\
+\\begin\{equation*\}\\|u\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}\\leq\
+2^\{\\frac\{p-1\}\{p\}\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}.\
+\\end\{equation*\}\
+\\end\{lemma\}\
+\\begin\{proof\}\
+Rezultat slijedi iz sljede\\'\{c\}ih nejednakosti\
+\\begin\{equation*\}\
+\\begin\{aligned\}\
+\\|u\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}=\\|s+t\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}&\\leq\\left(\\|s\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}+\\|t\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}\\right)^\{p\}\\\\&\\leq 2^\{p-1\}\\left(\\|s\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}+\\|t\\|_\{b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}\\right)\\\\&\\leq 2^\{p-1\}\\left(\\|s\\|_\{b^\{p\}\\left(T\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}+\\|t\\|_\{b^\{p\}\\left(F\\right)\}^\{p\}\\right)\\\\&=2^\{p-1\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)\}\
+\\end\{aligned\}\
+\\end\{equation*\}\
+\\end\{proof\}\
+\
+\\begin\{theorem\}\
+Neka je $1\\leq p<\\infty$. Tada je $\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$ Banahov prostor u odnosu na normu\
+definisan s \\begin\{equation*\}\\|u\\|_\{\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}=\\|s\\|_\{b^\{p\}\\left(T\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}+\\|t\\|_\{b^\{p\}\\left(F\\right)\}^\{p\},\\end\{equation*\}\
+gdje je $u=s+t$ dekompozicija od $u$ u\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$\
+\\end\{theorem\}\
+\
+\\begin\{proof\}\
+Neka je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$.\
+Iz leme \\ref\{bp2\} slijedi da je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u $b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$. $b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$ je Banahov prostor, pa postoji\
+$u\\in b^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$ tako da je $u_\{m\}\\to u$ in $b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$. Tako\\dj\{\}er,\
+\\[\\|u_\{m\}-u_\{k\}\\|_\{\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}=\\|t_\{m\}-t_\{k\}\\|_\{b^\{p\}\\left(F\\right)\}^\{p\}+\\|s_\{m\}-s_\{k\}\\|_\{b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)\}^\{p\},\\]\
+gdje je $u_\{m\}=s_\{m\}+t_\{m\}$ na $F\\backslash\\accentset\{\\circ\}\{A\}$ dekompozicija spomenuta u definiciji od\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$.\
+Po\\v\{s\}to je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$, slijedi da je $\\left(t_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$b^\{p\}\\left(F\\right)$ i $\\left(s_\{m\}\\right)$ je Ko\\v\{s\}ijev niz u  $b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)$.\
+Po\\v\{s\}to su $b^\{p\}\\left(F\\right)$ i\
+$b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)$ Banahovi prostori, slijedi da postoje $t\\in b^\{p\}\\left(F\\right)$ i\
+$s\\in b^\{p\}\\left(T\\backslash \\accentset\{\\circ\}\{A\}\\right)$ takvi da $t_\{m\}\\to t$ in $b^\{p\}\\left(F\\right)$  i $s_\{m\}\\to s$ u\
+$b^\{p\}\\left(T\\backslash \\accentset\{\\circ\}\{A\}\\right)$. Sada defini\\v\{s\}imo\
+$u'=s+t$. Imamo $u'\\in\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$. Sada je\
+\\begin\{equation*\}\\|u_\{m\}-u'\\|_\{\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\}=\\|t_\{m\}-t\\|_\{b^\{p\}\\left(F\\right)\}^\{p\}+\\|s_\{m\}-s\\|_\{b^\{p\}\\left(T\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)\}^\{p\},\\end\{equation*\} pa $u_\{m\}\\to u'$\
+u $\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$.\
+Po\\v\{s\}to je $u_\{m\}\\to u$ u $b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$ pa zbog leme \\ref\{bp2\}, $u_\{m\}\\to\
+u'$ u $b^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$, implicira  $u=u'\\in\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\}\\right)$. Ovo implicira da je\
+$\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$ Banahov prostor, \\v\{c\}ime je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{theorem\} Neka je $1\\leq p<\\infty$. Tada je \\begin\{equation*\}\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)=b^\{p\}\\left(F\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}\\oplus\
+b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}.\\end\{equation*\}\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Iz definicije prostora $\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)$ o\\v\{c\}igledno je da je $\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\}\\right)=b^\{p\}\\left(F\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}+ b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}$. Prema tome, jedino \\v\{s\}to trebamo dokazati jeste da je ova suma direktna. Neka je $u\\in b^\{p\}\\left(F\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}\\cap b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}$. Slijedi da postoji $s\\in b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)$, $t\\in b^\{p\}\\left(F\\right)$ takvo da $u=s=t$ on $F\\backslash\\accentset\{\\circ\}\{A\}$. Tada funkcija definisana s  $\\tilde\{u\}\\left(x\\right)=t\\left(x\\right)$ za $x\\in F$ i $\\tilde\{u\}\\left(x\\right)=s\\left(x\\right)$ za $x\\in T\\backslash\\accentset\{\\circ\}\{A\}$. Dobijamo da je $\\tilde\{u\}\\in b^\{p\}\\left(T\\right)=\\left\\\{0\\right\\\}$, pa je  $ b^\{p\}\\left(F\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}\\cap b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)\\vert_\{F\\backslash\\accentset\{\\circ\}\{A\}\}=\\left\\\{0\\right\\\}$, pa je suma direktna i time je dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+U prvom poglavlju smo spomenuli kako bi bilo zanimljivo vidjeti kada vrijedi  $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)=b^\{p\}\\left(\\Omega\\backslash K \\right)$. Tako\\dj\{\}er, dokazali smo da ako je $K$ jednoelementni skup, tada je ta jednakost zadovoljena. To je \\v\{s\}to se ti\\v\{c\}e euklidskog slu\\v\{c\}aja. Ako posmatramo isti problem u kontekstu beskona\\v\{c\}nih drva, jednakost nikad ne vrijedi, kao \\v\{s\}to je dokazano u sljede\\'\{c\}oj teoremi.\
+\\begin\{theorem\} Neka je $1\\leq p<\\infty$. Tada je $\\mathcal\{A\}^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\} \\right)\\neq b^\{p\}\\left(F\\backslash \\accentset\{\\circ\}\{A\} \\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Imamo da vrijedi $\\mathcal\{A\}^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\} \\right)= b^\{p\}\\left(F\\backslash\
+\\accentset\{\\circ\}\{A\} \\right)$ ako i samo svaka harmonijska funkcija na $T\\backslash \\accentset\{\\circ\}\{A\}$ je tako\\dj\{\}er u\
+$b^\{p\}\\left(T\\backslash \\accentset\{\\circ\}\{A\}\\right)$. Ovo nije ta\\v\{c\}no, jer harmonijska funkcija  $u\\left(x\\right)=1$ na\
+$T\\backslash\\accentset\{\\circ\}\{A\}$ ne pripada\
+$b^\{p\}\\left(T\\backslash\\accentset\{\\circ\}\{A\}\\right)$.\
+\\end\{proof\}\
+Time je rije\\v\{s\}en analogni problem za beskona\\v\{c\}na drva.\
+Teorema dekompozicije, tako\\dj\{\}er, vrijedi u poliharmonijskom slu\\v\{c\}aju, kao \\v\{s\}to vidimo iz sljede\\'\{c\}e teoreme iz \\cite\{anandam\}.\
+\\begin\{thmy\}\
+Neka je $T$ beskona\\v\{c\}no drvo u kojem svaki \\v\{c\}vor koji nije krajnji, ima barem dva takva susjeda. Neka je $E$ kona\\v\{c\}an povezan podskup od $T$ i $F=V\\left(E\\right)$. Neka je $A$ neprazan podskup od $E$. Pretpostavimo da je $u$ m-harmonijska funkcija na $F\\backslash\\accentset\{\\circ\}\{A\}$. Tada postoji $m$-harmonijska funkcija $s$ na $T\\backslash\\accentset\{\\circ\}\{A\}$ i $m$-harmonijska funkcija $t$ na $F$ takva da je $u=s+t$ na $F\\backslash\\accentset\{\\circ\}\{A\}$. Ova reprezentacija se mo\\v\{z\}e odabrati da bude jedinstvena do na aditivnu $\\left(m-1\\right)$-harmonijsku funkciju na $T$ ako $T$ ima pozitivne potencijale; u suprotnom, reprezentacija je jedinstvena do na $m$-harmonijsku funkciju generisanu s konstantom.\
+\\end\{thmy\}\
+\\begin\{remark\}\
+Rezultate koje smo dobili za harmonijske funkcije na beskona\\v\{c\}nim drvima mo\\v\{z\}emo, tako\\dj\{\}er, posmatrati i u slu\\v\{c\}aju $m$-harmonijskih funkcija. Zanimljivo bi bilo posmatrati analogne probleme i u tom kontekstu.\
+\\end\{remark\}\
+\\section\{Holomorfni slu\\v\{c\}aj\} U ovom dijelu posmatrajmo\
+sljede\\'\{c\}u teoremu (vidjeti  \\cite\{bajunaid\}).\
+\\begin\{thmy\} U kompleksnoj ravni neka je $K$ kompaktni skup i\
+$\\omega$ otvoreni skup takav da je $K\\subset\\omega$. Pretpostavimo da postoji otvoreni disk $D$ takav da  $K\\subset\
+D\\subset\\overline\{D\}\\subset\\omega$. Pretpostavimo da je $f$ analiti\\v\{c\}ka na\
+$\\omega\\backslash K$. Tada je $f=f_\{1\}+f_\{2\}$ na $\\omega\\backslash\
+K$, gdje je $f_\{1\}$ analiti\\v\{c\}ka na $\\omega$ i $f_\{2\}$ analiti\\v\{c\}ka na $\\mathbb\{C\}\\backslash K$ i te\\v\{z\}i nuli u beskona\\v\{c\}nosti.\
+Ova dekompozicija je jedinstvena.\
+\\end\{thmy\}\
+Neka je $1\\leq p<\\infty$ i $A^\{p\}\\left(\\omega\\backslash K\\right)$ skup svih $f\\in B^\{p\}\\left(\\omega\\backslash K\\right)$ takvih da je $f=f_\{1\}+f_\{2\}$ na $\\omega\\backslash K$, gdje je $f_\{1\}\\in\
+B^\{p\}\\left(\\omega\\right)$, $f_\{2\}\\in\
+B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$.\
+\\begin\{lemma\}\
+\\label\{bp\}\
+ Neka je $1\\leq p<\\infty$ i\
+$f\\in A^\{p\}\\left(\\omega\\backslash K\\right)$ proizvoljno.\
+Tada\
+\
+  $$\\|f\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}\\leq 2^\{\\frac\{p-1\}\{p\}\}\\|f\\|_\{A^\{p\}\\left(\\omega\\backslash K\\right)\}$$\
+\
+\\end\{lemma\}\
+ \\begin\{proof\}\
+Rezultat slijedi iz sljede\\'\{c\}ih nejednakosti\
+$$\
+\\begin\{aligned\}\
+ \\|f\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}^\{p\}= \\|f_\{1\}+f_\{2\}\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}^\{p\}&\\leq \\left(\\|f_\{1\}\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}+\\|f_\{2\}\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}\\right)^\{p\}\\\\& \\leq  2^\{p-1\}\\left(\\|f_\{1\}\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}^\{p\}+\\|f_\{2\}\\|_\{B^\{p\}\\left(\\omega\\backslash K\\right)\}^\{p\}\\right)\\\\& \\leq  2^\{p-1\}\\left(\\|f_\{1\}\\|_\{B^\{p\}\\left(\\omega\\right)\}^\{p\}+\\|f_\{2\}\\|_\{B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)\}^\{p\}\\right)\\\\&= 2^\{p-1\}\\|f\\|_\{A^\{p\}\\left(\\omega\\backslash K\\right)\}^\{p\}.\
+\\end\{aligned\}\
+$$\
+ \\end\{proof\}\
+\
+\\begin\{lemma\}\
+\\label\{lema2\} Neka je $1\\leq p<\\infty$, $n\\geq 2$. Ako je $f\\in\
+B^\{p\}\\left(\\mathbb\{C\}\\backslash K \\right)$, onda je\
+$\\lim_\{z\\rightarrow\\infty\}f\\left(z\\right)=0$.\
+\\end\{lemma\}\
+\\begin\{proof\}\
+Ako je $f\\in B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$, onda je $f=u+iv$, gdje je $u,v\\in b^\{p\}\\left(\\mathbb\{R\}^\{2\}\\backslash K\\right)$. Ovo implicira $u\\left(x,y\\right)\\rightarrow 0$, $v\\left(x,y\\right)\\rightarrow 0$ kada $\\left(x,y\\right)\\rightarrow \\infty$. Sada $\\vert f\\left(z\\right)\\vert^\{2\}=\\vert u\\left(x,y\\right)\\vert^\{2\}+\\vert v\\left(x,y\\right)\\vert^\{2\}\\rightarrow 0$, as $\\left(x,y\\right)\\rightarrow\\infty$ (vidjeti lemu 2 u \\cite\{memic\}), odakle slijedi tvrdnja.\
+\\end\{proof\}\
+\\begin\{theorem\}\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$ je Banahov prostor u odnosu na normu definisanu s  $$\\|f\\|_\{A^\{p\}\\left(\\omega\\backslash\
+K\\right)\}^\{p\}=\\|f_\{1\}\\|_\{B^\{p\}\\left(\\omega\\right)\}^\{p\}+\\|f_\{2\}\\|_\{B^\{p\}\\left(\\mathbb\{C\}\\backslash\
+K\\right)\}^\{p\}$$ gdje je $f=f_\{1\}+f_\{2\}$ dekompozicija od $f$ u $A^\{p\}\\left(\\omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Neka je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$. Iz leme \\ref\{bp\}\
+slijedi da je $\\left(u_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$B^\{p\}\\left(\\omega\\backslash K\\right)$.\
+$B^\{p\}\\left(\\omega\\backslash K\\right)$ je Banahov prostor, pa postoje $u\\in B^\{p\}\\left(\\omega\\backslash K\\right)$ takvi da\
+$u_\{m\}\\to u$ u $B^\{p\}\\left(\\omega\\backslash K\\right)$. Tako\\dj\{\}er,\
+$$\\|u_\{m\}-u_\{k\}\\|_\{A^\{p\}\\left(\\omega\\backslash\
+K\\right)\}^\{p\}=\\|v_\{m\}-v_\{k\}\\|_\{b^\{p\}\\left(\\omega\\right)\}^\{p\}+\\|w_\{m\}-w_\{k\}\\|_\{b^\{p\}\\left(\\mathbb\{C\}\\backslash\
+K\\right)\}^\{p\}, $$ gdje je $u_\{m\}=v_\{m\}+w_\{m\}$ na\
+$\\omega\\backslash K$ je dekompozicija od $u_\{m\}$ u\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$. Po\\v\{s\}to je $\\left(u_\{m\}\\right)$\
+Ko\\v\{s\}ijev niz u $A^\{p\}\\left(\\omega\\backslash K\\right)$, slijedi da je $\\left(v_\{m\}\\right)$ Ko\\v\{s\}ijev niz u\
+$B^\{p\}\\left(\\omega\\right)$ i $\\left(w_\{m\}\\right)$ je Ko\\v\{s\}ijev niz u $B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$. Po\\v\{s\}to su\
+$B^\{p\}\\left(\\omega\\right)$ i $B^\{p\}\\left(\\mathbb\{C\}\\backslash\
+K\\right)$ Banahovi prostori, slijedi da postoje $v\\in\
+B^\{p\}\\left(\\omega\\right)$ i $w\\in\
+B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$ takvi da je $v_\{m\}\\to v$\
+u $B^\{p\}\\left(\\omega\\right)$ i $w_\{m\}\\to w$ u\
+$B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$. Sada defini\\v\{s\}imo $u'=v+w$.\
+Prema lemi \\ref\{lema2\}, $u'\\in A^\{p\}\\left(\\omega\\backslash\
+K\\right)$. Sada je\
+$$\
+\\|u_\{m\}-u'\\|_\{A^\{p\}\\left(\\omega\\backslash\
+K\\right)\}^\{p\}=\\|v_\{m\}-v\\|_\{b^\{p\}\\left(\\omega\\right)\}^\{p\}+\\|w_\{m\}-w\\|_\{b^\{p\}\\left(\\mathbb\{C\}\\backslash\
+K\\right)\}^\{p\}, $$\
+ pa je $u_\{m\}\\to u'$ u\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$. Po\\v\{s\}to je $u_\{m\}\\to u$ u\
+$B^\{p\}\\left(\\omega\\backslash K\\right)$ i prema lemi \\ref\{bp\},\
+$u_\{m\}\\to u'$ u $B^\{p\}\\left(\\omega\\backslash K\\right)$, slijedi da je\
+$u=u'\\in A^\{p\}\\left(\\omega\\backslash K\\right)$. Ovo implicira da je\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$ Banahov prostor, pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\
+\\begin\{theorem\}\
+Neka je $1\\leq p<\\infty$. Tada su $B^\{p\}\\left(\\omega\\right)$ i\
+$B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$ zatvoreni potprostori od\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Topologija na $B^\{p\}\\left(\\omega\\right)$ je ista kao potprostorna topologija na $A^\{p\}\\left(\\omega\\backslash K\\right)$. Po\\v\{s\}to je potprostor kompletnog metri\\v\{c\}kog prostora kompletan metri\\v\{c\}ki prostor ako i samo je zatvoren u potprostornoj topologiji, slijedi da je  $B^\{p\}\\left(\\omega\\right)$ zatvoren u $A^\{p\}\\left(\\omega\\backslash K\\right)$. Na isti na\\v\{c\}in mo\\v\{z\}emo dokazati da je $B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$ zatvoren u\
+$A^\{p\}\\left(\\omega\\backslash K\\right)$.\
+\\end\{proof\}\
+\
+\\begin\{theorem\}\
+Neka je $1\\leq p<\\infty$. Tada je $A^\{p\}\\left(\\omega\\backslash K\\right)$\
+skup svih holomorfnih funkcija $f=u+iv$ na\
+$\\omega\\backslash K$, gdje su $u$ i $v$ realne funkcije iz\
+$\\mathcal\{A\}^\{p\}\\left(\\omega\\backslash K\\right)$.\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Neka je $f\\in A^\{p\}\\left(\\omega\\backslash K\\right)$ proizvoljno. Tada\
+$f=f_\{1\}+f_\{2\}$ on $\\omega\\backslash K$, gdje je $f_\{1\}\\in\
+B^\{p\}\\left(\\omega\\right)$ i $f_\{2\}\\in\
+B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)$. Sada je $f_\{1\}=u_\{1\}+i\
+v_\{1\}$ i $f_\{2\}=u_\{2\}+i v_\{2\}$, gdje je $u_\{1\},u_\{2\}\\in\
+b^\{p\}\\left(\\omega\\right)$, $v_\{1\},v_\{2\}\\in\
+b^\{p\}\\left(\\mathbb\{R\}^\{2\}\\backslash K\\right)$. Slijedi $f=u+iv$,\
+gdje je $u=u_\{1\}+u_\{2\}\\in A^\{p\}\\left(\\omega\\backslash K\\right)$,\
+$v=v_\{1\}+v_\{2\}\\in\\mathcal\{A\}^\{p\}\\left(\\omega\\backslash K\\right)$.\
+Druga implikacija lahko slijedi, pa je time dokaz zavr\\v\{s\}en.\
+\\end\{proof\}\
+\\begin\{theorem\}\
+Neka je $1\\leq p<\\infty$. Tada je\
+$$\
+A^\{p\}\\left(\\omega\\backslash\
+K\\right)=B^\{p\}\\left(\\omega\\right)\\vert_\{\\omega\\backslash K\}\\oplus\
+B^\{p\}\\left(\\mathbb\{C\}\\backslash K\\right)\\vert_\{\\omega\\backslash\
+K\}$$\
+\
+\\end\{theorem\}\
+\\begin\{proof\}\
+Slijedi odmah iz definicije od $A^\{p\}\\left(\\omega\\backslash K\\right)$ i iz \\v\{c\}injenice da ne postoji nenulta funkcija u $B^\{p\}\\left(\\mathbb\{C\}\\right)$.\
+\\end\{proof\}\
+$A^\{2\}\\left(\\omega\\backslash K\\right)$ je Hilbertov prostor u odnosu na skalarni proizvod dat s $$\\langle f_\{1\},f_\{2\} \\rangle_\{A^\{2\}\\left(\\omega\\backslash K\\right)\}=\\langle g_\{1\}, g_\{2\}\\rangle_\{B^\{2\}\\left(\\omega\\right)\}+\\langle h_\{1\},h_\{2\} \\rangle_\{B^\{2\}\\left(\\mathbb\{C\}\\backslash K\\right)\},$$ gdje su $f_\{1\}=g_\{1\}+h_\{1\}$ i $f_\{2\}=g_\{2\}+h_\{2\}$ dekompozicije u $A^\{2\}\\left(\\omega\\backslash K\\right)$.\
+\\begin\{theorem\}\
+Neka je $f\\in A^\{2\}\\left(\\omega\\backslash K\\right)$ i $z\\in\\omega\\backslash K$ proizvoljno odabrano. Tada je $$\\vert f\\left(z\\right)\\vert\\leq\\frac\{\\sqrt\{2\}\\|f\\|_\{A^\{2\}\\left(\\omega\\backslash K\\right)\}\}\{\\sqrt\{V\\left(B\\right)\}d\\left(z,\\partial\\left(\\omega\\backslash K\\right)\\right)^\{n/2\}\}$$\
+\\end\{theorem\}\
+\\begin\{proof\} Slijedi odmah iz teoreme 2 in \\cite\{memic\} kad je primijenimo na realni i imaginarni dio od $f$.\
+\\end\{proof\}\
+\
+Neka je $z\\in\\omega\\backslash K$ proizvoljno odabrano. Tada je preslikavanje $f\\mapsto f\\left(z\\right)$ ograni\\v\{c\}eni linearni funkcional na $A^\{2\}\\left(\\omega\\backslash K\\right)$. Slijedi da postoji  $H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)\\in A^\{2\}\\left(\\omega\\backslash K\\right)$ takvo da je  $f\\left(z\\right)=\\langle f,H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)\\rangle_\{A^\{2\}\\left(\\omega\\backslash K\\right)\}$.\
+\\begin\{theorem\}Vrijedi da je $$H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)=K_\{\\omega\}\\left(z,\\cdot\\right)+K_\{\\mathbb\{C\}\\backslash K\}\\left(z,\\cdot\\right)$$ na  $\\omega\\backslash K$, gdje su $K_\{\\omega\}$ i $K_\{\\mathbb\{C\}\\backslash K\}$ Bergmanova jezgra na $\\omega$ i  $\\mathbb\{C\}\\backslash K$, respektivno.\
+\\end\{theorem\}\
+\\begin\{proof\} Neka je $z\\in\\omega\\backslash K$ proizvoljno odabrano. Kako je $H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)\\in A^\{2\}\\left(\\omega\\backslash K\\right)$, postoji jedinstveno $V_\{\\omega\}\\left(z,\\cdot\\right)\\in B^\{2\}\\left(\\omega\\right)$ i $W_\{\\mathbb\{C\}\\backslash K\}\\left(z,\\cdot\\right)\\in B^\{2\}\\left(\\mathbb\{C\}\\backslash K\\right)$ takvi da je $H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)=V_\{\\omega\}\\left(z,\\cdot\\right)+W_\{\\mathbb\{C\}\\backslash K\}\\left(z,\\cdot\\right)$ na  $\\omega\\backslash K$. Slijedi da je  $$f\\left(z\\right)=\\int_\{\\omega\}g\\left(w\\right)\\overline\{V_\{\\omega\}\\left(z,w\\right)\}dw+\\int_\{\\mathbb\{C\}\\backslash K\}h\\left(w\\right)\\overline\{W_\{\\mathbb\{C\}\\backslash K\}\\left(z,w\\right)\}dw,$$ gdje je $f=g+h$ dekompozicija od $f\\in A^\{2\}\\left(\\omega\\backslash K\\right)$. Iz \\v\{c\}injenice da je  $b^\{2\}\\left(\\omega\\right)\\subseteq A^\{2\}\\left(\\omega\\backslash K\\right)$ i $b^\{2\}\\left(\\mathbb\{C\}\\backslash K\\right)\\subseteq A^\{2\}\\left(\\omega\\backslash K\\right)$ slijedi da je  $V_\{\\omega\}\\left(z,\\cdot\\right)=K_\{\\omega\}\\left(z,\\cdot\\right)$ na $\\omega$ i $W_\{\\mathbb\{C\}\\backslash K\}\\left(z,\\cdot\\right)=K_\{\\mathbb\{C\}\\backslash K\}\\left(z,\\cdot\\right)$ na $\\mathbb\{C\}\\backslash K$, odakle slijedi tvrdnja.\
+\\end\{proof\}\
+Sada \\'\{c\}emo spomenuti neke analogne otvorene probleme.\
+\\newline 1. Na\\'\{c\}i sve trojke $\\left(p,\\omega,K\\right)$ takve da je $A^\{2\}\\left(\\omega\\backslash K\\right)=B^\{2\}\\left(\\omega\\backslash K\\right)$.\
+\\newline 2. Ako je $A^\{2\}\\left(\\omega\\backslash K\\right)=B^\{2\}\\left(\\omega\\backslash K\\right)$, onda je  $K_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)\\in A^\{2\}\\left(\\omega\\backslash K\\right)$, pa bi bilo zanimljivo na\\'\{c\}i vezu izme\\dj\{\}u $H_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)$ i $K_\{\\omega\\backslash K\}\\left(z,\\cdot\\right)$, za dato $z\\in\\omega\\backslash K$.\
+\
+\\chapter\{Summary\}\
+The decomposition theorem for harmonic functions is a generalization of the Laurent series decomposition of analytic functions on annular regions. That decomposition is unique under certain conditions. The decomposition was used in this dissertation in order to introduce spaces $\\mathcal\{A\}^\{p\}\\left(\\Omega\\backslash K\\right)$ of all functions $u\\in b^\{p\}\\left(\\Omega\\backslash K\\right)$ with the decomposition $u=v+w$, where $v\\in b^\{p\}\\left(\\Omega\\right)$, $w\\in b^\{p\}\\left(\\mathbb\{R\}^\{n\}\\backslash K\\right)$, and $b^\{p\}$ denotes a harmonic Bergman spaces. A norm related to this space is introduced and it is shown that under this norm this space is Banach space. In the case that $p=2$, it becomes a Hilbert space under appropriate inner product.\
+\\begin\{paragraph\}\{\}   A reproducing kernel $S_\{\\Omega\\backslash K\}$ for the space $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ is introduced and a formula for this kernel is given. In the case of an annular region, an explicit formula is obtained. In the case of equalness of spaces $\\mathcal\{A\}^\{2\}\\left(\\Omega\\backslash K\\right)$ and $b^\{2\}\\left(\\Omega\\backslash K\\right)$, the question of norm equivalence is considered.\
+\\end\{paragraph\}\
+\\begin\{paragraph\}\{\} Dirichlet boundary problem and the decomposition theorem served as a motivation for introducing $\\left(\\Omega,K\\right)$-boundary problem for harmonic functions. Existence and uniqueness of solution are obtained in the case of annular regions. Regularity for distributions and the decomposition theorem were used for introducing the notion of $\\left(\\Omega,K\\right)$-regularity for distributions and some questions related to distributions were considered in this context. Maximal function and the decomposition theorem served as a motive for introducing $\\left(\\Omega,K\\right)$-maximal functions.Results about maximal functions are generalized to this case.\
+\\end\{paragraph\}\
+\
+\\begin\{paragraph\}\{\} The decomposition theorem for harmonic functions has its analogy in the case of harmonic functions on networks as well as in the case of holomorphic functions. An analog framework is given and a question of equalness of spaces $\\mathcal\{A\}^\{p\}$ and $b^\{p\}$ is answered in the case of networks.\
+\\end\{paragraph\}\
+\\cleardoublepage\
+ \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
+    \\bibliography\{...\}\
+\\begin\{thebibliography\}\{plain\}\
+ \\bibitem\{anandam\}    V. Anandam, \\textit\{Harmonic functions and potentials on finite or infinite\
+networks\}, Springer-Verlag, Berlin, 2011.\
+ \\bibitem\{aronszajn\} N. Aronszajn, Theory of reproducing kernels, \\textit\{T. Am. Math. Soc.\} \\textbf\{68\}(1950), 337-404.\
+ \\bibitem\{axler\}    S. Axler, P. Bourdon and W. Ramey, \\textit\{Harmonic function theory\}, Springer-Verlag, New\
+York, 2011.\
+\\bibitem\{bajunaid\} I. Bajunaid, A consequence of the Laurent\
+decomposition, \\textit\{Arab. J. Math. Sci.\} \\textbf\{14\} (2008), 15-20.\
+\\bibitem\{bergman1\} S. Bergman, M. Schiffer, \\textit\{Kernel functions and elliptic differential equations in mathematical physics\}, Academic Press, New York, 1953.\
+\\bibitem\{bhat\}  P. K. Bhattacharyya, \\textit\{Distributions. Generalized Functions with Applications in Sobolev Spaces\}, Walter de Gruyter,\
+Berlin, 2012.\
+ \\bibitem\{brent\} B. J. Carswell, R. J. Weir, Weighted reproducing kernels and the Bergman space, \\textit\{J. Math. Anal. Appl.\} \\textbf\{399\}(2013), 617-624.\
+\
+\\bibitem\{chung\} S. Y. Chung, Characterization of harmonic functions with singularity in hyperplane, \\textit\{J. Math. Kyoto Univ.\}\\textbf\{36.1\}(1996), 199-209.\
+\\bibitem\{chungtemp\} S. Y. Chung, Decomposition theorems for the temperature functions with singularity, \\textit\{Osaka J. Math.\}\\textbf\{36\}(1999), 557-574.\
+\\bibitem\{bergman\} P. L. Duren, A. Schuster, \\emph\{Bergman spaces\}, Am. Math. Soc., Providence, RI, 2004.\
+\\bibitem\{miroslav\} M. Engli\\v\{s\}, Boundary singularity of Poisson and harmonic Bergman kernels, \\textit\{J. Math. Annal. Appl.\} \\textbf\{429.1\}(2015), 233-272.\
+\
+\
+  \\bibitem\{hedenmalm\} H. Hedenmalm, B. Korenblum, K. Zhu, \\textit\{Theory of Bergman spaces\}, New York, NY, USA: Springer-Verlag, 2000.\
+\\bibitem\{hofmann\} T. Hofmann, B. Sch\\"olkopf and A. J. Smola, Kernel methods in machine learning, \\textit\{Ann. Statist.\} \\textbf\{36\}(2008), 1171-1220.\
+\\bibitem\{charles\} C. Horowitz, Zeros of functions in the Bergman spaces, \\textit\{Duke Math. J.\}\\textbf\{41\}(1974), 693-710.\
+\\bibitem\{pavlovic\} M. Jevti\\'\{c\}, M. Pavlovi\\'\{c\}, Harmonic Bergman functions on the unit ball in $\\mathbb\{R\}^\{n\}$, \\textit\{Acta Math. Hungar.\}\\textbf\{85\}(1999), no. 1-2, 81-96.\
+  \\bibitem\{kang\} H. Kang, H. Koo, Estimates of the harmonic Bergman kernel on smooth domains, \\textit\{J. Funct. Anal.\} \\textbf\{185\}(2001), 220-239.\
+ \\bibitem\{krantz\} S. Krantz, \\textit\{Explorations in Harmonic Analysis with applications to Complex Function Theory and the Heisenberg group\}, Springer-Verlag, 2009.\
+  \\bibitem\{memic\}   A. Memi\\'\{c\}, A reproducing kernel for a Hilbert space related to harmonic Bergman space on a domain outside compact set, \\textit\{Turk. J. Math.\} \\textbf\{38.2\}(2014), 311-317.\
+  \\bibitem\{memic2\} A. Memi\\'\{c\}, On a new type of spaces related to the decomposition theorem for harmonic functions, \\textit\{Gen. Math. Notes.\} \\textbf\{20.2\}(2014), 67-78.\
+  \\bibitem\{memic3\} A. Memi\\'\{c\}, On a new reproducing kernel Hilbert space and a boundary value problem for harmonic functions,\\textit\{ Hacettepe Journal of Mathematics and Statistics\} \\textbf\{44.5\}(2015), 1079-1085.\
+\\bibitem\{vratislava\} V. Mo\\v\{s\}ova, Reproducing kernel particle method and its modification, \\textit\{Mathematica Bohemica\} \\textbf\{135.4\}(2010), 383-392.\
+\\bibitem\{ramey\} W. Ramey, H. Yi, Harmonic Bergman functions on half-spaces, \\textit\{Trans. Amer. Math. Soc.\} \\textbf\{348\}(1996), 633-660.\
+  \\bibitem\{miao\} J. Miao, Reproducing kernels for harmonic Bergman spaces of the unit ball, \\textit\{Monatsh. Math.\} \\textbf\{125\}(1998), 25-35.\
+  \\bibitem\{stein\} E. Stein, \\textit\{Singular integrals and differentiability properties of functions\}, Princeton Univ. Press, Princeton, N. J, 1972.\
+\\bibitem\{stroethoff\} K. Stroethoff, \\textit\{Harmonic Bergman spaces\}. In: \\textit\{Holomorphic spaces\}, \\textbf\{33\}(1998), 51-63.\
+\\bibitem\{watsontemp\} N. A. Watson, Time-isolated singularities of temperatures, \\textit\{J. Austral. Math. Soc.\}\\textbf\{65\}(1999), 416-428.\
+  \\bibitem\{watson\} N. A. Watson, A decomposition theorem for solutions of parabolic equations, \\textit\{Ann. Acad. Sci. Fenn. Math.\} \\textbf\{25\}(2001), 151-160.\
+\\bibitem\{zhao\} Z. G. Zhao, The harmonic Bergman kernels for punctured domains, \\textit\{Acta Math Sinica\}, \\textbf\{30.11\}(2014), 1977-1988.\
+\\end\{thebibliography\}\
+\
+\
+\\end\{document\}\
+}
