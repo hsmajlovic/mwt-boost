@@ -15,6 +15,7 @@
 \\usepackage\{amsthm\}\
 \\usepackage\{accents\}\
 \\usepackage\{hyperref\}\
+\\usepackage\{algpseudocode\}\
 \
 \\setcounter\{chapter\}\{0\}\
 \
@@ -27,6 +28,11 @@
 \\newtheorem\{propy\}\{Propozicija\}[section]\
 \\renewcommand*\{\\thepropy\}\{\\thesection.\\Alph\{propy\}\} % "letter-numbered" theorems\
 \\newenvironment\{propositionx\}\{\\stepcounter\{proposition\}\\begin\{propy\}\}\{\\end\{propy\}\}\
+\
+\\newtheorem\{statement\}\{Tvrdnja\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{staty\}\{Tvrdnja\}[section]\
+\\renewcommand*\{\\thepropy\}\{\\thesection.\\Alph\{staty\}\} % "letter-numbered" theorems\
+\\newenvironment\{statementx\}\{\\stepcounter\{statement\}\\begin\{staty\}\}\{\\end\{staty\}\}\
 \
 \\newtheorem\{corollary\}\{Posljedica\}[section] % first theorem in section 1 will be 1.1\
 \\newtheorem\{cory\}\{Posljedica\}[section]\
@@ -122,9 +128,121 @@ Problem nala\'9eenja geometrijske triangulacije skupa ta\uc0\u269 aka u ravni i 
 \\section\{Problem nala\'9eenja triangulacije poligona\}\
 \
 \
-U svojoj knjizi Osnove geometrije \\cite\{\}, objavljenoj 1899. godine, David Hilbert defini\'9ae povr\'9ainu poligona kao sumu povr\'9aina trouglova na koje se isti mo\'9ee podijeliti. Nedugo poslije, 1911. godine, prvi\\footnote\{Prvi poznat autoru.\} algoritam za podjelu poligona na trouglove bilje\'9ei Lennes. Iako ovo razdoblje bilje\'9ei prve korake teorije izra\uc0\u269 unljivosti, malo govora je bilo o teoriji kompleksnosti, tako Lennes ne navodi da njegov algoritam takodjer posjeduje i veoma prihvatljivu kvadratnu kompleksnost, koja pobjedjuje kubnu kompleksnost Wickham-Jones algoritma iste svrhe iz 1994. godine.\
-Pored navedenih algoritama, algoritam koji \uc0\u263 emo najprije na\u263 i u \'9akolskim ud\'9ebenicima je algoritam "monotonih poligona" \\cite\{\}, kompleksnosti $O(n\\textit\{log\}n)$ koja je smatrana optimalnom sve dok Tarjan i van Wyk nisu ponudili O(n\\textit\{loglog\}n) rje\'9aenje, a nedugo zatim i Chazelle svoje rje\'9aenje linearne kompleksnosti za \u269 iju implementaciju Skiena tvrdi da je "prili\u269 no beznada\'9ena".\\newline\
+U svojoj knjizi Osnove geometrije \\cite\{hilbert\}, objavljenoj 1899. godine, David Hilbert defini\'9ae povr\'9ainu poligona kao sumu povr\'9aina trouglova na koje se isti mo\'9ee podijeliti. Nedugo poslije, 1911. godine, prvi\\footnote\{Prvi poznat autoru.\} algoritam za podjelu poligona na trouglove bilje\'9ei Lennes. Iako ovo razdoblje bilje\'9ei prve korake teorije izra\uc0\u269 unljivosti, malo govora je bilo o teoriji kompleksnosti, tako Lennes ne navodi da njegov algoritam takodjer posjeduje i veoma prihvatljivu kvadratnu kompleksnost, koja pobjedjuje kubnu kompleksnost Wickham-Jones algoritma iste svrhe iz 1994. godine.\
+Pored navedenih algoritama, algoritam koji \uc0\u263 emo najprije na\u263 i u \'9akolskim ud\'9ebenicima je algoritam "monotonih poligona" \\cite\{gareyetal\}, kompleksnosti $O(n\\textit\{log\}n)$ koja je smatrana optimalnom sve dok Tarjan i van Wyk nisu ponudili O(n\\textit\{loglog\}n) rje\'9aenje, a nedugo zatim i Chazelle svoje rje\'9aenje linearne kompleksnosti za \u269 iju implementaciju Skiena tvrdi da je "prili\u269 no beznada\'9ena".\\newline\
 Iako je Hilbert pokrenuo "talas" triangulacije poligona u smislu izra\uc0\u269 unljivosti, ova tematika je jo\'9a i mnogo ranije plijenila pa\'9enju. Tako Leonhard Euler (1707\'96 1783) dokazuje da je broj razli\u269 itih triangulacija konveksnog $n$-tougla jednak $C_\{n-2\}$, gdje je $C_n$ Katalanov broj\\footnote\{Iako nazvani po Eug\'e8ne Charles Catalan-u (1814 - 1893), Katalanovi brojevi su kori\'9ateni jo\'9a i mnogo ranije. Ve\u263  smo pomenuli da ih je koristio Leonhard Euler, medjutim isti su pronadjeni u djelu mongolskog matemati\u269 ara Mingantu-a \\textit\{The Quick Method for Obtaining the Precise Ratio of Division of a Circle (Ge Yuan Mi Lu Jie Fa)\}. Smatra se da je Mingantu koristio Katalanove brojeve jo\'9a u samom za\u269 etku pisanja djela davne 1730. godine. Jedan od primjera Mingantu-ove primjene istih bi bila uoptreba Katalanovog niza za razvoj redova koji aproksimiraju (ili daju egzaktnu vrijednost od) $sin(2\\beta)$ i $sin(4\\beta)$ u zavisnosti od $sin(\\beta)$. Katalanov broj, koji se naj\u269 e\'9a\u263 e ozna\u269 ava kao $C_n$, je jednak $\\displaystyle\\frac\{1\}\{n+1\}\\binom\{2n\}\{n\}$ ili $\\displaystyle\\frac\{\\left(2n\\right)!\}\{\\left(n+1\\right)!n!\}$ ili $\\displaystyle\\prod_\{k=2\}^\{n\}\\frac\{n+k\}\{k\}$. Ono \'9ato je od posebne va\'9enosti za na\'9ae istra\'9eivanje jeste da $C_n$ pripada $O(2^n)$.\}. Ova \u269 injenica nas po prvi put upoznaje sa veli\u269 inom prostora pretrage problema triangulacije.\
+\
+\\section\{Problem nala\'9eenja triangulacije skupa ta\uc0\u269 aka\}\
+\
+Porediv\'9ai sa problemom nala\'9eenja triangulacije poligona, za problem nala\'9eenja triangulacije skupa ta\uc0\u269 aka postoji znatno manji broj, do sada pronadjenih, algoritama. Naime, autoru su u trenutku pisanja poznata tek dva. To su redom \\textit\{algoritam dijeljenja truglova\} i \\textit\{inkrementalni algoritam\}\\cite\{devados\}.\\newline\
+\\textit\{Algoritam dijeljenja trouglova\} je sadr\'9ean u sljede\uc0\u263 em.\
+\
+\\begin\{algorithmic\}\
+\\State \\textbf\{ALGORITAM-DIJELJENJA-TROUGLOVA:\} ($P$ - skup ta\uc0\u269 aka u ravni)\
+\\State - Prona\uc0\u263 i konveksni omota\u269 \\footnote\{Konveksni omota\u269  skupa ta\u269 aka $P$ je najmanji konveksni poligon koji omedjuje ili sadr\'9ei sve ta\u269 ke skupa $P$. Donja granica kompleksnosti problema nala\'9eenja konveksnog omota\u269 a skupa ta\u269 aka iznosi $\\Omega(n\\textit\{log\}n)$,  te postoji nekolicina algoritama koji ju dosti\'9eu. Najpoznatiji bi bio Graham scan, koji ukoliko su ta\u269 ke prethodno sortirane po jednoj koordinati ili po uglu u odnosu na neki fiksirani vektor dosti\'9ee i lienarnu kompleksnost.\} $H$ skupa ta\u269 aka $P$\
+\\State - Izvr\'9aiti triangulaciju pronadjenog konveksnog omota\uc0\u269 a $H$ kao poligona\
+\\State - Svaku unutra\'9anju\\footnote\{Za ta\uc0\u269 ku skupa $P$ koja se ne nalazi u skupu ta\u269 aka konveksnog omota\u269 a $H$ od $P$ ka\'9eemo da je unutra\'9anja ta\u269 ka konveksnog omota\u269 a $H$.\} ta\u269 ku konveksnog omota\u269 a $H$ povezati sa vrhovima najbli\'9eeg omedjavaju\u263 eg trougla\
+\\end\{algorithmic\}\
+\
+Nala\'9eenje konveksnog omota\uc0\u269 a pomjera donju granicu na\'9aeg algoritma na $\\Omega(n\\textit\{log\}n)$. Triangulacija konveksnog poligona je izvr\'9aiva u linearnom vremenu kao i vezivanje unutra\'9anjih ta\u269 aka sa vrhovima omedjavaju\u263 ih trouglova\\footnote\{Ukoliko u prethodnom koraku sortiramo sve ta\u269 ke u odnosu na ugao koji iste grade sa nenultim vektorom pralelnim sa apscisom i koji polazi iz najdonje ta\u269 ke (\'9ato mo\'9eemo u\u269 initi u vremenu $O(n\\textit\{log\}n)$), tada prilikom triangulacije poligona (koju mo\'9eemo izvr\'9aiti u linearnom vremenu \\textit\{spajaju\u263 i\} redom, sortirane na prethodno naveden na\u269 in, ta\u269 ke konveksnog omota\u269 a sa ta\u269 kom najmanje \\textit\{y\} koordinate) mo\'9eemo za svaki nadjeni trougao prona\u263 i i sve ta\u269 ke unutar tog trougla jednostavno uzev\'9ai porciju ta\u269 aka u na\'9aem sortiranom nizu omedjenu prethodnom i trenutnom ta\u269 kom konveksnog omota\u269 a (sa kojim spajamo najdonju ta\u269 ku) u konstantnom vremenu. Na taj na\u269 in kompleksnost posljednjeg koraka (vezivanje unutra\'9anjih ta\u269 aka sa respektivnim omedjavaju\u263 im trouglovima) ostaje linearna. \\textit\{Edge-case\} ovakvog pristupa su unutra\'9anje ta\u269 ke \u269 iji ugao se poklapa sa uglom koji odgovara nekoj ta\u269 ci u konveksnom omota\u269 u. Takve ta\u269 ke trebaju biti referencirane od strane oba trougla (na \u269 ijoj granici se nalaze) u prethodnom procesu. Medjutim lahko mo\'9eemo uvidjeti da ovaj \\textit\{edge-case\} ne remeti na\'9au kompleksnost.\}. Odatle zaklu\u269 ujemo da kompleksnost navedenog algoritma pripada $\\Theta(n\\textit\{log\}n)$.\\\\\
+\
+\\textit\{Inkrementalni algoritam\} je sadr\'9ean u sljede\uc0\u263 em.\
+\
+\\begin\{algorithmic\}\
+\\State \\textbf\{INKREMENTALNI-ALGORITAM:\} ($P$ - skup ta\uc0\u269 aka u ravni)\
+\\State - Sortirati ta\uc0\u269 ke u $P$ po $x$ koordinati\
+\\State - Formirati trougao koji \uc0\u269 ine prve tri ta\u269 ke u sortiranom nizu dodav\'9ai ih pritome u \\textit\{nepotpunu\}\\footnote\{Nepotpuna triangulacija \u269 ini sasvim validnu triangulaciju no ne mora nu\'9eno pokrivati sve ta\u269 ke skupa ta\u269 aka kojeg treba triangulirati. Dodavanjem svake nove ta\u269 ke pro\'9airuje nepotpunu triangulaciju sve dok ista ne pokrije cijeli skup ta\u269 aka.\} triangulaciju\
+\\State - Dodavati ta\uc0\u269 ke inkrementalno i vezati ih sa svim do tada dodanim, vidljivim\\footnote\{Ta\u269 ku $A$ nepotpune triangulacije nazivamo vidljivom od strane ta\u269 ke $B$ ukoliko du\'9e $\\overline\{AB\}$ ne sije\u269 e niti jednu du\'9e nepotpune triangulacije.\}, ta\u269 kama u nepotpunoj triangulaciji\
+\\end\{algorithmic\}\
+\
+\\begin\{defy\} (\\textit\{Sweepline\} tehnika)\
+Tehnika u kojoj ta\uc0\u269 ke sortiramo po nekoj koordinati, a zatim obilazimo sortiranim redoslijedom (uglavnom obavljaju\u263 i neku operaciju prilikom obilaska ta\u269 ke), nazivamo \\textit\{sweepline\} tehnikom.\
+\\end\{defy\}\
+\
+Sortirati ta\uc0\u269 ke po $x$ koordinati mo\'9eemo u vremenu $O(nlogn)$. Formirati trougao koji \u269 ine prve tri ta\u269 ke mo\'9eemo u\u269 initu u konstantom vremenu. No posljednji korak inkrementalnog algoritma \u263 e terminirati tek u kvadratnom vremenu. Naime, usko grlo nam dolazi od \u269 injenice da prilikom dodavanja nove ta\u269 ke, moramo provjeriti mogu\u263 nost vezivanja iste sa svim do tada dodanim ta\u269 kama. Odatle kompleksnost posljednjeg koraka iznosi $h((n - 1)n - 6)/2$ \'9ato pripada $O(hn^2)$, gdje je $h$ kompleksnost provjere vezivosti dvije ta\u269 ke\\footnote\{Da li je mogu\u263 e povezati dvije ta\u269 ke.\}. No kompleksnost od $h((n - 1)n - 6)/2$  nije najmanja mogu\u263 a. Tomu svjedo\u269 i rezultat sljede\u263 ih tvrdnji.\\newline\
+\
+\\begin\{staty\}\
+Ta\uc0\u269 ka novododana nepotpunoj triangulaciji a\'9eurira konveksni omota\u269  svih do tada dodanih ta\u269 aka.\
+\\end\{staty\}\
+\\textit\{Dokaz\}: Pretpostavimo suprotno. To jeste da postoji novododana ta\uc0\u269 ka koja ne mijenja konveksni omota\u269  do tada dodanih ta\u269 aka. Dakle novododana ta\u269 ka se nalazi unutar istog konveksnog omota\u269 a, \'9ato dalje implicira da postoji ta\u269 ka, razli\u269 ita od novododane, nepotpune triangulacije sa $x$ koordinatom ve\u263 om od $x$ koordinate novododane ta\u269 ke. Medjutim to se protivi pretpostavci da svaka novododana ta\u269 ka ima ve\u263 u ili jednaku $x$ koordinatu svih prethodno dodanih ta\u269 aka\\footnote\{Pretpostavka proizilazi iz \u269 injenice da su sve ta\u269 ke sortirane po $x$ koordinati (prvi korak inkrementalnog algoritma).\}. Do kontradikcije nas je dovela pretpostavka da postoji novododana ta\u269 ka koja ne a\'9eurira konveksni omota\u269  svih do tada dodanih, \'9ato implicira dokaz tvrdnje.\
+\
+\\begin\{staty\}\
+A\'9euriranje konveksnog omota\uc0\u269 a nepotpune triangulacije novododanom ta\u269 kom je izvr\'9aivo u vremenu $O(k)$, gdje je $k$ broj ta\u269 aka istog konveksnog omota\u269 a.\
+\\end\{staty\}\
+	\\textit\{Dokaz\}:\
+    \
+	\\begin\{lemy\}\
+	Neka je $S$ novododana ta\uc0\u269 ka. Neka su $M$ i $N$ ta\u269 ke nepotpune triangulacije, bez ta\u269 ke $S$, takve da je ugao $\\measuredangle MSN$ najve\u263 i mogu\u263 i. Tada $M$ i $N$ pripadaju konveksnom omota\u269 u nepotpune triangulacije.\
+	\\end\{lemy\}\
+	\\textit\{Dokaz\}: Trivijalan.\
+    \
+    \\begin\{lemy\}\
+	Neka je $S$ novododana ta\uc0\u269 ka. Neka niz ta\u269 aka $K_1, K_2, \\dots, K_l$ \u269 ini konveksni omota\u269  do tada dodanih ta\u269 aka, bez ta\u269 ke $S$, takav da su $K_i$ i $K_\{(i+1)mod(l+1)\}$, $i = \\overline\{1, l\}$, susjedne.\
+Tada su sljede\uc0\u263 e tvrdnje ekvivalentne:\
+	\\begin\{enumerate\}\
+	\\item Ugao $\\measuredangle K_mSK_n$ je nave\uc0\u263 i mogu\u263 i \
+    \\item\
+      \\begin\{enumerate\}\
+      \\item $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) = 0 \\quad\\forall i \\in \\\{1, \\dots, l\\\}\\setminus\\\{m, n\\\}$\
+      \\item $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) \\neq 0 \\quad\\forall i \\in \\\{m, n\\\}$\
+      \\end\{enumerate\}\
+	\\end\{enumerate\}\
+    gdje je $$ori(A, B, C) = \
+    	\\begin\{cases\}\
+    		1       & \\quad \\text\{ako su ta\uc0\u269 ke A, B i C desne orijentacije\}\\\\\
+    		0  & \\quad \\text\{ako su ta\uc0\u269 ke A, B i C kolinearne\}\\\\\
+            -1  & \\quad \\text\{ako su ta\uc0\u269 ke A, B i C lijeve orijentacije\}\\\\\
+  		\\end\{cases\}$$\
+	\\end\{lemy\}\
+	\\textit\{Dokaz\}: \\\\\
+    Pravac $1. \\implies 2.$:\\\\\
+    Na osnovu leme $1.3.A$ znamo da ta\uc0\u269 ke nepotpune triangulacije sa kojima $S$ zatvara najve\u263 i mogu\u263 i ugao pripadaju konveksnom omota\u269 u. Ukoliko postoji vi\'9ae takvih ta\u269 aka, pretpostavimo bez gubljenja op\'9atosti da su ta\u269 ke $K_m$ i $K_n$ najmanje Euklidove udaljenosti od $S$, to jeste du\'9ei $\\overline\{K_mS\}$ i $\\overline\{K_nS\}$ ne sadr\'9ee niti jednu ta\u269 ku iz $\\\{K_1, K_2, \\dots, K_l\\\}\\setminus\\\{K_m, K_n\\\}$, odakle dalje vrijedi da je barem jedna od orijentacija $ori(S, K_m, K_\{m-1\})$, $ori(S, K_m, K_\{m+1\})$ razli\u269 ita od nule. Ta\u269 nije, sljede\u263 i iskaz je tautologija:\
+    $$(ori(S, K_m, K_\{m-1\}) \\neq 0 \\,\\,\\, \\lor \\,\\,\\, ori(S, K_m, K_\{m+1\}) \\neq 0) \\,\\,\\, \\land$$\
+    $$(ori(S, K_n, K_\{n-1\}) \\neq 0 \\,\\,\\, \\lor \\,\\,\\, ori(S, K_n, K_\{n+1\}) \\neq 0)$$\
+Doka\'9eimo najprije \\textit\{(b)\}. Pretpostavimo suprotno, to jeste da tvrdnja ne vrijedi za $i = m$ (analogno dokazujemo i za $i = n$). Dakle vrijedi $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$. \'8ato zna\uc0\u269 i da je $ori(S, K_m, K_\{m-1\}) \\neq ori(S, K_m, K_\{m+1\})$\\footnote\{Primijetimo da navedena tvrdnja ne vrijedi ukoliko su $K_\{m-1\}$, $K_m$ i $K_\{m+1\}$ kolinearne i ukoliko du\'9e $\\overline\{SK_m\}$ sadr\'9ei ta\u269 no jednu od ta\u269 aka $K_\{m-1\}$ ili $K_\{m+1\}$. No ovaj slu\u269 aj smo zaobi\'9ali na\u269 inom kojim biramo ta\u269 ku $K_m$ na kraju.\}, odakle slijedi da se ta\u269 ke $K_\{m-1\}$ i $K_\{m+1\}$ nalaze na razli\u269 itim poluravnima koje gradi pravac na kom le\'9ei du\'9e $\\overline\{SK_m\}$. Odatle je ta\u269 no jedan od uglova $\\measuredangle K_\{m-1\}SK_n$ ili $\\measuredangle K_\{m+1\}SK_n$ ve\u263 i od ugla $\\measuredangle K_mSK_n$, \'9ato je suprotno pretpostavci da je ugao $\\measuredangle K_mSK_n$ najve\u263 i i time dolazimo do kontradikcije. Do kontradikcije nas je dovela pretpostavka da vrijedi $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$, odakle slijedi dokaz tvrdnje \\textit\{(b)\}. Poka\'9eimo sada da \\textit\{(b)\} vrijedi samo i samo za $i = m$ ili $i = n$. Pretpostavimo suprotno. To jesta da postoji ta\u269 ka $K_p$ takva da je $ori(S, K_p, K_\{p-1\}) + ori(S, K_p, K_\{p+1\}) \\neq 0$. Dakle ta\u269 ke $K_\{p+1\}$ i $K_\{p-1\}$ se nalaze na istoj poluravni koju gradi pravac du\'9ei $\\overline\{SK_p\}$. Iz osobina konveksnog omota\u269 a vrijedi da ugao $\\measuredangle K_\{t-1\}K_tK_\{t+1\}$ obuhvata sve ta\u269 ke nepotpune triangulacije za svako $K_t$ iz konveksnog omota\u269 a. Odatle vrijedi da se i ta\u269 ke $K_m$ i $K_n$ nalaze u ustoj poluravni kao i $K_\{p-1\}$ i $K_\{p+1\}$. \'8ato zna\u269 i da je ugao $\\measuredangle K_pSK_n$ najve\u263 i mogu\u263 i, \u269 ime dolazimo do kontradickije.\
+Time pokauzjemo da i tvrdnja \\textit\{(a)\} vrijedi, te je na taj na\uc0\u269 in ovaj pravac leme dokazan.\\\\\
+Pravac $2. \\implies 1.$:\\\\\
+Iz $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) \\neq 0$ slijedi da su orijentacije $ori(S, K_m, K_\{m-1\})$ i $ori(S, K_m, K_\{m+1\})$ ili jednake i razli\uc0\u269 ite od nule ili razli\u269 ite ali tako da je ta\u269 no jedna od njih jednaka nuli, jer u protivnom bi vrijedilo da je $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$.\
+Na osnovu osobina konveksnog omota\uc0\u269 a znamo da ugao $\\measuredangle K_\{m-1\}K_mK_\{m+1\}$ obuhvata sve ta\u269 ke nepotpune triangulacije.\
+Uzev\'9ai u obzir posljednje dvije tvrdnje mo\'9eemo zaklju\uc0\u269 iti da se sve tacke nepotpune triangulacije (pa i $K_n$) nalaze u istoj poluravni koju omedjava du\'9e $\\overline\{SK_m\}$. Analogno zaklju\u269 ujemo i za $K_n$. Odatle slijedi da ugao $\\measuredangle K_mSK_n$ obuhvata sve ta\u269 ke nepotpune triangulacije te je time i najve\u263 i mogu\u263 i.\
+\
+	\\begin\{lemy\}\
+	Neka niz ta\uc0\u269 aka $K_1, K_2, \\dots, K_l$ \u269 ini konveksni omota\u269  do tada dodanih ta\u269 aka, bez ta\u269 ke $S$, takav da su $K_i$ i $K_\{i+1\}$, $i = \\overline\{1, l\}$, susjedne. Na osnovu leme $1.3.A$ znamo da ta\u269 ke nepotpune triangulacije sa kojima $S$ zatvara najve\u263 i mogu\u263 i ugao pripadaju konveksnom omota\u269 u. Neka su to ta\u269 ke $K_m$ i $K_n$, $m,n \\in \{1, 2, \\dots, l\}$. Tada a\'9eurirani konveksni omota\u269  poprima oblik $(\\dots, K_\{(m-1)mod(l+1)\}, K_m, S, K_n, K_\{(n+1)mod(l+1)\}, \\dots)$\
+	\\end\{lemy\}\
+	\\textit\{Dokaz\}: Pretpostavimo, bez gubljenja op\'9atosti, da je konveksni omota\uc0\u269  pozitivne orijentacije\\footnote\{Ukoliko su svake tri susjedne ta\u269 ke konveksnog omota\u269 a pozitivne orijentacije, ka\'9eemo da je konveksni omota\u269  pozitivne orijentacije. Analogno, ukoliko su svake tri susjedne ta\u269 ke konveksnog omota\u269 a negativne orijentacije, ka\'9eemo da je konveksni omota\u269  negativne orijentacije. Primijetimo da konveksni omota\u269  mora biti ili pozitivne ili negativne orijentacije.\}, te da je $m < n$. S obzirom da je $S$ ta\u269 ka najve\u263 e $x$-koordinate te da je ugao $\\measuredangle K_mSK_n$ najve\u263 i mogu\u263 i, to ugao $\\measuredangle K_mSK_n$ obuhvata sve ta\u269 ke nepotpune triangulacije. Odatle, iz osobina konveksnog omota\u269 a, slijedi da $S$ pripada konveksnom omota\u269 u svih do tada dodanih ta\u269 aka, uklju\u269 uju\u263 i i $S$. Dalje, vrijedi da je orijentacija $ori(K_\{i-1\}, K_i, S)$ negativna\\footnote\{Koriste\u263 i pretpostavku da je konveksni omota\u269  pozitivne orijentacije, te da je $m < n$ i da je ugao $\\measuredangle K_mSK_n$ najve\u263 i mogu\u263 i, mo\'9eemo pokazati da je $ori(S, K_m, K_\{m+1\})$ negativna. Odatle vrijedi i da je $ori(K_m, K_\{m+1\}, S)$ negativna, odakle dalje, iz definicije orijentacije mo\'9eemo pokazati da je $ori(S, K_\{m+1\}, K_m)$ pozitivna. Dalje, iz iskaza $(ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) = 0$ za svako $i \\in \\\{1, \\dots, l\\\}\\setminus\\\{m, n\\\})$ leme $1.3.B$, uz \u269 injenicu da je $ori(S, K_i, K_\{i+1\}) \\neq 0$ za sve $i$ iz $[m,n)$ i $ori(S, K_i, K_\{i-1\}) \\neq 0$ za sve $i$ iz $(m,n]$, imamo da je $ori(S, K_\{m+1\}, K_m) \\neq ori(S, K_\{m+1\}, K_\{m+2\})$. Odatle je i $ori(S, K_\{m+1\}, K_\{m+2\})$ negativna pa samim tim i $ori(K_\{m+1\}, K_\{m+2\}, S)$. Analogno pokazujemo i za sve $ori(K_i, K_\{i+1\}, S)$, $i = \\overline\{m+2,n-1\}$.\}, za svako $i = \\overline\{m+1, n\}$, no po na\'9aoj pretpostavci da je konveksni omota\u269  uvijek pozitivne orijentacije vrijedi da niti jedna od orijentacija $ori(K_\{(i-1)mod(l+1)\}, K_i, K_\{(i+1)mod(l+1)\})$, $i = \\overline\{2, l\}$ i $ori(K_l, K_1, K_2)$ ne smije biti negativna. Odatkle ta\u269 ke $K_\{m+1\}, K_\{m+2\}, \\dots, K_n$ ne pripadaju konveksnom omota\u269 u skupu ta\u269 aka nepotpune triangulacije koji uklju\u269 uje i ta\u269 ku $S$. S obzirom da je $S$, sada ta\u269 ka konveksnog omota\u269 a, susjedna sa ta\u269 kama $K_m$ i $K_n$\\footnote\{Ponovo pretpostavljamo da u slu\u269 aju postojanja vi\'9ae ta\u269 aka koje sa $S$ grade najve\u263 i mogu\u263 i ugao, biramo one ta\u269 ke \u269 ija je Euklidova udaljenost od $S$ najmanja.\}, to niz $K_m$, $S$, $K_n$ le\'9ei u a\'9euriranom konveksnom omota\u269 u i time je lema dokazana.\
+    \
+    \\begin\{cory\}\
+    Za a\'9euriranje konveksnog omota\uc0\u269 a nepotpune triangulacije novododanom ta\u269 kom, dovoljno je na\u263 i ta\u269 ke konveksnog omota\u269 a $K_m$ i $K_n$ za koje vrijedi $ori(S, K_i, K_\{i-1\}) = ori(S, K_i, K_\{i+1\})$, za $i \\in \\\{m, n\\\}$.\
+    \\end\{cory\}\
+    \\textit\{Dokaz\}: Iz $ori(S, K_i, K_\{i-1\}) = ori(S, K_i, K_\{i+1\})$ slijedi da je $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) \\neq 0$, $i \\in \\\{m, n\\\}$, odakle na osnovu leme $1.3.B$ vrijedi da je ugao $\\measuredangle K_mSK_n$ najve\uc0\u263 i, gdje dalje, iz rezultata leme $1.3.C$ direktno slijedi i dokaz posljedice.\
+\
+Provjeru orijentacije tri ta\uc0\u269 ke u ravni mo\'9eemo izvr\'9aiti u konstantnom vremenu\\footnote\{Za ta\u269 ke $A(A_x, A_y)$, $B(B_x, B_y)$, $C(C_x, C_y)$, dovoljno je da izra\u269 unamo vrijednost izraza: $sign((B_x - A_x)(C_y - A_y) - (B_y - A_y)(C_x - A_x))$\}. Odatle ta\u269 ke $K_m$ i $K_n$ posljedice $1.3.A$ mo\'9eemo na\u263 i u vremenu $O(k)$, gdje je $k$ broj ta\u269 aka konveksnog omota\u269 a do tada dodanih ta\u269 aka.\
+\
+\\begin\{staty\}\
+Neka je $S$ novododana ta\uc0\u269 ka. Neka niz ta\u269 aka $K_1, K_2, \\dots, K_l$ \u269 ini konveksni omota\u269  do tada dodanih ta\u269 aka, bez ta\u269 ke $S$, takav da su $K_i$ i $K_\{i+1\}$, $i=\\overline\{1, l\}$ susjedne. Na osnovu leme 1.3.A znamo da ta\u269 ke nepotpune triangulacije sa kojima $S$ zatvara najve\u263 i mogu\u263 i ugao pripadaju konveksnom omota\u269 u. Neka su to ta\u269 ke $K_m$ i $K_n$, $m,n \\in \\\{1, l\\\}$. Tada su isklju\u269 ivo ta\u269 ke $K_m, K_\{(m+1)mod(l+1)\}, \\dots, K_n$ spojive sa ta\u269 kom $S$.\
+\\end\{staty\}\
+\\textit\{Dokaz\}: Bez gubljenja op\'9atosti mo\'9eemo pretpostaviti da je konveksni omota\uc0\u269  pozitivne orijentacije. Doka\'9eimo najprije da su ta\u269 ke $K_m$, $K_\{m+1\}$, \\dots, $K_n$ spojive sa $S$. Pretpostavimo suprotno. Postoji ta\u269 ka $K_p$, $p \\in \\\{m, \\dots, n\\\}$ takva da $K_p$ nije spojiva sa S. Odatle postoji segment $\\overline\{MN\}$ koji sije\u269 e $\\overline\{K_pS\}$ \'9ato zna\u269 i da je bar jedna orijentacija $ori(K_\{p-1\}, K_p, M)$ ili $ori(K_\{p-1\}, K_p, M)$ negativna \'9ato se protivi osobini konveksnog omota\u269 a da sve $ori(K_\{p-1\}, K_p, P)$, za svako $P$ iz skupa svih ta\u269 aka u ravni, moraju biti iste orijentacije kao konveksni omota\u269  ili jednake nuli. Dalje, ispucana linija\\footnote\{Niz linijskih segmenata $\\overline\{X_1X_2\}$, $\\overline\{X_2X_3\}$, $\\dots$, $\\overline\{X_\{n-1\}X_n\}$ nazivamo ispucanom linijom $X_1X_2\\dots X_\{n-1\}X_n$.\} $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ je ujedno ivica konveksnog omota\u269 a i linija koja razdvaja sve ta\u269 ke nepotpune triangulacije od $S$\\footnote\{Sve ta\u269 ke dodajemo inkrementalno po\u269 ev\'9ai od one sa najmanjom $x$-koordinatom pa do one sa najve\u263 om $x$-koordinatom. Takodjer, prethodno smo pokazali da je svaka ta\u269 ka ispucane linije $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ vidljiva iz S. Odatle mo\'9eemo zaklju\u269 iti da ispucana linija $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ razdvaja $S$ od svih ostalih ta\u269 aka nepotpune triangulacije.\}. Odatle mo\'9eemo zaklju\u269 iti da ni jedna od ta\u269 aka $\\\{K_1, K_2, \\dots, K_l\\\}\\setminus\\\{K_m, K_\{m+1\}, \\dots, K_n\\\}$ nije vidljiva iz $S$. Odatle zaklju\u269 ujemo da su jedine ta\u269 ke spojive sa $S$ upravo ta\u269 ke $K_m, K_\{m+1\}, \\dots, K_n$, \u269 ime je tvrdnja dokazana.\
+\
+\\begin\{cory\}\
+Vremenska kompleksnost inkrementalnog algoritma pripada $max(O(kn), O(nlogn))$, gdje je $k \\leq n$.\
+\\end\{cory\}\
+\\textit\{Dokaz\}: Prvi korak inkrementalnog algoritma zahtijeva sortiranje po $x$-koordinati te pomijera donju granicu vremenske kompleksnosti na $\\Omega(nlogn)$. Drugi korak mo\'9eemo izvr\'9aiti u konstantom vremenu, dok tre\uc0\u263 i korak ponavljamo $n-3$ puta i pri svakoj iteraciji nalazimo ta\u269 ke nepotpune triangulacije spojive sa ta\u269 kom dodanoj u toj iteraciji. Na osnovu tvrdnje $1.3.3$, problem nala\'9eenja ta\u269 aka spojivih sa novododanom ta\u269 kom se reducira na problem nala\'9eenja dvije ta\u269 ke unutar nepotpune triangulacije $M$ i $N$ takve da je ugao $\\measuredangle MSN$ najve\u263 i mogu\u263 i. S obzirom da orijentaciju tri ta\u269 ke mo\'9eemo izra\u269 unati u konstantom vremenu kao i spajanje dvije ta\u269 ke\\footnote\{Dovoljno je a\'9eurirati susjedne ta\u269 ke dvaju ta\u269 aka koje spajamo.\}, te uzev\'9ai u obzir rezultat tvrdnje $1.3.2$, vremenska kompleksnost nala\'9eenja spojivih ta\u269 aka i a\'9euriranja konveksnog omota\u269 a unutar jedne iteracije tre\u263 eg koraka algoritma se svodi na $O(k')$, gdje je $k'$ broj ta\u269 aka konveksnog omota\u269 a nepotpune triangulacije u toj iteraciji. Odatle vremenska kompleksnost tre\u263 eg koraka iznosi $(n-3)O(k) = O(kn)$ gdje je $k$ broj ta\u269 aka najbrojnijeg\\footnote\{Konveksnog omota\u269 a iz one iteracije tre\u263 eg koraka algoritma u kojoj isti ima najvi\'9ae ta\u269 aka.\} konveksnog omota\u269 a, odakle proizilazi i dokaz posljedice.\
+\
+Posmatrajmo sada sljede\uc0\u263 i problem.\\\\\
+\\textit\{Prona\uc0\u263 i triangulaciju skupa ta\u269 aka u ravni takvu da je najmanji ugao unutar triangulacije maksimiziran.\}\\footnote\{Ovako definisana triangulacija je poznata kao Delaunay triangulacija.\}\\\\\
+\
+Inkrementalni algoritam je invarijantan. Dakle uvijek \uc0\u263 e konstruisati istu triangulaciju za dati skup ta\u269 aka. Invarijantnost algoritma dijeljenja trouglova zavisi od invarijantosti upotrijebljenog algoritma za pronala\'9eenje triangulacije poligona, kao i od invarijantnost poretka unutra\'9anjih ta\u269 aka u posljednjem koraku algoritma. Zatim, u prethodnom poglavlju smo govorili o eksponencijalnom broju razli\u269 itih triangulacija konveksnog $n$-tougla, \'9ato ostavlja mogu\u263 nost da i broj triangulacija skupa ta\u269 aka takodjer bude eksponencijalan. Dok nam algoritam dijeljenja trougla sa svojom varijantno\'9a\u263 u ostavlja tra\u269 ak nade za \'93pogadjanje\'94 ovako definisane triangulacije, inkrementalni algoritam je prili\u269 no beznada\'9ean. U svakom slu\u269 aju, ova dva pristupa su neprihvatljiva. Stoga pribjegavamo drugim metodama, s kojima \u263 emo se djelomi\u269 no upoznati u narednim poglavljima.\
+\
+\
+\
+Najpoznatije dvije varijacije bi bile \\textit\{Delaunay triangulacija\} i \\textit\{Minimum-weight triangulacija\}. \
+\
+\
+\
+\
+\
+\
+\
 \
 \
 \\chapter\{Harmonijske funkcije i njihove osobine\}\
@@ -1183,41 +1301,51 @@ The decomposition theorem for harmonic functions is a generalization of the Laur
  \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
     \\bibliography\{...\}\
 \\begin\{thebibliography\}\{plain\}\
- \\bibitem\{anandam\}    V. Anandam, \\textit\{Harmonic functions and potentials on finite or infinite\
-networks\}, Springer-Verlag, Berlin, 2011.\
- \\bibitem\{aronszajn\} N. Aronszajn, Theory of reproducing kernels, \\textit\{T. Am. Math. Soc.\} \\textbf\{68\}(1950), 337-404.\
- \\bibitem\{axler\}    S. Axler, P. Bourdon and W. Ramey, \\textit\{Harmonic function theory\}, Springer-Verlag, New\
-York, 2011.\
-\\bibitem\{bajunaid\} I. Bajunaid, A consequence of the Laurent\
-decomposition, \\textit\{Arab. J. Math. Sci.\} \\textbf\{14\} (2008), 15-20.\
-\\bibitem\{bergman1\} S. Bergman, M. Schiffer, \\textit\{Kernel functions and elliptic differential equations in mathematical physics\}, Academic Press, New York, 1953.\
-\\bibitem\{bhat\}  P. K. Bhattacharyya, \\textit\{Distributions. Generalized Functions with Applications in Sobolev Spaces\}, Walter de Gruyter,\
-Berlin, 2012.\
- \\bibitem\{brent\} B. J. Carswell, R. J. Weir, Weighted reproducing kernels and the Bergman space, \\textit\{J. Math. Anal. Appl.\} \\textbf\{399\}(2013), 617-624.\
-\
-\\bibitem\{chung\} S. Y. Chung, Characterization of harmonic functions with singularity in hyperplane, \\textit\{J. Math. Kyoto Univ.\}\\textbf\{36.1\}(1996), 199-209.\
-\\bibitem\{chungtemp\} S. Y. Chung, Decomposition theorems for the temperature functions with singularity, \\textit\{Osaka J. Math.\}\\textbf\{36\}(1999), 557-574.\
-\\bibitem\{bergman\} P. L. Duren, A. Schuster, \\emph\{Bergman spaces\}, Am. Math. Soc., Providence, RI, 2004.\
-\\bibitem\{miroslav\} M. Engli\\v\{s\}, Boundary singularity of Poisson and harmonic Bergman kernels, \\textit\{J. Math. Annal. Appl.\} \\textbf\{429.1\}(2015), 233-272.\
-\
-\
-  \\bibitem\{hedenmalm\} H. Hedenmalm, B. Korenblum, K. Zhu, \\textit\{Theory of Bergman spaces\}, New York, NY, USA: Springer-Verlag, 2000.\
-\\bibitem\{hofmann\} T. Hofmann, B. Sch\\"olkopf and A. J. Smola, Kernel methods in machine learning, \\textit\{Ann. Statist.\} \\textbf\{36\}(2008), 1171-1220.\
-\\bibitem\{charles\} C. Horowitz, Zeros of functions in the Bergman spaces, \\textit\{Duke Math. J.\}\\textbf\{41\}(1974), 693-710.\
-\\bibitem\{pavlovic\} M. Jevti\\'\{c\}, M. Pavlovi\\'\{c\}, Harmonic Bergman functions on the unit ball in $\\mathbb\{R\}^\{n\}$, \\textit\{Acta Math. Hungar.\}\\textbf\{85\}(1999), no. 1-2, 81-96.\
-  \\bibitem\{kang\} H. Kang, H. Koo, Estimates of the harmonic Bergman kernel on smooth domains, \\textit\{J. Funct. Anal.\} \\textbf\{185\}(2001), 220-239.\
- \\bibitem\{krantz\} S. Krantz, \\textit\{Explorations in Harmonic Analysis with applications to Complex Function Theory and the Heisenberg group\}, Springer-Verlag, 2009.\
-  \\bibitem\{memic\}   A. Memi\\'\{c\}, A reproducing kernel for a Hilbert space related to harmonic Bergman space on a domain outside compact set, \\textit\{Turk. J. Math.\} \\textbf\{38.2\}(2014), 311-317.\
-  \\bibitem\{memic2\} A. Memi\\'\{c\}, On a new type of spaces related to the decomposition theorem for harmonic functions, \\textit\{Gen. Math. Notes.\} \\textbf\{20.2\}(2014), 67-78.\
-  \\bibitem\{memic3\} A. Memi\\'\{c\}, On a new reproducing kernel Hilbert space and a boundary value problem for harmonic functions,\\textit\{ Hacettepe Journal of Mathematics and Statistics\} \\textbf\{44.5\}(2015), 1079-1085.\
-\\bibitem\{vratislava\} V. Mo\\v\{s\}ova, Reproducing kernel particle method and its modification, \\textit\{Mathematica Bohemica\} \\textbf\{135.4\}(2010), 383-392.\
-\\bibitem\{ramey\} W. Ramey, H. Yi, Harmonic Bergman functions on half-spaces, \\textit\{Trans. Amer. Math. Soc.\} \\textbf\{348\}(1996), 633-660.\
-  \\bibitem\{miao\} J. Miao, Reproducing kernels for harmonic Bergman spaces of the unit ball, \\textit\{Monatsh. Math.\} \\textbf\{125\}(1998), 25-35.\
-  \\bibitem\{stein\} E. Stein, \\textit\{Singular integrals and differentiability properties of functions\}, Princeton Univ. Press, Princeton, N. J, 1972.\
-\\bibitem\{stroethoff\} K. Stroethoff, \\textit\{Harmonic Bergman spaces\}. In: \\textit\{Holomorphic spaces\}, \\textbf\{33\}(1998), 51-63.\
-\\bibitem\{watsontemp\} N. A. Watson, Time-isolated singularities of temperatures, \\textit\{J. Austral. Math. Soc.\}\\textbf\{65\}(1999), 416-428.\
-  \\bibitem\{watson\} N. A. Watson, A decomposition theorem for solutions of parabolic equations, \\textit\{Ann. Acad. Sci. Fenn. Math.\} \\textbf\{25\}(2001), 151-160.\
-\\bibitem\{zhao\} Z. G. Zhao, The harmonic Bergman kernels for punctured domains, \\textit\{Acta Math Sinica\}, \\textbf\{30.11\}(2014), 1977-1988.\
+ \\bibitem\{hilbert\}    D. Hilbert, \\textit\{Grundlagen der Geometrie\}, B.G. Teubner, Leipzig, 1899.\
+ \\bibitem\{gareyetal\} M. R. Garey, D. S. Johnson, F. P. Preparata, and R. E. Tarjan. \\textit\{Triangulating a simple polygon\}. Inform. Process. Lett., 7:175\'96179, 1978.\
+ \\bibitem\{devados\} S. L. Devadoss, J. O'Rourke, \\textit\{Discrete and Computational Geometry\}. ISBN: 9780691145532\
+ \\bibitem\{hurtadoetal\} Hurtado, F.; M. Noy; J. Urrutia (1999).\\textit\{Flipping Edges in Triangulations\}.Discrete \\& Computational Geometry.22(3). pp.333\'96346.\
+ \\bibitem\{lawson\} C. L. Lawson. \\textit\{Transforming triangulations\}. Discrete Math., 3:365\'96372, 1972.\
+ \\bibitem\{lawsonC\} C. L. Lawson. \\textit\{Software for C\}. In J. R. Rice, editor, Math. Software III, pages 161\'96194. Academic Press, New York, 1977.\
+ \\bibitem\{guibasetal\} L. J. Guibas, D. Knuth, M. Sharir, (1992).\\textit\{Randomized incremental construction of Delaunay and Voronoi diagrams\}. Algorithmica.7: 381\'96413.doi:10.1007/BF01758770\
+ \\bibitem\{bergetal\} M. de Berg, C. Otfried, M. van Kreveld, M. Overmars (2008). \\textit\{Computational Geometry: Algorithms and Applications\}. Springer-Verlag.ISBN978-3-540-77973-5.\
+ \\bibitem\{bowyer\} A. Bowyer, (1981). \\textit\{Computing Dirichlet tessellations\}. Comput. J.24(2): 162\'96166.doi:10.1093/comjnl/24.2.162.\
+ \\bibitem\{watson\} D. F. Watson, (1981). \\textit\{Computing then-dimensional Delaunay tessellation with application to Voronoi polytopes\}. Comput. J.24(2): 167\'96172.doi:10.1093/comjnl/24.2.167\
+ \\bibitem\{leach\} Leach, G. (June 1992). \\textit\{Improving Worst-Case Optimal Delaunay Triangulation Algorithms\}. CiteSeerX10.1.1.56.2323\uc0\u8239 \
+ \\bibitem\{sinclair\} \\url\{http://www.s-hull.org/paper/s_hull.pdf\} (\\textit\{S-hull: a fast radial sweep-hull routine for Delaunay triangulation\} D. A. Sinclair david@s-hull.org Cambridge, UK)\
+ \\bibitem\{duppeetal\} D\'fcppe, R. D.; Gottschalk, H. J. (1970), \\textit\{Automatische Interpolation von Isolinien bei willk\'fcrlich verteilten St\'fctzpunkten\}, Allgemeine Vermessungs-Nachrichten,77: 423\'96426\
+ \\bibitem\{shamoshoey\} Shamos, M. I.; Hoey, D. J. (1975), \\textit\{Closest-point problems\},Proc. 16th IEEE Symposium on Foundations of Computer Science(PDF), pp.151\'96162.\
+ \\bibitem\{Lloyd\} Lloyd, E. (1977), \\textit\{On triangulations of a set of points in the plane\}, Proc. 18th IEEE Symposium on Foundations of Computer Science, pp.228\'96240.\
+ \\bibitem\{Kirkpatrick\} Kirkpatrick, David G.(1980), \\textit\{A note on Delaunay and optimal triangulations\}, Information Processing Letters,10(3): 127\'96128,MR566856,doi:10.1016/0020-0190(80)90062-9\
+ \\bibitem\{gareyjohnson\} Garey, M. R.; Johnson, D. S.(1979), \\textit\{Computers and Intractability: A Guide to the Theory of NP-Completeness\}, San Francisco, Calif.:\
+ \\bibitem\{mulzerrote\} Mulzer, Wolfgang; Rote, G\'fcnter (2008), \\textit\{Minimum-weight triangulation is NP-hard\}, Journal of the ACM,55(2), Article A11,arXiv:cs.CG/0601002\uc0\u8239 ,doi:10.1145/1346330.1346336.\
+ \\bibitem\{xuzhou\} Y. Xu, D. Zhou, \\textit\{Improved heuristics for the minimum weight triangulation problem\}, Acta Mathematicae Applicatae Sinica, Vol. 11 No. 4 (1995)\
+ \\bibitem\{qinetal\} A Genetic algorithm for Minimum Weight Triangulation, IEEE (1997) 0-7803-3949-5/97\
+ \\bibitem\{lenhartliotta\} W. Lenhart, G. Liotta, \\textit\{The drawability problem for minimum weight triangulations, Theoretical Computer Science 270 (2002) 261-286\}\
+ \\bibitem\{bellevilleetal\} P. Belleville, M. Keil, M. McAllister, J. Snoeyink \\textit\{On Computing Edges That Are In All Minimum-Weight Triangulations\}	Proc. 12th Ann. ACM Symp. on Computational Geometry\
+ \\bibitem\{dickersonmontague\} M. T. Dickerson, M.H. Montague \\textit\{A (usually?) connected subgraph of the minimum weight triangulation\}, Proceeding (SCG '96) Proceedings of the twelfth annual symposium on Computational geometry\
+Pages 204-213 (1996)\
+ \\bibitem\{gudmundsson\} J. Gudmundsson, C. Levcopoulos, \\textit\{A Parallel Approximation Algorithm for Minimum Weight Triangulation\}, Springer-Verlag Berlin Heidelberg 1998\
+ \\bibitem\{dickersonetal\} M. T. Dickerson, S. A. McElfresh, M. Montague \\textit\{New algorithms and empirical findings on minimum weight triangulation heuristics\}  Proceeding\
+(SCG '95) Proceedings of the eleventh annual symposium on Computational geometry\
+Pages 238-247 (1995)\
+ \\bibitem\{jahanietal\} M. Jahani, B.S. Bigham, A. Askari \\textit\{An Ant Colony Algorithm for the Minimum Weight Triangulation\} (2010) International Conference on Computational Science and Its Applications 10.1109/ICCSA.2010.38\
+ \\bibitem\{penalveretal\} Hern\'e1ndez Pe\'f1alver, Gregorio; Dorz\'e1n, M. Gisela; Gagliardi, Edilma Olinda; Leguizam\'f3n, Guillermo \\textit\{Using ACO metaheuristic for MWT problem\} In: "2011 IEEE International Conference on Services Computing", july, 4-9, 2011, Washington, DC, USA. ISBN 978-0-7695-4462-5.\
+  \\bibitem\{yousefiyoung\} Arman Yousefi, Neal E. Young \\textit\{On a Linear Program for Minimum-Weight Triangulation\}, SIAM Journal on Computing 43(1):25-51(2014), 10.1137/120887928\
+, arXiv:1111.5305 [cs.CG]\
+ \\bibitem\{wangaggarwal\} Y.F. Wang and J.K. Aggarwal, \\textit\{Surface recon- struction and representation of 3-D scenes\}. Pattern Recognition 19 (1986) 197-207.\
+ \\bibitem\{barequetsharir\} G. Barequet and M. Sharir, \\textit\{Piecewisdinearpolation between polygonal slices\}. Proceedings of the Tenth Annual Symposium on Computational Geometry (1994) 93\'96102.\
+ \\bibitem\{nayn\} Tac Nayn \\url\{https://math.stackexchange.com/users/33907/tac-nayn\}, \\textit\{Number of triangles in a triangulation\}, URL (version: 2015-01-09): \\url\{https://math.stackexchange.com/q/1097813\}\
+ \\bibitem\{lingas\} Lingas, Andrzej (1998), \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}, Proceedings of the 10th Canadian Conference on Computational Geometry (CCCG'98)\
+ \\bibitem\{russellnorvig\} S. Russell, P. Norvig, \\textit\{Artificial Intelligence: A Modern Approach: Third Edition\}, Prentice Hall, (2009)\
+ \\bibitem\{lewisbekey\} Lewis, M. Anthony; Bekey, George A. \\textit\{The Behavioral Self-Organization of Nanorobots Using Local Rules\}. Proceedings of the 1992 IEEE/RSJ International Conference on Intelligent Robots and Systems.\
+ \\bibitem\{alrifaieaber\} al-Rifaie, M.M.; Aber, A. \\textit\{Identifying metastasis in bone scans with Stochastic Diffusion Search\}. Proc. IEEE Information Technology in Medicine and Education, ITME.2012: 519\'96523.\
+ \\bibitem\{alrifaieetal\} al-Rifaie, Mohammad Majid, Ahmed Aber, and Ahmed Majid Oudah. \\textit\{Utilising Stochastic Diffusion Search to identify metastasis in bone scans and microcalcifications on mammographs.\} In Bioinformatics and Biomedicine Workshops (BIBMW), 2012 IEEE International Conference on, pp. 280-287. IEEE, 2012.\
+ \\bibitem\{martensetal\} Martens, D.; Baesens, B.; Fawcett, T. (2011). \\textit\{Editorial Survey: Swarm Intelligence for Data Mining\}. Machine Learning.82(1): 1\'9642.doi:10.1007/s10994-010-5216-5.\
+ \\bibitem\{kennedyeberhart\} Kennedy, J.; Eberhart, R. (1995). \\textit\{Particle Swarm Optimization\}. Proceedings of IEEE International Conference on Neural Networks.IV. pp.1942\'961948.doi:10.1109/ICNN.1995.488968.\
+ \\bibitem\{karaboga\} D. Karaboga, \\textit\{An Idea based on Honey Bee Swarm for Numerical Optimization\}, Technical Report-TR06, Erciyes University, Engineering Faculty, Computer Engineering Department, 2005.\
+ \\bibitem\{clerc\} Clerc, M. (2012). \\textit\{Standard Particle Swarm Optimisation\}. HAL open access archive.\
+ \
 \\end\{thebibliography\}\
 \
 \
