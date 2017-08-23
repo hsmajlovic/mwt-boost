@@ -23,7 +23,7 @@ dots = [
     Point(x=-27, y=-292)
 ]
 
-instances_no = 16
+instances_no = 1
 number_of_runs = 30
 min_dots_quantity = 40
 max_dots_quantity = 40
@@ -129,7 +129,8 @@ Point(x= -5.176380902050413,  y=19.318516525781366),Point(x= -14.142135623730949
 test_char = [{'hull': [Point(x=-159, y=-292), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2400030, 'final': False, 'length': 29}, {'hull': [Point(x=-150, y=-292), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2345788, 'final': False, 'length': 28}, {'hull': [Point(x=-150, y=-292), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2325314, 'final': False, 'length': 27}, {'hull': [Point(x=-150, y=-292), Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2322313, 'final': False, 'length': 26}, {'hull': [Point(x=156, y=-286), Point(x=-150, y=-292), Point(x=-22, y=30)], 'final': True}, {'hull': [Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2108573, 'final': False, 'length': 24}, {'hull': [Point(x=-22, y=30), Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2023468, 'final': False, 'length': 23}, {'hull': [Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1362809, 'final': False, 'length': 11}, {'hull': [Point(x=-22, y=30), Point(x=-248, y=242), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1202779, 'final': False, 'length': 9}, {'hull': [Point(x=5, y=241), Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1185614, 'final': False, 'length': 8}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241)], 'weight': 955421, 'final': False, 'length': 6}, {'hull': [Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 917945, 'final': False, 'length': 4}, {'hull': [Point(x=156, y=-286), Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 786405, 'final': False, 'length': 3}, {'hull': [Point(x=5, y=241), Point(x=278, y=-130), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 653482, 'final': False, 'length': 11}, {'hull': [Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 564693, 'final': False, 'length': 9}, {'hull': [Point(x=-145, y=-149), Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 539681, 'final': False, 'length': 8}, {'hull': [Point(x=-106, y=41), Point(x=-145, y=-149), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 469035, 'final': False, 'length': 6}, {'hull': [Point(x=-170, y=31), Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 431658, 'final': False, 'length': 5}, {'hull': [Point(x=-248, y=242), Point(x=-106, y=41), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 316162, 'final': False, 'length': 3}, {'hull': [Point(x=-248, y=242), Point(x=-179, y=38), Point(x=-299, y=-113)], 'final': True}, {'hull': [Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149)], 'final': True}]
 test_char2 = [{'hull': [Point(x=-159, y=-292), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2400030, 'final': False, 'length': 29}, {'hull': [Point(x=-150, y=-292), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2345788, 'final': False, 'length': 28}, {'hull': [Point(x=-150, y=-292), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2325314, 'final': False, 'length': 27}, {'hull': [Point(x=-150, y=-292), Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2322313, 'final': False, 'length': 26}, {'hull': [Point(x=156, y=-286), Point(x=-150, y=-292), Point(x=-22, y=30)], 'final': True}, {'hull': [Point(x=-22, y=30), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2108573, 'final': False, 'length': 24}, {'hull': [Point(x=-22, y=30), Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'weight': 2023468, 'final': False, 'length': 23}, {'hull': [Point(x=-248, y=242), Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1362809, 'final': False, 'length': 11}, {'hull': [Point(x=-22, y=30), Point(x=-248, y=242), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=5, y=241), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1202779, 'final': False, 'length': 9}, {'hull': [Point(x=5, y=241), Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30)], 'weight': 1185614, 'final': False, 'length': 8}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241)], 'weight': 955421, 'final': False, 'length': 6}, {'hull': [Point(x=156, y=-286), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 917945, 'final': False, 'length': 4}, {'hull': [Point(x=156, y=-286), Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241), Point(x=278, y=-130)], 'weight': 786405, 'final': False, 'length': 3}, {'hull': [Point(x=5, y=241), Point(x=278, y=-130), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=9, y=88), Point(x=-22, y=30), Point(x=5, y=241)], 'final': True}, {'hull': [Point(x=278, y=-130), Point(x=299, y=-255), Point(x=156, y=-286)], 'final': True}, {'hull': [Point(x=144, y=75), Point(x=111, y=164), Point(x=278, y=-130)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 653482, 'final': False, 'length': 11}, {'hull': [Point(x=-145, y=-149), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 564693, 'final': False, 'length': 9}, {'hull': [Point(x=-145, y=-149), Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 539681, 'final': False, 'length': 8}, {'hull': [Point(x=-106, y=41), Point(x=-145, y=-149), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-170, y=31), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 469035, 'final': False, 'length': 6}, {'hull': [Point(x=-170, y=31), Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242), Point(x=-106, y=41)], 'weight': 431658, 'final': False, 'length': 5}, {'hull': [Point(x=-248, y=242), Point(x=-106, y=41), Point(x=-170, y=31)], 'final': True}, {'hull': [Point(x=-179, y=38), Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'weight': 316162, 'final': False, 'length': 3}, {'hull': [Point(x=-248, y=242), Point(x=-179, y=38), Point(x=-299, y=-113)], 'final': True}, {'hull': [Point(x=-299, y=-113), Point(x=-308, y=201), Point(x=-248, y=242)], 'final': True}, {'hull': [Point(x=-106, y=41), Point(x=-130, y=-241), Point(x=-145, y=-149)], 'final': True}]
 
-# for instance_no, dots in enumerate(peculiar_instances):
+# if True:
+#     for instance_no, dots in enumerate(instances_23):
 for in_size in [160]:
     min_dots_quantity = in_size
     max_dots_quantity = in_size
@@ -205,6 +206,7 @@ for in_size in [160]:
               'Weight:', gct_results[1], '\n')
 
         libraries.cg_lib.reconstruct_incident_dots(dots, get_gct_edges(), convex_hull)
+
         # fchc_edges = deepcopy(get_gct_edges())
         # fchc_results = benchmark.evaluate_method(first_choice_hill_climbing, fchc_edges, gct_results[1])
         # print('\tFirst Choice Hill Climbing Heuristic (Seed: GCT):', fchc_results[0], 's.',
@@ -267,51 +269,52 @@ for in_size in [160]:
         #     helpers.draw.draw_edges(mwt_edges)
 
         # # Begin of results export
-        with open(
-                'data/evaluations/{}pt.txt'.format(in_size),
-                mode='w' if instance_no == 0 else 'a',
-                encoding='utf-8') as eval_file:
-            eval_file.write(str(instance_no + 1) + '. ')
-            eval_file.write('[' + ','.join(str(e) for e in dots) + ']\n')
-            eval_file.write('\tInstance size: ' + str(len(dots)) + '\n')
-            eval_file.write('\tNumber of runs: ' + str(number_of_runs) + '\n')
-            # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
-            # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
-            # eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
-            # eval_file.write('\tTime lapsed for exhaustive search: ' + str(exhaustive_search_results[0]) + 's\n\n')
+        if True:
+            with open(
+                    'data/evaluations/t_indices_{}pt.txt'.format(in_size),  # in_size
+                    mode='w' if instance_no == 0 else 'a',
+                    encoding='utf-8') as eval_file:
+                eval_file.write(str(instance_no + 1) + '. ')
+                eval_file.write('[' + ','.join(str(e) for e in dots) + ']\n')
+                eval_file.write('\tInstance size: ' + str(len(dots)) + '\n')
+                eval_file.write('\tNumber of runs: ' + str(number_of_runs) + '\n')
+                # eval_file.write('\tGCT SE Weight: ' + str(gct_results[1]) + '. ')
+                # eval_file.write('Time lapsed: ' + str(gct_results[0]) + 's\n')
+                # eval_file.write('\tOptimal Weight: ' + str(exhaustive_search_results[1]) + '.\n')
+                # eval_file.write('\tTime lapsed for exhaustive search: ' + str(exhaustive_search_results[0]) + 's\n\n')
 
-            # Begin of advanced stats evaluation
-            try:
-                # output_stats(get_gct_edges(),
-                #              simulated_annealing,
-                #              number_of_runs,
-                #              'SA',
-                #              eval_file,
-                #              gct_results[1])
-                output_stats(get_gct_edges(),
-                             basic_pso,
-                             number_of_runs,
-                             'PSO',
-                             eval_file,
-                             gct_results[1], 33, 33, True)
-                output_stats(get_gct_edges(),
-                             random_wandering_abc_algorithm,
-                             number_of_runs,
-                             'Raw ABC',
-                             eval_file,
-                             gct_results[1],
-                             13,
-                             True)
-                output_stats(get_gct_edges(),
-                             random_wandering_abc_algorithm,
-                             number_of_runs,
-                             'Improved ABC',
-                             eval_file,
-                             gct_results[1],
-                             13)
-            except Exception as e:
-                print(e)
-            # End of advanced stats evaluation
+                # Begin of advanced stats evaluation
+                try:
+                    # output_stats(get_gct_edges(),
+                    #              simulated_annealing,
+                    #              number_of_runs,
+                    #              'SA',
+                    #              eval_file,
+                    #              gct_results[1])
+                    output_stats(get_gct_edges(),
+                                 basic_pso,
+                                 number_of_runs,
+                                 'PSO',
+                                 eval_file,
+                                 gct_results[1], 33, 33, True)
+                    output_stats(get_gct_edges(),
+                                 random_wandering_abc_algorithm,
+                                 number_of_runs,
+                                 'Raw ABC',
+                                 eval_file,
+                                 gct_results[1],
+                                 13,
+                                 True)
+                    output_stats(get_gct_edges(),
+                                 random_wandering_abc_algorithm,
+                                 number_of_runs,
+                                 'Improved ABC',
+                                 eval_file,
+                                 gct_results[1],
+                                 13)
+                except Exception as e:
+                    print(e)
+                # End of advanced stats evaluation
 
         # # End of results export
 

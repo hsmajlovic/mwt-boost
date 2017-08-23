@@ -15,7 +15,7 @@ def evaluate_method(exe_method, *args):
     return end - start, solution
 
 
-def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_args) -> Tuple[float, int]:
+def single_run(edges: List[Edge], algorithm: Callable, message: str, *algorithm_args) -> Tuple[float, Tuple[int, float]]:
     """
     Single run evaluator.
 
@@ -110,7 +110,15 @@ def output_stats(edges: List[Edge],
         for i in range(number_of_runs)
         ]
     all_times = [result[0] for result in all_results]
-    all_weights = [result[1] for result in all_results]
+    all_outputs = [result[1] for result in all_results]
+    all_weights = [output[0] for output in all_outputs]
+    all_theil_indices = [output[1] for output in all_outputs]
+
+    theil_index_worst = get_worst_solution_weight(all_theil_indices)
+    theil_index_best = get_best_solution_weight(all_theil_indices)
+    theil_index_mean_value = get_mean_solution_weight(all_theil_indices)
+    theil_index_standard_deviation = calculate_standard_deviation(
+        all_theil_indices)
 
     weight_worst = get_worst_solution_weight(all_weights)
     weight_best = get_best_solution_weight(all_weights)
@@ -124,3 +132,14 @@ def output_stats(edges: List[Edge],
     eval_file.write('\t{0} best: {1}\n'.format(message, weight_best))
     eval_file.write('\t{0} standard deviation: {1}\n'.format(message, weight_standard_deviation))
     eval_file.write('\t{0} average time: {1}s \n\n'.format(message, time_mean_value))
+
+    eval_file.write('\t{0} t-index worst: {1}\n'.format(message,
+                                                        theil_index_worst))
+    eval_file.write('\t{0} t-index mean: {1}\n'.format(message,
+                                                       theil_index_mean_value))
+    eval_file.write('\t{0} t-index best: {1}\n'.format(message,
+                                                       theil_index_best))
+    eval_file.write(
+        '\t{0} t-index standard deviation: {1}\n\n'.format(
+            message,
+            theil_index_standard_deviation))

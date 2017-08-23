@@ -1,6 +1,7 @@
 import math
-from typing import List, Union
+from typing import List, Union, Tuple
 
+from helpers.utils import calculate_theil_index
 from structures.edge import Edge
 from structures.pso_particle import PSOParticle
 
@@ -33,7 +34,7 @@ def basic_pso(reconstructed_edges: List[Edge],
               initial_weight: int,
               particles_quantity: int,
               number_of_iterations: int,
-              randomised: bool) -> Union[int, float]:
+              randomised: bool) -> Tuple[Union[int, float], float]:
     """
     Basic PSO implementation.
 
@@ -66,4 +67,5 @@ def basic_pso(reconstructed_edges: List[Edge],
             particle.calculate_velocity(global_best)
             particle.update_solution()
 
-    return global_best
+    return global_best, calculate_theil_index(
+        [particle.get_solution_weight() for particle in particles])

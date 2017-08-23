@@ -3,6 +3,7 @@ from math import inf
 from operator import itemgetter
 from random import randint, random, choice
 
+from helpers.utils import calculate_theil_index
 from libraries.cg_lib import diagonal_difference, in_convex_square
 from libraries.st_lib import get_rct, get_characteristic, get_rct_edges
 from solutions.hill_climbing import flip_edge
@@ -230,4 +231,5 @@ def random_wandering_abc_algorithm(reconstructed_edges, init_weight, food_source
         best_food_source = bee['fitness'] if bee['fitness'] < best_food_source else best_food_source
     for fitness in onlooker_bees:
         best_food_source = fitness if fitness < best_food_source else best_food_source
-    return best_food_source
+    return best_food_source, calculate_theil_index(
+        [bee['fitness'] for bee in employed_bees ])

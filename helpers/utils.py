@@ -93,3 +93,21 @@ def get_random_from_range(lower_limit: float,
     if gauss:
         return random.gauss(0.0, 1.0)
     return random.uniform(lower_limit, upper_limit)
+
+
+def calculate_theil_index(characteristics: List[Union[int, float]]) -> float:
+    """
+    Args:
+        characteristics:
+
+    Returns:
+
+    """
+
+    assert len(characteristics) > 0
+
+    mean_value = mean(characteristics)
+
+    from math import log
+    return sum([characteristic / mean_value * log(characteristic / mean_value)
+                for characteristic in characteristics]) / len(characteristics)
