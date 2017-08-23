@@ -852,30 +852,30 @@ Detaljni rezultati performanse navedenog, pobolj\\v\{s\}anog ABC algoritma za MW
 \
 \\chapter\{Statisti\\v\{c\}ki rezultati\} \\label\{ch:stats\}\
 \
-Zbog nedostatka dovoljno jakih ma\'9aina za evaluaciju nas\'9aeg algoritma iscrpne pretrage, ograni\uc0\u269 eni smo na detaljnu statisti\u269 ku analizu nad instancama veli\u269 ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\u269 ke.\\\\\
-S obzirom da nismo uspjeli prona\uc0\u263 i nikakve predlo\'9eene testne instance kao ni prijedloge za generisanje istih, generi\'9aemo nove, nasumi\u269 ne instance ta\u269 aka (kao \'9ato je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
+Zbog nedostatka dovoljno jakih ma\\v\{s\}ina za evaluaciju nas\\v\{s\}eg algoritma iscrpne pretrage, ograni\\v\{c\}eni smo na detaljnu statisti\\v\{c\}ku analizu nad instancama veli\\v\{c\}ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\\v\{c\}ke.\\\\\
+S obzirom da nismo uspjeli prona\\'\{c\}i nikakve predlo\\v\{z\}ene testne instance kao ni prijedloge za generisanje istih, generi\\v\{s\}emo nove, nasumi\\v\{c\}ne instance ta\\v\{c\}aka (kao \\v\{s\}to je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
 \
-No nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\uc0\u269 ava da ostale algoritme testiramo na ve\u263 im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \'9ato su PSO, ABC i Pobolj\'9aani ABC izvr\'9aavamo jo\'9a i na instancama od 40, 80, 120, 160 ta\u269 aka.\\\\\
-Svaka instanca je labelisana sa RI-k-i, gdje $k$ ozna\uc0\u269 ava broj ta\u269 aka u $i$-toj instanci.\\\\\
+No nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\\v\{c\}ava da ostale algoritme testiramo na ve\\'\{c\}im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \\v\{s\}to su PSO, ABC i Pobolj\\v\{s\}ani ABC izvr\\v\{s\}avamo jo\\v\{s\} i na instancama od 40, 80, 120, 160 ta\\v\{c\}aka.\\\\\
+Svaka instanca je labelisana sa RI-k-i, g\\dj\{\}e $k$ ozna\\v\{c\}ava broj ta\\v\{c\}aka u $i$-toj instanci.\\\\\
 \
-Koordinate ta\uc0\u269 aka, instanci veli\u269 ine od 15 do 23, su uniformno distribuirane na segmentu [-333, 333], dok su iste, za instance veli\u269 ine 40, 80, 120 i 160, uniformno distribuirane na segmentu [0, 1000].\
-Zarad jednostavnosti, svaka instanca je generisana tako da se niti jedna ta\uc0\u269 ka ne poklapa\\footnote\{Nema iste koordinate\}.\
-Svi algoritmi su implementirani u programskom jeziku Python (v3). Evaluacije algoritma iscrpne pretrage su proceusirane na Intel Core i7-3770K @3.5GHz procesoru, na mas\'9aini od 16GB RAM memorije i operativnim sistemom Windows 10 x64, dok su svi ostali algoritmi procesuirani na \uc0\u269 etverojezgrenom Intel Core i7 @2,2 GHz procesoru, na ma\'9aini od 16 GB RAM memorije i operativnim sistemom macOS 10.12.6.\\\\\
+Koordinate ta\\v\{c\}aka, instanci veli\\v\{c\}ine od 15 do 23, su uniformno distribuirane na segmentu [-333, 333], dok su iste, za instance veli\\v\{c\}ine 40, 80, 120 i 160, uniformno distribuirane na segmentu [0, 1000].\
+Zarad jednostavnosti, svaka instanca je generisana tako da se niti jedna ta\\v\{c\}ka ne poklapa\\footnote\{Nema iste koordinate\}.\
+Svi algoritmi su implementirani u programskom jeziku Python (v3). Evaluacije algoritma iscrpne pretrage su proceusirane na Intel Core i7-3770K @3.5GHz procesoru, na mas\\v\{s\}ini od 16GB RAM memorije i operativnim sistemom Windows 10 x64, dok su svi ostali algoritmi procesuirani na \\v\{c\}etverojezgrenom Intel Core i7 @2,2 GHz procesoru, na ma\\v\{s\}ini od 16 GB RAM memorije i operativnim sistemom macOS 10.12.6.\\\\\
 \
-Svaki populacijski algoritam (PSO, ABC, Unaprijedjeni ABC) terminira nakon $N\\times G$ iteracija, gdje je $N$ veli\uc0\u269 ina populacije, a $G$ broj generacija izvr\'9aavanja algoritma. Zatim, svaki algoritam je izvr\'9aen 50 puta nad svakom instancom ta\u269 aka. Veli\u269 ina populacije za ABC i Unaprijedjeni ABC je $N=13$ p\u269 ela (agenata), dok za PSO isti broj iznosi $N=33$ \u269 estica.\
-Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je jednak 1. Parametri u\u269 enja PSO algoritma su postavljeni redom na 2.0 i 2.0. "Brzina" svake \u269 estice je postavljena na nulu na po\u269 etku izvr\'9aavanja PSO algoritma. Broj generacija za ABC, PSO i Unaprijedjeni ABC je fiksiran na $G=33$.\
- Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, gdje je $\\alpha=U[0.85, 0.99]$ i $U[a, b]$ nasumi\uc0\u269 no (uniformno) odabrana vrijednost iz segmenta [a, b]. Algoritam Simuliranog Kaljenja terminira nakon \'9ato ne uspije promijeniti rje\'9aenje za jedan obilazak svih grana odgovaraju\u263 e triangulacije.\\\\\
- Za instance RI-15-* do RI-23-*, najlo\'9aija, srednja i najbolja nadjena kvaliteta (kao i standardna devijacija) algoritma Simuliranog Kaljenja, PSO algoritma i Unaprijedjenog ABC algoritma su predstavljene u tabelama \\ref\{tab:sa\}, \\ref\{tab:pso\} i \\ref\{tab:iabc\} i iste mogu biti uporedjene sa njihovim optimalnim vrijednostima iz tabele \\ref\{tab:es\}.\
-  Kao \'9ato mo\'9eemo vidjeti u tabelama \\ref\{tab:es\} i \\ref\{tab:iabc\}, Unaprijedjeni ABC uspijeva na\uc0\u263 i optimum prilikom gotovo svakog izvr\'9aavanja.\
-  Takodjer, za sve instance Unaprijedjeni ABC nalazi optimum mnogo br\'9ee od algoritma iscrpne pretrage (\\ref\{tab:es\}).\
-  Primijetimo takodjer da se algoritam Simuliranog Kaljenja zaglavljuje u lokalnim optimumima (RI-15-3, RI-17-2, and RI-18- 5), \'9ato je rijedak slu\uc0\u269 aj kod PSO algoritma i Unaprijedjenog ABC algoritma.\
-  Medjutim, Unaprijedjeni ABC je ubjedljivo najstabilniji. U prilog ide i \uc0\u269 injenica da PSO koristi skoro dva puta vi\'9ae iteracija tokom izvr\'9aavanja.\
+Svaki populacijski algoritam (PSO, ABC, Unaprije\\dj\{\}eni ABC) terminira nakon $N\\times G$ iteracija, g\\dj\{\}e je $N$ veli\\v\{c\}ina populacije, a $G$ broj generacija izvr\\v\{s\}avanja algoritma. Zatim, svaki algoritam je izvr\\v\{s\}en 50 puta nad svakom instancom ta\\v\{c\}aka za instance od 15 do 23 ta\\v\{c\}aka i 30 puta za instance od 40, 80, 120, 160 ta\\v\{c\}aka. Veli\\v\{c\}ina populacije za ABC i Unaprije\\dj\{\}eni ABC je $N=13$ p\\v\{c\}ela (agenata), dok za PSO isti broj iznosi $N=33$ \\v\{c\}estica.\
+Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta, oba ABC algoritma, je jednak 1. Parametri u\\v\{c\}enja PSO algoritma su postavljeni redom na 2.0 i 2.0. "Brzina" svake \\v\{c\}estice je postavljena na nulu na po\\v\{c\}etku izvr\\v\{s\}avanja PSO algoritma. Broj generacija za ABC, PSO i Unaprije\\dj\{\}eni ABC je fiksiran na $G=33$.\
+ Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, g\\dj\{\}e je $\\alpha=U[0.85, 0.99]$ i $U[a, b]$ nasumi\\v\{c\}no (uniformno) odabrana vrijednost iz segmenta [a, b]. Algoritam Simuliranog Kaljenja terminira nakon \\v\{s\}to ne uspije promijeniti rje\\v\{s\}enje za jedan obilazak svih grana odgovaraju\\'\{c\}e triangulacije.\\\\\
+ Za instance RI-15-* do RI-23-*, najlo\\v\{s\}ija, srednja i najbolja na\\dj\{\}ena kvaliteta (kao i standardna devijacija) algoritma Simuliranog Kaljenja, PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma su predstavljene u tabelama \\ref\{tab:sa\}, \\ref\{tab:pso\} i \\ref\{tab:iabc\} i iste mogu biti upore\\dj\{\}ene sa njihovim optimalnim vrijednostima iz tabele \\ref\{tab:es\}.\
+  Kao \\v\{s\}to mo\\v\{z\}emo vi\\dj\{\}eti u tabelama \\ref\{tab:es\} i \\ref\{tab:iabc\}, Unaprije\\dj\{\}eni ABC uspijeva na\\'\{c\}i optimum prilikom gotovo svakog izvr\\v\{s\}avanja.\
+  Tako\\dj\{\}er, za sve instance Unaprije\\dj\{\}eni ABC nalazi optimum mnogo br\\v\{z\}e od algoritma iscrpne pretrage (\\ref\{tab:es\}).\
+  Primijetimo tako\\dj\{\}er da se algoritam Simuliranog Kaljenja zaglavljuje u lokalnim optimumima (RI-15-3, RI-17-2, and RI-18- 5), \\v\{s\}to je rijedak slu\\v\{c\}aj kod PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma.\
+  Me\\dj\{\}utim, Unaprije\\dj\{\}eni ABC je ubjedljivo najstabilniji. U prilog ide i \\v\{c\}injenica da PSO koristi skoro dva puta vi\\v\{s\}e iteracija tokom izvr\\v\{s\}avanja.\
 \
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
-        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 27.39 & 0.83 \\\\	 \
     	\\rowcolor\{black!20\}[0pt][0pt] RI-15-2 & 1909236 & 16.26 & 0.75 \\\\ \
@@ -905,8 +905,8 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
-        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
         \\hline\
         RI-18-3 & 2023911 & 408.30 & 1.07 \\\\\
         \\rowcolor\{black!20\}[0pt][0pt] RI-18-4 & 1806271 & 290.33 & 1.03 \\\\\
@@ -939,8 +939,8 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
-        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
     	\\rowcolor\{black!20\}[0pt][0pt] RI-22-2 & 1820994 & 3626.20 & 1.38 \\\\\
         RI-22-3 & 1755667 & 4961.50 & 1.33 \\\\\
         \\rowcolor\{black!20\}[0pt][0pt] RI-22-4 & 2068914 & 7846.59 & 1.37 \\\\\
@@ -954,15 +954,15 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
         \\bottomrule\
     	\\hline\
   	\\end\{tabular\}\
-  \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprijedjeni ABC (vremena izvr\'9aavanja)\}\
+  \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprije\\dj\{\}eni ABC (vremena izvr\\v\{s\}avanja)\}\
   \\label\{tab:es\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
-        							 & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2114203 & 2111182 & 1251 \\\\	 \
     	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2092213 & 2092213 & 0 \\\\\
@@ -992,8 +992,8 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
-        							 & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
         RI-21-5 & 2357454 & 2348732 & 2366 \\\\\
         \\hline\
@@ -1004,15 +1004,15 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Prosje\uc0\u269 ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+    \\captionof\{table\}\{Prosje\\v\{c\}ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:sa\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
-        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
     	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2056895 & 2052665 & 2049619 & 3580 \\\\\
@@ -1042,8 +1042,8 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
-        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
         RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
         \\hline\
@@ -1054,15 +1054,15 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Najlo\'9aiji, prosjec\uc0\u269 ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:pso\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprijedjeni ABC algoritam\}\} \\\\\
-        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
     	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2049619 & 2049619 & 2049619 & 0 \\\\\
@@ -1092,8 +1092,8 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprijedjeni ABC algoritam\}\} \\\\\
-        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
         RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
         \\hline\
@@ -1104,9 +1104,164 @@ Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Najlo\'9aiji, prosjec\uc0\u269 ni i najbolji rezultat i standardna devijacija Unaprijedjenog ABC algoritma u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija Unaprije\\dj\{\}enog ABC algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:iabc\}\
 \\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 3981324 & 3981181 & 3981057 & 133 & 3.31 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 5708486 & 5708486 & 5708486 & 0 & 3.69 \\\\\
+        RI-40-3 & 5707203 & 5705169 & 5705099 & 377 & 3.51 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 5578716 & 5537424 & 5532297 & 9065 & 3.44 \\\\\
+        RI-40-5 & 4793477 & 4791469 & 4791246 & 669 & 3.32 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-80-1 & 6376539 & 6321510 & 6258646 & 31688 & 7.29 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 8535545 & 8501302 & 8468874 & 17588 & 7.52 \\\\\
+        RI-80-3 & 6978545 & 6907133 & 6851719 & 30899 & 7.81 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6302636 & 6242295 & 6154369 & 36517 & 7.43 \\\\\
+        RI-80-5 & 7652398 & 7556331 & 7464114 & 38971 & 7.71 \\\\\
+        \\hline\
+  		RI-120-1 & 6608676 & 6552933 & 6462899 & 32283 & 11.63 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6397590 & 6351684 & 6312444 & 19752 & 11.58 \\\\\
+        RI-120-3 & 6631213 & 6588347 & 6547914 & 17688 & 11.69 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 7692539 & 7648538 & 7551011 & 30130 & 11.61 \\\\\
+        RI-120-5 & 6043758 & 6002853 & 5954341 & 20846 & 11.92 \\\\\
+        \\hline\
+  		RI-160-1 & 6434766 & 6350615 & 6305173 & 26765 & 16.78 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 7306872 & 7265242 & 7217500 & 24216 & 15.36 \\\\\
+        RI-160-3 & 5836311 & 5777325 & 5735756 & 19735 & 16.06 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 9258723 & 9160906 & 8932837 & 67998 & 15.60 \\\\\
+        RI-160-5 & 6973926 & 6938585 & 6901351 & 16289 & 15.02 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja PSO algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
+  	\\label\{tab:pso\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 4431309 & 4357694 & 4267981 & 43137 & 1.34 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 6012489 & 5977853 & 5912515 & 28820 & 1.48 \\\\\
+        RI-40-3 & 6109987 & 6059299 & 5935755 & 37652 & 1.43 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 6112672 & 6043598 & 5974049 & 35465 & 1.41 \\\\\
+        RI-40-5 & 5361920 & 5287964 & 5204055 & 49702 & 1.36 \\\\\
+        \\hline\
+  		RI-80-1 & 6756000 & 6716741 & 6649771 & 31206 & 3.02 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 9029694 & 8975418 & 8854342 & 45308 & 3.13 \\\\\
+        RI-80-3 & 7582315 & 7513996 & 7427765 & 35789 & 3.14 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6518032 & 6495705 & 6442912 & 21009 & 3.04 \\\\\
+        RI-80-5 & 8164600 & 8083242 & 8009757 & 43017 & 3.15 \\\\\
+        \\hline\
+  		RI-120-1 & 7001153 & 6942420 & 6842448 & 48300 & 4.74 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6777435 & 6731189 & 6648524 & 30795 & 4.76 \\\\\
+        RI-120-3 & 6755798 & 6737654 & 6706967 & 10844 & 4.79 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 8015857 & 7989688 & 7901942 & 25750 & 4.80 \\\\\
+        RI-120-5 & 6329087 & 6300477 & 6243130 & 26206 & 4.86 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-160-1 & 6715016 & 6674444 & 6592204 & 30995 & 7.02 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 7551925 & 7527883 & 7489792 & 17335 & 6.31 \\\\\
+        RI-160-3 & 5976318 & 5958676 & 5915469 & 13482 & 6.33 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 9457551 & 9440930 & 9407090 & 14671 & 6.34 \\\\\
+        RI-160-5 & 7103540 & 7085397 & 7044421 & 14169 & 6.22 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
+  	\\label\{tab:abc\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 3981057 & 3981057 & 3981057 & 0 & 2.78 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 5708486 & 5708486 & 5708486 & 0 & 3.01 \\\\\
+        RI-40-3 & 5705099 & 5705099 & 5705099 & 0 & 3.10 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 5613929 & 5541323 & 5532297 & 14319 & 3.01 \\\\\
+        RI-40-5 & 4791246 & 4791246 & 4791246 & 0 & 2.88 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-80-1 & 6116131 & 6095063 & 6081237 & 7835 & 7.81 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 8459368 & 8439889 & 8416290 & 10896 & 7.41 \\\\\
+        RI-80-3 & 6739977 & 6738582 & 6737427 & 1248 & 7.80 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6119128 & 6113305 & 6107287 & 4565 & 7.31 \\\\\
+        RI-80-5 & 7260296 & 7259629 & 7251518 & 1982 & 8.08 \\\\\
+        \\hline\
+  		RI-120-1 & 6299156 & 6282351 & 6280828 & 4151 & 13.49 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6071076 & 6063776 & 6059606 & 3667 & 13.20 \\\\\
+        RI-120-3 & 6263254 & 6257688 & 6252986 & 2633 & 13.43 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 7380240 & 7350536 & 7296294 & 19483 & 13.33 \\\\\
+        RI-120-5 & 5853560 & 5835380 & 5829316 & 6011 & 13.04 \\\\\
+        \\hline\
+  		RI-160-1 & 5954060 & 5938211 & 5924450 & 6793 & 23.23 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 6914570 & 6900078 & 6874677 & 7690 & 19.95 \\\\\
+        RI-160-3 & 5452882 & 5449796 & 5446910 & 1231 & 20.07 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 8853168 & 8667264 & 8620112 & 62554 & 20.33 \\\\\
+        RI-160-5 & 6568570 & 6557988 & 6547808 & 3976 & 19.76 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja Unaprije\\dj\{\}enog ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
+  	\\label\{tab:iabc\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix F)\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji t-idx.\} & \\emph\{Prosje\\v\{c\}ni t-idx.\} & \\emph\{Najbolji t-idx.\}& \\emph\{SD\} \\\\\
+        \\hline\
+  		RI-160-6 (PSO) & $3.61 \\times 10^\{-6\}$ & $6.42 \\times 10^\{-7\}$ & $1.81 \\times 10^\{-7\}$ & $6.54 \\times 10^\{-7\}$ \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-6 (ABC) & $0.000673$ & $0.000256$ & $0.000117$ & $0.000114$ \\\\\
+        RI-160-6 (UABC) & $8.17 \\times 10^\{-6\}$ & $4.61 \\times 10^\{-6\}$ & $1.80 \\times 10^\{-6\}$ & $1.79 \\times 10^\{-6\}$ \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji Theil indeks i standardna devijacija istog za PSO, ABC i Unaprije\\dj\{\}eni ABC algoritam u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanom instancom od 160 ta\uc0\u269 aka.\}\
+  	\\label\{tab:tidx\}\
+\\end\{table\}\
+\
 \
 \\chapter\{Dodaci\} \\label\{ch:appendixes\}\
 \
