@@ -18,8 +18,14 @@
 \\usepackage\{algpseudocode, algorithm\}\
 \\usepackage\{caption\}\
 \\usepackage\{array\}\
+\\usepackage\{array,booktabs\}\
+\\usepackage\{colortbl\}\
+\\usepackage\{xcolor\}\
+\\usepackage\{multirow\}\
+\\usepackage\{longtable\}\
 \
 \\newcolumntype\{P\}[1]\{>\{\\centering\\arraybackslash\}p\{#1\}\}\
+\\newcolumntype\{L\}\{@\{\}>\{\\kern\\tabcolsep\}l<\{\\kern\\tabcolsep\}\}\
 \
 \\setcounter\{chapter\}\{0\}\
 \
@@ -94,7 +100,7 @@ Sarajevo, 2017\
 \\tableofcontents\
 \\end\{paragraph\}\
 \
-\\chapter\{Problem Minimum-Te\\v\{z\}inske Triangulacije (Minimum-Weight Triangulation problem)\}\
+\\chapter\{Problem Minimum-Te\\v\{z\}inske Triangulacije (Minimum-Weight Triangulation problem)\} \\label\{ch:intro\}\
 \\pagenumbering\{arabic\}\
 \
 \\section\{O geometrijskoj triangulaciji skupa ta\\v\{c\}aka u ravni\}\
@@ -435,7 +441,7 @@ Neovisno o istra\\v\{z\}ivanju o kompleksnosti, koje su okon\\v\{c\}ali Multzer 
 \\end\{itemize\}\
 \
 \
-\\chapter\{Algoritam iscrpne pretrage\}\
+\\chapter\{Algoritam iscrpne pretrage\} \\label\{ch:es\}\
 \
 Algoritam iscrpne pretrage podrazumijeva obilazak svih mogu\\'\{c\}ih rje\\v\{s\}enja prostora ptretrage nekog problema, sve dok rje\\v\{s\}enje sa tra\\v\{z\}enom osobinom nije na\\dj\{\}eno. Optimizacioni problemi nerijetko zahtijevaju obilazak cijelog prostora pretrage prije nalaska rje\\v\{s\}enja algoritmom iscrpne pretrage\\footnote\{Postoje paradigme, kao \\v\{s\}to je Branch and Bound paradigma, koje mogu umanjiti prostor pretrage problema.\}. Odatle je ovaj algoritam \\v\{c\}esto neprakti\\v\{c\}an u smislu vremena izvr\\v\{s\}avanja, no za na\\v\{s\}e potrebe i prijeko potreban. S toga u nastavku dajemo kratak osvrt na algoritam iscrpne pretrage za nala\\v\{z\}enje te\\v\{z\}ine minimum te\\v\{z\}inske triangulacije datog skupa ta\\v\{c\}aka u ravni.\\\\\
 Zarad lak\\v\{s\}e implementacije, omogu\\'\{c\}iti \\'\{c\}emo da na\\v\{s\} algoritam, pored skupa ta\\v\{c\}aka tako\\dj\{\}er prima i konveksni omota\\v\{c\} istih, kao ulazni parametar. Konveksni omota\\v\{c\} mo\\v\{z\}emo prona\\'\{c\}i neposredno prije izvr\\v\{s\}avanja iscrpne pretrage, koriste\\'\{c\}i neki od algoritama, za nala\\v\{z\}enje konveksnih omota\\v\{c\}a, pomenutih u prethodnom poglavlju.\
@@ -525,25 +531,25 @@ Eksperimentalna analiza je pokazla da koriste\\'\{c\}i memoizaciju za ubrzanje r
 U trenutku pisanja ovog rada, najbr\\v\{z\}i algoritam iscrpne pretrage za nala\\v\{z\}enje minimum te\\v\{z\}inske triangulacije koristi upravo metodu dinami\\v\{c\}kog programiranja i dose\\v\{z\}e subeksponencijalnu kompleksnost $2^\{O(\\sqrt\{n\}\\log n)\}$. Radi se o algoritmu kojeg je 1998. godine predstavio prof. Lingas u svom radu \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}\\cite\{lingas\}.\
 \
 \\begin\{remy\}\
-Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati u tabeli \\ref\{stats:es\}\
+Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati u tabeli \\ref\{tab:es\}\
 \\end\{remy\}\
 \
 \
-\\chapter\{Generisanje instanci\}\
+\\chapter\{Generisanje instanci\} \\label\{ch:instances\}\
 \
 Iako je MWT posljednjih trideset godina relativno popularan problem, malo je ig\\dj\{\}e (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su razni algoritmi za rje\\v\{s\}avanje ovom problema testirani. Tako da smo ov\\dj\{\}e bili, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse na\\v\{s\}ih algoritama.\
 \
 \\begin\{itemize\}\
 \\item Sve instance su generisane koriste\\'\{c\}i islkju\\v\{c\}ivo ili uniformnu ili normalnu distribuciju.\
 \\item Instance sadr\\v\{z\}e od 15 do 160 ta\\v\{c\}aka. (Najve\\'\{c\}i broj ta\\v\{c\}aka koji je na\\v\{s\} algoritam isrpne pretrage mogao evaluirati u razumnom vremenu je 23)\
-\\item Koordinate ta\\v\{c\}aka su ili iz raspona [-333, 333] ili iz raspona [-1000, 1000].\
+\\item Koordinate ta\\v\{c\}aka su ili iz raspona [-333, 333] ili iz raspona [0, 1000].\
 \\item Koordinate ta\\v\{c\}aka su ili isklju\\v\{c\}ivo cjelobrojne ili isklju\\v\{c\}ivo racionalne.\
 \\end\{itemize\}\
 \
 Ogledno se pokazalo da, osim broja ta\\v\{c\}aka, niti jedan od navedenih parametara ne uti\\v\{c\}e zna\\v\{c\}ajno na performanse primijenjenih algoritama.\
 \
 \
-\\chapter\{Prvi heuristi\\v\{c\}ki algoritmi\}\
+\\chapter\{Prvi heuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
 \
 Heuristi\\v\{c\}ki i metaheuristi\\v\{c\}ki\\footnote\{Appendix D\} algoritmi \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja ostavljamo isklju\\v\{c\}ivo ovoj temi.\
 Po\\v\{c\}injemo sa popularnom varijacijom lokalne pretrage, metodom pretra\\v\{z\}ivanja usponom (Hill Climbing), a zatim nastavljamo sa jednako poznatom metaheuristikom, Simulirano Kaljenje (Simulated Annealing). No prije nego prezenitiramo na\\v\{s\}e adaptacije navedenih metoda na MWT, recimo ne\\v\{s\}to navedenoj heuristici i navedenoj metaheuristici u op\\v\{s\}tem.\
@@ -618,12 +624,14 @@ Kazali smo da su ta\\v\{c\}no tri uslova potrebna i dovoljna za implementaciju m
     No prije nego li nastavimo, uvedimo nekoliko konvencija. Svaka ivica triangulacije, pripada ili ne pripada konveksnom omota\\v\{c\}u iste. One koje pripadaju konveksnom omota\\v\{c\}u nazovimo \\textit\{vanjskim\}, a ostale \\textit\{unutra\\v\{s\}njim\} ivicama. Zatim, svaka \\textit\{unutra\\v\{s\}nja\} ivica dodiruje\\footnote\{Ivica koja \'93dodiruje\'94 trougao \\v\{c\}ini jednu stranicu tog trougla.\} ta\\v\{c\}no dva trougla. Dva dodirna trougla mogu formirati konveksni ili nekonveksni \\v\{c\}etverougao zajedno. U slu\\v\{c\}aju da formiraju konveksni \\v\{c\}etverougao, ivicu 	koja ih spaja nazivamo \\textit\{preokretljivom\} (\\textit\{flippable\}), jer takvu ivicu mo\\v\{z\}emo zamijeniti 		suprotnom dijagonalom pomenutog konveksnog \\v\{c\}etverougla. U slu\\v\{c\}aju da je te\\v\{z\}ina 	\\textit\{preokretljive\} ivice ve\\'\{c\}a od te\\v\{z\}ine njene suprotne dijagonale, tada tu ivicu nazivamo 		\\textit\{popravljivom\} (\\textit\{improvable\}).\
     \\xdef\\tpd\{0\}\
     \\end\{minipage\} \\pagebreak\
+    \
   	\\begin\{minipage\}\{\\dimexpr\\textwidth-3cm\}\
     Uzev\\v\{s\}i u obzir navedene konvencije, primijetimo da je za nalazak susjednih rje\\v\{s\}enja dovoljno na\\'\{c\}i sve \\textit\{preokretljive\} ivice. Dok je za nalazak svih susjednih rje\\v\{s\}enja bolje kvalitete, dovoljno na\\'\{c\}i sve \\textit\{popravljive\} ivice. Dakle, iako imamo na\\v\{c\}in za izra\\v\{c\}unavanje 	kvalitete jednog rje\\v\{s\}enja, nije nam potreban prilikom tra\\v\{z\}enja susjednih rje\\v\{s\}enja bolje 	kvalitete, jer isto mo\\v\{z\}emo izra\\v\{c\}unati jednostavno ra\\v\{c\}unav\\v\{s\}i razliku te\\v\{z\}ina \\textit\{preokretljivih\} dijagonala i oduzimav\\v\{s\}i dobivenu razliku od kvalitete trenutnog rje\\v\{s\}enja.\\\\\
     Provjeru da li je ivica \\textit\{preokretljiva\} mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Naime, dovoljno je 	da za svaku ivicu \\v\{c\}uvamo informaciju o dva trougla kojima pripada, ta\\v\{c\}nije, dovoljno 	je \\v\{c\}uvati informaciju o dvije ta\\v\{c\}ke sa kojima ivica formira dva trougla kojima pripada, 	jer svaka ivica je \\textit\{preokretljiva\} ako i samo ako sije\\v\{c\}e du\\v\{z\} koju formiraju upravo te dvije 	ta\\v\{c\}ke. S obzirom da provjeru da li se dvije du\\v\{z\}i sijeku mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$\\cite\{bergetal\}, to zaklju\\v\{c\}ujemo da test \\textit\{preokretljivosti\} svake ivice mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Odatle, uzev\\v\{s\}i u obzir da za nalazak svih susjednih rje\\v\{s\}enja moramo obi\\'\{c\}i sve ivice triangulacije, zaklju\\v\{c\}ujemo da kona\\v\{c\}na kompleksnost ovakvog nalaska svih susjednih rje\\v\{s\}enja jedne triangulacije iznosi $O(E)$, to jest $O(n)$, g\\dj\{\}e je $E$ broj ivica ciljne triangulacije.\
     \\xdef\\tpd\{0\}\
     \\end\{minipage\}\
-  \\item Nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja\\\\\
+    \
+\\item Nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja\\\\\
   	\\begin\{minipage\}\{\\dimexpr\\textwidth-3cm\}\
 	U prvom poglavlju smo se upoznali sa nekoliko sa nekoliko algoritama za nala\\v\{z\}enje 	triangulacije skupa ta\\v\{c\}aka u ravni. Bilo koji od tih algoritama mo\\v\{z\}e poslu\\v\{z\}iti za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja pretra\\v\{z\}ivanja usponom. Me\\dj\{\}utim, prilikom evaluacije 	statisti\\v\{c\}kih rezultata, navedenih u posljednjem poglavlju, ovog i svih algoritama koji 	zahtijevaju postojanje po\\v\{c\}etnog rje\\v\{s\}enja, nije kori\\v\{s\}ten niti jedan od navedenih algoritama za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja. Naime, kori\\v\{s\}tena je varijacija pohlepnog 	algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni, \\v\{c\}iji pseudokod navodimo u nastavku\\footnote\{Razlog zbog kog koristimo upravo navedenu varijaciju pohlepne triangulacije jeste taj \\v\{s\}to se ista ogledno pokazala kao naju\\v\{c\}inkovitija.\}.\
 	\\xdef\\tpd\{0\}\
@@ -661,11 +669,7 @@ Kazali smo da su ta\\v\{c\}no tri uslova potrebna i dovoljna za implementaciju m
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
-Navedeni algoritam \\'\{c\}e biti pozvan ta\\v\{c\}no $n-1$ puta nad skupom od $n$ ta\\v\{c\}aka u ravni. Usko grlo algoritma le\\v\{z\}i kvadratnoj vremenskoj kompleksnosti koraka 7. Naime, provjera da li je trougao validan, koju izvr\\v\{s\}avamo $n-2$ puta u koraku 7,  je linearne kompleksnosti u odnosu na broj ta\\v\{c\}aka $n$. Odatle vremenska kompleksnost navedenog algoritma pripada $(n-1)(n-2)O(n)$, to jeste $O(n^3)$.\
-\
-\\begin\{remy\}\
-Detaljni rezultati performanse tri varijacije pretra\\v\{z\}ivanja usponom (stohasti\\v\{c\}ko, pohlepno i pretra\\v\{z\}ivanje usponom prvog izbora) su dati u tabeli \\ref\{tab:hc\}.\
-\\end\{remy\}\
+Navedeni algoritam \\'\{c\}e biti pozvan ta\\v\{c\}no $n-1$ puta nad skupom od $n$ ta\\v\{c\}aka u ravni. Usko grlo vremenske kompleksnosti algoritma le\\v\{z\}i kvadratnoj vremenskoj kompleksnosti koraka 7. Naime, provjera da li je trougao validan, koju izvr\\v\{s\}avamo $n-2$ puta u koraku 7,  je linearne kompleksnosti u odnosu na broj ta\\v\{c\}aka $n$. Odatle vremenska kompleksnost navedenog algoritma pripada $(n-1)(n-2)O(n)$, to jeste $O(n^3)$.\
 \
 Zarad kasnijih potreba, na ovom mjestu navodimo jo\\v\{s\} jednu varijaciju algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni. Naime, radi se o stohasti\\v\{c\}koj triangulaciji skupa ta\\v\{c\}aka u ravni.\
 \
@@ -732,7 +736,7 @@ Konveksni omota\\v\{c\} skupa ta\\v\{c\}aka mo\\v\{z\}emo prona\\'\{c\}i koriste
 Detaljni rezultati performanse navedenog algoritma simuliranog kaljenja prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:mwtsa\}.\
 \\end\{remy\}\
 \
-\\chapter\{Inteligencija rojeva\}\
+\\chapter\{Inteligencija rojeva\} \\label\{ch:swarm\}\
 \
 Kao i svaka grana Prirodnog Izra\\v\{c\}unavanja, Inteligencija rojeva\\footnote\{U literaturi poznata i kao inteligencija jata\} je oblast koja inspiraciju uzima iz prirode, i to ta\\v\{c\}nije, iz pona\\v\{s\}anja rojeva, kao \\v\{s\}to su roj p\\v\{c\}ela, mravi, jata ptica, pa \\v\{c\}ak i iz pona\\v\{s\}anja grupe ljudskih individua.\\\\\
 Primjene algoritama oblasti Inteligencije rojeva su mnogobrojne. Na primjer, vojska Sjedinjenih Ameri\\v\{c\}kih Dr\\v\{z\}ava istra\\v\{z\}uje mogu\\'\{c\}nost primjene istih za upravljanje samovozivim vozilima. Sa druge strane, Evropska Svemirska Agencija razmatra primjenu algoritama Inteligencije rojeva u interferometriji. Zatim, NASA istra\\v\{z\}uje o primjeni istih algoritama na kartografiju planeta. Pored toga, 1992. godine M. Anthony Lewis i George A. Bekey objavljuju rad u kom, pomalo entuzijasti\\v\{c\}no, razmatraju mogu\\'\{c\}nosti kori\\v\{s\}tenja inteligencije rojeva za kontrolu nanobota unutar ljudskog organizma sa ciljem uklanjanja tumora\\cite\{lewisbekey\}. Tako\\dj\{\}er, al-Rifaie i Aber su iskoristili jedan od algoritama ove oblasti za pomo\\'\{c\} nalaska tumora\\cite\{alrifaieaber\}\\cite\{alrifaieetal\}. Na kraju, algoritmi Inteligencije rojeva su na\\v\{s\}li primjenu i u veoma popularnoj oblasti Rudarenja podataka (\\textit\{eng. Data mining\})\\cite\{martensetal\}.\\\\\
@@ -841,14 +845,270 @@ Sve uposlene p\\v\{c\}ele \\'\{c\}e evenutalno dose\\'\{c\}i svoj lokalni optimu
 Detaljni rezultati performanse navedenog ABC algoritma prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:mwtabc\}.\
 \\end\{remy\}\
                         \
-\\chapter\{Pobolj\\v\{s\}ani algoritam umjetne kolonije p\\v\{c\}ela za MWT problem\}\
+\\chapter\{Pobolj\\v\{s\}ani algoritam umjetne kolonije p\\v\{c\}ela za MWT problem\} \\label\{ch:iabc\}\
 ABC algoritam, prilago\\dj\{\}en MWT problemu, iz prethodnog poglavlja se mo\\v\{z\}e pobolj\\v\{s\}ati. Radi se o jednoj minornoj izmjeni u fazi p\\v\{c\}ela tra\\v\{z\}ilica koju izdvajamo u posebno poglavlje iz razloga \\v\{s\}to ista dovodi do ostupanja od nativne procedure ABC algoritma.\\\\\
 Naime, umjesto obavljanja samo jedne iteracije stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom za odabranu uposlenu p\\v\{c\}elu, pu\\v\{s\}tamo agenta da nastavi izvr\\v\{s\}avanje pretra\\v\{z\}ivanja usponom sve dok ne dosegne svoj lokalni optimum.\\\\\
 Detaljni rezultati performanse navedenog, pobolj\\v\{s\}anog ABC algoritma za MWT problemu su dati u tabeli \\ref\{tab:mwtiabc\}.\
 \
-\\chapter\{Statisti\\v\{c\}ki rezultati\}\
+\\chapter\{Statisti\\v\{c\}ki rezultati\} \\label\{ch:stats\}\
 \
-\\chapter\{Dodaci\}\
+Zbog nedostatka dovoljno jakih ma\'9aina za evaluaciju nas\'9aeg algoritma iscrpne pretrage, ograni\uc0\u269 eni smo na detaljnu statisti\u269 ku analizu nad instancama veli\u269 ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\u269 ke.\\\\\
+S obzirom da nismo uspjeli prona\uc0\u263 i nikakve predlo\'9eene testne instance kao ni prijedloge za generisanje istih, generi\'9aemo nove, nasumi\u269 ne instance ta\u269 aka (kao \'9ato je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
+\
+No nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\uc0\u269 ava da ostale algoritme testiramo na ve\u263 im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \'9ato su PSO, ABC i Pobolj\'9aani ABC izvr\'9aavamo jo\'9a i na instancama od 40, 80, 120, 160 ta\u269 aka.\\\\\
+Svaka instanca je labelisana sa RI-k-i, gdje $k$ ozna\uc0\u269 ava broj ta\u269 aka u $i$-toj instanci.\\\\\
+\
+Koordinate ta\uc0\u269 aka, instanci veli\u269 ine od 15 do 23, su uniformno distribuirane na segmentu [-333, 333], dok su iste, za instance veli\u269 ine 40, 80, 120 i 160, uniformno distribuirane na segmentu [0, 1000].\
+Zarad jednostavnosti, svaka instanca je generisana tako da se niti jedna ta\uc0\u269 ka ne poklapa\\footnote\{Nema iste koordinate\}.\
+Svi algoritmi su implementirani u programskom jeziku Python (v3). Evaluacije algoritma iscrpne pretrage su proceusirane na Intel Core i7-3770K @3.5GHz procesoru, na mas\'9aini od 16GB RAM memorije i operativnim sistemom Windows 10 x64, dok su svi ostali algoritmi procesuirani na \uc0\u269 etverojezgrenom Intel Core i7 @2,2 GHz procesoru, na ma\'9aini od 16 GB RAM memorije i operativnim sistemom macOS 10.12.6.\\\\\
+\
+Svaki populacijski algoritam (PSO, ABC, Unaprijedjeni ABC) terminira nakon $N\\times G$ iteracija, gdje je $N$ veli\uc0\u269 ina populacije, a $G$ broj generacija izvr\'9aavanja algoritma. Zatim, svaki algoritam je izvr\'9aen 50 puta nad svakom instancom ta\u269 aka. Veli\u269 ina populacije za ABC i Unaprijedjeni ABC je $N=13$ p\u269 ela (agenata), dok za PSO isti broj iznosi $N=33$ \u269 estica.\
+Vrijednost "limit" parametra u Fazi p\uc0\u269 ela skauta, oba ABC algoritma, je jednak 1. Parametri u\u269 enja PSO algoritma su postavljeni redom na 2.0 i 2.0. "Brzina" svake \u269 estice je postavljena na nulu na po\u269 etku izvr\'9aavanja PSO algoritma. Broj generacija za ABC, PSO i Unaprijedjeni ABC je fiksiran na $G=33$.\
+ Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, gdje je $\\alpha=U[0.85, 0.99]$ i $U[a, b]$ nasumi\uc0\u269 no (uniformno) odabrana vrijednost iz segmenta [a, b]. Algoritam Simuliranog Kaljenja terminira nakon \'9ato ne uspije promijeniti rje\'9aenje za jedan obilazak svih grana odgovaraju\u263 e triangulacije.\\\\\
+ Za instance RI-15-* do RI-23-*, najlo\'9aija, srednja i najbolja nadjena kvaliteta (kao i standardna devijacija) algoritma Simuliranog Kaljenja, PSO algoritma i Unaprijedjenog ABC algoritma su predstavljene u tabelama \\ref\{tab:sa\}, \\ref\{tab:pso\} i \\ref\{tab:iabc\} i iste mogu biti uporedjene sa njihovim optimalnim vrijednostima iz tabele \\ref\{tab:es\}.\
+  Kao \'9ato mo\'9eemo vidjeti u tabelama \\ref\{tab:es\} i \\ref\{tab:iabc\}, Unaprijedjeni ABC uspijeva na\uc0\u263 i optimum prilikom gotovo svakog izvr\'9aavanja.\
+  Takodjer, za sve instance Unaprijedjeni ABC nalazi optimum mnogo br\'9ee od algoritma iscrpne pretrage (\\ref\{tab:es\}).\
+  Primijetimo takodjer da se algoritam Simuliranog Kaljenja zaglavljuje u lokalnim optimumima (RI-15-3, RI-17-2, and RI-18- 5), \'9ato je rijedak slu\uc0\u269 aj kod PSO algoritma i Unaprijedjenog ABC algoritma.\
+  Medjutim, Unaprijedjeni ABC je ubjedljivo najstabilniji. U prilog ide i \uc0\u269 injenica da PSO koristi skoro dva puta vi\'9ae iteracija tokom izvr\'9aavanja.\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 27.39 & 0.83 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-2 & 1909236 & 16.26 & 0.75 \\\\ \
+    	RI-15-3 & 2049619 & 20.32 & 0.73 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-15-4 & 1549159 & 19.40 & 0.79 \\\\\
+        RI-15-5 & 1995367 & 17.11 & 0.74 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 59.25 & 0.74 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-16-2 & 1702863 & 66.13 & 0.79 \\\\\
+        RI-16-3 & 1700495 & 59.36 & 0.78 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-4 & 1463510 & 41.09 & 0.77 \\\\\
+        RI-16-5 & 2055712 & 32.89 & 0.87 \\\\\
+        \\hline\
+        RI-17-1 & 15762801 & 101.26 & 0.85 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-17-2 & 1416507 & 206.64 & 0.87 \\\\\
+        RI-17-3 & 2326401 & 181.81 & 0.90 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 131.35 & 0.87 \\\\\
+        RI-17-5 & 1550093 & 122.44 & 0.81 \\\\\
+        \\hline\
+        RI-18-1 & 2275043 & 240.71 & 1.07 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-18-2 & 2696259 & 326.56 & 1.12 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+        \\hline\
+        RI-18-3 & 2023911 & 408.30 & 1.07 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-4 & 1806271 & 290.33 & 1.03 \\\\\
+        RI-18-5 & 1656804 & 147.41 & 1.02 \\\\\
+        \\hline\
+        RI-19-1 & 2006489 & 614.85 & 0.96 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-19-2 & 1797201 & 401.56 & 1.14 \\\\\
+        RI-19-3 & 1777187 & 360.84 & 1.09 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-4 & 1641380 & 263.18 & 1.04 \\\\\
+        RI-19-5 & 1685899 & 685.72 & 1.06 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 709.00 & 1.09 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-20-2 & 1537246 & 892.15 & 0.94 \\\\\
+        RI-20-3 & 1993018 & 1570.29 & 1.21 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1039.40 & 1.14 \\\\\
+        RI-20-5 & 2329993 & 1716.42 & 1.21 \\\\\
+        \\hline\
+        RI-21-1 & 2022009 & 912.20 & 1.27 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-21-2 & 2473327 & 3226.62 & 1.25 \\\\\
+        RI-21-3 & 2113566 & 6737.32 & 1.51 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-21-4 & 1381651 & 2281.67 & 1.25 \\\\\
+        RI-21-5 & 2348732 & 5508.41 & 1.26 \\\\\
+        \\hline\
+        RI-22-1 & 2246770 & 7446.92 & 1.25 \\\\\
+   		\\bottomrule\
+    	\\hline\
+  	\\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprijedjeni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\uc0\u269 no vrijeme (s)\}  \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-22-2 & 1820994 & 3626.20 & 1.38 \\\\\
+        RI-22-3 & 1755667 & 4961.50 & 1.33 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-22-4 & 2068914 & 7846.59 & 1.37 \\\\\
+        RI-22-5 & 2291740 & 11868.93 & 1.37 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 13573.40 & 1.44 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-2 & 1890912 & 4254.22 & 1.34 \\\\\
+        RI-23-3 & 2515459 & 33332.45 & 1.46 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-23-4 & 2347326 & 21125.10 & 1.36 \\\\\
+        RI-23-5 & 2252239 & 8613.89 & 1.46 \\\\\
+        \\bottomrule\
+    	\\hline\
+  	\\end\{tabular\}\
+  \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprijedjeni ABC (vremena izvr\'9aavanja)\}\
+  \\label\{tab:es\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2114203 & 2111182 & 1251 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2092213 & 2092213 & 0 \\\\\
+        RI-15-5 & 2034210 & 1995367 & 10308 \\\\\
+        \\hline\
+        RI-16-1 & 1559225 & 1546841 & 2426 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1712957 & 1700495 & 3191 \\\\\
+        \\hline\
+        RI-17-3 & 2332225 & 2326401 & 1732 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1732083 & 1714096 & 3240 \\\\\
+        \\hline\
+    	RI-18-2 & 2703399 & 2696259 & 3271 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1756330 & 1755344 & 491 \\\\\
+        \\hline\
+    	RI-19-2 & 1804804 & 1797201 & 2920 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1781739 & 1777187 & 2156 \\\\\
+        RI-19-4 & 1645661 & 1641380 & 2054 \\\\\
+        \\hline\
+        RI-20-1 & 2248547 & 2185726 & 9824 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1756094 & 1744241 & 1659 \\\\\
+        RI-20-5 & 2343195 & 2329993 & 5468 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+        RI-21-5 & 2357454 & 2348732 & 2366 \\\\\
+        \\hline\
+        RI-22-4 & 2081143 & 2068914 & 2672 \\\\\
+        \\hline\
+        RI-23-1 & 1652834 & 1644823 & 3204 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2285596 & 2252239 & 8243 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+    \\captionof\{table\}\{Prosje\uc0\u269 ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+  	\\label\{tab:sa\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2056895 & 2052665 & 2049619 & 3580 \\\\\
+        RI-15-5 & 1995367 & 1995367 & 1995367 & 0 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 1546841 & 1546841 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1701791 & 1700598 & 1700495 & 351 \\\\\
+        \\hline\
+        RI-17-3 & 2326401 & 2326401 & 2326401 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 1714096 & 1714096 & 0 \\\\\
+        \\hline\
+    	RI-18-2 & 2696259 & 2696259 & 2696259 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1656804 & 1656804 & 1656804 & 0 \\\\\
+        \\hline\
+    	RI-19-2 & 1797201 & 1797201 & 1797201 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1777187 & 1777187 & 1777187 & 0 \\\\\
+        RI-19-4 & 1641380 & 1641380 & 1641380 & 0 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 2185726 & 2185726 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1744241 & 1744241 & 0 \\\\\
+        RI-20-5 & 2329993 & 2329993 & 2329993 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+        RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
+        \\hline\
+        RI-22-4 & 2075512 & 2074265 & 2068914 & 2540 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 1644823 & 1644823 & 0 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2252239 & 2252239 & 2252239 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+    \\captionof\{table\}\{Najlo\'9aiji, prosjec\uc0\u269 ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+  	\\label\{tab:pso\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprijedjeni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2049619 & 2049619 & 2049619 & 0 \\\\\
+        RI-15-5 & 1995367 & 1995367 & 1995367 & 0 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 1546841 & 1546841 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1700495 & 1700495 & 1700495 & 0 \\\\\
+        \\hline\
+        RI-17-3 & 2326401 & 2326401 & 2326401 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 1714096 & 1714096 & 0 \\\\\
+        \\hline\
+    	RI-18-2 & 2696259 & 2696259 & 2696259 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1656804 & 1656804 & 1656804 & 0 \\\\\
+        \\hline\
+    	RI-19-2 & 1797201 & 1797201 & 1797201 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1777187 & 1777187 & 1777187 & 0 \\\\\
+        RI-19-4 & 1641380 & 1641380 & 1641380 & 0 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 2185726 & 2185726 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1744241 & 1744241 & 0 \\\\\
+        RI-20-5 & 2329993 & 2329993 & 2329993 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Nasumi\uc0\u269 na instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprijedjeni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\'9aiji rezultat\} & \\emph\{Prosje\uc0\u269 ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+        RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
+        \\hline\
+        RI-22-4 & 2075512 & 2069309 & 2068914 & 1566 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 1644823 & 1644823 & 0 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2252239 & 2252239 & 2252239 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+    \\captionof\{table\}\{Najlo\'9aiji, prosjec\uc0\u269 ni i najbolji rezultat i standardna devijacija Unaprijedjenog ABC algoritma u 50 izvr\'9aavanja nad nasumi\u269 no generisanim instancama.\}\
+  	\\label\{tab:iabc\}\
+\\end\{table\}\
+\
+\\chapter\{Dodaci\} \\label\{ch:appendixes\}\
 \
 \\section\{Appendix A: Klase kompleksnosti\}\
 \
