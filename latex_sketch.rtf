@@ -1360,7 +1360,20 @@ Pravilan simpleks\\cite\{elte\} je simpleks koji odgovara pravilnom politopu.\
 \
 \\section\{Appendix C: Lokalna pretraga\}\
 \
+Ve\\'\{c\}ina problema se mo\\v\{z\}e formulisati u kontekstu prostora pretrage (ili prostora svih rje\\v\{s\}enja) i ciljnog rje\\v\{s\}enja datog problema.\
+Na primjer, za problem trgova\\v\{c\}kog putnika, prostor pretrage bi bili svi mogu\\'\{c\}i ciklusi za zadani graf, dok bi ciljno rje\\v\{s\}enje odgovaralo onom ciklusu koji je najkra\\'\{c\}i.\\\\\
 \
+Algoritam lokalne pretrage zahtijeva poznavanje barem jednog (bilo kojeg) rje\\v\{s\}enja iz prostora pretrage iz kojeg nastavlja iterativno obila\\v\{z\}enje susjednih rje\\v\{s\}enja istog.\
+Naravno, ovo je izvr\\v\{s\}ivo tek ukoliko postoji na\\v\{c\}in za nala\\v\{z\}enje (obila\\v\{z\}enje) susjednih (ili bar jednog susjednog) rje\\v\{s\}enja.\
+Na primjer, susjedno rje\\v\{s\}enje jednog rje\\v\{s\}enja (ili u ovom slu\\v\{c\}aju jedne interpretacije) SAT problema bi bilo rje\\v\{s\}enje (interpretacija) koje se od istog razlikuje po samo jednoj varijabli.\\\\\
+\
+Primijetimo da je za algoritam lokalne pretrage dovoljno da "vidi" (nalazi) barem jedno susjedno rje\\v\{s\}enje trenutnog rje\\v\{s\}enja koje obilazi. Odatle i dobija ime "Lokalna" pretraga, jer u svakoj iteraciji (uglavnom) obuhvata tek mali dio cijelog prostora pretrage.\\\\\
+Kada pri izboru susjednih rje\\v\{s\}enja vr\\v\{s\}imo restrikciju na odabir samo onih rje\\v\{s\}enja bolje kvalitete, tada govorimo o varijaciji Lokalne pretrage koja se zove Pretra\\v\{z\}ivanje usponom.\\\\\
+Ukoliko tokom Pretra\\v\{z\}ivanja usponom nismo u mogu\\'\{c\}nosti da na\\dj\{\}emo rje\\v\{s\}enje bolje ili iste kvalitete (to jeste, sva susjeda rje\\v\{s\}enja su isklju\\v\{c\}ivo lo\\v\{s\}ije kvalitete), ka\\v\{z\}emo da je algoritam dostigao lokalni optimum.\\\\\
+Postoje razni na\\v\{c\}ini za izlazak iz lokalnih optimuma\\footnote\{Nerijetko se javlja potreba za izlaskom iz lokalnog optimuma, jer ne mora nu\\v\{z\}no zna\\v\{c\}iti da je lokalni optimum ujedno i globalni optimum.\}. Neki od njih su ponudjeni u varijacijama metaheuristike Lokalne pretrage kao \\v\{s\}to su "Random restart" pretra\\v\{z\}ivanje usponom ili pak Simulirano Kaljenje.\\\\\
+\
+Algoritam Lokalne pretrage se mo\\v\{z\}e zavr\\v\{s\}iti nakon prethodno odre\\dj\{\}enog broja izvr\\v\{s\}enih iteracija ili nakon \\v\{s\}to trenutno rje\\v\{s\}enje ne uspijeva biti promijenjeno nakon, prethodno, odre\\dj\{\}enog broja koraka.\\\\\
+Na kraju, ova metaheuristika spada u "anytime" algoritme. Dakle ista vra\\'\{c\}a validno, ne nu\\v\{z\}no optimalno, rje\\v\{s\}enje u bilo kom trenutku zaustavljanja.\
 \
  \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
     \\bibliography\{...\}\
