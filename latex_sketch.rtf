@@ -383,7 +383,7 @@ U nastavku navodimo osobine ove triangulacije bez dokaza.\
 \\item Ukoliko kru\\v\{z\}nica koja prolazi kroz dvije ta\\v\{c\}ke, $A$ i $B$, Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sar\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju, onda du\\v\{z\} koja spaja $A$ i $B$ pripada triangulaciji $T$.\
 \\item Graf najbli\\v\{z\}ih susjeda\\footnote\{Graf najbli\\v\{z\}ih susjeda skupa $P$ sa\\v\{c\}injenog od $n$ objekata u nekom metri\\v\{c\}kom prostoru (npr. skupa ta\\v\{c\}aka u ravni sa definisanom Euklidskom distancom) je usmjereni graf \\v\{c\}iji skup \\v\{c\}vorova odgovara skupu $P$ i \\v\{c\}iji je skup grana popunjen usmjerenim granama iz $p$ u $q$ akko je $q$ najbli\\v\{z\}i susjed od $p$ (tj. distanca od $p$ do $q$ nije ve\\'\{c\}a od distance od $p$ do bilo kojeg drugog objekta iz $P$).\} je podgraf Delaunay triangulacije.\
 \\item Delaunay triangulacija je geometrijski \\textit\{spanner\}\\cite\{narasimhanmichiel\}.\
-\\item Delaunay triangulacija skupa ta\\v\{c\}aka $P$ je dualni graf\\footnote\{Dualni graf planarnog grafa $G$ je graf \\v\{c\}iji \\v\{c\}vorovi odgovaraju licima grafa $G$. Dva \\v\{c\}vora dualnog grafa su povezana ako i samo ako se dva odgovaraju\\'\{c\}a lica iz $G$ dodiruju granom iz $G$.\} Voronoi dijagrama\\footnote\{Appendix C\} skupa ta\\v\{c\}aka $P$.\
+\\item Delaunay triangulacija skupa ta\\v\{c\}aka $P$ je dualni graf\\footnote\{Dualni graf planarnog grafa $G$ je graf \\v\{c\}iji \\v\{c\}vorovi odgovaraju licima grafa $G$. Dva \\v\{c\}vora dualnog grafa su povezana ako i samo ako se dva odgovaraju\\'\{c\}a lica iz $G$ dodiruju granom iz $G$.\} Voronoi dijagrama\\footnote\{Voronoi dijagram, nazvan po Georgy-u Voronoi-u je podjela ravni na regije u odnosu na neki zadani skup ta\\v\{c\}aka sa definisanom udaljeno\\v\{s\}\\'\{c\}u nad istim. Zadani skup ta\\v\{c\}aka se naziva jo\\v\{s\} i skupom generatora. Svakoj ta\\v\{c\}ki (generatoru) odgovara regija (poligon) sa\\v\{c\}injena od svih ta\\v\{c\}aka ravni koje su bli\\v\{z\}e tom generatoru nego bilo kom drugom generatoru u zadanom skupu generatora.\} skupa ta\\v\{c\}aka $P$.\
 \\end\{enumerate\}\
 \
 Postoje tek \\v\{c\}etiri poznata algoritma za nala\\v\{z\}enje Delaunay triangulacije. To su redom algoritam zamjene dijagonala (\\textit\{diagonal flip\} ili \\textit\{edge flip\} algoritam),  inkrementalni algoritam, \'93zavadi pa vladaj\'94 algoritam (\\textit\{divide and conquer\}) i \\textit\{sweephull\} algoritam.\
@@ -588,7 +588,7 @@ Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati
 \
 \\chapter\{Generisanje instanci\} \\label\{ch:instances\}\
 \
-Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igdje (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su razni algoritmi za rje\\v\{s\}avanje ovom problema testirani. Tako da smo tu bili, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse na\\v\{s\}ih algoritama.\
+Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igdje (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su razni algoritmi za rje\\v\{s\}avanje ovog problema testirani. Tako da smo tu bili, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse na\\v\{s\}ih algoritama.\
 \
 \\begin\{itemize\}\
 \\item Sve instance su generisane koriste\\'\{c\}i isklju\\v\{c\}ivo ili uniformnu ili normalnu distribuciju.\
@@ -600,9 +600,9 @@ Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igd
 Ogledno se pokazalo da, osim broja ta\\v\{c\}aka, niti jedan od navedenih parametara ne uti\\v\{c\}e zna\\v\{c\}ajno na performanse primijenjenih algoritama.\
 \
 \
-\\chapter\{Heuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
+\\chapter\{Metaheuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
 \
-Heuristi\\v\{c\}ki i metaheuristi\\v\{c\}ki\\footnote\{Appendix D\} algoritmi \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja ostavljamo isklju\\v\{c\}ivo ovoj temi.\
+Metaheuristi\\v\{c\}ki algoritmi\\cite\{gloversorensen\} \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja ostavljamo isklju\\v\{c\}ivo ovoj temi.\
 Po\\v\{c\}injemo sa popularnom varijacijom lokalne pretrage, metodom pretra\\v\{z\}ivanja usponom (Hill Climbing), a zatim nastavljamo sa jednako poznatom metaheuristikom, Simulirano Kaljenje (Simulated Annealing). No prije nego prezenitiramo na\\v\{s\}e adaptacije navedenih metoda na MWT, recimo ne\\v\{s\}to navedenoj heuristici i navedenoj metaheuristici u op\\v\{s\}tem.\
 \
 \
@@ -626,7 +626,7 @@ U zavisnosti od na\\v\{c\}ina na koji nalazimo susjedna rje\\v\{s\}enja, razliku
 \\item Pohlepno pretra\\v\{z\}ivanje usponom (Greedy Hill Climbing)\
 \\end\{itemize\}\
 \
-Kao i svaki algoritam iz porodice algoritama lokalne pretrage, Hill Climbing po\\v\{c\}inje pretragu prostora rje\\v\{s\}nja od po\\v\{c\}etnog rje\\v\{s\}enja (rje\\v\{s\}enja \\v\{c\}ije postojanje smo naveli kao eliminatoran uslov za mogu\\'\{c\}nost izvr\\v\{s\}avanja lokalne pretrage). Pretra\\v\{z\}ivanje usponom prvog izbora nastavlja pretragu prostora na na\\v\{c\}in da obilazi susjedna rje\\v\{s\}enja po\\v\{c\}etnog rje\\v\{s\}enja dok ne prona\\dj\{\}e prvo rje\\v\{s\}enje bolje kvalitete od istog. Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, te bira nasumi\\v\{c\}no jedno od na\\dj\{\}enih rje\\v\{s\}enja koje je boljeg kvaliteta od trenutnog. Pohlepno pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, kao i stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, te me\\dj\{\}u na\\dj\{\}enim rje\\v\{s\}enjima bira ono najboljeg kvaliteta. Nakon odabira narednog rje\\v\{s\}enja, svaki od navedenih algoritama ponavlja istu proceduru nad odabranim rje\\v\{s\}enjem. Proces se nastavlja sve dok me\\dj\{\}u susjednim rje\\v\{s\}enjima postoji rje\\v\{s\}enje boljeg kvaliteta. U slu\\v\{c\}aju da ne postoji rje\\v\{s\}enje boljeg kvaliteta me\\dj\{\}u susjednim rje\\v\{s\}enjima, algoritam zavr\\v\{s\}ava i ka\\v\{z\}emo da je prona\\v\{s\}ao lokalni\\footnote\{Appendix D\} optimum.\
+Kao i svaki algoritam iz porodice algoritama lokalne pretrage, Hill Climbing po\\v\{c\}inje pretragu prostora rje\\v\{s\}nja od po\\v\{c\}etnog rje\\v\{s\}enja (rje\\v\{s\}enja \\v\{c\}ije postojanje smo naveli kao eliminatoran uslov za mogu\\'\{c\}nost izvr\\v\{s\}avanja lokalne pretrage). Pretra\\v\{z\}ivanje usponom prvog izbora nastavlja pretragu prostora na na\\v\{c\}in da obilazi susjedna rje\\v\{s\}enja po\\v\{c\}etnog rje\\v\{s\}enja dok ne prona\\dj\{\}e prvo rje\\v\{s\}enje bolje kvalitete od istog. Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, te bira nasumi\\v\{c\}no jedno od na\\dj\{\}enih rje\\v\{s\}enja koje je boljeg kvaliteta od trenutnog. Pohlepno pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, kao i stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, te me\\dj\{\}u na\\dj\{\}enim rje\\v\{s\}enjima bira ono najboljeg kvaliteta. Nakon odabira narednog rje\\v\{s\}enja, svaki od navedenih algoritama ponavlja istu proceduru nad odabranim rje\\v\{s\}enjem. Proces se nastavlja sve dok me\\dj\{\}u susjednim rje\\v\{s\}enjima postoji rje\\v\{s\}enje boljeg kvaliteta. U slu\\v\{c\}aju da ne postoji rje\\v\{s\}enje boljeg kvaliteta me\\dj\{\}u susjednim rje\\v\{s\}enjima, algoritam zavr\\v\{s\}ava i ka\\v\{z\}emo da je prona\\v\{s\}ao lokalni\\footnote\{Appendix C\} optimum.\
 \
 \\section\{Simulirano kaljenje (Simulated Annealing)\}\
 \
@@ -1313,7 +1313,7 @@ Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta oba ABC algoritma je jed
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix F)\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix A)\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji t-idx.\} & \\emph\{Prosje\\v\{c\}ni t-idx.\} & \\emph\{Najbolji t-idx.\}& \\emph\{SD\} \\\\\
         \\hline\
   		RI-160-6 (PSO) & $3.61 \\times 10^\{-6\}$ & $6.42 \\times 10^\{-7\}$ & $1.81 \\times 10^\{-7\}$ & $6.54 \\times 10^\{-7\}$ \\\\\
@@ -1329,17 +1329,38 @@ Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta oba ABC algoritma je jed
 \
 \\chapter\{Dodaci\} \\label\{ch:appendixes\}\
 \
-\\section\{Appendix A: Klase kompleksnosti\}\
+\\section\{Appendix A: Theil indeks\}\
+Theil indeks je statistika koja se primarno koristila za mjerenje ekonomske nejednakosti me\\dj\{\}u ljudima kao i drugih ekonomskih fenomena.\
+Mo\\v\{z\}e predstavljati mjeru redundancije, nedostatak razli\\v\{c\}itosti, izolaciju, segregaciju, razne nejednakosti, i druge sli\\v\{c\}ne statistike. Predlo\\v\{z\}ena je od strane Henri Theil-a, stru\\v\{c\}njaka ekonometrije sa \\textit\{Erasmus University Rotterdam\}-a.\\\\\
+Pored navedenih aplikacija u ekonomiji, Theil indeks nalazi primjenu i u drugim oblastima kao \\v\{s\}to je mjerenje performansi sistema navodnjavanja\\cite\{rajansampath\}, te mjerenja raznih pokazatelja u kompjuterskim naukama\\cite\{serebrenikvandenbrand\}.\\\\\
+\
+Za populaciju od $N$ agenata kvalitete (ili neke druge karakteristike) $x$, takvih da je $x_i$ kvaliteta (karakteristika) agenta $i$, $i = \\overline\{1, N\}$, odgovaraju\\'\{c\}i Theil indeks se ra\\v\{c\}una kao:\
+\
+$$\\displaystyle T_\{T\}=\{\\frac\{1\}\{N\}\}\\sum _\{i=1\}^\{N\}\\,\{\\frac\{x_\{i\}\}\{\\mu\}\}\\ln \\left(\{\\frac \{x_\{i\}\}\{\\mu \}\}\\right)$$\
+\
+gdje je $\\displaystyle \\mu$ srednja vrijednost kvaliteta (karakterisika):\
+\
+$$\\displaystyle \\mu =\\frac \{1\}\{N\}\\sum _\{i=1\}^\{N\}x_\{i\}$$\
 \
 \\section\{Appendix B: N-simpleks\}\
 \
-\\section\{Appendix C: Voronoi dijagram\}\
+Intuitivno, N-simpleks je generalizacija trougla ili tetraedra na odgovoraju\\v\{c\}u $n$-dimenzionalnu geometrijsku strukturu.\
+Preciznije, $k$-simpleks bi bio $k$-dimenzionalni politop i to, ta\\v\{c\}nije, konveksni omota\\v\{c\} svojih  $k+1$ ta\\v\{c\}aka.\
+Formalno, neka su ta\\v\{c\}ke $\\displaystyle u_\{0\},\\dots ,u_\{k\}\\in \\mathbb \{R\} ^\{k\}$ afino nezavisne, \\v\{s\}to zna\\v\{c\}i da su $\\displaystyle u_\{1\}-u_\{0\},\\dots ,u_\{k\}-u_\{0\}$ linearno nezavisne. Tada skup\
 \
-\\section\{Appendix D: O heuristi\\v\{c\}kim i metaheuristi\\v\{c\}kim metodama\}\
+$$\\displaystyle C=\\left\\\{\\theta _\{0\}u_\{0\}+\\dots +\\theta _\{k\}u_\{k\}~\{\\bigg |\}~\\sum _\{i=0\}^\{k\}\\theta _\{i\}=1 \\,\\, \\land \\,\\, \\theta _\{i\}\\geq 0 \\,\\, \\forall \\,i\\right\\\}$$\
 \
-\\section\{Appendix E: Lokalna pretraga\}\
+\\v\{c\}ini $k$-simpleks datih ta\\v\{c\}aka.\\\\\
 \
-\\section\{Appendix F: Theil index\}\
+Dakle, $2$-simpleks odgovara trouglu u ravni, $3$-simpleks odgovara tetraedru, $4$-simpleks odgovara pentakoronu (hiperpiramidi) i tako dalje.\\\\\
+Ta\\v\{c\}ka se smatra $0$-simpleksom, a linijski segment $1$-simpleksom.\\\\\
+Simpleks se jo\\v\{s\} defini\\v\{s\}e i kao najmanji konveksni skup koji sadr\\v\{z\}i date ta\\v\{c\}ke.\\\\\
+\
+Pravilan simpleks\\cite\{elte\} je simpleks koji odgovara pravilnom politopu.\
+\
+\\section\{Appendix C: Lokalna pretraga\}\
+\
+\
 \
  \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
     \\bibliography\{...\}\
@@ -1397,6 +1418,10 @@ Pages 238-247 (1995)\
  \\bibitem\{edelsbrunnertan\} Edelsbrunner, Herbert; Tan, Tiow Seng (1991). \\textit\{A quadratic time algorithm for the minmax length triangulation\}. 32nd Annual Symposium on Foundations of Computer Science. pp. 414\'96423. ISBN 0-8186-2445-0. doi:10.1109/SFCS.1991.185400.\
  \\bibitem\{chazelle\} B. Chazelle, \\textit\{Triangulating a Simple Polygon in Linear Time\}. Discrete Comput. Geom. 6: 485-524 (1991).\
  \\bibitem\{narasimhanmichiel\} Narasimhan, Giri; Smid, Michiel (2007), \\textit\{Geometric Spanner Networks\}, Cambridge University Press, ISBN 0-521-81513-4.\
+ \\bibitem\{rajansampath\} Rajan K. Sampath. \\textit\{Equity Measures for Irrigation Performance Evaluation.\} Water International, 13(1), 1988.\
+ \\bibitem\{serebrenikvandenbrand\} A. Serebrenik, M. van den Brand. \\textit\{Theil index for aggregation of software metrics values.\} 26th IEEE International Conference on Software Maintenance. IEEE Computer Society.\
+ \\bibitem\{elte\} Elte, E. L. (1912), \\textit\{The Semiregular Polytopes of the Hyperspaces\}, Groningen: University of Groningen Chapter IV, five dimensional semiregular polytope\
+ \\bibitem\{gloversorensen\} Fred Glover and Kenneth S\'f6rensen (2015) \\textit\{Metaheuristics.\} Scholarpedia, 10(4):6532.\
 \\end\{thebibliography\}\
 \
 \\end\{document\}\
