@@ -75,6 +75,11 @@
 \\renewcommand*\{\\theremy\}\{\\thesection.\\Alph\{remy\}\} % "letter-numbered" theorems\
 \\newenvironment\{remarkx\}\{\\stepcounter\{remark\}\\begin\{remy\}\}\{\\end\{remy\}\}\
 \
+\\newtheorem\{remarky\}\{Primjedba\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{remyy\}\{Primjedba\}[section]\
+\\renewcommand*\{\\theremyy\}\{\\thesection.\\Alph\{remyy\}\} % "letter-numbered" theorems\
+\\newenvironment\{remarkyx\}\{\\stepcounter\{remarky\}\\begin\{remyy\}\}\{\\end\{remyy\}\}\
+\
 \\titleformat\{\\chapter\}[hang]\{\\Huge\\bfseries\}\{\\thechapter\\hsp\\textcolor\{gray75\}\{|\}\\hsp\}\{0pt\}\{\\Huge\\bfseries\}\
 \
 % \\title\{Primjena heuristi\\v ckih algoritama za rje\\v\{s\}avanje Minimum-Weight Triangulation problema\}\
@@ -362,7 +367,6 @@ Posmatrajmo sada sljede\\'\{c\}i problem.\\\\\
 \
 Inkrementalni algoritam je invarijantan. Dakle, uvijek \\'\{c\}e konstruisati istu triangulaciju za dati skup ta\\v\{c\}aka. Invarijantnost algoritma dijeljenja trouglova zavisi od invarijantosti upotrijebljenog algoritma za pronala\\v\{z\}enje triangulacije poligona, kao i od invarijantnosti poretka unutra\\v\{s\}njih ta\\v\{c\}aka u posljednjem koraku algoritma. Zatim, u prethodnom poglavlju smo govorili o eksponencijalnom broju razli\\v\{c\}itih triangulacija konveksnog $n$-tougla, \\v\{s\}to ostavlja mogu\\'\{c\}nost da i broj triangulacija skupa ta\\v\{c\}aka tako\\dj\{\}er bude eksponencijalan. Dok algoritam dijeljenja trougla sa svojom varijantno\\v\{s\}\\'\{c\}u ostavlja tra\\v\{c\}ak nade za "poga\\dj\{\}anje" ovako definisane triangulacije, inkrementalni algoritam je prili\\v\{c\}no beznade\\v\{z\}an. U svakom slu\\v\{c\}aju, ova dva pristupa su neprihvatljiva. Stoga pribjegavamo drugim metodama, s kojima \\'\{c\}emo se djelomi\\v\{c\}no upoznati u narednom poglavlju. Tako\\dj\{\}er, treba pomenuti da motivacija za nove metode ne dolazi samo od potrebe za nala\\v\{z\}enje Delaunay triangulacije. Postoje razne \\textit\{uslovne\} triangulacije, \\v\{s\}to pokazuje tabela u nastavku.\
 \
-\
 \\begin\{table\}\
 \\label\{tab:constrainttrians\}\
 \\centering\
@@ -395,29 +399,31 @@ Inkrementalni algoritam je invarijantan. Dakle, uvijek \\'\{c\}e konstruisati is
 \\end\{table\} \
 \\pagebreak\
 \
-\\section\{Veza problema triangulacije skupa ta\\v\{c\}aka i problema triangulacije poligona\}\
+\\section\{Veza izme\\dj\{\}u triangulacije skupa ta\\v\{c\}aka i triangulacije poligona\}\
 \
 Problem nala\\v\{z\}enja triangulacije skupa ta\\v\{c\}aka u ravni i problem nala\\v\{z\}enja triangulacije poligona su usko povezani. O tome govori sljede\\'\{c\}i teorem.\
 \
-\\begin\{thmy\} \\label\{th:triconn\} (Veza problema triangulacije skupa ta\\v\{c\}aka i problema triangulacije poligona) Problem triangulacije skupa ta\\v\{c\}aka se mo\\v\{z\}e reducirati na problem triangulacije poligona.\
+\\begin\{thmy\} \\label\{th:triconn\} Problem triangulacije skupa ta\\v\{c\}aka se mo\\v\{z\}e reducirati na problem triangulacije poligona.\
 \\end\{thmy\}\
 \\begin\{proof\}\
+	\
+   Da bismo dokazali ovaj teorem, najprije \\'\{c\}emo dokazati nekoliko pomo\\'\{c\}nih lema.\
 \
   \\begin\{lemy\} \\label\{lem:sweeppolych\}\
-  \\textit\{Sweep\} poligon\\footnote\{Prosti poligon konstruisan sortiraju\\'\{c\}i sve ta\\v\{c\}ke $M \\in P$ u ravni u odnosu na ugao koji zatvara du\\v\{z\} $\\overline\{MN\}$ sa apscisom, gdje je $N$ ta\\v\{c\}ka sa najmanjom $y$-koordinatom. Ukoliko za dvije ta\\v\{c\}ke odgovaraju\\'\{c\}e du\\v\{z\}i zatvaraju isti ugao, prednost pri sortiranju ima ona ta\\v\{c\}ka koja je bli\\v\{z\}a ta\\v\{c\}ki $N$. (\\textit\{Napomena:\} Dovoljno je da ta\\v\{c\}ka $N$ bude ivi\\v\{c\}na, sa najmanjom (ili najve\\'\{c\}om) $x$ (ili $y$) koordinatom. Me\\dj\{\}utim u slu\\v\{c\}aju odabira one sa najmanjom ( ili najve\\'\{c\}om) $x$-koordinatom, referentni ugao po kom se vr\\v\{s\}i sortiranje se gradi sa ordinatom umjesto apscisom.)\} $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ je jednak konveksnom omota\\v\{c\}u $H$ od $P$ ako i samo ako je $H = P$.\
+  \\textit\{Sweep\} poligon\\footnote\{Prost poligon konstruisan sortiraju\\'\{c\}i sve ta\\v\{c\}ke $M \\in P$ u ravni u odnosu na ugao koji zatvara du\\v\{z\} $\\overline\{MN\}$ sa apscisom, gdje je $N$ ta\\v\{c\}ka sa najmanjom $y$-koordinatom. Ukoliko za dvije ta\\v\{c\}ke, odgovaraju\\'\{c\}e du\\v\{z\}i zatvaraju isti ugao, prednost pri sortiranju ima ona ta\\v\{c\}ka koja je bli\\v\{z\}a ta\\v\{c\}ki $N$. (\\textit\{Napomena:\} Dovoljno je da ta\\v\{c\}ka $N$ bude ivi\\v\{c\}na, sa najmanjom ili najve\\'\{c\}om $x$ ili $y$ koordinatom. Me\\dj\{\}utim, u slu\\v\{c\}aju odabira one ta\\v\{c\}ke sa najmanjom ili najve\\'\{c\}om $x$-koordinatom, referentni ugao po kom se vr\\v\{s\}i sortiranje se gradi sa ordinatom umjesto apscisom.)\} $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ je jednak konveksnom omota\\v\{c\}u $H$, skupa ta\\v\{c\}aka $P$, ako i samo ako vrijedi $H = P$.\
   \\end\{lemy\}\
   \\begin\{proof\}\
   Trivijalan.\
   \\end\{proof\}\
   \
   \\begin\{lemy\} \\label\{lem:sweeppolydiv\}\
-  \\textit\{Sweep\} poligon $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ dijeli konveksni omota\\v\{c\} $H$ od $P$ $(H \\neq P)$ na dva ili vi\\v\{s\}e poligona.\
+  \\textit\{Sweep\} poligon $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ dijeli konveksni omota\\v\{c\} $H$, skupa ta\\v\{c\}aka $P$, $(H \\neq P)$ na dva ili vi\\v\{s\}e poligona.\
   \\end\{lemy\}\
   \\begin\{proof\}\
   Pretpostavimo suprotno, to jeste da \\textit\{sweep\} poligon $PL$ ne dijeli konveksni omota\\v\{c\} $H$ od $P$ na dva ili vi\\v\{s\}e poligona. Razlikujemo samo dva slu\\v\{c\}aja za ovakav scenarij.\\\\\
   Prvi slu\\v\{c\}aj u kom postoji ta\\v\{c\}ka $M \\in P$ takva da $M \\notin PL$ i $M \\notin H$. U tom slu\\v\{c\}aju, na osnovu definicije \\textit\{sweep\} poligona, $PL$ ne mo\\v\{z\}e biti prosti poligon od $P$. Dakle u ovom slu\\v\{c\}aju dolazimo do kontradikcije.\\\\\
   Preostaje jedino slu\\v\{c\}aj gdje je prosti poligon $PL$ jednak konveksnom omota\\v\{c\}u $H$. Odatle na osnovu leme $1.4.A$ slijedi da je $H = P$ \\v\{s\}to je suprotno uslovu leme $(H \\neq P)$, te time ponovo dolazimo do kontradikcije.\
-Do kontradikcije nas je dovela pretpostavka da sweep poligon $PL$, konstruisan nad skupom ta\\v\{c\}aka $P$, ne dijeli konveksni omota\\v\{c\} $H$ od $P$ na dva ili vi\\v\{s\}e poligona, odakle slijedi i dokaz leme.\
+Do kontradikcije nas je dovela pretpostavka da sweep poligon $PL$, konstruisan nad skupom ta\\v\{c\}aka $P$, ne dijeli konveksni omota\\v\{c\} $H$, skupa ta\\v\{c\}aka $P$, na dva ili vi\\v\{s\}e poligona, pa je trebamo odbaciti. Time je dokaz leme kompletiran.\
 \\end\{proof\}\
 \
 Leme \\ref\{lem:sweeppolych\} i \\ref\{lem:sweeppolydiv\} uzrokuju sljede\\'\{c\}u posljedicu.\
@@ -426,33 +432,34 @@ Leme \\ref\{lem:sweeppolych\} i \\ref\{lem:sweeppolydiv\} uzrokuju sljede\\'\{c\
 Svaki skup ta\\v\{c\}aka $P$ se mo\\v\{z\}e podijeliti na jedan ili vi\\v\{s\}e (prostih) poligona.\
 \\end\{cory\}\
 \\begin\{proof\}\
-Na osnovu leme \\ref\{lem:sweeppolych\} zaklju\\v\{c\}ujemo da skup $P$ formira jedan i samo jedan poligon koji odgovara konveksnom omota\\v\{c\}u $H$ skupa $P$, ukoliko je $H = P$, te da je u suprotnom, na osnovu leme \\ref\{lem:sweeppolydiv\}, dovoljno konstruisati \\textit\{sweep\} poligon i konveksni omota\\v\{c\} skupa ta\\v\{c\}aka $P$ za podjelu istog na dva ili vi\\v\{s\}e poligona.\
+Na osnovu leme \\ref\{lem:sweeppolych\} zaklju\\v\{c\}ujemo da skup $P$ formira jedan i samo jedan poligon, koji odgovara konveksnom omota\\v\{c\}u $H$ skupa $P$, ukoliko je $H = P$, te da je u suprotnom, na osnovu leme \\ref\{lem:sweeppolydiv\}, dovoljno konstruisati \\textit\{sweep\} poligon i konveksni omota\\v\{c\} skupa ta\\v\{c\}aka $P$ za podjelu istog na dva ili vi\\v\{s\}e poligona.\
 \\end\{proof\}\
 \
-Uz rezultat posljedice \\ref\{cory:polydiv\} dovoljno je jo\\v\{s\} dokazati da triangulacije poligona nastalih podjelom skupa ta\\v\{c\}aka $P$ \\v\{c\}ine jednu triangulaciju skupa ta\\v\{c\}aka $P$.\\\\\
+Uz rezultat posljedice \\ref\{cory:polydiv\}, dovoljno je jo\\v\{s\} dokazati da triangulacije poligona nastalih podjelom skupa ta\\v\{c\}aka $P$ \\v\{c\}ine jednu triangulaciju skupa ta\\v\{c\}aka $P$.\\\\\
 Pretpostavimo suprotno, to jeste da postoje dva poligona \\v\{c\}ije triangulacije ne \\v\{c\}ine jednu triangulaciju unije ta dva poligona. Tada postoji netriangulirani $n$-tougao $K$ u uniji ta dva poligona. $N$-tougao $K$ se ne mo\\v\{z\}e nalaziti u jednom ili drugom poligonu isklju\\v\{c\}ivo, jer bi u tom slu\\v\{c\}aju bile naru\\v\{s\}ene pretpostavke o trianguliranosti jednog ili drugog poligona.\\\\\
-Dakle $K$ se mora nalaziti na dodirnoj liniji dva poligona (time tako\\dj\{\}er zaklju\\v\{c\}ujemo da se dva poligona moraju dodirivati). No u tom slu\\v\{c\}aju bi dodirna linija poligona morala biti sa prekidom, te bi time ivi\\v\{c\}ne linije dva poligona imale prekid, \\v\{s\}to se ni u kom slu\\v\{c\}aju ne smije desiti.\\\\\
+Dakle $K$ se mora nalaziti na dodirnoj liniji dva poligona (time tako\\dj\{\}er zaklju\\v\{c\}ujemo da se dva poligona moraju dodirivati). No, u tom slu\\v\{c\}aju bi dodirna linija poligona morala biti sa prekidom, te bi time ivi\\v\{c\}ne linije dva poligona imale prekid, \\v\{s\}to se ni u kom slu\\v\{c\}aju ne smije desiti.\\\\\
 Posljednja kontradikcija implicira dokaz na\\v\{s\}eg teorema.\
 \\end\{proof\}\
 \
-\\begin\{remy\} \\label\{rem:newtrialg\}\
-Kroz dokaz teorema \\ref\{th:triconn\} je demonstriran jo\\v\{s\} jedan algoritam za triangulaciju skupa ta\\v\{c\}aka:\
-\\end\{remy\}\
+\\begin\{remyy\} \\label\{rem:newtrialg\}\
+Kroz dokaz teorema \\ref\{th:triconn\} je demonstriran jo\\v\{s\} jedan algoritam za triangulaciju skupa ta\\v\{c\}aka, \\v\{c\}iji je pseudo-kod dat ispod.\
+\\end\{remyy\}\
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{ALGORITAM-PODJELE-NA-POLIGONE:\} ($P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{ALGORITAM-PODJELE-NA-POLIGONE\}\}\
   \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
   \\State - Izvr\\v\{s\}i podjelu skupa ta\\v\{c\}aka $P$ na poligone\
   \\State - Izvr\\v\{s\}i triangulaciju svakog na\\dj\{\}enog poligona koriste\\'\{c\}i jedan od algoritama navedenih u poglavlju  \\ref\{ch:polytrians\}\
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
-Rezultat posljedice \\ref\{cory:polydiv\} nam omogu\\'\{c\}ava da prvi korak izvr\\v\{s\}imo u vremenu $O(n\\log n)$. Zaista, u rezultatu posljedice tvrdimo da je za podjelu skupa ta\\v\{c\}aka na poligone, dovoljno na\\'\{c\}i konveksni omota\\v\{c\} i \\textit\{sweep\} poligon tog skupa ta\\v\{c\}aka. Ranije smo pokazali da je nala\\v\{z\}enje obje navedene konstrukcije izvr\\v\{s\}ivo u vremenu $\\Theta (n\\log n)$.\\\\\
+Rezultat posljedice \\ref\{cory:polydiv\} omogu\\'\{c\}ava da se drugi korak algoritma izvr\\v\{s\}i u vremenu $O(n\\log n)$. Zaista, u rezultatu posljedice tvrdimo da je za podjelu skupa ta\\v\{c\}aka na poligone, dovoljno na\\'\{c\}i konveksni omota\\v\{c\} i \\textit\{sweep\} poligon tog skupa ta\\v\{c\}aka. Ranije smo pokazali da je nala\\v\{z\}enje obje navedene konstrukcije izvr\\v\{s\}ivo u vremenu $\\Theta (n\\log n)$.\\\\\
 \
-Dalje, primijetimo da vremenska kompleksnost drugog koraka pripada $O(n + k + k')$\\cite\{chazelle\}, gdje je $k$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim nadjenim poligonima i $k'$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim na\\dj\{\}enim poligonima i konveksnom omota\\v\{c\}u. Uzmemo li u obzir da je $k \\leq n$ i $k' < n$, navedena kompleksnost se svodi na $O(n)$. Odatle vremenska kompleksnost navedenog algoritma za triangulaciju skupa ta\\v\{c\}aka iznosi $\\Theta (n\\log n)$.\
+Dalje, primijetimo da vremenska kompleksnost tre\\'\{c\}eg koraka pripada $O(n + k + k')$\\cite\{chazelle\}, gdje je $k$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim nadjenim poligonima, dok je $k'$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim na\\dj\{\}enim poligonima i konveksnom omota\\v\{c\}u. Uzmemo li u obzir da je $k \\leq n$ i $k' < n$, navedena kompleksnost se svodi na $O(n)$. Otuda, vremenska kompleksnost navedenog algoritma za triangulaciju skupa ta\\v\{c\}aka iznosi $\\Theta (n\\log n)$.\
 \
 \\section\{Delaunay triangulacija\}\
 \
-Triangulacija koja maksimizira najmanji ugao svih trouglova svih triangulacija skupa ta\\v\{c\}aka $P$ se naziva Delaunay triangulacijom skupa ta\\v\{c\}aka $P$.\
+Triangulacija koja maksimizira najmanji ugao svih trouglova svih triangulacija skupa ta\\v\{c\}aka $P$ se naziva \\textbf\{Delaunay triangulacijom\} skupa ta\\v\{c\}aka $P$.\
 \
 \\begin\{remy\}\
 Delaunay triangulacija se mo\\v\{z\}e generalizirati i za $n$-dimenzionalni prostor.\
@@ -462,40 +469,40 @@ U nastavku navodimo osobine ove triangulacije bez dokaza.\
 \
 \\begin\{enumerate\}\
 \\item Opisana kru\\v\{z\}nica bilo kojeg trougla Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sadr\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju.\
-\\item Ukoliko kru\\v\{z\}nica koja prolazi kroz dvije ta\\v\{c\}ke, $A$ i $B$, Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sar\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju, onda du\\v\{z\} koja spaja $A$ i $B$ pripada triangulaciji $T$.\
-\\item Graf najbli\\v\{z\}ih susjeda\\footnote\{Graf najbli\\v\{z\}ih susjeda skupa $P$ sa\\v\{c\}injenog od $n$ objekata u nekom metri\\v\{c\}kom prostoru (npr. skupa ta\\v\{c\}aka u ravni sa definisanom Euklidskom distancom) je usmjereni graf \\v\{c\}iji skup \\v\{c\}vorova odgovara skupu $P$ i \\v\{c\}iji je skup grana popunjen usmjerenim granama iz $p$ u $q$ akko je $q$ najbli\\v\{z\}i susjed od $p$ (tj. distanca od $p$ do $q$ nije ve\\'\{c\}a od distance od $p$ do bilo kojeg drugog objekta iz $P$).\} je podgraf Delaunay triangulacije.\
+\\item Ukoliko kru\\v\{z\}nica koja prolazi kroz dvije ta\\v\{c\}ke, $A$ i $B$, Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sadr\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju ta\\v\{c\}ku, onda du\\v\{z\} koja spaja $A$ i $B$ pripada triangulaciji $T$.\
+\\item Graf najbli\\v\{z\}ih susjeda\\footnote\{Graf najbli\\v\{z\}ih susjeda skupa $P$ sa\\v\{c\}injenog od $n$ objekata u nekom metri\\v\{c\}kom prostoru (npr. skupa ta\\v\{c\}aka u ravni sa definisanom Euklidovom udaljeno\\v\{s\}\\'\{c\}u) je usmjereni graf, \\v\{c\}iji skup \\v\{c\}vorova odgovara skupu $P$ i \\v\{c\}iji je skup grana popunjen usmjerenim granama iz $p$ u $q$ \\textbf\{akko\} je $q$ najbli\\v\{z\}i susjed od $p$ (tj. udaljenost objekta $p$ do objekta $q$ nije ve\\'\{c\}a od udaljenosti objekta $p$ do bilo kojeg drugog objekta iz $P$).\} je podgraf Delaunay triangulacije.\
 \\item Delaunay triangulacija je geometrijski \\textit\{spanner\}\\cite\{narasimhanmichiel\}.\
-\\item Delaunay triangulacija skupa ta\\v\{c\}aka $P$ je dualni graf\\footnote\{Dualni graf planarnog grafa $G$ je graf \\v\{c\}iji \\v\{c\}vorovi odgovaraju licima grafa $G$. Dva \\v\{c\}vora dualnog grafa su povezana ako i samo ako se dva odgovaraju\\'\{c\}a lica iz $G$ dodiruju granom iz $G$.\} Voronoi dijagrama\\footnote\{Voronoi dijagram, nazvan po Georgy-u Voronoi-u je podjela ravni na regije u odnosu na neki zadani skup ta\\v\{c\}aka sa definisanom udaljeno\\v\{s\}\\'\{c\}u nad istim. Zadani skup ta\\v\{c\}aka se naziva jo\\v\{s\} i skupom generatora. Svakoj ta\\v\{c\}ki (generatoru) odgovara regija (poligon) sa\\v\{c\}injena od svih ta\\v\{c\}aka ravni koje su bli\\v\{z\}e tom generatoru nego bilo kom drugom generatoru u zadanom skupu generatora.\} skupa ta\\v\{c\}aka $P$.\
+\\item Delaunay triangulacija skupa ta\\v\{c\}aka $P$ je dualni graf\\footnote\{Dualni graf planarnog grafa $G$ je graf \\v\{c\}iji \\v\{c\}vorovi odgovaraju oblastima (regionima) grafa $G$. Dva \\v\{c\}vora dualnog grafa su povezana ako i samo ako se dva odgovaraju\\'\{c\}a regiona iz $G$ dodiruju granom iz $G$.\} Voronoi dijagrama\\footnote\{Voronoi dijagram, nazvan po Georgy-u Voronoi-u je podjela ravni na regije u odnosu na neki zadani skup ta\\v\{c\}aka sa definisanom udaljeno\\v\{s\}\\'\{c\}u nad istim. Zadani skup ta\\v\{c\}aka se naziva jo\\v\{s\} i skup generatora. Svakoj ta\\v\{c\}ki (generatoru) odgovara regija (poligon) sa\\v\{c\}injena od svih ta\\v\{c\}aka ravni, koje su bli\\v\{z\}e tom generatoru, nego bilo kom drugom generatoru u zadanom skupu generatora.\} skupa ta\\v\{c\}aka $P$.\
 \\end\{enumerate\}\
 \
 Postoje tek \\v\{c\}etiri poznata algoritma za nala\\v\{z\}enje Delaunay triangulacije. To su redom algoritam zamjene dijagonala (\\textit\{diagonal flip\} ili \\textit\{edge flip\} algoritam),  inkrementalni algoritam, "zavadi pa vladaj" algoritam (\\textit\{divide and conquer\}) i \\textit\{sweephull\} algoritam.\
 \
-\\subsection\{Algoritam zamjene dijagonala (\\textit\{edge-flip\} algoritam)\}\\label\{ch:edgeflipdelaunay\}\
+\\subsection\{Algoritam zamjene dijagonala\}\
 \
-Neka trouglovi $\\triangle ABC$ i $\\triangle BCD$ \\v\{c\}ine triangulaciju konveksnog \\v\{c\}etverougla $\\square ABCD$ koja ne zadovoljava uslove Delaunay triangulacije. Na primjer, opisana kru\\v\{z\}nica oko torugla $\\triangle ABC$ sadr\\v\{z\}i ta\\v\{c\}ku $D$. Tada trouglovi $\\triangle ABD$ i $\\triangle ACD$ \\v\{c\}ine Delaunay triangulaciju\\cite\{hurtadoetal\}.\\\\\
-Intuitivno, ukoliko triangulacija konveksnog \\v\{c\}etverougla nije Delaunay (ne zadovoljava uslove Delaunay triangulacije), zamjena\\footnote\{Brisanje trenutne dijagonale (npr. $\\overline\{AC\}$) i dodavanje druge ($\\overline\{BD\}$).\} dijagonala \\v\{c\}etverougla rezultira Delaunay  triangulacijom istog.\\\\\
-Ovakva tehnika zamjene dijagonala se naziva \\textit\{edge-flip\} tehnikom.\\\\\\\\\
-\
-Navedena tehnika \\v\{c\}ini sr\\v\{z\} \\textit\{edge-flip\} algoritma za nala\\v\{z\}enje Delaunay triangulacije, koji se sastoji od sljede\\'\{c\}eg.\\\\\
+Neka trouglovi $\\triangle ABC$ i $\\triangle BCD$ \\v\{c\}ine triangulaciju konveksnog \\v\{c\}etverougla $\\square ABCD$, koja ne zadovoljava uslove Delaunay triangulacije. Na primjer, opisana kru\\v\{z\}nica oko torugla $\\triangle ABC$ sadr\\v\{z\}i ta\\v\{c\}ku $D$. Tada trouglovi $\\triangle ABD$ i $\\triangle ACD$ \\v\{c\}ine Delaunay triangulaciju\\cite\{hurtadoetal\}.\\\\\
+Intuitivno, ukoliko triangulacija konveksnog \\v\{c\}etverougla nije Delaunay (ne zadovoljava uslove Delaunay triangulacije), tada zamjena dijagonala\\footnote\{Brisanje trenutne dijagonale (npr. $\\overline\{AC\}$) i dodavanje druge ($\\overline\{BD\}$).\} \\v\{c\}etverougla rezultira Delaunay  triangulacijom istog.\\\\\
+Ovakva tehnika zamjene dijagonala se naziva \\textit\{edge-flip\} tehnikom. Navedena tehnika \\v\{c\}ini sr\\v\{z\} algoritma zamjene dijagonala (\\textit\{eng. edge-flip algorithm\}) za nala\\v\{z\}enje Delaunay triangulacije. Pseudo-kod algoritma je dat ispod.\\\\\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{EDGE-FLIP-DELAUNAY:\} ($P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{EDGE-FLIP-DELAUNAY\}\}\
   \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
   \\State - Prona\\'\{c\}i bilo kakvu triangulaciju skupa ta\\v\{c\}aka $P$\
   \\State - Mijenjati dijagonale konveksnih \\v\{c\}etverouglova \\v\{c\}ije triangulacije ne zadovoljavaju Delaunay uslove, sve dok takvi \\v\{c\}etverouglovi postoje.\\cite\{lawson\}\\cite\{lawsonC\}\
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
-Ono \\v\{s\}to je izrazito vrijedno pomena, glede \\textit\{edge flipping\} tehnike, jeste rezultat do kojeg je do\\v\{s\}ao C.L.Lawson u svom radu \\textit\{Transforming triangulations\}\\cite\{lawson\}, a to je da za svake dvije triangulacije skupa ta\\v\{c\}aka $P$ vrijedi da se jedna mo\\v\{z\}e transformisati u drugu isklju\\v\{c\}ivo koriste\\'\{c\}i \\textit\{edge filipping\} tehniku. \\\\\
-Drugim rije\\v\{c\}ima, prostor pretrage svih mogu\\'\{c\}ih triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka mo\\v\{z\}emo iscrpiti koriste\\'\{c\}i isklju\\v\{c\}ivo \\textit\{edge flipping\} tehinku, po\\v\{c\}ev\\v\{s\}i od neke, bilo koje, triangulacije.\
+Ono \\v\{s\}to je izrazito vrijedno pomena, glede \\textit\{edge-flip\} tehnike, jeste rezultat do kojeg je do\\v\{s\}ao C.L.Lawson u svom radu \\textit\{Transforming triangulations\} \\cite\{lawson\}, a to je da za svake dvije triangulacije skupa ta\\v\{c\}aka $P$ vrijedi da se jedna mo\\v\{z\}e transformisati u drugu koriste\\'\{c\}i isklju\\v\{c\}ivo \\textit\{edge-flip\} tehniku. \\\\\
+Drugim rije\\v\{c\}ima, prostor pretrage svih mogu\\'\{c\}ih triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka se mo\\v\{z\}e iscrpiti koriste\\'\{c\}i isklju\\v\{c\}ivo \\textit\{edge-flip\} tehinku, po\\v\{c\}ev\\v\{s\}i od bilo koje triangulacije.\
 \
 \\subsection\{Inkrementalni algoritam\}\
 \
 Sli\\v\{c\}an inkrementalnom algoritmu navedenom u poglavlju \\ref\{ch:pointsettrian\}, inkrementalni algoritam za nala\\v\{z\}enje Delaunay triangulacije se sastoji od sljede\\'\{c\}eg.\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{INKREMENTALNI-DELAUNAY:\} ($P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{INKREMENTALNI-DELAUNAY\}\}\
   \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
   \\State - Instanciraj skup obra\\dj\{\}enih ta\\v\{c\}aka $D$, to jeste nepotpunu Delaunay triangulaciju, na prazan skup \\Comment\{Triangulaciju mo\\v\{z\}emo \\v\{c\}uvati kao skup ta\\v\{c\}aka, a ta\\v\{c\}ke kao objekte koji \\v\{c\}uvaju informaciju o sopstvenim koordinatama u ravni i listi ta\\v\{c\}aka sa kojim se ve\\v\{z\}e.\}\
   \\ForAll\{$p \\in P$\}\
       \\State - Dodaj $p$ u skup do sada obra\\dj\{\}enih ta\\v\{c\}aka $D$\
@@ -506,23 +513,24 @@ Sli\\v\{c\}an inkrementalnom algoritmu navedenom u poglavlju \\ref\{ch:pointsett
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
-Usko grlo navedenog algoritma, u smislu vremenske kompleksnosti, se nalazi u linijama 4 i 6. Dakle nala\\v\{z\}enje trougla u kom se nalazi novododana ta\\v\{c\}ka i vr\\v\{s\}enje \\textit\{edge-flip\} algoritma na novoj triangulaciji.\\\\\
+Usko se grlo navedenog algoritma u pogledu vremenske kompleksnosti nalazi u linijama 5. i 7. Dakle nala\\v\{z\}enje trougla u kom se nalazi novododana ta\\v\{c\}ka i vr\\v\{s\}enje \\textit\{edge-flip\} algoritma na novoj triangulaciji.\\\\\
 Primijetimo da u najgorem slu\\v\{c\}aju, obje operacije terminiraju u linearnom vremenu, \\v\{s\}to dovodi do kvadratne kompleksnosti cjelokupnog algoritma.\\\\\
-No, Guibas, Knuth i Sharir, u svom radu \\textit\{Randomized incremental construction of Delaunay and Voronoi diagrams\}\\cite\{guibasetal\} iz 1992. godine pokazuju da ukoliko odabir novododane ta\\v\{c\}ke u liniji 2. i 3. gore navedenog algoritma vr\\v\{s\}imo nasumi\\v\{c\}no, tada se prosje\\v\{c\}na kompleksnost linije 6. svodi na $O(1)$.\\\\\
-Tako\\dj\{\}er, de Berg et al. u svojoj knjizi \\textit\{Computational Geometry: Algorithms and Applications\}\\cite\{bergetal\} navode na\\v\{c\}in kojim se korak 4. mo\\v\{z\}e ubrzati do $O(\\log n)$.\\\\\
+No, Guibas, Knuth i Sharir, u svom radu \\textit\{Randomized incremental construction of Delaunay and Voronoi diagrams\}\\cite\{guibasetal\} iz 1992. godine, pokazuju da ukoliko odabir novododane ta\\v\{c\}ke u liniji 3. i 4. gore navedenog algoritma vr\\v\{s\}imo nasumi\\v\{c\}no, tada se prosje\\v\{c\}na kompleksnost linije 7. svodi na $O(1)$.\\\\\
+Tako\\dj\{\}er, de Berg i ostali u svojoj knjizi \\textit\{Computational Geometry: Algorithms and Applications\} \\cite\{bergetal\} navode na\\v\{c\}in kojim se korak 5. mo\\v\{z\}e ubrzati do $O(\\log n)$.\\\\\
 Time se kompleksnost cjelokupnog algoritma svodi na $O(n\\log n)$.\
 \
-Tako\\dj\{\}er, ne\\v\{s\}to druga\\v\{c\}iji inkrementalni pristup istom problemu su ponudili Bowyer i Watson u svom poznatom \\textit\{Bowyer-Watson\} algoritmu\\cite\{bowyer\}\\cite\{watson\}, \\v\{c\}ija kompleksnost (izuzev nekih degenerisanih slu\\v\{c\}ajeva gdje algoritam dose\\v\{z\}e kvadratnu kompleksnost) iznosi $O(n\\log n)$.\
+Tako\\dj\{\}er, ne\\v\{s\}to druga\\v\{c\}iji inkrementalni pristup istom problemu su ponudili Bowyer i Watson u svom poznatom \\textit\{Bowyer-Watson\} algoritmu \\cite\{bowyer\}\\cite\{watson\}, \\v\{c\}ija kompleksnost (izuzev nekih degenerisanih slu\\v\{c\}ajeva gdje algoritam dose\\v\{z\}e kvadratnu kompleksnost) iznosi $O(n\\log n)$.\
 \
 \\subsection\{\\textit\{Divide and conquer\} algoritam\}\
 \
-Najprije predlo\\v\{z\}en od strane Lee-a i Schachter-a, a zatim pobolj\\v\{s\}an od strane Guibas-a i Stolfi-a a potom i Dwyer-a, \\textit\{zavadi pa vladaj\} algoritam predstavlja najbr\\v\{z\}i poznati algoritam za nala\\v\{z\}enje Delaunay triangulacije.\
+Najprije predlo\\v\{z\}en od strane Lee-a i Schachter-a, a zatim pobolj\\v\{s\}an od strane Guibas-a i Stolfi-a, a potom i Dwyer-a, \\textit\{zavadi pa vladaj\} algoritam predstavlja najbr\\v\{z\}i poznati algoritam za nala\\v\{z\}enje Delaunay triangulacije.\
 \
-Algoritam se sastoji od sljede\\'\{c\}eg. \\pagebreak\
+Algoritam se sastoji od sljede\\'\{c\}eg.\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{DIVIDE-AND-CONQUER-DELAUNAY:\} ($P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{DIVIDE-AND-CONQUER-DELAUNAY\}\}\
   \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
   \\If\{$|P| = 1$\} \\Return \\EndIf\
   \\State - Podijeli ravan u kojoj se nalazi skup ta\\v\{c\}aka na dvije poluravni tako da obje poluravni sadr\\v\{z\}e po bar jednu ta\\v\{c\}ku iz $P$\
   \\State - Izvr\\v\{s\}i DIVIDE-AND-CONQUER-DELAUNAY rekurzivno nad skupom ta\\v\{c\}aka u prvoj, a zatim i nad skupom ta\\v\{c\}aka u drugoj dobivenoj poluravni\
@@ -536,52 +544,55 @@ Treba pomenuti jo\\v\{s\} i to da za odre\\dj\{\}ene skupove ta\\v\{c\}aka, kao 
 \
 \\subsection\{\\textit\{Sweephull\} algoritam\}\
 \
-\\textit\{Sweephull\} algoritam je nadgradnja \\textit\{edge flip\} algoritma u smislu da predla\\v\{z\}e nala\\v\{z\}enje po\\v\{c\}etne triangulacije skupa ta\\v\{c\}aka potpuno istom metodologijom kao u inkrementalnom algoritmu za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni navedenom u poglavlju \\ref\{ch:pointsettrian\}, s tim da umjesto kori\\v\{s\}tenja sweepline tehnike za obilazak ta\\v\{c\}aka, koristimo \\textit\{sweephull\}\\footnote\{Kao i kod sweepline tehnike, ta\\v\{c\}ke obilazimo po sortiranom redoslijedu, s tim da umjesto sortiranja po nekoj koordinati, vr\\v\{s\}imo sortiranje po Euklidskoj udaljenosti od neke fiksirane, stvarne ili imaginarne, ta\\v\{c\}ke $X$. U slu\\v\{c\}aju da se radi o stvarnoj ta\\v\{c\}ki $X$, tada je ona prva u nizu sortiranih ta\\v\{c\}aka.\} tehniku. Na ovaj na\\v\{c\}in bi se, naime, trebao minimizirati broj preokretanja ivica potrebnih za nalazak Delaunay triangulacije\\cite\{sinclair\}. Sinclair\\cite\{sinclair\} bez dokaza navodi da je kompleksnost navedenog algoritma jednaka $O(n\\log n)$, \\v\{s\}to ostavlja prostor (i potrebu) za detaljnu analizu navedenog algoritma. No to, na\\v\{z\}alost, izlazi iz opsega ovoga rada.\
+\\textit\{Sweephull\} algoritam je nadgradnja \\textit\{edge-flip\} algoritma u smislu da predla\\v\{z\}e nala\\v\{z\}enje po\\v\{c\}etne triangulacije skupa ta\\v\{c\}aka potpuno istom metodologijom kao u inkrementalnom algoritmu iz poglavlja \\ref\{ch:pointsettrian\}, s tim da se umjesto kori\\v\{s\}tenja sweepline tehnike za obilazak ta\\v\{c\}aka sada koristi \\textit\{sweephull\}\\footnote\{Kao i kod sweepline tehnike, ta\\v\{c\}ke obilazimo po sortiranom redoslijedu, s tim da umjesto sortiranja po nekoj koordinati, vr\\v\{s\}imo sortiranje po Euklidskoj udaljenosti od neke fiksirane, stvarne ili imaginarne, ta\\v\{c\}ke $X$. U slu\\v\{c\}aju da se radi o stvarnoj ta\\v\{c\}ki $X$, tada je ona prva u nizu sortiranih ta\\v\{c\}aka.\} tehnika. Na ovaj na\\v\{c\}in bi se, naime, trebao minimizirati broj preokretanja ivica potrebnih za nalazak Delaunay triangulacije \\cite\{sinclair\}. Sinclair \\cite\{sinclair\} bez dokaza navodi da je kompleksnost navedenog algoritma jednaka $O(n\\log n)$, \\v\{s\}to ostavlja prostor (i potrebu) za detaljnu analizu navedenog algoritma. No to, na\\v\{z\}alost, izlazi iz opsega ovoga rada.\
 \
-\\section\{Minimum-weight triangulation (Minimum-te\\v\{z\}inska triangulacija)\}\
+\\section\{Triangulacija najmanje te\\v\{z\}ine\}\
 \
-Triangulacija skupa ta\\v\{c\}aka $P$ \\v\{c\}iji je zbir du\\v\{z\}ina ivica najmanji mogu\\'\{c\}i se naziva Minimum-te\\v\{z\}inskom triangulacijom (\\textit\{en. Minimum-weight triangulation\}, u nastavku MWT) skupa ta\\v\{c\}aka $P$.\
+Triangulacija skupa ta\\v\{c\}aka $P$ \\v\{c\}iji je zbir du\\v\{z\}ina ivica najmanji mogu\\'\{c\}i se naziva \\textbf\{triangulacija najmanje te\\v\{z\}ine\} (\\textit\{eng. Minimum-weight triangulation\}, u nastavku MWT) skupa ta\\v\{c\}aka $P$.\
 \
 \\begin\{remy\}\
 MWT se mo\\v\{z\}e generalizirati i za $n$-dimenzionalni prostor.\
 \\end\{remy\}\
 \
-Prvi puta zabilje\\v\{z\}en 1970. godine u radu \\textit\{Automatische Interpolation von Isolinien bei willk\'fcrlich verteilten St\'fctzpunkten\}\\cite\{duppeetal\} prilikom govora o trianguliranju neregularnih mre\\v\{z\}nih modela terena\\footnote\{Reprezentacija geolo\\v\{s\}kog tla ili dna mora. Uglavnom predstavljna skupom trodimenzionalnih ta\\v\{c\}aka i triangulacijom projekcija tih ta\\v\{c\}aka na tlocrtnu ravan.\}, MWT se poistovje\\'\{c\}ivala sa Delaunay triangulacijom\\cite\{shamoshoey\}, sve do 1977. godine kada Lloyd\\cite\{Lloyd\}, a zatim tri godine kasnije i Kirkpatrick\\cite\{Kirkpatrick\}, pokazuje da Delaunay triangulacija ne mora nu\\v\{z\}no minimizirati zbir du\\v\{z\}ina stranica.\\\\\
-No ono \\v\{s\}to je najinteresantnije glede MWT problema je \\v\{c\}injenica da je bio jedan od najdu\\v\{z\}e stoje\\'\{c\}ih otvorenih problema kompjuteske geometrije, u kontekstu vremenske kompleksnosti. Naime, iako je jo\\v\{s\} 1979. godine naveden u listi otvorenih problema u knjizi Garey-a i Johnson-a o NP-kompletnosti\\cite\{gareyjohnson\}, tek je 2008. godine pokazano da MWT pripada klasi NP-te\\v\{s\}kih problema u poznatom radu Mulzera i Rotea\\cite\{mulzerrote\}.\\\\\
-Neovisno o istra\\v\{z\}ivanju o kompleksnosti, koje su okon\\v\{c\}ali Mulzer i Rote, implementirana je nekolicina algoritama koji nude pribli\\v\{z\}no ili heuristi\\v\{c\}ko rje\\v\{s\}enje za MWT. Po\\v\{c\}ev\\v\{s\}i od heuristi\\v\{c\}kih algoritama zasnovanih na miminum spanning stablu grafa\\cite\{xuzhou\}, preko adaptiranih geneti\\v\{c\}kih algoritama\\cite\{qinetal\}, zatim algoritama koji nalaze skeleton (ili neki drugi planaran podgraf du\\v\{z\}i\\footnote\{Graf \\v\{c\}ije su grane, isklju\\v\{c\}ivo, du\\v\{z\}i.\}) minimum te\\v\{z\}inske triangulacije i isti koriste za nala\\v\{z\}enje egzaktnog rje\\v\{s\}enja nekih specifi\\v\{c\}nih slu\\v\{c\}ajeva MWT-a ili aproksimativnog ili heuristi\\v\{c\}kog rje\\v\{s\}enja generalnog problema dvodimenzionalne minimum te\\v\{z\}inske triangulacije\\cite\{lenhartliotta\}\\cite\{bellevilleetal\}\\cite\{dickersonmontague\}, do paraleliziranih aproksimativnih algoritama\\cite\{gudmundsson\} i hill climbing algoritama\\cite\{dickersonetal\}.\\\\\
-Nakon dokaza Mulzer-a i Rote-a, pojavljuju se i dva algoritma iz oblasti inteligencije rojeva, ta\\v\{c\}nije dvije implementacije Ant Colony Optimisation algoritma\\cite\{jahanietal\}\\cite\{penalveretal\}, kao i jedna implemantacija linearnog programa za MWT\\cite\{yousefiyoung\}.\
+Prvi put zabilje\\v\{z\}ena 1970. godine u radu \\textit\{Automatische Interpolation von Isolinien bei willk\'fcrlich verteilten St\'fctzpunkten\}\\cite\{duppeetal\} prilikom govora o trianguliranju neregularnih mre\\v\{z\}nih modela terena\\footnote\{Reprezentacija geolo\\v\{s\}kog tla ili dna mora. Uglavnom predstavljena skupom trodimenzionalnih ta\\v\{c\}aka i triangulacijom projekcija tih ta\\v\{c\}aka na tlocrtnu ravan.\}, MWT se poistovje\\'\{c\}ivala sa Delaunay triangulacijom \\cite\{shamoshoey\}, sve do 1977. godine kada Lloyd \\cite\{Lloyd\}, a zatim tri godine kasnije i Kirkpatrick \\cite\{Kirkpatrick\}, pokazuje da Delaunay triangulacija ne mora nu\\v\{z\}no minimizirati zbir du\\v\{z\}ina stranica.\\\\\
+No, ono \\v\{s\}to je najinteresantnije glede MWT problema je \\v\{c\}injenica da je bio jedan od najdu\\v\{z\}e stoje\\'\{c\}ih otvorenih problema kompjuteske geometrije, u kontekstu vremenske kompleksnosti. Naime, iako je jo\\v\{s\} 1979. godine naveden u listi otvorenih problema u knjizi Garey-a i Johnson-a o NP-kompletnosti \\cite\{gareyjohnson\}, tek je 2008. godine pokazano da MWT pripada klasi NP-te\\v\{s\}kih problema u poznatom radu Mulzera i Rotea \\cite\{mulzerrote\}.\\\\\
+Neovisno o istra\\v\{z\}ivanju kompleksnosti, koje su okon\\v\{c\}ali Mulzer i Rote, implementirana je nekolicina algoritama koji nude pribli\\v\{z\}no ili heuristi\\v\{c\}ko rje\\v\{s\}enje za MWT problem. Po\\v\{c\}ev\\v\{s\}i od heuristi\\v\{c\}kih algoritama zasnovanih na minimalnom razapinjaju\\'\{c\}em stablu grafa \\cite\{xuzhou\}, preko adaptiranih geneti\\v\{c\}kih algoritama \\cite\{qinetal\}, zatim algoritama koji nalaze skeleton (ili neki drugi planarni podgraf du\\v\{z\}i\\footnote\{Graf, \\v\{c\}ije su grane, isklju\\v\{c\}ivo, du\\v\{z\}i.\}) minimalne te\\v\{z\}inske triangulacije i isti koriste za nala\\v\{z\}enje egzaktnog rje\\v\{s\}enja nekih specifi\\v\{c\}nih slu\\v\{c\}ajeva MWT problema ili aproksimativnog ili heuristi\\v\{c\}kog rje\\v\{s\}enja generalnog problema dvodimenzionalne triangulacije najmanje te\\v\{z\}ine \\cite\{lenhartliotta\}\\cite\{bellevilleetal\}\\cite\{dickersonmontague\}, do paraleliziranih aproksimativnih algoritama \\cite\{gudmundsson\} i hill climbing algoritama \\cite\{dickersonetal\}.\\\\\
+Nakon dokaza Mulzer-a i Rote-a, pojavljuju se i dva algoritma iz oblasti inteligencije rojeva, ta\\v\{c\}nije dvije implementacije algoritma mravlje kolonije (\\textit\{eng. Ant Colony Optimisation, ACO\}) \\cite\{jahanietal\}\\cite\{penalveretal\}, kao i jedna implementacija linearnog programa za MWT problem \\cite\{yousefiyoung\}.\
 \
-\\section\{Primjena: Minimum-te\\v\{z\}inska triangulacija\}\
+\\section\{Neke primjene triangulacije minimalne te\\v\{z\}ine\}\
 \
 \\begin\{itemize\}\
 \\item Konstruisanje neregularnih mre\\v\{z\}nih modela terena\
-\\item Rekonstruisanje trodimenzionalnih objekata iz dvodimenzionalnih kontura (medicinski snimci)\\cite\{wangaggarwal\}\\cite\{barequetsharir\}\
-\\item Numeri\\v\{c\}ke aproksimacije bivarijantnih podataka\\cite\{xuzhou\}\
-\\item Interpolacija funkcija sa dvije promjenljive\\cite\{Lloyd\}\
+\\item Rekonstruisanje trodimenzionalnih objekata iz dvodimenzionalnih kontura (medicinski snimci) \\cite\{wangaggarwal\}\\cite\{barequetsharir\}\
+\\item Numeri\\v\{c\}ke aproksimacije bivarijantnih podataka \\cite\{xuzhou\}\
+\\item Interpolacija funkcija sa dvije promjenljive \\cite\{Lloyd\}\
 \\end\{itemize\}\
 \
 \
 \\chapter\{Algoritam iscrpne pretrage\} \\label\{ch:es\}\
 \
-Algoritam iscrpne pretrage podrazumijeva obilazak svih mogu\\'\{c\}ih rje\\v\{s\}enja prostora pretrage nekog problema, sve dok rje\\v\{s\}enje sa tra\\v\{z\}enom osobinom nije na\\dj\{\}eno. Optimizacioni problemi nerijetko zahtijevaju obilazak cijelog prostora pretrage prije nalaska rje\\v\{s\}enja algoritmom iscrpne pretrage\\footnote\{Postoje paradigme, kao \\v\{s\}to je Branch and Bound paradigma, koje mogu skratiti obilazak prostora pretrage problema.\}. Odatle je ovaj algoritam \\v\{c\}esto neprakti\\v\{c\}an u smislu vremena izvr\\v\{s\}avanja, no za na\\v\{s\}e potrebe i prijeko potreban. S toga u nastavku dajemo kratak osvrt na algoritam iscrpne pretrage za nala\\v\{z\}enje te\\v\{z\}ine minimum te\\v\{z\}inske triangulacije datog skupa ta\\v\{c\}aka u ravni.\\\\\
-Zarad lak\\v\{s\}e implementacije, omogu\\'\{c\}iti \\'\{c\}emo da na\\v\{s\} algoritam, pored skupa ta\\v\{c\}aka tako\\dj\{\}er prima i konveksni omota\\v\{c\} istih, kao ulazni parametar. Konveksni omota\\v\{c\} mo\\v\{z\}emo prona\\'\{c\}i neposredno prije izvr\\v\{s\}avanja iscrpne pretrage, koriste\\'\{c\}i neki od algoritama za nala\\v\{z\}enje istih, pomenutih u prethodnom poglavlju.\
+Algoritam iscrpne pretrage podrazumijeva obilazak svih mogu\\'\{c\}ih rje\\v\{s\}enja prostora pretrage nekog problema\\footnote\{Postoje paradigme, kao \\v\{s\}to je Branch and Bound paradigma, koje mogu skratiti neophodno vrijeme za obilazak prostora pretrage.\}, sve dok se ne prona\\dj\{\}e rje\\v\{s\}enje sa tra\\v\{z\}enom osobinom. Optimizacioni problemi nerijetko zahtijevaju obilazak cijelog prostora pretrage, prije pronalaska optimalnog rje\\v\{s\}enja. Odatle je ovaj algoritam \\v\{c\}esto neprakti\\v\{c\}an u smislu vremena izvr\\v\{s\}avanja, no za potrebe ovog rada je prijeko potreban. S toga u nastavku dajemo kratak osvrt na algoritam iscrpne pretrage za nala\\v\{z\}enje triangulacije datog skupa ta\\v\{c\}aka u ravni koja ima najmanju te\\v\{z\}inu.\\\\\
+Za potrebe implementacije \\'\{c\}emo omogu\\'\{c\}iti da algoritam, pored skupa ta\\v\{c\}aka, tako\\dj\{\}er, prima i konveksni omota\\v\{c\} istih, kao ulazni parametar. Konveksni omota\\v\{c\} mo\\v\{z\}emo prona\\'\{c\}i neposredno prije izvr\\v\{s\}avanja iscrpne pretrage, koriste\\'\{c\}i neki od algoritama za nala\\v\{z\}enje istih, pomenutih u prethodnom poglavlju.\\pagebreak\
 \
 \\begin\{remy\}\
-Algoritam je rekurzivne prirode i omota\\v\{c\}, kao ulazni parametar, je nu\\v\{z\}no konveksan jedino pri inicijelnom pozivu algoritma. Stoga u algoritmu ne vr\\v\{s\}imo restrikciju termina "omota\\v\{c\}" na "konveksni omota\\v\{c\}", nego isti ostavljamo u njegovom sadr\\v\{z\}ajnijem obliku.\
+Algoritam je rekurzivne prirode, a omota\\v\{c\}, kao ulazni parametar, je nu\\v\{z\}no konveksan samo pri inicijelnom pozivu algoritma. Stoga u algoritmu ne vr\\v\{s\}imo restrikciju termina "omota\\v\{c\}" na "konveksni omota\\v\{c\}", ve\\'\{c\} isti ostavljamo u njegovom op\\'\{c\}enitijem obliku.\
 \\end\{remy\}\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{MWT-ISCRPNA-PRETRAGA:\} ($H$ - omota\\v\{c\}, $P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{MWT-ISCRPNA-PRETRAGA\}\}\
   \\begin\{algorithmic\}[1]\
-    \\If\{$|H| < 3$ tj. ukoliko je hull zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan\}\
-      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo i samo u slu\\v\{c\}aju kada je MWT-ISCRPNA-PRETRAGA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} akko je MWT-ISCRPNA-PRETRAGA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
       \\Return 0\
     \\EndIf\
-  	\\If\{$|H| = 3$ te hull ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka points, tj. ukoliko je hull zapravo validan trougao\\footnotemark\}\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} zapravo validan trougao\\footnotemark\}\
       \\State - Izra\\v\{c\}unaj i vrati obim trougla\
     \\EndIf\
     \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
     \\State $VALID = \\emptyset$\
+    \\State - Prona\\dj\{\}i sve ta\\v\{c\}ke $V \\in P$ koje sa odabranom granom $E$ formiraju validan trougao i sa\\v\{c\}uvaj ih unutar skupa $VALID$\
+    \\State minimum-weight = $\\infty$\
     \\algstore\{MWTES\}\
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
@@ -590,8 +601,6 @@ Algoritam je rekurzivne prirode i omota\\v\{c\}, kao ulazni parametar, je nu\\v\
 \\begin\{algorithm\}\
   \\begin\{algorithmic\}[1]\
   	\\algrestore\{MWTES\}\
-    \\State - Prona\\dj\{\}i sve ta\\v\{c\}ke $V \\in P$ koje sa odabranom granom $E$ formiraju validan trougao i sa\\v\{c\}uvaj ih unutar skupa $VALID$\
-    \\State minimum-weight = $\\infty$\
     \\ForAll\{$p \\in VALID$\}\
     	\\State minimum-weight-kandidat = 0\
         \\State - Formiraj validan trougao sa ta\\v\{c\}kom $p$\
@@ -600,13 +609,6 @@ Algoritam je rekurzivne prirode i omota\\v\{c\}, kao ulazni parametar, je nu\\v\
     	\\State Dodaj du\\v\{z\}inu du\\v\{z\}i omota\\v\{c\}a koja spaja $V$ i $E$ na minimum-weight-kandidat\
     \\EndIf\
     \\State Saberi du\\v\{z\}inu od $E$ sa rezultatom MWT-ISCRPNA-PRETRAGA(novi-omotac,$\\,\\,P$) ili sa MWT-ISCRPNA-PRETRAGA(novi-omotac-l, $P$) + MWT-ISCRPNA-PRETRAGA(novi-omotac-d, $P$) u slu\\v\{c\}aju postojanja dva nova omota\\v\{c\}a i dodaj dobivenu vrijednost na minimum-weight-kandidat.\
-    \\algstore\{MWTES\}\
-  \\end\{algorithmic\}\
-\\end\{algorithm\}\
-\
-\\begin\{algorithm\}\
-  \\begin\{algorithmic\}[1]\
-  	\\algrestore\{MWTES\}\
     \\If\{minimum-weight-kandidat $<$ minimum-weight\}\\\\\
     	$\\qquad$minimum-weight = minimum-weight-kandidat\
     \\EndIf\
@@ -616,50 +618,50 @@ Algoritam je rekurzivne prirode i omota\\v\{c\}, kao ulazni parametar, je nu\\v\
 \\end\{algorithm\}\
 \
 \\begin\{remy\}\\label\{rem:newhull\}\
-novi-omotac, novi-omotac-l i novi-omotac-d navedenog algoritma nikada ne mogu biti sa\\v\{c\}injeni od manje od tri ta\\v\{c\}ke.\
+Omota\\v\{c\}i: novi-omotac, novi-omotac-l i novi-omotac-d navedenog algoritma se moraju sastojati od bar tri ta\\v\{c\}ke.\
 \\end\{remy\}\
 \
 \\begin\{lemy\}\\label\{lem:facesno\}\
-Broj validnih trouglova triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) istih i iznosi $2n - 2 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
+Broj validnih trouglova triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) i iznosi $2n - 2 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
 \\end\{lemy\}\
-\\begin\{proof\}\\cite\{nayn\} Slo\\v\{z\}imo se najprije da je svako lice triangulacije, osim vanjskog (neograni\\v\{c\}enog), zapravo validan trougao. Svaka grana (ivica) dodiruje ta\\v\{c\}no dva lica triangulacije. Tako\\dj\{\}er, svako lice je dodirnuto ta\\v\{c\}no tri puta, osim vanjskog (neograni\\v\{c\}enog), koje je dodirnuto ta\\v\{c\}no $b$ puta, gdje je $b$ broj grana omota\\v\{c\}a triangulacije. Odakle, ukoliko je $E$ broj svih ivica triangulacije, a $F$ broj svih lica iste, iz prve tvrdnje zaklju\\v\{c\}ujemo da je ukupan broj dodira jednak $2E$, dok iz druge zaklju\\v\{c\}ujemo da je isti broj jednak $3(F - 1) + b$. Dakle vrijedi da je $2E = 3(F - 1) + b$, to jeste, $E = (3(F - 1) + b)/2$.\\\\\
-Uvrstiv\\v\{s\}i posljednju jednakost u Eulerovu karakteristiku $n + F - E = 2$ dobijamo $n + F - 2 = 3(F - 1) + b)/2 \\implies 2n = F + 1 + b \\implies F = 2n - 1 - b$. Dakle, postoji ukupno $2n - 1 - b$ lica, odakle, uzev\\v\{s\}i u obzir da je jedno i samo jedno lice vanjsko (neograni\\v\{c\}eno), dobijamo da je broj trouglova jednak $2n - 2 - b$, \\v\{s\}to je i trebalo dokazati.\
+\\begin\{proof\} Poznato je da je svaki region (lice) triangulacije, osim vanjskog (neograni\\v\{c\}enog), zapravo validan trougao \\cite\{nayn\}. Svaka grana (ivica) dodiruje ta\\v\{c\}no dva lica triangulacije. Tako\\dj\{\}er, svako lice je dodirnuto ta\\v\{c\}no tri puta, osim vanjskog (neograni\\v\{c\}enog), koje je dodirnuto ta\\v\{c\}no $b$ puta, gdje je $b$ broj grana omota\\v\{c\}a triangulacije. Odakle, ukoliko je $E$ broj svih ivica triangulacije, a $F$ broj svih lica iste, iz prve tvrdnje zaklju\\v\{c\}ujemo da je ukupan broj dodira jednak $2E$, dok iz druge zaklju\\v\{c\}ujemo da je isti broj jednak $3(F - 1) + b$. Dakle vrijedi da je $2E = 3(F - 1) + b$, to jeste, $E = (3(F - 1) + b)/2$.\\\\\
+Uvr\\v\{s\}tavanjem posljednje relacije u Eulerovu formulu $n + F - E = 2$, dobijamo: $n + F - 2 = 3(F - 1) + b)/2 \\implies 2n = F + 1 + b \\implies F = 2n - 1 - b$. Dakle, postoji ukupno $2n - 1 - b$ lica, odakle, uzev\\v\{s\}i u obzir da je jeddno lice vanjsko (neograni\\v\{c\}eno), dobijamo da je broj trouglova jednak $2n - 2 - b$, \\v\{s\}to je i trebalo dokazati.\
 \\end\{proof\}\
 \
 \\begin\{cory\}\\label\{cor:facesno\}\
-Broj ivica triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) istih i iznosi $3n - 3 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
+Broj ivica triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) i iznosi $3n - 3 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
 \\end\{cory\}\
 \\begin\{proof\}\
-Uvrstimo rezultat dobiven prilikom sprovo\\dj\{\}enja dokaza leme, $2E = 3(F - 1) + b$, to jeste, $F = (2E - b)/3 + 1$, u Eulerovu karakteristiku $n + F - E = 2$. Dobijamo $n + (2E - b)/3 + 1 - E = 2 \\implies 3n - E - b = 3 \\implies E = 3n - 3 - b$.\
+Uvrstimo rezultat dobiven prilikom sprovo\\dj\{\}enja dokaza prethodne leme, $2E = 3(F - 1) + b$, to jeste, $F = (2E - b)/3 + 1$, u Eulerovu formulu $n + F - E = 2$. Dobijamo, $n + (2E - b)/3 + 1 - E = 2 \\implies 3n - E - b = 3 \\implies E = 3n - 3 - b$.\
 \\end\{proof\}\
 \
-Sprovedimo verifikacjiu navedenog algoritma metodom matemati\\v\{c\}ke indukcije.\\\\\
-S obzirom da je skup ta\\v\{c\}aka $P$ isti tokom cijelog izvr\\v\{s\}avanja algoritma, to matemati\\v\{c\}ku indukciju mo\\v\{z\}emo vr\\v\{s\}iti nad parametrom $H$ (omota\\v\{c\}em). Tako\\dj\{\}er, uzev\\v\{s\}i u obzir opasku \\ref\{rem:newhull\}, za bazu indukcije mo\\v\{z\}emo uzeti prazan omota\\v\{c\} kog formiraju $3$ ta\\v\{c\}ke ($|H| = 3$), to jeste, jedan validan trougao.\
+U nastavku sprovedimo verifikacjiu navedenog algoritma metodom matemati\\v\{c\}ke indukcije.\
+S obzirom da je skup ta\\v\{c\}aka $P$ isti tokom cijelog izvr\\v\{s\}avanja algoritma, to matemati\\v\{c\}ku indukciju mo\\v\{z\}emo vr\\v\{s\}iti nad parametrom $H$ (omota\\v\{c\}em). Tako\\dj\{\}er, uzev\\v\{s\}i u obzir opasku \\ref\{rem:newhull\}, za bazu indukcije mo\\v\{z\}emo uzeti prazan omota\\v\{c\} kog formiraju tri ta\\v\{c\}ke ($|H| = 3$), to jeste, jedan validan trougao.\
 \
 \\begin\{enumerate\}\
-\\item Omota\\v\{c\} $H$ formira jedan validan trougao unutar skupa ta\\v\{c\}aka $P$. U ovom slu\\v\{c\}aju MWT-ISCRPNA-PRETRAGA($H$, $P$) zavr\\v\{s\}ava nakon linije 5. i zaista, vra\\'\{c\}a te\\v\{z\}inu minimum te\\v\{z\}inske triangulacije tog trougla.\
-\\item Na osnovu leme \\ref\{lem:facesno\} zaklju\\v\{c\}ujemo da je broj trouglova bilo koje triangulacije, fiksiranog omota\\v\{c\}a iste, konstantan. Pretpostavimo da za svaki omota\\v\{c\} $H$ koji formira $f$ ili manje 	validnih trouglova, unutar skupa ta\\v\{c\}aka $P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H$, $P$) nalazi i vra\\'\{c\}a 	te\\v\{z\}inu minimum te\\v\{z\}inske triangulacije omota\\v\{c\}a $H$, unutar skupa ta\\v\{c\}aka $P$.\
-\\item Doka\\v\{z\}imo da za svaki omota\\v\{c\} $H\'92$ koji formira $f + 1$ ($f > 1$) validnih trouglova unutar skupa 	ta\\v\{c\}aka 	$P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) nalazi i vra\\'\{c\}a te\\v\{z\}inu minimum te\\v\{z\}inske 		triangulacije omota\\v\{c\}a $H\'92$, unutar skupa ta\\v\{c\}aka $P$. Primijetimo da za bilo koju ivicu $E$ omota\\v\{c\}a $H\'92$ vrijedi da je te\\v\{z\}ina minimum te\\v\{z\}inske triangulacije jednaka $|E|$ + $min_\{V \\in VALID\}$($h$ + \\textit\{SUB-MWT\}($V$)), gdje je $h$ jednako du\\v\{z\}ini du\\v\{z\}i $E_1$ omota\\v\{c\}a $H\'92$ koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a 0 u suprotnom i \\textit\{SUB-MWT\}($V$) te\\v\{z\}ina minimum te\\v\{z\}inske triangulacije omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$\\footnote\{Izbacivanjem trougla $\\triangle H_iH_jV$, kojeg formiraju ta\\v\{c\}ke $H_i$, $H_j$ i $V$, iz omota\\v\{c\}a $H1, H2, \\dots, Hl$, rezultira fromiranjem ili jednog novog omota\\v\{c\}a $H_1, H_2, \\dots, H_\{i-1\}, H_i, V, H_j, H_\{j+1\}, \\dots, H_l$ ili u slu\\v\{c\}aju da $V \\in \{H_1, \\dots, H_l\}$, dva nova omota\\v\{c\}a redom $H_k, H_\{k+1\}, \\dots, H_1, H_2, \\dots, H_i$ i $H_j, H_\{j+1\}, \\dots, H_\{k-1\}, H_k$, gjde $H_k$ odgovara ta\\v\{c\}ki $V$.\}. Analiziraju\\'\{c\}i linije 6. - 21. algoritma MWT-ISCRPNA-PRETRAGA, mo\\v\{z\}emo zaklju\\v\{c\}iti da za odabranu du\\v\{z\} $E$ ulaznog omota\\v\{c\}a 	algoritam vra\\'\{c\}a $|E|$ + $min_\{V \\in VALID\}$($h$ + SUB-MWT-ISCRPNA-PRETRAGA($V$)), gdje je $h$ jednako du\\v\{z\}ini du\\v\{z\}i $E_1$ ulaznog omota\\v\{c\}a koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a 0 u suprotnom i SUB-MWT-ISCRPNA-PRETRAGA($V$) = MWT-ISCRPNA-PRETRAGA($H_1\'92$, $P$) + MWT-ISCRPNA-PRETRAGA($H_2\'92$, $P$), ako izbacivanje trougla $\\triangle EV$ iz $H\'92$ dijeli $H\'92$ na dva omota\\v\{c\}a i MWT-ISCRPNA-PRETRAGA($H_0\'92$, $P$), u suprotnom, gdje su $H_0\'92$, $H_1\'92$ i $H_2\'92$ omota\\v\{c\}i koji mogu nastati 	izbacivanjem trougla $\\triangle EV$ iz $H\'92$. Broj trouglova koje formira $H_0\'92$ nad $P$ je jednak broju trouglova koje formira $H\'92$ nad $P$ umanjen za 1, to jeste $f + 1 - 1 = f$. Tako\\dj\{\}er, ukoliko je $0 < k < f + 1$ broj trouglova koje formira omota\\v\{c\} $H_1\'92$ nad $P$, tada je broj trouglova koje formira $H_2\'92$ nad $P$ manji ili jednak $f - k$. Odatle, na osnovu pretpostavke 2. zaklju\\v\{c\}ujemo da SUB-MWT-ISCRPNA-PRETRAGA(V) odgovara te\\v\{z\}ini minimum te\\v\{z\}inske triangulacije omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$. Time smo pokazali da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) zaista vra\\'\{c\}a te\\v\{z\}inu minimum te\\v\{z\}inske triangulacije omota\\v\{c\}a $H\'92$.\
+\\item Omota\\v\{c\} $H$ formira jedan validan trougao unutar skupa ta\\v\{c\}aka $P$. U ovom slu\\v\{c\}aju MWT-ISCRPNA-PRETRAGA($H$, $P$) zavr\\v\{s\}ava nakon linije 5. i zaista, vra\\'\{c\}a te\\v\{z\}inu triangulacije najmanje te\\v\{z\}ine za taj trougao.\
+\\item Na osnovu leme \\ref\{lem:facesno\} zaklju\\v\{c\}ujemo da je broj trouglova konstantan za bilo koju triangulaciju nekog fiksiranog skupa ta\\v\{c\}aka. Pretpostavimo da za svaki omota\\v\{c\} $H$, koji formira $f$ ili manje validnih trouglova, unutar skupa ta\\v\{c\}aka $P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H$, $P$) nalazi i vra\\'\{c\}a te\\v\{z\}inu triangulacije najmanje te\\v\{z\}ine omota\\v\{c\}a $H$, unutar skupa ta\\v\{c\}aka $P$.\
+\\item Doka\\v\{z\}imo da za svaki omota\\v\{c\} $H\'92$ koji formira $f + 1$ ($f > 1$) validnih trouglova unutar skupa 	ta\\v\{c\}aka 	$P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) nalazi i vra\\'\{c\}a te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije omota\\v\{c\}a $H\'92$, unutar skupa ta\\v\{c\}aka $P$. Primijetimo da za bilo koju ivicu $E$ omota\\v\{c\}a $H\'92$ vrijedi da je te\\v\{z\}ina minimalne te\\v\{z\}inske triangulacije jednaka $|E|$ + $min_\{V \\in VALID\}$($h$ + \\textit\{SUB-MWT\}($V$)), gdje je $h$ du\\v\{z\}ina du\\v\{z\}i $E_1$ omota\\v\{c\}a $H\'92$, koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a nula u suprotnom. Dalje, \\textit\{SUB-MWT\}($V$) odgovara te\\v\{z\}in minimum te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka unutar omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$\\footnote\{Izbacivanjem trougla $\\triangle H_iH_jV$, kojeg formiraju ta\\v\{c\}ke $H_i$, $H_j$ i $V$, iz omota\\v\{c\}a $H_1, H_2, \\dots, H_l$, rezultira fromiranjem ili jednog novog omota\\v\{c\}a $H_1, H_2, \\dots, H_\{i-1\}, H_i, V, H_j, H_\{j+1\}, \\dots, H_l$ ili u slu\\v\{c\}aju da $V \\in \{H_1, \\dots, H_l\}$, dva nova omota\\v\{c\}a, redom, $H_k, H_\{k+1\}, \\dots, H_1, H_2, \\dots, H_i$ i $H_j, H_\{j+1\}, \\dots, H_\{k-1\}, H_k$, gjde $H_k$ odgovara ta\\v\{c\}ki $V$.\}. Analiziraju\\'\{c\}i linije 7. - 23. algoritma MWT-ISCRPNA-PRETRAGA, mo\\v\{z\}emo zaklju\\v\{c\}iti da za odabranu du\\v\{z\} $E$ ulaznog omota\\v\{c\}a, algoritam vra\\'\{c\}a $|E|$ + $min_\{V \\in VALID\}$($h$ + SUB-MWT-ISCRPNA-PRETRAGA($V$)), gdje je $h$ du\\v\{z\}ina du\\v\{z\}i $E_1$ ulaznog omota\\v\{c\}a koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a nula u suprotnom. Tako\\dj\{\}er vrijedi da je SUB-MWT-ISCRPNA-PRETRAGA($V$) = MWT-ISCRPNA-PRETRAGA($H_1\'92$, $P$) + MWT-ISCRPNA-PRETRAGA($H_2\'92$, $P$), ako izbacivanje trougla $\\triangle H_EVH_E'$ iz $H\'92$, gdje je $\\overline\{H_EH_E'\}=E$, dijeli $H\'92$ na dva omota\\v\{c\}a i MWT-ISCRPNA-PRETRAGA($H_0\'92$, $P$), u suprotnom, gdje su $H_0\'92$, $H_1\'92$ i $H_2\'92$ omota\\v\{c\}i koji mogu nastati izbacivanjem trougla $\\triangle H_EVH_E'$ iz $H\'92$. Broj trouglova koje formira $H_0\'92$ nad $P$ je jednak broju trouglova koje formira $H\'92$ nad $P$ umanjen za 1, to jeste, $f + 1 - 1 = f$. Tako\\dj\{\}er, ukoliko je $k$, takvo da je $0 < k < f + 1$, broj trouglova koje formira omota\\v\{c\} $H_1\'92$ nad $P$, tada je broj trouglova koje formira $H_2\'92$ nad $P$ manji ili jednak $f - k$. Odatle, na osnovu pretpostavke 2. zaklju\\v\{c\}ujemo da SUB-MWT-ISCRPNA-PRETRAGA(V) odgovara te\\v\{z\}ini minimalne te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka unutar omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$. Time smo pokazali da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) zaista vra\\'\{c\}a te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka $P$, omota\\v\{c\}a $H\'92$.\
 \\end\{enumerate\}\
 \
 Induktivni koraci 1., 2. i 3. impliciraju verifikaciju na\\v\{s\}eg algoritma iscrpne pretrage.\
 \
 \\begin\{remy\}\
-Navedeni algoritam mo\\v\{z\}emo lahko prilagoditi tako da zaista nalazi minimum te\\v\{z\}inksu triangulaciju, a ne samo njenu te\\v\{z\}inu. No za na\\v\{s\}e potrebe je dovoljna samo te\\v\{z\}ina iste.\
+Navedeni algoritam mo\\v\{z\}emo lahko prilagoditi tako da zaista nalazi minimalnu te\\v\{z\}insku triangulaciju, a ne samo njenu te\\v\{z\}inu. No, za na\\v\{s\}e potrebe je dovoljno da vra\\'\{c\}a samo te\\v\{z\}inu.\
 \\end\{remy\}\
 \
-Dakle uvidjeli smo da navedeni algoritam zaista nalazi te\\v\{z\}inu minimum te\\v\{z\}inske triangulacije zadanog skupa ta\\v\{c\}aka u ravni $P$. Me\\dj\{\}utim, ovakva implementacija je krajnje neprihvatljiva, ne samo za prakti\\v\{c\}ne, nego i za istra\\v\{z\}iva\\v\{c\}ke potrebe. Naime, eksperimentalna analiza vremenske kompleksnosti je pokazala da vremenska kompleksnost ovakve implementacije iznosi aproksimativno $O(4^n)$, gdje je $n$ broj ta\\v\{c\}aka zadanih u ravni\\footnote\{Detaljna analiza vremenske kompleksnosti je ote\\v\{z\}ana zbog varijantosti broja triangulacija u odnosu na polo\\v\{z\}aj ta\\v\{c\}aka, za zadani skup ta\\v\{c\}aka u ravni.\}. No dobra vijest je da se ova kompleksnost mo\\v\{z\}e umanjiti. Ve\\'\{c\} smo pomenuli mogu\\'\{c\}nost implementacije \\textit\{Branch and Bound\} paradigme u neke algoritme iscrpne pretrage. Na\\v\{s\} algoritam tako\\dj\{\}er podlije\\v\{z\}e toj mogu\\'\{c\}nosti. Naime, mo\\v\{z\}emo \\v\{c\}uvati informaciju o te\\v\{z\}ini najboljeg rje\\v\{s\}enja na\\dj\{\}enog u toku izvr\\v\{s\}avanja algoritma, kao i o te\\v\{z\}ini trenutnog rje\\v\{s\}enja u svakom trenutku izvr\\v\{s\}avanja i prekinuti rekurzivni poziv \\v\{c\}im te\\v\{z\}ina trenutnog rje\\v\{s\}enja prekora\\v\{c\}i te\\v\{z\}inu najboljeg. Performanse ovakvog algoritma mo\\v\{z\}emo i jo\\v\{s\} pobolj\\v\{s\}ati ukoliko prije izvr\\v\{s\}avanja istog, prona\\dj\{\}emo neku kvalitetnu triangulaciju (u smislu te\\v\{z\}ine iste), te njenu te\\v\{z\}inu tretiramo kao najbolju mogu\\'\{c\}u, dok eventualno ne na\\dj\{\}emo jo\\v\{s\} bolju tokom izvr\\v\{s\}avanja iscrpne pretrage.\
-Branch and Bound paradigma je, \\v\{s\}to zbog efikasnosti, \\v\{s\}to zbog jednostavnosti, jedna od najpopularnijih metoda za ubrzavanje iscrpne pretrage.\\\\ Me\\dj\{\}utim, tu se ne\\'\{c\}emo zaustaviti.\
-Primijetimo sljede\\'\{c\}e. Neka je omota\\v\{c\} $H$ sa\\v\{c\}injen od niz ta\\v\{c\}aka $H_1, H_2, \\dots, H_k$. Zatim, neka du\\v\{z\} $E$, odabrana u koraku 6. navedenog algoritma iscrpne pretrage, odgovara du\\v\{z\}i $\\overline\{H_iH_j\}$ omota\\v\{c\}a. Neka je skup ta\\v\{c\}aka $V_1, V_2, \\dots, V_l$ skup svih ta\\v\{c\}aka sa kojima $\\overline\{H_iH_j\}$ formira validan trougao (ta\\v\{c\}ke na\\dj\{\}ene u koraku 8. navedenog algoritma iscrpne pretrage). Tada je skup ta\\v\{c\}aka ogra\\dj\{\}en omota\\v\{c\}em $H_\{i-1\}, V_1, V_2, \\dots, V_l, H_\{j+1\}, H_\{j+2\}, \\dots, H_\{i-2\}$ sadr\\v\{z\}an u svakom omota\\v\{c\}u $H_T$ formiranom izbacivanjem trougla kojeg gradi du\\v\{z\} $\\overline\{H_iH_j\}$ sa ta\\v\{c\}kom $V_t$, $t = \\overline\{1,l\}$. Odatle zaklju\\v\{c\}ujemo da se na\\v\{s\}i rekurzivni potproblemi preklapaju.\\\\\
+Dakle, uvidjeli smo da navedeni algoritam zaista nalazi te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije zadanog skupa ta\\v\{c\}aka $P$ u ravni. Me\\dj\{\}utim, ovakva implementacija je krajnje neprihvatljiva, ne samo za prakti\\v\{c\}ne, nego i za istra\\v\{z\}iva\\v\{c\}ke potrebe. Naime, eksperimentalna analiza vremenske kompleksnosti je pokazala da vremenska kompleksnost ovakve implementacije iznosi aproksimativno $O(4^n)$, gdje je $n$ broj ta\\v\{c\}aka zadanih u ravni\\footnote\{Detaljna analiza vremenske kompleksnosti je ote\\v\{z\}ana zbog varijantosti broja triangulacija u odnosu na polo\\v\{z\}aj ta\\v\{c\}aka u ravni.\}. No dobra vijest je da se ova kompleksnost mo\\v\{z\}e umanjiti. Ve\\'\{c\} smo pomenuli mogu\\'\{c\}nost implementacije \\textit\{Branch and Bound\} paradigme u neke algoritme iscrpne pretrage. Na\\v\{s\} algoritam tako\\dj\{\}er podlije\\v\{z\}e toj mogu\\'\{c\}nosti. Naime, mo\\v\{z\}emo \\v\{c\}uvati informaciju o te\\v\{z\}ini najboljeg rje\\v\{s\}enja na\\dj\{\}enog u toku izvr\\v\{s\}avanja algoritma, kao i o te\\v\{z\}ini trenutnog rje\\v\{s\}enja u svakom trenutku izvr\\v\{s\}avanja i prekinuti rekurzivni poziv \\v\{c\}im te\\v\{z\}ina trenutnog rje\\v\{s\}enja prekora\\v\{c\}i te\\v\{z\}inu najboljeg. Performanse ovakvog algoritma mo\\v\{z\}emo dodatno pobolj\\v\{s\}ati ukoliko prije izvr\\v\{s\}avanja istog, prona\\dj\{\}emo neku kvalitetnu triangulaciju (u smislu te\\v\{z\}ine), te njenu te\\v\{z\}inu budemo tretirali kao najbolju mogu\\'\{c\}u, dok eventualno ne na\\dj\{\}emo jo\\v\{s\} bolju tokom izvr\\v\{s\}avanja iscrpne pretrage.\
+Branch and Bound paradigma je, \\v\{s\}to zbog efikasnosti, \\v\{s\}to zbog jednostavnosti, jedna od najpopularnijih metoda za ubrzavanje iscrpne pretrage. Me\\dj\{\}utim, tu se ne\\'\{c\}emo zaustaviti.\
+Primijetimo sljede\\'\{c\}e. Neka je omota\\v\{c\} $H$ sa\\v\{c\}injen od niz ta\\v\{c\}aka $H_1, H_2, \\dots, H_k$. Zatim, neka du\\v\{z\} $E$, odabrana u koraku 7. navedenog algoritma iscrpne pretrage, odgovara du\\v\{z\}i $\\overline\{H_iH_j\}$ omota\\v\{c\}a. Neka je $\\\{V_1, V_2, \\dots, V_l\\\}$ skup svih ta\\v\{c\}aka sa kojima $\\overline\{H_iH_j\}$ formira validan trougao (ta\\v\{c\}ke na\\dj\{\}ene u koraku 9. navedenog algoritma iscrpne pretrage). Tada je skup ta\\v\{c\}aka ogra\\dj\{\}en omota\\v\{c\}em $H_\{i-1\}, V_1, V_2, \\dots, V_l, H_\{j+1\}, H_\{j+2\}, \\dots, H_\{i-2\}$ sadr\\v\{z\}an u svakom omota\\v\{c\}u $H_T$, koji je formiran izbacivanjem trougla kojeg gradi du\\v\{z\} $\\overline\{H_iH_j\}$ sa ta\\v\{c\}kom $V_t$, $t = \\overline\{1,l\}$. Odatle, zaklju\\v\{c\}ujemo da se na\\v\{s\}i rekurzivni potproblemi preklapaju.\
 I tako, preklapanjem rekurzivnih potproblema se javlja mogu\\'\{c\}nost upotrebe memoizacije ili jo\\v\{s\} bolje, mogu\\'\{c\}nost implementacije navedenog algoritma iscrpne pretrage dinami\\v\{c\}kim programiranjem.\
 \
 \\begin\{remy\}\
-Primijetimo da se mo\\v\{z\}e desiti da je $H_\{i-1\} = V_1$, kao i da je $H_\{j+1\} = V_l$. Zatim da se zajedni\\v\{c\}ki omota\\v\{c\} ne mo\\v\{z\}e formirati zbog malog broja ta\\v\{c\}aka, kao i da zajedni\\v\{c\}ki omota\\v\{c\} nije cjelovit nego, naprotiv, sastavljen od vi\\v\{s\}e omota\\v\{c\}a. Sve ove slu\\v\{c\}ajeve mo\\v\{z\}emo zanemariti bez gubljenja op\\v\{s\}tosti.\
+Primijetimo da se mo\\v\{z\}e desiti da je $H_\{i-1\} = V_1$, kao i da je $H_\{j+1\} = V_l$. Zatim, da se zajedni\\v\{c\}ki omota\\v\{c\} ne mo\\v\{z\}e formirati zbog malog broja ta\\v\{c\}aka, kao i da zajedni\\v\{c\}ki omota\\v\{c\} nije cjelovit, nego, naprotiv, sastavljen od vi\\v\{s\}e omota\\v\{c\}a. Sve ove slu\\v\{c\}ajeve mo\\v\{z\}emo zanemariti bez gubljenja op\\v\{s\}tosti.\
 \\end\{remy\}\
 \
 Eksperimentalna analiza je pokazla da koriste\\'\{c\}i memoizaciju za ubrzanje rekurzije na\\v\{s\}eg algoritma iscrpne pretrage, njegovu vremensku kompleksnost mo\\v\{z\}emo reducirati na, aproksimativno, $O(1.6 ^ n)$, gdje je $n$ broj ta\\v\{c\}aka u ravni.\\\\\
 \
-U trenutku pisanja ovog rada, najbr\\v\{z\}i algoritam iscrpne pretrage za nala\\v\{z\}enje minimum te\\v\{z\}inske triangulacije koristi upravo metodu dinami\\v\{c\}kog programiranja i dose\\v\{z\}e subeksponencijalnu kompleksnost $2^\{O(\\sqrt\{n\}\\log n)\}$. Radi se o algoritmu kojeg je 1998. godine predstavio prof. Lingas u svom radu \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}\\cite\{lingas\}.\
+U trenutku pisanja ovog rada, najbr\\v\{z\}i algoritam iscrpne pretrage za nala\\v\{z\}enje minimalne te\\v\{z\}inske triangulacije koristi upravo metodu dinami\\v\{c\}kog programiranja i dose\\v\{z\}e subeksponencijalnu kompleksnost $2^\{O(\\sqrt\{n\}\\log n)\}$. Radi se o algoritmu kojeg je 1998. godine predstavio prof. Lingas u svom radu \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}\\cite\{lingas\}.\
 \
 \\pagebreak\
 \
@@ -670,7 +672,7 @@ Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati
 \
 \\chapter\{Generisanje instanci\} \\label\{ch:instances\}\
 \
-Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igdje (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su razni algoritmi za rje\\v\{s\}avanje ovog problema testirani. Tako da smo tu, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse na\\v\{s\}ih algoritama.\
+Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igdje (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su evaluirani razni algoritmi za rje\\v\{s\}avanje ovog problema. Tako da smo tu, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse opisanih algoritama.\
 \
 \\begin\{itemize\}\
 \\item Sve instance su generisane koriste\\'\{c\}i isklju\\v\{c\}ivo ili uniformnu ili normalnu distribuciju.\
