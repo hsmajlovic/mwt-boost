@@ -882,21 +882,22 @@ Na\\v\{z\}alost, istra\\v\{z\}ivanje mnogih pomenutih primjena izlazi daleko van
 \
 \\section\{Optimizacija roja \\v\{c\}estica\}\\label\{ch:pso\}\
 \
-Proizi\\v\{s\}la iz razvoja simulacija za jatenje riba i ptica oko izvora hrane, optimizacija roja \\v\{c\}estica, je prvi put pomenuta 1995. godine u radu Russell-a Eberhart-a i James-a Kennedy-a\\cite\{kennedyeberhart\}.\\\\\
+Proizi\\v\{s\}la iz razvoja simulacija za kretanje jata riba i ptica oko izvora hrane, optimizacija roja \\v\{c\}estica, je prvi put pomenuta 1995. godine u radu Russell-a Eberhart-a i James-a Kennedy-a\\cite\{kennedyeberhart\}.\\\\\
 Optimizacija roja \\v\{c\}estica je u osnovi vrlo jednostavna metaheuristika. Kao \\v\{s\}to se jato ptica ili riba koncenstri\\v\{s\}e oko izvora hrane, tako se agenti (\\v\{c\}estice) optimizacije roja \\v\{c\}estica koncenstri\\v\{s\}u oko ciljnog rje\\v\{s\}enja, ukoliko je ono poznato, ili oko najkvalitetnijeg na\\dj\{\}enog rje\\v\{s\}enja u suprotnom.\
 \
 Algoritam optimizacije roja \\v\{c\}estica prati tri globalne varijable:\
 \\begin\{itemize\}\
-\\item Ciljna vrijednost ili uslov\
-\\item Globalni optimum (gBest)\
-\\item Uslov zaustavljanja algoritma\
+\\item Ciljna vrijednost ili uslov;\
+\\item Globalni optimum (gBest);\
+\\item Uslov zaustavljanja algoritma.\
 \\end\{itemize\}\
+\\pagebreak\
 \
 Zatim, svaka \\v\{c\}estica, tokom izvrs\\v\{s\}avanja algoritma, prati informaciju o sljede\\'\{c\}em:\
 \\begin\{itemize\}\
-\\item Jedno rje\\v\{s\}enje iz prostora rje\\v\{s\}enja (trenutno rje\\v\{s\}enje koje odgovara tom agentu/\\v\{c\}estici)\
-\\item "Brzinu", vrijednost koja pokazuje koliko je to rje\\v\{s\}enje promjenjljivo\
-\\item Najkvalitetnije rje\\v\{s\}enje koje je \\v\{c\}estica (do tog trenutka) zabilje\\v\{z\}ila (pBest)\
+\\item Jedno rje\\v\{s\}enje iz prostora rje\\v\{s\}enja (trenutno rje\\v\{s\}enje koje odgovara tom agentu/\\v\{c\}estici);\
+\\item "Brzinu", vrijednost koja pokazuje koliko je to rje\\v\{s\}enje promjenjljivo;\
+\\item Najkvalitetnije rje\\v\{s\}enje koje je \\v\{c\}estica (do tog trenutka) zabilje\\v\{z\}ila (pBest).\
 \\end\{itemize\}\
 \
 \\v\{S\}to je \\v\{c\}estica dalja od ciljnog, ili najboljeg prona\\dj\{\}enog rje\\v\{s\}enja, to je njena brzina ve\\'\{c\}a (ili, \\v\{s\}to je ptica dalja od izvora hrane, to joj je potrebna ve\\'\{c\}a brzina da sustigne jato nego pticama bli\\v\{z\}im istom izvoru).\
@@ -905,18 +906,18 @@ Zatim, svaka \\v\{c\}estica, tokom izvrs\\v\{s\}avanja algoritma, prati informac
   	\\caption\{\\textbf\{PSO:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, broj-agenata - broj agenata/\\v\{c\}estica koje \\'\{c\}e algoritam pratiti)\}\
   	\\begin\{algorithmic\}[1]\
     	\\State - Instanciraj agente ($AGENTI$) i postavi gBest na $\\infty$, kao i pBest svakog instanciranog agenta\
-        \\algstore\{MWTPSO\}\
+		\\While\{Odre\\dj\{\}eni uslov zaustavljanja nije zadovoljen\}\
+          \\ForAll\{$agent \\in AGENTI$\}\
+              \\State - Izra\\v\{c\}unaj kvalitet rje\\v\{s\}enja kojem $agent$ odgovara\
+              \\If\{kvalitet $agenta$ bolji od njegovog najkvalitetnijeg rje\\v\{s\}enja (pBest)\}\
+              \\algstore\{MWTPSO\}\
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
 \\begin\{algorithm\}\
   \\begin\{algorithmic\}[1]\
     \\algrestore\{MWTPSO\}\
-		\\While\{Odre\\dj\{\}eni uslov zaustavljanja nije zadovoljen\}\
-          \\ForAll\{$agent \\in AGENTI$\}\
-              \\State - Izra\\v\{c\}unaj kvalitet rje\\v\{s\}enja kojem $agent$ odgovara\
-              \\If\{kvalitet $agenta$ bolji od njegovog najkvalitetnijeg rje\\v\{s\}enja (pBest)\}\
-              	\\State - Postavi novi kvalitet kao najkvalitetnije rje\\v\{s\}enje agenta (pBest)\
+                \\State - Postavi novi kvalitet kao najkvalitetnije rje\\v\{s\}enje agenta (pBest)\
               \\EndIf\
               \\If\{pBest $agent$-a bolji od globalnog optimuma (gBest)\}\
               	\\State gBest = pBest\
@@ -924,16 +925,15 @@ Zatim, svaka \\v\{c\}estica, tokom izvrs\\v\{s\}avanja algoritma, prati informac
           \\EndFor\
           \\ForAll\{$agent \\in AGENTI$\}\
               \\State - Izra\\v\{c\}unaj brzinu $agent$-a\
-              \\State - Koriste\\'\{c\}i brzinu $agent$-a i globalni optimum izvr\\v\{s\}i prelazak agenta sa trenutnog\
-                  rje\\v\{s\}enja na neko susjedno\
+              \\State - Koriste\\'\{c\}i brzinu $agent$-a i globalni optimum izvr\\v\{s\}i prelazak agenta sa trenutnog rje\\v\{s\}enja na neko susjedno rje\\v\{s\}enje\
           \\EndFor\
         \\EndWhile\
 	\\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
 \\section\{Algoritam umjetne kolonije p\\v\{c\}ela\} \\label\{ch:abc\}\
-Iako se Algoritam umjetne kolonije p\\v\{c\}ela naj\\v\{c\}e\\v\{s\}\\'\{c\}e implementira nad problemima kontinualnog prostora rje\\v\{s\}enja, u ovom poglavlju opisujemo generalni pristup istog, koji je primjenjiv i na probleme sa diskretnim prostorom rje\\v\{s\}enja (kao \\v\{s\}to je problem minimum te\\v\{z\}inske triangulacije).\\\\\
-Algoritam kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony algorithm\} - ABC) je metaheuristi\\v\{c\}ki algoritam oblasti Inteligencije rojeva predlo\\v\{z\}en 2005. godine u radu \\textit\{An Idea based on Honey Bee Swarm for Numerical Optimization\}\\cite\{karaboga\}. Dakle radi se o jo\\v\{s\} jednom algoritmu ispirisanom pona\\v\{s\}enjem rojeva, i to, u ovom slu\\v\{c\}aju, rojeva p\\v\{c\}ela. \\v\{C\}etiri glavne faze grade algoritam kolonije p\\v\{c\}ela. To su redom \\textbf\{Inicijelna faza\}, \\textbf\{Faza uposlenih p\\v\{c\}ela\}, \\textbf\{Faza p\\v\{c\}ela tra\\v\{z\}ilica\} i \\textbf\{Faza p\\v\{c\}ela skauta\}\\footnote\{Uposlene p\\v\{c\}ele, p\\v\{c\}ele tra\\v\{z\}ilice i p\\v\{c\}ele skauti su zapravo razli\\v\{c\}iti inteligentni agenti.\} koje se izvr\\v\{s\}avaju sljede\\'\{c\}im redom:\
+Iako se algoritam umjetne kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony, ABC\}) naj\\v\{c\}e\\v\{s\}\\'\{c\}e implementira nad problemima kontinualnog prostora rje\\v\{s\}enja, u ovom poglavlju opisujemo generalni pristup istog, koji je primjenjiv i na probleme sa diskretnim prostorom rje\\v\{s\}enja (kao \\v\{s\}to je problem minimalne te\\v\{z\}inske triangulacije).\\\\\
+Algoritam umjetne kolonije p\\v\{c\}ela je metaheuristi\\v\{c\}ki algoritam u oblasti inteligencije rojeva predlo\\v\{z\}en 2005. godine u radu \\textit\{An Idea based on Honey Bee Swarm for Numerical Optimization\} \\cite\{karaboga\}. Dakle, radi se o jo\\v\{s\} jednom algoritmu ispirisanom pona\\v\{s\}enjem rojeva, i to, u ovom slu\\v\{c\}aju, rojeva p\\v\{c\}ela. \\v\{C\}etiri glavne faze karakteri\\v\{s\}u algoritam kolonije p\\v\{c\}ela. To su: \\textbf\{Inicijelna faza\}, \\textbf\{Faza uposlenih p\\v\{c\}ela\}, \\textbf\{Faza p\\v\{c\}ela tra\\v\{z\}ilica\} i \\textbf\{Faza p\\v\{c\}ela skauta\}\\footnote\{Uposlene p\\v\{c\}ele, p\\v\{c\}ele tra\\v\{z\}ilice i p\\v\{c\}ele skauti su zapravo razli\\v\{c\}iti inteligentni agenti.\} koje se izvr\\v\{s\}avaju sljede\\'\{c\}im redom:\
 \
 \
 \\begin\{algorithm\}\
@@ -948,36 +948,36 @@ Algoritam kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony algorithm\
 	\\end\{algorithmic\}\
 \\end\{algorithm\}\
 \\pagebreak\
-\\textit\{Inicijelna faza:\} Tokom ove faze generi\\v\{s\}emo skup nausmi\\v\{c\}nih rje\\v\{s\}enja. S obzirom da ABC, kao i svaki drugi populacijski\\footnote\{Vi\\v\{s\}eagentni algoritam. Algoritam koji paralelno prati pona\\v\{s\}anje dva ili vi\\v\{s\}e inteligentnih agenata.\} algoritam, vodi ra\\v\{c\}una o cijeloj jednoj populaciji rje\\v\{s\}enja tokom svog vremena izvr\\v\{s\}avanja, potrebno je generisati skup po\\v\{c\}etnih rje\\v\{s\}enja.\
+\\textit\{Inicijelna faza:\} Tokom ove faze generiramo skup nausmi\\v\{c\}nih rje\\v\{s\}enja. S obzirom da ABC, kao i svaki drugi populacijski algoritam\\footnote\{Vi\\v\{s\}eagentni algoritam. Algoritam koji paralelno prati pona\\v\{s\}anje dva ili vi\\v\{s\}e inteligentnih agenata.\}, vodi ra\\v\{c\}una o cijeloj jednoj populaciji rje\\v\{s\}enja tokom svog vremena izvr\\v\{s\}avanja, potrebno je generirati skup po\\v\{c\}etnih rje\\v\{s\}enja.\
 \
-\\textit\{Faza uposlenih p\\v\{c\}ela:\} Svako rje\\v\{s\}enje, u trenutnoj populaciji, se tretira kao izvor hrane i svakom izvoru hrane je pridru\\v\{z\}ena ta\\v\{c\}no jedna \\textit\{uposlena p\\v\{c\}ela\}. Zatim, svaka uposlena p\\v\{c\}ela vr\\v\{s\}i lokalnu pretragu oko trenutnog izvora hrane i prelazi na izvor bolje kvalitete ukoliko je to mogu\\'\{c\}e. Drugim rije\\v\{c\}ima, oko svakog rje\\v\{s\}enja populacije se izvr\\v\{s\}ava neka varijacija heuristike  pretra\\v\{z\}ivanja usponom\\footnote\{Iako je preporu\\v\{c\}eno da to bude varijacija stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom, treba pomenuti da to ne mora biti pretra\\v\{z\}ivanje usponom uop\\v\{s\}te, nego bilo koja varijacija lokalne pretrage.\}.\
+\\textit\{Faza uposlenih p\\v\{c\}ela:\} Svako rje\\v\{s\}enje, u trenutnoj populaciji, se tretira kao izvor hrane i svakom izvoru hrane je pridru\\v\{z\}ena ta\\v\{c\}no jedna \\textit\{uposlena p\\v\{c\}ela\}. Zatim, svaka uposlena p\\v\{c\}ela vr\\v\{s\}i lokalnu pretragu oko trenutnog izvora hrane i prelazi na izvor bolje kvalitete, ukoliko je to mogu\\'\{c\}e. Drugim rije\\v\{c\}ima, oko svakog rje\\v\{s\}enja populacije se izvr\\v\{s\}ava neka varijacija heuristike  pretra\\v\{z\}ivanja usponom\\footnote\{Iako je preporu\\v\{c\}eno da to bude varijacija stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom, treba pomenuti da to ne mora biti pretra\\v\{z\}ivanje usponom uop\\v\{s\}te, nego bilo koja varijacija lokalne pretrage.\}.\
 \
-\\textit\{Faza p\\v\{c\}ela tra\\v\{z\}ilica:\} Za svaku uposlenu p\\v\{c\}elu postoji ta\\v\{c\}no jedna p\\v\{c\}ela tra\\v\{z\}ilica koja, sa odre\\dj\{\}enom vjerovatno\\'\{c\}om, naj\\v\{c\}e\\v\{s\}\\'\{c\}e $$P = \\frac\{kvaliteta_i\}\{\\sum_j kvaliteta_j\}$$ gdje $kvaliteta_i$ odgovara kvaliteti $i$-te uposlene p\\v\{c\}ele, vr\\v\{s\}i jo\\v\{s\} jedno dodatno pretra\\v\{z\}ivanje usponom oko izvora hrane (rje\\v\{s\}enja) koji odgovara $i$-toj uposlenoj p\\v\{c\}eli.\
+\\textit\{Faza p\\v\{c\}ela tra\\v\{z\}ilica:\} Za svaku uposlenu p\\v\{c\}elu postoji ta\\v\{c\}no jedna p\\v\{c\}ela tra\\v\{z\}ilica koja, sa odre\\dj\{\}enom vjerovatno\\'\{c\}om, naj\\v\{c\}e\\v\{s\}\\'\{c\}e $$P = \\frac\{kvaliteta_i\}\{\\sum_j kvaliteta_j\}$$ gdje $kvaliteta_i$ odgovara kvaliteti $i$-te uposlene p\\v\{c\}ele, vr\\v\{s\}i jo\\v\{s\} jedno dodatno pretra\\v\{z\}ivanje usponom oko izvora hrane (rje\\v\{s\}enja), koji odgovara $i$-toj uposlenoj p\\v\{c\}eli.\
 \
-\\textit\{Faza p\\v\{c\}ela skauta:\} Za svaku uposlenu p\\v\{c\}elu koja nije napustila svoj izvor hrane odre\\dj\{\}en broj\\footnote\{Navedeni broj iteracija je jedan od eksternih parametara algoritma (koji se naj\\v\{c\}e\\v\{s\}\\'\{c\}e zove "limit"). Eksterni parametar algoritma je parametar koji je odre\\dj\{\}en prije izvr\\v\{s\}avanja istog algoritma, a kojeg taj algoritam koristi tokom svog izvr\\v\{s\}avanja. Primijetimo da je u slu\\v\{c\}aju kori\\v\{s\}tenja pretra\\v\{z\}ivanja usponom kao sredstva za obilazak izvora hrane uposlenih p\\v\{c\}ela i p\\v\{c\}ela tra\\v\{z\}ilica, dovoljno (a nerijetko i po\\v\{z\}eljno) da ovaj parametar bude jednak 1.\} iteracija, se aktivira jedna p\\v\{c\}ela skaut koja nasumi\\v\{c\}no nalazi novi izvor hrane i preuzima ulogu prethodno pomenute uposlene p\\v\{c\}ele. To zna\\v\{c\}i da ukoliko se rje\\v\{s\}enje nekog agenta uposlene p\\v\{c\}ele ne promijeni za predodre\\dj\{\}en broj iteracija, biva zamijenjeno potpuno novim, nasumi\\v\{c\}no generisanim rje\\v\{s\}enjem.\\\\\
-Tokom cijelog procesa pratimo jo\\v\{s\} i vrijednost jednog i samo jednog rje\\v\{s\}enja (do tada) najbolje kvalitete.\
+\\textit\{Faza p\\v\{c\}ela skauta:\} Za svaku uposlenu p\\v\{c\}elu koja nije napustila svoj izvor hrane odre\\dj\{\}en broj\\footnote\{Navedeni broj iteracija je jedan od eksternih parametara algoritma (koji se naj\\v\{c\}e\\v\{s\}\\'\{c\}e zove "limit"). Eksterni parametar algoritma je parametar koji je odre\\dj\{\}en prije izvr\\v\{s\}avanja istog algoritma, a kojeg taj algoritam koristi tokom svog izvr\\v\{s\}avanja. Primijetimo da je u slu\\v\{c\}aju kori\\v\{s\}tenja pretra\\v\{z\}ivanja usponom kao sredstva za obilazak izvora hrane uposlenih p\\v\{c\}ela i p\\v\{c\}ela tra\\v\{z\}ilica, dovoljno (a nerijetko i po\\v\{z\}eljno) da ovaj parametar bude jednak 1.\} iteracija, se aktivira jedna skaut p\\v\{c\}ela, koja nasumi\\v\{c\}no nalazi novi izvor hrane i preuzima ulogu prethodno pomenute uposlene p\\v\{c\}ele. To zna\\v\{c\}i da ukoliko se rje\\v\{s\}enje nekog agenta uposlene p\\v\{c\}ele ne promijeni za unaprijed odre\\dj\{\}en broj iteracija, biva zamijenjeno potpuno novim, nasumi\\v\{c\}no generiranim rje\\v\{s\}enjem.\\\\\
+Tokom cijelog procesa pratimo jo\\v\{s\} i vrijednost jeddnog rje\\v\{s\}enja (do tada) najbolje kvalitete.\
 \
 \\section\{Optimizacija roja \\v\{c\}estica adaptirana MWT problemu\}\
 Opi\\v\{s\}imo adaptaciju PSO algoritma na MWT problem kroz pseudokod iz \\ref\{ch:pso\}, korak po korak.\\\\\
 \
 Korak 1.: \\textit\{Instanciraj agente\}.\\\\\
-Iako bismo se mogli okoristiti algoritmom STOHASTICKA-TRIANGULACIJA iz poglavlja \\ref\{ch:mwthc\} za nalazak proizvoljnog broja razli\\v\{c\}itih, nasumi\\v\{c\}nih triangulacija, ne\\'\{c\}emo se odlu\\v\{c\}iti za taj korak. Naime, navedeni algoritam svojom kubnom vremenskom kompleksno\\v\{s\}\\'\{c\}u znatno usporava cjelokupni algoritam optimizacije roja \\v\{c\}estica. Eksperimentalna analiza je pokazala da se sli\\v\{c\}an rezultat mo\\v\{z\}e posti\\'\{c\}i na mnogo br\\v\{z\}i na\\v\{c\}in. Naime, dovoljno je da prona\\dj\{\}emo tek jednu triangulaciju koriste\\'\{c\}i bilo koji od algoritama za nala\\v\{z\}enje jedne triangulacije navedenih u prethodnim poglavljima, kopiramo istu triangulaciju onoliko puta koliko \\v\{z\}elimo da pro\\v\{s\}irimo po\\v\{c\}etnu populaciju (svakom agentu pridru\\v\{z\}imo po jednu kopiju), te u svakoj triangulaciji, nasumi\\v\{c\}nim odabirom preokretljive ivice, preokrenemo istu i taj proces (odabira i preokretanja nasumi\\v\{c\}ne preokretljive ivice) ponovimo proizvoljan broj puta\\footnote\{Bitno je pomenuti da nam, iz o\\v\{c\}iglednih razloga, u prilog ide rezultat C.L.Lawson-a da se svaka triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka u ravni mo\\v\{z\}e transformisati u bilo koju drugu koriste\\'\{c\}i tehniku preokretanja ivica\\cite\{lawson\}.\}. \\v\{S\}to je broj preokreta ivica ve\\'\{c\}i, to je pokrivenost prostora pretrage \\v\{s\}ira.\\\\\
+Iako bismo se mogli okoristiti algoritmom STOHASTICKA-TRIANGULACIJA iz poglavlja \\ref\{ch:mwthc\} za nalazak proizvoljnog broja razli\\v\{c\}itih, nasumi\\v\{c\}nih triangulacija, ne\\'\{c\}emo se odlu\\v\{c\}iti za taj korak. Naime, navedeni algoritam svojom kubnom vremenskom kompleksno\\v\{s\}\\'\{c\}u znatno usporava cjelokupni algoritam optimizacije roja \\v\{c\}estica. Eksperimentalna analiza je pokazala da se sli\\v\{c\}an rezultat mo\\v\{z\}e posti\\'\{c\}i na mnogo br\\v\{z\}i na\\v\{c\}in. Naime, dovoljno je da prona\\dj\{\}emo tek jednu triangulaciju, koriste\\'\{c\}i bilo koji od algoritama za nala\\v\{z\}enje jedne triangulacije navedenih u prethodnim poglavljima. Zatim, kopiramo tu istu triangulaciju onoliko puta koliko \\v\{z\}elimo da pro\\v\{s\}irimo po\\v\{c\}etnu populaciju (svakom agentu pridru\\v\{z\}imo po jednu kopiju), te u svakoj triangulaciji, nasumi\\v\{c\}nim odabirom preokretljive ivice, preokrenemo istu i taj proces (odabira i preokretanja nasumi\\v\{c\}ne preokretljive ivice) ponovimo proizvoljan broj puta\\footnote\{Bitno je spomenuti da nam ovdje ide u prilog rezultat C.L.Lawson-a koji glasi: Svaka triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka u ravni se mo\\v\{z\}e transformisati u bilo koju drugu triangulaciju upotrebom tehnike preokretanja ivica \\cite\{lawson\}.\}. \\v\{S\}to je broj preokreta ivica ve\\'\{c\}i, to je pokrivenost prostora pretrage \\v\{s\}ira.\\\\\
 \
-Korak 2.: Zarad jednostavnosti, odlu\\v\{c\}imo se da na\\v\{s\} algoritam zaustavljamo nakon predodre\\dj\{\}enog broja iteracija. Dakle ne\\'\{c\}emo brinuti o uslovu zaustavljanja algoritma.\\\\\
+Korak 2.: Zbog jednostavnosti, odlu\\v\{c\}imo se da algoritam zaustavljamo nakon unaprijed odre\\dj\{\}enog broja iteracija. Dakle, ne trebamo brinuti o uslovu zaustavljanja algoritma.\\\\\
 \
 Koraci 3. - 12.: Trivijalno. Kvalitetu rje\\v\{s\}enja (korak 4.) nalazimo sabiraju\\'\{c\}i te\\v\{z\}ine svih ivica triangulacije.\\\\\
 \
-Korak 13\uc0\u730 : Brzinu agenta ra\\v\{c\}unamo po preporuci M. Clerc-a\\cite\{clerc\} na sljede\\'\{c\}i na\\v\{c\}in:\
-$$brzina = U[0, 1)(faktor\\_ucenja\\_1(pBest - trenutna\\_kvaliteta) + $$ $$faktor\\_ucenja\\_2(gBest - trenutna\\_kvaliteta))$$, gdje su:\
+Korak 13.: Brzinu agenta ra\\v\{c\}unamo po preporuci M. Clerc-a \\cite\{clerc\} na sljede\\'\{c\}i na\\v\{c\}in:\
+$$brzina = U[0, 1)(faktor\\_ucenja\\_1(pBest - trenutna\\_kvaliteta) + $$ $$faktor\\_ucenja\\_2(gBest - trenutna\\_kvaliteta))$$ gdje su:\
 \\begin\{itemize\}\
-  \\item U[0, 1) - nasumi\\v\{c\}na realna vrijednost iz polusegmenta [0, 1).\
-  \\item faktor\\_ucenja\\_1, faktor\\_ucenja\\_2 - Eksterni fiksni parametri algoritma (zadani prije 	po\\v\{c\}etka izvr\\v\{s\}avanja istog). Naj\\v\{c\}e\uc0\u347 \\'\{c\}e iz segmenta [0, 4].\
-  \\item pBest - Najbolji rezultat koji je agent zabilje\\v\{z\}io tokom izvr\\v\{s\}avanja algoritma.\
-  \\item trenutna\\_kvaliteta - Kvaliteta rje\\v\{s\}enja koje odgovara agentu u momentu izra\\v\{c\}unavanja brzine\
-  \\item gBest - Najbolje rje\\v\{s\}enje zabilje\\v\{z\}eno od strane svih agenata (trenutni globalni optimum)\
+  \\item U[0, 1) - nasumi\\v\{c\}na realna vrijednost dobijena uniformnom distribucijom iz poluzatvorenog intervala [0, 1);\
+  \\item faktor\\_ucenja\\_1, faktor\\_ucenja\\_2 - Eksterni fiksni parametri algoritma (zadani prije 	po\\v\{c\}etka izvr\\v\{s\}avanja istog). Naj\\v\{c\}e\\v\{s\}\\'\{c\}e iz zatvorenog intervala [0, 4];\
+  \\item pBest - Najbolji rezultat koji je agent zabilje\\v\{z\}io tokom izvr\\v\{s\}avanja algoritma;\
+  \\item trenutna\\_kvaliteta - Kvaliteta rje\\v\{s\}enja koje odgovara agentu u momentu izra\\v\{c\}unavanja brzine;\
+  \\item gBest - Najbolje rje\\v\{s\}enje zabilje\\v\{z\}eno od strane svih agenata (trenutni globalni optimum).\
 \\end\{itemize\}\
 \
-Korak 14. - 16.: Prelazak agenta sa trenutnog rje\\v\{s\}enja na susjedno vr\\v\{s\}imo preokretanjem one ivice \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet trenutnog rje\\v\{s\}enja za vrijednost prethodno izra\\v\{c\}unate brzine agenta. Naravno, malo je vjerojatno da u trenutnom rje\\v\{s\}enju postoji ivica \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet rje\\v\{s\}enja ta\\v\{c\}no onoliko kolika je vrijednost izra\\v\{c\}unate brzine. Stoga, biramo i preokre\\'\{c\}emo onu ivicu \\v\{c\}iji preokret \\'\{c\}e rezultirati promjeni kvalitete rje\\v\{s\}enja \\v\{s\}to bli\\v\{z\}oj vrijednosti izra\\v\{c\}unate brzine agenta.\\\\\
+Korak 14. - 16.: Prelazak agenta sa trenutnog rje\\v\{s\}enja na susjedno rje\\v\{s\}enje, vr\\v\{s\}imo preokretanjem one ivice \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet trenutnog rje\\v\{s\}enja za vrijednost prethodno izra\\v\{c\}unate brzine agenta. Naravno, malo je vjerojatno da u trenutnom rje\\v\{s\}enju postoji ivica \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet rje\\v\{s\}enja ta\\v\{c\}no onoliko kolika je vrijednost izra\\v\{c\}unate brzine. Stoga, biramo i preokre\\'\{c\}emo onu ivicu, \\v\{c\}iji preokret \\'\{c\}e rezultirati u promjeni kvalitete rje\\v\{s\}enja, takvoj da ona bude \\v\{s\}to bli\\v\{z\}a vrijednosti za izra\\v\{c\}unatu brzinu agenta.\\\\\
 \
 \\begin\{remy\}\
 Detaljni rezultati performanse navedenog PSO algoritma prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:pso\}.\
@@ -985,51 +985,52 @@ Detaljni rezultati performanse navedenog PSO algoritma prilago\\dj\{\}enog MWT p
 \
 \\section\{Algoritam umjetne kolonije p\\v\{c\}ela adaptiran MWT problemu\}\
 \
-Objasnimo redom adaptaciju \\v\{c\}etiri navedena koraka, koji \\v\{c\}ine ABC algoritam, na MWT problem. Inicijelna faza zahtijeva generisanje po\\v\{c\}etne populacije rje\\v\{s\}enja. Kao \\v\{s\}to je to bio slu\\v\{c\}aj i sa adaptacijom PSO algoritma na isti problem, po\\v\{c\}etnu populaciju generi\\v\{s\}emo ne\\v\{s\}to druk\\v\{c\}ije. Naime, ponovo generi\\v\{s\}emo samo jednu triangulaciju koriste\\'\{c\}i jedan od algoritama navedenih u prethodnom poglavlju. No, za razliku od inicijelnog koraka prilago\\dj\{\}enog PSO algoritma istu pridru\\v\{z\}imo svim agentima (uposlenim p\\v\{c\}elama).\\\\\
-Sada pu\\v\{s\}tamo uposlene p\\v\{c\}ele da paralelno i sekvencionalno\\footnote\{Sekvancionalno u smislu da u svakoj iteraciji algoritma, svaki agent/p\\v\{c\}ela izvr\\v\{s\}i jedan i samo jedan prelazak na susjedno rje\\v\{s\}enje (to jeste, jedan i samo jedan korak pretra\\v\{z\}ivanja usponom).\} vr\\v\{s\}e stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom u \\ref\{ch:hc\} i \\ref\{ch:mwthc\}. Time pokrivamo Fazu uposlenih p\\v\{c\}ela.\\\\\
+Objasnimo redom adaptaciju \\v\{c\}etiri navedena koraka, koji \\v\{c\}ine ABC algoritam primijenjen na rje\\v\{s\}avanje MWT problema. Inicijelna faza zahtijeva generisanje po\\v\{c\}etne populacije rje\\v\{s\}enja. Kao \\v\{s\}to je to bio slu\\v\{c\}aj i sa adaptacijom PSO algoritma na isti problem, po\\v\{c\}etnu populaciju generiramo ne\\v\{s\}to druga\\v\{c\}ije. Naime, ponovo generiramo samo jednu triangulaciju, koriste\\'\{c\}i jedan od algoritama navedenih u prethodnom poglavlju. No, za razliku od inicijelnog koraka, prilago\\dj\{\}enog PSO algoritma, istu triangulaciju pridru\\v\{z\}ujemo svim agentima (uposlenim p\\v\{c\}elama).\\\\\
+Sada, pu\\v\{s\}tamo uposlene p\\v\{c\}ele da paralelno i sekvencionalno\\footnote\{Sekvencionalno u smislu da u svakoj iteraciji algoritma, svaki agent/p\\v\{c\}ela izvr\\v\{s\}i jedan i samo jedan prelazak na susjedno rje\\v\{s\}enje (to jeste, jedan i samo jedan korak pretra\\v\{z\}ivanja usponom).\} vr\\v\{s\}e stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom u \\ref\{ch:hc\} i \\ref\{ch:mwthc\}. Time pokrivamo Fazu uposlenih p\\v\{c\}ela.\\\\\
 \
 Faza p\\v\{c\}ela tra\\v\{z\}ilica se ne razlikuje mnogo od prethodne faze. Sa vjerovatno\\'\{c\}om navedenom u potpoglavlju \\ref\{ch:abc\} izvr\\v\{s\}avamo jo\\v\{s\} jedan dodatni korak stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom nad rje\\v\{s\}enjem svake uposlene p\\v\{c\}ele. Tako\\dj\{\}er, u ovom koraku pratimo i bilje\\v\{z\}imo kvalitetu najboljeg prona\\dj\{\}enog rje\\v\{s\}enja.\\\\\
 \
-Sve uposlene p\\v\{c\}ele \\'\{c\}e evenutalno dose\\'\{c\}i svoj lokalni optimum. Tu na snagu dolazi Faza p\\v\{c\}ela skauta. Tokom ove faze dozvoljavamo svim uposlenim p\\v\{c\}elama koje su dosegle svoj lokalni optimum da "lutaju" odre\\dj\{\}eni broj koraka. Na\\v\{c\}in na koji simuliramo navedeno lutanje smo ve\\'\{c\} vidjeli. Naime, radi se o nasumi\\v\{c\}nom kretanju kroz prostor rje\\v\{s\}enja navedenom u inicijelnoj fazi PSO algoritma. Dakle radi se o nasumi\\v\{c\}nom preokretanju preokretljivih ivica odre\\dj\{\}eni broj puta za odabranog agenta\\footnote\{Primijetimo da na ovaj na\\v\{c\}in implementiramo ranije pomenutu "Nasumi\\v\{c\}nu \\v\{s\}etnju" (\\textit\{eng. Random walk\} kroz prostor rje\\v\{s\}enja)\}. Na taj na\\v\{c\}in dozvoljavamo agentu, kako da pobolj\\v\{s\}a, tako i da pogor\\v\{s\}a svoje trenutno rje\\v\{s\}enje. Koliko dugo \\'\{c\}e agent (p\\v\{c\}ela skaut) da luta, to jeste, koliko preokretanja ivica treba da izvr\\v\{s\}i, je odre\\dj\{\}eno fiksnim, eksternim parametrom.\
+Sve uposlene p\\v\{c\}ele \\'\{c\}e evenutalno dose\\'\{c\}i svoj lokalni optimum. Tu na snagu dolazi Faza p\\v\{c\}ela skauta. Tokom ove faze dozvoljavamo svim uposlenim p\\v\{c\}elama koje su dosegle svoj lokalni optimum da "lutaju" odre\\dj\{\}eni broj koraka. Na\\v\{c\}in na koji simuliramo navedeno lutanje smo ve\\'\{c\} vidjeli. Naime, radi se o nasumi\\v\{c\}nom kretanju kroz prostor rje\\v\{s\}enja navedenom u inicijelnoj fazi PSO algoritma. Dakle, radi se o nasumi\\v\{c\}nom preokretanju preokretljivih ivica odre\\dj\{\}eni broj puta za odabranog agenta\\footnote\{Primijetimo da na ovaj na\\v\{c\}in implementiramo ranije pomenutu "Nasumi\\v\{c\}nu \\v\{s\}etnju" kroz prostor rje\\v\{s\}enja (\\textit\{eng. Random walk\}).\}. Na taj na\\v\{c\}in dozvoljavamo agentu, kako da pobolj\\v\{s\}a, tako i da pogor\\v\{s\}a svoje trenutno rje\\v\{s\}enje. Koliko dugo \\'\{c\}e agent (p\\v\{c\}ela skaut) lutati, to jeste, koliko preokretanja ivica treba izvr\\v\{s\}iti, odre\\dj\{\}eno je fiksnim, eksternim parametrom.\
 \
 \\begin\{remy\}\
 Detaljni rezultati performanse navedenog ABC algoritma prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:abc\}.\
 \\end\{remy\}\
                         \
-\\chapter\{Pobolj\\v\{s\}ani algoritam umjetne kolonije p\\v\{c\}ela za MWT problem\} \\label\{ch:iabc\}\
-ABC algoritam, prilago\\dj\{\}en MWT problemu, iz prethodnog poglavlja se mo\\v\{z\}e pobolj\\v\{s\}ati. Radi se o jednoj minornoj izmjeni u fazi p\\v\{c\}ela tra\\v\{z\}ilica koju izdvajamo u posebno poglavlje iz razloga \\v\{s\}to ista dovodi do ostupanja od nativne procedure ABC algoritma.\\\\\
-Naime, umjesto obavljanja samo jedne iteracije stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom za odabranu uposlenu p\\v\{c\}elu, pu\\v\{s\}tamo agenta da nastavi izvr\\v\{s\}avanje pretra\\v\{z\}ivanja usponom sve dok ne dosegne svoj lokalni optimum.\\\\\
+\\chapter\{Pobolj\\v\{s\}ani algoritam umjetne kolonije p\\v\{c\}ela za rje\\v\{s\}avanje MWT problema\} \\label\{ch:iabc\}\
+ABC algoritam prilago\\dj\{\}en MWT problemu, iz prethodnog poglavlja, mo\\v\{z\}e se dodatno pobolj\\v\{s\}ati. Radi se o jednoj minornoj izmjeni u fazi p\\v\{c\}ela tra\\v\{z\}ilica, koju izdvajamo u posebno poglavlje iz razloga \\v\{s\}to ista dovodi do odstupanja od nativne procedure ABC algoritma.\
+Naime, umjesto obavljanja samo jedne iteracije stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom za odabranu uposlenu p\\v\{c\}elu, pu\\v\{s\}tamo agenta da nastavi izvr\\v\{s\}avanje pretra\\v\{z\}ivanja usponom, sve dok ne dosegne svoj lokalni optimum.\\\\\
 Detaljni rezultati performanse navedenog, pobolj\\v\{s\}anog ABC algoritma za MWT problemu su dati u tabeli \\ref\{tab:iabc\}.\
 \
 \\chapter\{Statisti\\v\{c\}ki rezultati\} \\label\{ch:stats\}\
 \
-Zbog nedostatka dovoljno jakih ma\\v\{s\}ina za evaluaciju nas\\v\{s\}eg algoritma iscrpne pretrage, ograni\\v\{c\}eni smo na detaljnu statisti\\v\{c\}ku analizu nad instancama veli\\v\{c\}ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\\v\{c\}ke.\\\\\
-S obzirom da nismo uspjeli prona\\'\{c\}i nikakve predlo\\v\{z\}ene testne instance kao ni prijedloge za generisanje istih, generi\\v\{s\}emo nove, nasumi\\v\{c\}ne instance ta\\v\{c\}aka (kao \\v\{s\}to je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
+Zbog nedostatka dovoljno jakih ma\\v\{s\}ina za evaluaciju algoritma iscrpne pretrage, ograni\\v\{c\}eni smo na detaljnu statisti\\v\{c\}ku analizu nad instancama veli\\v\{c\}ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\\v\{c\}ke.\\\\\
+S obzirom da nismo uspjeli prona\\'\{c\}i nikakve predlo\\v\{z\}ene testne instance, kao ni prijedloge za generiranje istih, generiramo nove, nasumi\\v\{c\}ne, instance ta\\v\{c\}aka (kao \\v\{s\}to je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
 \
-No, nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\\v\{c\}ava da ostale algoritme testiramo na ve\\'\{c\}im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \\v\{s\}to su PSO, ABC i Pobolj\\v\{s\}ani ABC izvr\\v\{s\}avamo jo\\v\{s\} i na instancama od 40, 80, 120, 160 ta\\v\{c\}aka.\\\\\
+No, nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\\v\{c\}ava da ostale algoritme testiramo na ve\\'\{c\}im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \\v\{s\}to su: PSO, ABC i Pobolj\\v\{s\}ani ABC, izvr\\v\{s\}avamo jo\\v\{s\} i na instancama od 40, 80, 120, 160 ta\\v\{c\}aka.\\\\\
 Svaka instanca je labelisana sa RI-$k$-$i$, gdje $k$ ozna\\v\{c\}ava broj ta\\v\{c\}aka u $i$-toj instanci.\\\\\
 \
-Koordinate ta\\v\{c\}aka, instanci veli\\v\{c\}ine od 15 do 23, su uniformno distribuirane na segmentu [-333, 333], dok su iste, za instance veli\\v\{c\}ine 40, 80, 120 i 160, uniformno distribuirane na segmentu [0, 1000].\
-Zarad jednostavnosti, svaka instanca je generisana tako da se niti jedna ta\\v\{c\}ka ne poklapa\\footnote\{Nema iste koordinate.\}.\
+Koordinate ta\\v\{c\}aka, instanci veli\\v\{c\}ine od 15 do 23, uniformno su distribuirane iz zatvorenog intervala [-333, 333], dok su iste, za instance veli\\v\{c\}ine 40, 80, 120 i 160, uniformno distribuirane iz zatvorenog intervala [0, 1000].\
+Zbog jednostavnosti, svaka instanca je generirana tako da se niti jedna ta\\v\{c\}ka ne poklapa\\footnote\{Nema iste koordinate.\}.\
 Svi algoritmi su implementirani u programskom jeziku Python (v3). Evaluacije algoritma iscrpne pretrage su proceusirane na Intel Core i7-3770K @3.5GHz procesoru, na ma\\v\{s\}ini od 16GB RAM memorije i operativnim sistemom Windows 10 x64, dok su svi ostali algoritmi procesuirani na \\v\{c\}etverojezgrenom Intel Core i7 @2.2 GHz procesoru, na ma\\v\{s\}ini od 16 GB RAM memorije i operativnim sistemom macOS 10.12.6.\\\\\
 \
 Svaki populacijski algoritam (PSO, ABC, Unaprije\\dj\{\}eni ABC) terminira nakon $N\\times G$ operacija \\footnote\{Jedna operacija odgovara jednoj promjeni rje\\v\{s\}enja (ukoliko je ista mogu\\'\{c\}a) odgovaraju\\'\{c\}eg algoritma lokalne pretrage.\}, gdje je $N$ veli\\v\{c\}ina populacije, a $G$ broj generacija izvr\\v\{s\}avanja algoritma. Zatim, svaki algoritam je izvr\\v\{s\}en 50 puta nad svakom instancom ta\\v\{c\}aka za instance od 15 do 23 ta\\v\{c\}aka i 30 puta za instance od 40, 80, 120, 160 ta\\v\{c\}aka. Veli\\v\{c\}ina populacije za ABC i Unaprije\\dj\{\}eni ABC je $N=13$ p\\v\{c\}ela (agenata), dok za PSO isti broj iznosi $N=33$ \\v\{c\}estica.\
-Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta oba ABC algoritma je jednak 1. Parametri u\\v\{c\}enja PSO algoritma su postavljeni (oba) na 2.0 i "brzina" svake \\v\{c\}estice je postavljena na nulu na po\\v\{c\}etku izvr\\v\{s\}avanja PSO algoritma. Na kraju, pomenimo jo\\v\{s\} i da je broj generacija za ABC, PSO i Unaprije\\dj\{\}eni ABC fiksiran na $G=33$.\\\\\
+Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta oba ABC algoritma je jednak 1. Parametri u\\v\{c\}enja PSO algoritma su postavljeni (oba) na 2.0, a "brzina" svake \\v\{c\}estice je postavljena na nulu na po\\v\{c\}etku izvr\\v\{s\}avanja PSO algoritma. Na kraju, pomenimo jo\\v\{s\} i da je broj generacija za ABC, PSO i Unaprije\\dj\{\}eni ABC fiksiran na $G=33$.\\\\\
 \
- Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, gdje je $\\alpha=U[0.85, 0.99]$ i $U[a, b]$ nasumi\\v\{c\}no (uniformno) odabrana vrijednost iz segmenta [a, b]. Zatim, isti algoritam terminira nakon \\v\{s\}to ne uspije promijeniti rje\\v\{s\}enje za jedan obilazak svih grana odgovaraju\\'\{c\}e triangulacije.\\\\\
+ Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, gdje je $\\alpha=U[0.85, 0.99]$, a $U[a, b]$ nasumi\\v\{c\}no (uniformno) odabrana vrijednost iz zatvorenog intervala [a, b]. Zatim, isti algoritam terminira nakon \\v\{s\}to ne uspije promijeniti rje\\v\{s\}enje za jedan obilazak svih ivica odgovaraju\\'\{c\}e triangulacije.\\\\\
  \
  Za instance RI-15-* do RI-23-*, najlo\\v\{s\}ija, srednja i najbolja na\\dj\{\}ena kvaliteta (kao i standardna devijacija) algoritma Simuliranog Kaljenja, PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma su predstavljene u tabelama \\ref\{tab:sa\}, \\ref\{tab:pso\} i \\ref\{tab:iabc\} i iste mogu biti upore\\dj\{\}ene sa njihovim optimalnim vrijednostima iz tabele \\ref\{tab:es\}.\
   Kao \\v\{s\}to mo\\v\{z\}emo vidjeti u tabelama \\ref\{tab:es\} i \\ref\{tab:iabc\}, Unaprije\\dj\{\}eni ABC uspijeva na\\'\{c\}i optimum u gotovo svakom izvr\\v\{s\}avanju.\
-  Tako\\dj\{\}er, za sve instance Unaprije\\dj\{\}eni ABC nalazi optimum mnogo br\\v\{z\}e od algoritma iscrpne pretrage (tabela \\ref\{tab:es\}).\\\\\
+  Tako\\dj\{\}er, za sve instance, Unaprije\\dj\{\}eni ABC nalazi optimum mnogo br\\v\{z\}e od algoritma iscrpne pretrage (tabela \\ref\{tab:es\}).\\\\\
   Primijetimo jo\\v\{s\} da se algoritam Simuliranog Kaljenja zaglavljuje u lokalnim optimumima (RI-15-3, RI-17-2, and RI-18- 5), \\v\{s\}to je rijedak slu\\v\{c\}aj kod PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma.\
-  Me\\dj\{\}utim, Unaprije\\dj\{\}eni ABC je ubjedljivo najstabilniji.\
+  Me\\dj\{\}utim, Unaprije\\dj\{\}eni ABC je daleko najstabilniji.\
   \
-Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix A\} statistiku koja nam daje uvid u diverzitet kvaliteta agenata svakog navedenog populacijskog algoritma.\
+Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix A.\} statistiku koja nam daje uvid u diverzitet kvaliteta agenata svakog navedenog populacijskog algoritma.\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprije\\dj\{\}eni ABC (vremena izvr\\v\{s\}avanja)\}\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
         							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 27.39 & 0.83 \\\\	 \
@@ -1060,7 +1061,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
         							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
         \\hline\
         RI-18-3 & 2023911 & 408.30 & 1.07 \\\\\
@@ -1094,7 +1095,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
         							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
     	\\rowcolor\{black!20\}[0pt][0pt] RI-22-2 & 1820994 & 3626.20 & 1.38 \\\\\
         RI-22-3 & 1755667 & 4961.50 & 1.33 \\\\\
@@ -1109,14 +1110,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
   	\\end\{tabular\}\
-  \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprije\\dj\{\}eni ABC (vremena izvr\\v\{s\}avanja)\}\
   \\label\{tab:es\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Prosje\\v\{c\}ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
         							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2114203 & 2111182 & 1251 \\\\	 \
@@ -1129,7 +1130,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
         							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
         RI-16-1 & 1559225 & 1546841 & 2426 \\\\ \
@@ -1158,14 +1159,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Prosje\\v\{c\}ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:sa\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
@@ -1196,7 +1197,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
         RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
@@ -1208,14 +1209,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:pso\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija Unaprije\\dj\{\}enog ABC algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
   		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
@@ -1235,7 +1236,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
         \\hline\
     	RI-18-2 & 2696259 & 2696259 & 2696259 & 0 \\\\\
@@ -1258,14 +1259,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija Unaprije\\dj\{\}enog ABC algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:iabc\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja PSO algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
         \\hline\
   		RI-40-1 & 3981324 & 3981181 & 3981057 & 133 & 3.31 \\\\\
@@ -1295,7 +1296,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
     	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 7306872 & 7265242 & 7217500 & 24216 & 15.36 \\\\\
         RI-160-3 & 5836311 & 5777325 & 5735756 & 19735 & 16.06 \\\\\
@@ -1304,14 +1305,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja PSO algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:pso\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
         \\hline\
   		RI-40-1 & 4431309 & 4357694 & 4267981 & 43137 & 1.34 \\\\\
@@ -1327,7 +1328,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
         \\hline\
   		RI-80-1 & 6756000 & 6716741 & 6649771 & 31206 & 3.02 \\\\\
@@ -1350,14 +1351,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:abc\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja Unaprije\\dj\{\}enog ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
         \\hline\
   		RI-40-1 & 3981057 & 3981057 & 3981057 & 0 & 2.78 \\\\\
@@ -1385,7 +1386,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\begin\{table\}\
 	\\centering\
   	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
         \\hline\
   		RI-160-1 & 5954060 & 5938211 & 5924450 & 6793 & 23.23 \\\\\
@@ -1396,14 +1397,14 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja Unaprije\\dj\{\}enog ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanim instancama.\}\
   	\\label\{tab:iabc\}\
 \\end\{table\}\
 \
 \\begin\{table\}\
 	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji Theil indeks i standardna devijacija istog za PSO, ABC i Unaprije\\dj\{\}eni ABC algoritam u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranom instancom od 160 ta\\v\{c\}aka.\}\
   	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
-      	\\multirow\{2\}\{*\}\{\\emph\{Generisana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix A)\}\} \\\\\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix A)\}\} \\\\\
         							 & \\emph\{Najlo\\v\{s\}iji t-idx.\} & \\emph\{Prosje\\v\{c\}ni t-idx.\} & \\emph\{Najbolji t-idx.\}& \\emph\{SD\} \\\\\
         \\hline\
   		RI-160-6 (PSO) & $3.61 \\times 10^\{-6\}$ & $6.42 \\times 10^\{-7\}$ & $1.81 \\times 10^\{-7\}$ & $6.54 \\times 10^\{-7\}$ \\\\\
@@ -1412,7 +1413,6 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
         \\bottomrule\
     	\\hline\
         \\end\{tabular\}\
-        \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji Theil indeks i standardna devijacija istog za PSO, ABC i Unaprije\\dj\{\}eni ABC algoritam u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generisanom instancom od 160 ta\\v\{c\}aka.\}\
   	\\label\{tab:tidx\}\
 \\end\{table\}\
 \
@@ -1422,7 +1422,7 @@ Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix 
 \\section\{Appendix A: Theil indeks\}\
 Theil indeks je statistika koja se primarno koristila za mjerenje ekonomske nejednakosti me\\dj\{\}u ljudima kao i drugih ekonomskih fenomena.\
 Mo\\v\{z\}e predstavljati mjeru redundancije, nedostatak razli\\v\{c\}itosti, izolaciju, segregaciju, razne nejednakosti, i druge sli\\v\{c\}ne statistike. Predlo\\v\{z\}ena je od strane Henri Theil-a, stru\\v\{c\}njaka ekonometrije sa \\textit\{Erasmus University Rotterdam\}-a.\\\\\
-Pored navedenih aplikacija u ekonomiji, Theil indeks nalazi primjenu i u drugim oblastima kao \\v\{s\}to je mjerenje performansi sistema navodnjavanja\\cite\{rajansampath\}, te mjerenja raznih pokazatelja u kompjuterskim naukama\\cite\{serebrenikvandenbrand\}.\\\\\
+Pored navedenih aplikacija u ekonomiji, Theil indeks nalazi primjenu i u drugim oblastima, kao \\v\{s\}to je mjerenje performansi sistema navodnjavanja \\cite\{rajansampath\}, te mjerenja raznih pokazatelja u kompjuterskim naukama \\cite\{serebrenikvandenbrand\}.\\\\\
 \
 Za populaciju od $N$ agenata kvalitete (ili neke druge karakteristike) $x$, takvih da je $x_i$ kvaliteta (karakteristika) agenta $i$, $i = \\overline\{1, N\}$, odgovaraju\\'\{c\}i Theil indeks se ra\\v\{c\}una kao:\
 \
@@ -1444,7 +1444,7 @@ $$\\displaystyle C=\\left\\\{\\theta _\{0\}u_\{0\}+\\dots +\\theta _\{k\}u_\{k\}
 \
 Dakle, $2$-simpleks odgovara trouglu u ravni, $3$-simpleks odgovara tetraedru, $4$-simpleks odgovara pentakoronu (hiperpiramidi) i tako dalje.\\\\\
 Ta\\v\{c\}ka se smatra $0$-simpleksom, a linijski segment $1$-simpleksom.\\\\\
-Simpleks se jo\\v\{s\} defini\\v\{s\}e i kao najmanji konveksni skup koji sadr\\v\{z\}i date ta\\v\{c\}ke.\\\\\
+Simpleks se jo\\v\{s\} definira kao najmanji konveksni skup koji sadr\\v\{z\}i date ta\\v\{c\}ke.\\\\\
 \
 Pravilan simpleks\\cite\{elte\} je simpleks koji odgovara pravilnom politopu.\
 \
@@ -1453,17 +1453,17 @@ Pravilan simpleks\\cite\{elte\} je simpleks koji odgovara pravilnom politopu.\
 Ve\\'\{c\}ina problema se mo\\v\{z\}e formulisati u kontekstu prostora pretrage (ili prostora svih rje\\v\{s\}enja) i ciljnog rje\\v\{s\}enja datog problema.\
 Na primjer, za problem trgova\\v\{c\}kog putnika, prostor pretrage bi bili svi mogu\\'\{c\}i ciklusi za zadani graf, dok bi ciljno rje\\v\{s\}enje odgovaralo onom ciklusu koji je najkra\\'\{c\}i.\\\\\
 \
-Algoritam lokalne pretrage zahtijeva poznavanje barem jednog (bilo kojeg) rje\\v\{s\}enja iz prostora pretrage iz kojeg nastavlja iterativno obila\\v\{z\}enje susjednih rje\\v\{s\}enja istog.\
+Algoritam lokalne pretrage zahtijeva poznavanje barem jednog (bilo kojeg) rje\\v\{s\}enja iz prostora pretrage iz kojeg nastavlja iterativno obila\\v\{z\}enje susjednih rje\\v\{s\}enja.\
 Naravno, ovo je izvr\\v\{s\}ivo tek ukoliko postoji na\\v\{c\}in za nala\\v\{z\}enje (obila\\v\{z\}enje) susjednih (ili bar jednog susjednog) rje\\v\{s\}enja.\
-Na primjer, susjedno rje\\v\{s\}enje jednog rje\\v\{s\}enja (ili u ovom slu\\v\{c\}aju jedne interpretacije) SAT problema bi bilo rje\\v\{s\}enje (interpretacija) koje se od istog razlikuje po samo jednoj varijabli.\\\\\
+Na primjer, susjedno rje\\v\{s\}enje jednog rje\\v\{s\}enja (ili u ovom slu\\v\{c\}aju jedne interpretacije) SAT problema, bilo bi rje\\v\{s\}enje (interpretacija) koje se od istog razlikuje po samo jednoj varijabli.\\\\\
 \
-Primijetimo da je za algoritam lokalne pretrage dovoljno da "vidi" (nalazi) barem jedno susjedno rje\\v\{s\}enje trenutnog rje\\v\{s\}enja koje obilazi. Odatle i dobija ime "Lokalna" pretraga, jer u svakoj iteraciji (uglavnom) obuhvata tek mali dio cijelog prostora pretrage.\\\\\
-Kada pri izboru susjednih rje\\v\{s\}enja vr\\v\{s\}imo restrikciju na odabir samo onih rje\\v\{s\}enja bolje kvalitete, tada govorimo o varijaciji Lokalne pretrage koja se zove Pretra\\v\{z\}ivanje usponom.\\\\\
-Ukoliko tokom Pretra\\v\{z\}ivanja usponom nismo u mogu\\'\{c\}nosti da na\\dj\{\}emo rje\\v\{s\}enje bolje ili iste kvalitete (to jeste, sva susjeda rje\\v\{s\}enja su isklju\\v\{c\}ivo lo\\v\{s\}ije kvalitete), ka\\v\{z\}emo da je algoritam dostigao lokalni optimum.\\\\\
-Postoje razni na\\v\{c\}ini za izlazak iz lokalnih optimuma\\footnote\{Nerijetko se javlja potreba za izlaskom iz lokalnog optimuma, jer ne mora nu\\v\{z\}no zna\\v\{c\}iti da je lokalni optimum ujedno i globalni optimum.\}. Neki od njih su ponudjeni u varijacijama metaheuristike Lokalne pretrage kao \\v\{s\}to su "Random restart" pretra\\v\{z\}ivanje usponom ili pak Simulirano Kaljenje.\\\\\
+Primijetimo da je za algoritam lokalne pretrage dovoljno da "vidi" (nalazi) barem jedno susjedno rje\\v\{s\}enje trenutnog rje\\v\{s\}enja koje obilazi. Odatle i dobija ime "lokalna" pretraga, jer u svakoj iteraciji (uglavnom) obuhvata tek mali dio cijelog prostora pretrage.\\\\\
+Kada pri izboru susjednih rje\\v\{s\}enja vr\\v\{s\}imo restrikciju na odabir samo onih rje\\v\{s\}enja bolje kvalitete, tada govorimo o varijaciji lokalne pretrage, koja se zove Pretra\\v\{z\}ivanje usponom.\\\\\
+Ukoliko tokom pretra\\v\{z\}ivanja usponom nismo u mogu\\'\{c\}nosti da na\\dj\{\}emo rje\\v\{s\}enje bolje ili iste kvalitete (to jeste, sva susjeda rje\\v\{s\}enja su isklju\\v\{c\}ivo lo\\v\{s\}ije kvalitete), ka\\v\{z\}emo da je algoritam dostigao lokalni optimum.\
+Postoje razni na\\v\{c\}ini za izlazak iz lokalnih optimuma\\footnote\{Nerijetko se javlja potreba za izlaskom iz lokalnog optimuma, jer ne mora nu\\v\{z\}no zna\\v\{c\}iti da je lokalni optimum ujedno i globalni optimum.\}. Neki od njih su ponu\\dj\{\}eni u varijacijama metaheuristike Lokalne pretrage, kao \\v\{s\}to su "Random restart" pretra\\v\{z\}ivanje usponom ili pak simulirano kaljenje.\\\\\
 \
-Algoritam Lokalne pretrage se mo\\v\{z\}e zavr\\v\{s\}iti nakon prethodno odre\\dj\{\}enog broja izvr\\v\{s\}enih iteracija ili nakon \\v\{s\}to trenutno rje\\v\{s\}enje ne uspijeva biti promijenjeno nakon, prethodno, odre\\dj\{\}enog broja koraka.\\\\\
-Na kraju, ova metaheuristika spada u "anytime" algoritme. Dakle ista vra\\'\{c\}a validno, ne nu\\v\{z\}no optimalno, rje\\v\{s\}enje u bilo kom trenutku zaustavljanja.\
+Algoritam lokalne pretrage se mo\\v\{z\}e zavr\\v\{s\}iti nakon prethodno odre\\dj\{\}enog broja izvr\\v\{s\}enih iteracija ili nakon \\v\{s\}to trenutno rje\\v\{s\}enje ne uspijeva biti promijenjeno nakon, prethodno, odre\\dj\{\}enog broja koraka.\\\\\
+Na kraju, ova metaheuristika spada u "anytime" algoritme. Dakle, ista vra\\'\{c\}a validno, ne nu\\v\{z\}no optimalno, rje\\v\{s\}enje u bilo kom trenutku zaustavljanja.\
 \
  \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
     \\bibliography\{...\}\
