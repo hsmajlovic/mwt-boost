@@ -663,8 +663,6 @@ Eksperimentalna analiza je pokazla da koriste\\'\{c\}i memoizaciju za ubrzanje r
 \
 U trenutku pisanja ovog rada, najbr\\v\{z\}i algoritam iscrpne pretrage za nala\\v\{z\}enje minimalne te\\v\{z\}inske triangulacije koristi upravo metodu dinami\\v\{c\}kog programiranja i dose\\v\{z\}e subeksponencijalnu kompleksnost $2^\{O(\\sqrt\{n\}\\log n)\}$. Radi se o algoritmu kojeg je 1998. godine predstavio prof. Lingas u svom radu \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}\\cite\{lingas\}.\
 \
-\\pagebreak\
-\
 \\begin\{remy\}\
 Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati u tabeli \\ref\{tab:es\}\
 \\end\{remy\}\
@@ -684,48 +682,51 @@ Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igd
 Ogledno se pokazalo da, osim broja ta\\v\{c\}aka, niti jedan od navedenih parametara ne uti\\v\{c\}e zna\\v\{c\}ajno na performanse primijenjenih algoritama.\
 \
 \
-\\chapter\{Prvi metaheuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
+\\chapter\{Metaheuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
 \
-Metaheuristi\\v\{c\}ki algoritmi\\cite\{gloversorensen\} \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja ostavljamo isklju\\v\{c\}ivo ovoj temi.\
-Po\\v\{c\}injemo sa popularnom varijacijom lokalne pretrage, metodom pretra\\v\{z\}ivanja usponom (Hill Climbing), a zatim nastavljamo sa jednako poznatom metaheuristikom, Simulirano Kaljenje (Simulated Annealing). No prije nego prezenitiramo na\\v\{s\}e adaptacije navedenih metoda na MWT, recimo ne\\v\{s\}to navedenoj heuristici i navedenoj metaheuristici u op\\v\{s\}tem.\
+Metaheuristi\\v\{c\}ki algoritmi\\cite\{gloversorensen\} \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja posve\\'\{c\}ujemo isklju\\v\{c\}ivo ovoj temi.\
+Po\\v\{c\}injemo sa popularnom varijacijom lokalne pretrage, metodom pretra\\v\{z\}ivanja usponom (\\textit\{eng. Hill Climbing\}), a zatim nastavljamo sa jednako poznatom metaheuristikom, Simulirano Kaljenje (\\textit\{eng. Simulated Annealing, SA\}). No prije nego prezenitiramo na\\v\{s\}e adaptacije navedenih metoda na MWT problem, recimo generalno ne\\v\{s\}to vi\\v\{s\}e o navedenim metaheuristikama.\
 \
 \
-\\section\{Pretra\\v\{z\}ivanje usponom (Hill Climbing)\} \\label\{ch:hc\}\
+\\section\{Pretra\\v\{z\}ivanje usponom\} \\label\{ch:hc\}\
 \
-Pretra\\v\{z\}ivanje usponom je optimizaciona metoda koja se zasniva na pretra\\v\{z\}ivanju prostora rje\\v\{s\}enja problema\\footnote\{Pretra\\v\{z\}ivanje prostora rje\\v\{s\}enja problema ili drugim nazivom lokalna pretraga (Local Search) je popularna optimizaciona tehnika koja se sastoji u sljede\\'\{c\}em. Najprije je potrebno prona\\'\{c\}i jedno, bilo koje (dakle ne nu\\v\{z\}no optimalno) rje\\v\{s\}enje problema. Zatim se na proizvoljan na\\v\{c\}in vr\\v\{s\}i obilazak rje\\v\{s\}enja oko prona\\dj\{\}enog (po\\v\{c\}etnog rje\\v\{s\}enja) te se na taj na\\v\{c\}in inkrementalno pretra\\v\{z\}uje prostor rje\\v\{s\}enja datog problema u nadi za nala\\v\{z\}enje \\v\{s\}to kvalitetnijeg rje\\v\{s\}enja. Detaljnije o lokalnoj pretrazi u Appendix-u C.\} na na\\v\{c\}in da svako sljede\\'\{c\}e na\\dj\{\}eno rje\\v\{s\}enje (tokom pretrage) mora biti iste ili bolje (ili striktno bolje) kvalitete od prethodnog rje\\v\{s\}enja. Kao i za svaki algoritam iz porodice algoritama lokalne pretrage, tri uslova su potrebna i dovoljna za implementaciju Hill Climbing algoritma. To su redom:\
+Pretra\\v\{z\}ivanje usponom je optimizaciona metoda koja se zasniva na pretra\\v\{z\}ivanju prostora rje\\v\{s\}enja nekog problema\\footnote\{Pretra\\v\{z\}ivanje prostora rje\\v\{s\}enja odre\\dj\{\}enog problema ili drugim rije\\v\{c\}ima lokalna pretraga (\\textit\{eng. Local Search\}) je popularna optimizaciona tehnika koja se sastoji u sljede\\'\{c\}em. Najprije je potrebno prona\\'\{c\}i jedno, bilo koje (dakle ne nu\\v\{z\}no optimalno) rje\\v\{s\}enje problema. Zatim se na proizvoljan na\\v\{c\}in vr\\v\{s\}i obilazak rje\\v\{s\}enja oko prona\\dj\{\}enog (po\\v\{c\}etnog rje\\v\{s\}enja), te se na taj na\\v\{c\}in inkrementalno pretra\\v\{z\}uje prostor rje\\v\{s\}enja datog problema u nadi pronalaska \\v\{s\}to kvalitetnijeg rje\\v\{s\}enja. Detaljnije o lokalnoj pretrazi se mo\\v\{z\}e na\\'\{c\}i u Appendix-u C ovog rada.\}, na na\\v\{c\}in da svako sljede\\'\{c\}e na\\dj\{\}eno rje\\v\{s\}enje (tokom pretrage) mora biti iste ili bolje (ili striktno bolje) kvalitete od prethodnog rje\\v\{s\}enja. Kao i za svaki algoritam iz porodice algoritama lokalne pretrage, tri uslova su potrebna i dovoljna za implementaciju ove metode, odnosno Hill Climbing algoritma. To su redom:\
 \
 \\begin\{itemize\}\
-\\item Postojanje na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete bilo kojeg rje\\v\{s\}enja iz prostora pretrage\
-\\item Postojanje na\\v\{c\}ina nala\\v\{z\}enja susjednih rje\\v\{s\}enja bilo kojeg rje\\v\{s\}enja iz prostora pretrage\
-\\item Postojanje na\\v\{c\}ina za nala\\v\{z\}enje barem jednog rje\\v\{s\}enja unutar prostora pretrage\
+\\item Postojanje na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete bilo kojeg rje\\v\{s\}enja iz prostora pretrage;\
+\\item Postojanje na\\v\{c\}ina nala\\v\{z\}enja susjednih rje\\v\{s\}enja bilo kojeg rje\\v\{s\}enja iz prostora pretrage;\
+\\item Postojanje na\\v\{c\}ina za nala\\v\{z\}enje barem jednog rje\\v\{s\}enja unutar prostora pretrage.\
 \\end\{itemize\}\
 \
 U\\v\{c\}inkovitost Hill Climbing algoritma ovisi o u\\v\{c\}inkovitosti sve tri navedene operacije i to ponajvi\\v\{s\}e o u\\v\{c\}inkovitosti prve dvije.\\\\\
 \
-U zavisnosti od na\\v\{c\}ina na koji nalazimo susjedna rje\\v\{s\}enja, razlikujemo tri varijacije pretra\\v\{z\}ivanja usponom.\
+U zavisnosti od na\\v\{c\}ina na koji nalazimo susjedna rje\\v\{s\}enja, razlikujemo tri varijacije pretra\\v\{z\}ivanja usponom:\
 \
 \\begin\{itemize\}\
-\\item Pretra\\v\{z\}ivanje usponom prvog izbora (First choice Hill Climbing)\
-\\item Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom (Stochastic Hill Climbing)\
-\\item Pohlepno pretra\\v\{z\}ivanje usponom (Greedy Hill Climbing)\
+\\item Pretra\\v\{z\}ivanje usponom prvog izbora (\\textit\{eng. First choice Hill Climbing\});\
+\\item Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom (\\textit\{eng. Stochastic Hill Climbing\});\
+\\item Pohlepno pretra\\v\{z\}ivanje usponom (\\textit\{eng. Greedy Hill Climbing\}).\
 \\end\{itemize\}\
 \
-Kao i svaki algoritam iz porodice metaheuristike lokalne pretrage, Hill Climbing po\\v\{c\}inje pretragu prostora rje\\v\{s\}nja od po\\v\{c\}etnog rje\\v\{s\}enja (rje\\v\{s\}enja \\v\{c\}ije postojanje smo naveli kao eliminatoran uslov za mogu\\'\{c\}nost izvr\\v\{s\}avanja lokalne pretrage). Pretra\\v\{z\}ivanje usponom prvog izbora nastavlja pretragu prostora na na\\v\{c\}in da obilazi susjedna rje\\v\{s\}enja po\\v\{c\}etnog rje\\v\{s\}enja dok ne prona\\dj\{\}e prvo rje\\v\{s\}enje bolje kvalitete od istog. Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, te bira nasumi\\v\{c\}no jedno od na\\dj\{\}enih rje\\v\{s\}enja koje je boljeg kvaliteta od trenutnog. Pohlepno pretra\\v\{z\}ivanje usponom nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, kao i stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, te me\\dj\{\}u na\\dj\{\}enim rje\\v\{s\}enjima bira ono najboljeg kvaliteta. Nakon odabira narednog rje\\v\{s\}enja, svaki od navedenih algoritama ponavlja istu proceduru nad odabranim rje\\v\{s\}enjem. Proces se nastavlja sve dok me\\dj\{\}u susjednim rje\\v\{s\}enjima postoji rje\\v\{s\}enje boljeg kvaliteta. U slu\\v\{c\}aju da ne postoji rje\\v\{s\}enje boljeg kvaliteta me\\dj\{\}u susjednim rje\\v\{s\}enjima, algoritam zavr\\v\{s\}ava i ka\\v\{z\}emo da je prona\\v\{s\}ao lokalni\\footnote\{Appendix C\} optimum.\
+Kao i svaki algoritam iz porodice metaheuristika za potrebe lokalne pretrage, Hill Climbing algoritam po\\v\{c\}inje pretragu prostora rje\\v\{s\}nja od po\\v\{c\}etnog rje\\v\{s\}enja (rje\\v\{s\}enja \\v\{c\}ije postojanje smo naveli kao eliminatoran uslov za mogu\\'\{c\}nost izvr\\v\{s\}avanja lokalne pretrage).\\\\\
+\\textbf\{Pretra\\v\{z\}ivanje usponom prvog izbora\} nastavlja pretragu prostora na na\\v\{c\}in da obilazi susjedna rje\\v\{s\}enja po\\v\{c\}etnog rje\\v\{s\}enja, sve dok ne prona\\dj\{\}e prvo rje\\v\{s\}enje bolje kvalitete od tog rje\\v\{s\}enja.\\\\\
+\\textbf\{Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom\} nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, te bira nasumi\\v\{c\}no jedno od na\\dj\{\}enih rje\\v\{s\}enja koje je boljeg kvaliteta od trenutnog.\\\\\
+\\textbf\{Pohlepno pretra\\v\{z\}ivanje usponom\} nastavlja pretragu obilaze\\'\{c\}i sva susjedna rje\\v\{s\}enja, kao i stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, te me\\dj\{\}u na\\dj\{\}enim rje\\v\{s\}enjima bira ono najbolje kvalitete. Nakon odabira narednog rje\\v\{s\}enja, svaki od navedenih algoritama ponavlja istu proceduru nad odabranim rje\\v\{s\}enjem. Proces se nastavlja sve dok me\\dj\{\}u susjednim rje\\v\{s\}enjima postoji rje\\v\{s\}enje boljeg kvaliteta. U slu\\v\{c\}aju da ne postoji rje\\v\{s\}enje boljeg kvaliteta me\\dj\{\}u susjednim rje\\v\{s\}enjima, algoritam zavr\\v\{s\}ava sa najboljim prona\\dj\{\}enim lokalnim optimumom\\footnote\{Appendix C\}.\
 \
-\\section\{Simulirano kaljenje (Simulated Annealing)\}\
+\\section\{Simulirano kaljenje\}\
 \
-Hill Climbing metoda, kao takva, nalazi najbli\\v\{z\}i (ili jedan od najbli\\v\{z\}ih) lokalni optimum, koji mo\\v\{z\}e ali ne mora nu\\v\{z\}no biti i globalni optimum. S druge strane, ukoliko bismo susjedna rje\\v\{s\}enja birali nasumi\\v\{c\}no prilikom svake iteracije algoritma lokalne pretrage\\footnote\{Ovakav algoritam lokalne pretrage se naziva "nasumi\\v\{c\}na \\v\{s\}etnja" (\\textit\{en. Random walk\}).\}, eventualni obilazak globalnog optimuma bi bio zagarantovan. No problem nasumi\\v\{c\}ne \\v\{s\}etnje je \\v\{s\}to je ona nerijetko neu\\v\{c\}inkovita i prakti\\v\{c\}no beskorisna.\\\\\
-Algoritam koji kombinuje pretra\\v\{z\}ivanje usponom i nasumi\\v\{c\}nu \\v\{s\}etnju se naziva Simulirano Kaljenje (Simulated Annealing). Naime, ideja je vrlo jednostavna. Po\\v\{c\}injemo lokalnu pretragu od po\\v\{c\}etnog rje\\v\{s\}enja, kao i ina\\v\{c\}e. Zatim nasumi\\v\{c\}no biramo neko (bilo koje) susjedno rje\\v\{s\}enje i ukoliko je ono bolje kvalitete, ponavljamo isti proces (nastavljamo pretragu) nad novoodabranim rje\\v\{s\}enjem. Me\\dj\{\}utim, ukoliko odabrano rje\\v\{s\}enje nije bolje kvalitete, ostavljamo mogu\\'\{c\}nost da sa odre\\dj\{\}enom vjerovatno\\'\{c\}om to rje\\v\{s\}enje ipak bude izabrano kao sljede\\'\{c\}e rje\\v\{s\}enje (rje\\v\{s\}enje od kojeg nastavljamo pretragu) na\\v\{s\}e lokalne ptretrage.\\\\\
-Ideja je da pomenuta vjerovatno\\'\{c\}a, kojom biramo rje\\v\{s\}enje lo\\v\{s\}ije kvalitete, bude velika ispo\\v\{c\}etka, te da se smanjuje u svakoj iteraciji algoritma.\
+Hill Climbing metoda, kao takva, nalazi najbli\\v\{z\}i (ili jedan od najbli\\v\{z\}ih) lokalni optimum, koji mo\\v\{z\}e ali ne mora nu\\v\{z\}no biti i globalni optimum. S druge strane, ukoliko bismo susjedna rje\\v\{s\}enja birali nasumi\\v\{c\}no prilikom svake iteracije algoritma lokalne pretrage\\footnote\{Ovakav algoritam lokalne pretrage se naziva "nasumi\\v\{c\}na \\v\{s\}etnja" (\\textit\{eng. Random walk\}).\}, eventualni obilazak globalnog optimuma bi bio zagarantovan. No, problem nasumi\\v\{c\}ne \\v\{s\}etnje je \\v\{s\}to je ona nerijetko neu\\v\{c\}inkovita i prakti\\v\{c\}no beskorisna.\\\\\
+Algoritam koji kombinuje pretra\\v\{z\}ivanje usponom i nasumi\\v\{c\}nu \\v\{s\}etnju se naziva Simulirano Kaljenje (\\textit\{eng. Simulated Annealing\}). Naime, ideja ove metode je vrlo jednostavna. Po\\v\{c\}injemo lokalnu pretragu od po\\v\{c\}etnog rje\\v\{s\}enja, kao i ina\\v\{c\}e. Zatim nasumi\\v\{c\}no biramo neko (bilo koje) susjedno rje\\v\{s\}enje i ukoliko je ono bolje kvalitete, ponavljamo isti proces (nastavljamo pretragu) nad novoodabranim rje\\v\{s\}enjem. Me\\dj\{\}utim, ukoliko odabrano rje\\v\{s\}enje nije bolje kvalitete, ostavlja se mogu\\'\{c\}nost da sa odre\\dj\{\}enom vjerovatno\\'\{c\}om to rje\\v\{s\}enje ipak bude izabrano kao sljede\\'\{c\}e rje\\v\{s\}enje (rje\\v\{s\}enje od kojeg nastavljamo pretragu) lokalne ptretrage.\\\\\
+Ideja je da pomenuta vjerovatno\\'\{c\}a, kojom biramo rje\\v\{s\}enje slabije kvalitete, bude na po\\v\{c\}etku velika, te da se smanjuje u svakoj narednoj iteraciji algoritma.\
 \\pagebreak\
 \
 \\begin\{algorithm\}\
-  	\\caption\{\\textbf\{SIMULIRANO-KALJENJE\\cite\{russellnorvig\}:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}^\{+\}$)\}\
+  	\\caption\{\\textbf\{SIMULIRANO-KALJENJE\\cite\{russellnorvig\}:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}_0^\{+\}$)\}\
   	\\begin\{algorithmic\}[1]\
 		\\State - Prona\\dj\{\}i jedno (bilo koje) rje\\v\{s\}enje od $P$ (trenutno-rjesenje)\
         \\For\{t = 1 to $\\infty$\}\
         	\\State T = izracunaj-temperaturu(t)\
-            \\If\{$T \\leq 0$\} \\Return trenutno-rjesenje \\EndIf\
+            \\If\{$T = 0$\} \\Return trenutno-rjesenje \\EndIf\
             \\State - Nasumi\\v\{c\}no odaberi rje\\v\{s\}enje susjedno rje\\v\{s\}enju trenutno-rjesenje (susjedno-rjesenje)\
             \\State $\\Delta$ = susjedno-rjesenje.KVALITETA - trenutno-rjesenje.KVALITETA\\footnotemark\
             \\If\{$\\Delta \\geq 0$\}\
@@ -736,45 +737,46 @@ Ideja je da pomenuta vjerovatno\\'\{c\}a, kojom biramo rje\\v\{s\}enje lo\\v\{s\
         \\EndFor\
 	\\end\{algorithmic\}\
 \\end\{algorithm\}\
-\\footnotetext\{Zarad lak\\v\{s\}e interpretacije algoritma, uzmimo da je rje\\v\{s\}enje A bolje od rje\\v\{s\}enja B akko je vrijednost koja odgovara kvaliteti rje\\v\{s\}enja A (A.KVALITETA) ve\\'\{c\}a od vrijednosti koja odgovara kvaliteti rje\\v\{s\}enja B (B.KVALITETA).\}\
+\\footnotetext\{Zarad lak\\v\{s\}e interpretacije algoritma, uzmimo da je rje\\v\{s\}enje A bolje kvalitete od rje\\v\{s\}enja B \\textbf\{akko\} je vrijednost koja odgovara kvaliteti rje\\v\{s\}enja A (A.KVALITETA) ve\\'\{c\}a od vrijednosti koja odgovara kvaliteti rje\\v\{s\}enja B (B.KVALITETA).\}\
 \
-Funkcija \\textit\{izracunaj-temperaturu\} je proizvoljna opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}^\{+\}$ koja se \\v\{c\}esto a\\v\{z\}urira kroz ogled sa ciljem pronalaska rje\\v\{s\}enja \\v\{s\}to bolje kvalitete u \\v\{s\}to kra\\'\{c\}em vremenu.\
+Funkcija \\textit\{izracunaj-temperaturu\} je proizvoljna opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}^\{+\}$, koja se \\v\{c\}esto a\\v\{z\}urira kroz ogled sa ciljem pronalaska \\v\{s\}to boljeg rje\\v\{s\}enja u \\v\{s\}to kra\\'\{c\}em vremenu.\
 \
 Dakle $T$ opada kroz izvr\\v\{s\}avanje algoritma. Tako\\dj\{\}er, vjerovatno\\'\{c\}a $e^\{\\frac\{\\Delta\}\{T\}\}$ opada zajedno sa $T$, s obzirom da je $\\Delta < 0$ kada je susjedno rje\\v\{s\}enje lo\\v\{s\}ije kvalitete, pa samim tim i frekvencija prelazaka na susjedna rje\\v\{s\}enja lo\\v\{s\}ije kvalitete opada kroz izvr\\v\{s\}avanje algoritma.\\\\\
-Prvi put iskori\\v\{s\}teno 1980-te godine za optimiziranje VLSI procesa\\footnote\{Very-large-scale integration (VLSI) je proces sastavljanja integrisanog kola kombinovanjem na hiljade tranzistora u jedan \\v\{c\}ip.\}, simulirano kaljenje uzima inspiraciju iz prirodne pojave koju izaziva proces kaljenja metala (ili stakla) u kojem se metal (ili staklo) zagrijava na visoku temperaturu, te se polahko hladi i tim procesom ja\\v\{c\}a.\
+Simulirano kaljenje je prvi put iskori\\v\{s\}teno 1980-te godine za potrebe optimiziranja VLSI procesa\\footnote\{Very-large-scale integration (VLSI) je proces sastavljanja integrisanog kola kombinovanjem na hiljade tranzistora u jedan \\v\{c\}ip.\}. Inspiracija za pisanje ovog algoritma crpi korijene iz prirodne pojave koju izaziva proces kaljenja metala ili stakla u kojem se metal ili staklo zagrijava na visoku temperaturu, te se polahko hladi, te tim procesom ja\\v\{c\}a.\
 \
-\\section\{Metoda Pretra\\v\{z\}ivanja Usponom adaptirana MWT problemu\} \\label\{ch:mwthc\}\
+\\section\{Metoda pretra\\v\{z\}ivanja usponom adaptirana za rje\\v\{s\}avanje MWT problema\} \\label\{ch:mwthc\}\
 \
 Kazali smo da su ta\\v\{c\}no tri uslova potrebna i dovoljna za implementaciju metode pretra\\v\{z\}ivanja usponom nad bilo kojim problemom. No, pored pukog postojanja svakog od navedena tri uslova, ili svake od navedene tri operacije, vrlo je va\\v\{z\}no da iste budu efikasne u kontekstu vremena izvr\\v\{s\}avanja. U nastavku navodimo ideje iskori\\v\{s\}tene za implementaciju sva tri pomenuta uslova.\\pagebreak\
 \
 \\begin\{itemize\}\
   \\item \\underline\{Izra\\v\{c\}unavanje kvalitete jednog rje\\v\{s\}enja.\}\
   \
-    Ideja koja stoji iza implementacije ovog uslova za MWT problem je prirodna.\\\\\
-    Ta\\v\{c\}nije, ista proizilazi iz same definicije problema. Naime, za nalazak kvalitete jednog 	rje\\v\{s\}enja je dovoljno sabrati sve te\\v\{z\}ine triangulacije istog\\footnote\{Primijetimo da se u navedenom kontekstu triangulacija mo\\v\{z\}e poistovijetiti sa rje\\v\{s\}enjem. Dakle jedna triangulacija skupa ta\\v\{c\}aka jeste jedno rje\\v\{s\}enje navedenog problema nad istim skupom ta\\v\{c\}aka i obratno.\}. Te\\v\{z\}ine triangulacije mogu 	biti bilo kakve, ali naj\\v\{c\}e\\v\{s\}\\'\{c\}e odgovaraju nekoj metrici (npr. Euklidskoj). Ipak, ponajvi\\v\{s\}e 	zbog jednostavnosti, udaljenost izme\\dj\{\}u dvije ta\\v\{c\}ke u ravni se nerijetko (pa i u ovom 	radu), bez gubljenja op\\v\{s\}tosti, ra\\v\{c\}una kao kvadrirana Euklidova udaljenost\\footnote\{Primijetimo da kvadrirana euklidova udaljenost nije metrika, jer ne zadovoljava nejednakost trougla.\}.\\\\\
-      Vremenska kompleksnost navedenog na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete rje\\v\{s\}enja (triangulacije) skupa od $n$ ta\\v\{c\}aka u ravni iznosi $O(E)$, gdje je $E$ broj ivica ciljne triangulacije. \\v\{s\}to dalje, na osnovu posljedice \\ref\{cor:facesno\} odgovara $O(3n - 3 - b)$, gdje je $b$ broj ivica omota\\v\{c\}a triangulacije, \\v\{s\}to kona\\v\{c\}no odgovara $O(n)$.\
+    Ideja koja stoji iza implementacije ovog uslova za MWT problem je prirodna.\
+    Ta\\v\{c\}nije, ista proizilazi iz same definicije problema. Naime, za nalazak kvalitete jednog 	rje\\v\{s\}enja je dovoljno sabrati sve te\\v\{z\}ine triangulacije istog\\footnote\{Primijetimo da se u navedenom kontekstu triangulacija mo\\v\{z\}e poistovijetiti sa rje\\v\{s\}enjem. Dakle, jedna triangulacija skupa ta\\v\{c\}aka jeste jedno rje\\v\{s\}enje navedenog problema nad istim skupom ta\\v\{c\}aka i obrnuto.\}. Te\\v\{z\}ine triangulacije mogu 	biti bilo kakve, ali naj\\v\{c\}e\\v\{s\}\\'\{c\}e odgovaraju nekoj metrici (npr. Euklidskoj). Ipak, ponajvi\\v\{s\}e 	zbog jednostavnosti, udaljenost izme\\dj\{\}u dvije ta\\v\{c\}ke u ravni se nerijetko (pa i u ovom radu), bez umanjenja op\\'\{c\}enitosti, ra\\v\{c\}una kao kvadratna Euklidska udaljenost\\footnote\{Primijetimo da kvadratna Euklidova udaljenost nije metrika, jer ne zadovoljava nejednakost trougla.\}.\\\\\
+      Vremenska kompleksnost navedenog na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete rje\\v\{s\}enja (triangulacije) skupa od $n$ ta\\v\{c\}aka u ravni iznosi $O(E)$, gdje je $E$ broj ivica tra\\v\{z\}ene triangulacije, \\v\{s\}to dalje, na osnovu posljedice \\ref\{cor:facesno\} odgovara $O(3n - 3 - b)$, gdje je $b$ broj ivica omota\\v\{c\}a triangulacije, \\v\{s\}to kona\\v\{c\}no odgovara $O(n)$.\
 \
 \\item \\underline\{Nala\\v\{z\}enje susjednih rje\\v\{s\}enja\}\
   \
-    Operacija nala\\v\{z\}enja susjednih rje\\v\{s\}enja, kao i operacija izra\\v\{c\}unavanja kvaliteta rje\\v\{s\}enja, je operacija koja se naj\\v\{c\}e\\v\{s\}\\'\{c\}e koristi prilikom pretra\\v\{z\}ivanja usponom. Odatle 	je i vi\\v\{s\}e no po\\v\{z\}eljno da i jedna i druga operacija posjeduju \\v\{s\}to manju vremensku kompleksnost. Kao i kod prvog uslova, ideja koja stoji iza implementacije ovog koraka je, opet, prirodna. Naime, koristimo ve\\'\{c\} pomenutu \\textit\{edge-flip\} (poglavlje \\ref\{ch:edgeflipdelaunay\}) tehniku. \\\\\
-    No prije nego li nastavimo, uvedimo nekoliko konvencija. Svaka ivica triangulacije, pripada ili ne pripada konveksnom omota\\v\{c\}u iste. One koje pripadaju konveksnom omota\\v\{c\}u nazovimo \\textit\{vanjskim\}, a ostale \\textit\{unutra\\v\{s\}njim\} ivicama. Zatim, svaka \\textit\{unutra\\v\{s\}nja\} ivica dodiruje\\footnote\{Ivica koja "dodiruje" trougao \\v\{c\}ini jednu stranicu tog trougla.\} ta\\v\{c\}no dva trougla. Dva dodirna trougla mogu formirati konveksni ili nekonveksni \\v\{c\}etverougao zajedno. U slu\\v\{c\}aju da formiraju konveksni \\v\{c\}etverougao, ivicu 	koja ih spaja nazivamo \\textit\{preokretljivom\} (\\textit\{flippable\}), jer takvu ivicu mo\\v\{z\}emo zamijeniti 		suprotnom dijagonalom pomenutog konveksnog \\v\{c\}etverougla.\
-U slu\\v\{c\}aju da je te\\v\{z\}ina 	\\textit\{preokretljive\} ivice ve\\'\{c\}a od te\\v\{z\}ine njene suprotne dijagonale, tada tu ivicu nazivamo 		\\textit\{popravljivom\} (\\textit\{improvable\}).\
-    Uzev\\v\{s\}i u obzir navedene konvencije, primijetimo da je za nalazak svih susjednih rje\\v\{s\}enja dovoljno na\\'\{c\}i sve \\textit\{preokretljive\} ivice. Dok je za nalazak svih susjednih rje\\v\{s\}enja bolje kvalitete, dovoljno na\\'\{c\}i sve \\textit\{popravljive\} ivice. Dakle, iako imamo na\\v\{c\}in za izra\\v\{c\}unavanje 	kvalitete jednog rje\\v\{s\}enja, nije nam potreban prilikom tra\\v\{z\}enja susjednih rje\\v\{s\}enja bolje 	kvalitete, jer isto mo\\v\{z\}emo izra\\v\{c\}unati jednostavno ra\\v\{c\}unav\\v\{s\}i razliku te\\v\{z\}ina \\textit\{preokretljivih\} dijagonala i oduzimav\\v\{s\}i dobivenu razliku od kvalitete trenutnog rje\\v\{s\}enja.\\\\\
-    Provjeru da li je ivica \\textit\{preokretljiva\} mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Naime, dovoljno je 	da za svaku ivicu \\v\{c\}uvamo informaciju o dva trougla kojima pripada, ta\\v\{c\}nije, dovoljno 	je \\v\{c\}uvati informaciju o dvije ta\\v\{c\}ke sa kojima ivica formira dva trougla kojima pripada, 	jer svaka ivica je \\textit\{preokretljiva\} ako i samo ako sije\\v\{c\}e du\\v\{z\} koju formiraju upravo te dvije 	ta\\v\{c\}ke. S obzirom da provjeru da li se dvije du\\v\{z\}i sijeku mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$\\cite\{bergetal\}, to zaklju\\v\{c\}ujemo da test \\textit\{preokretljivosti\} svake ivice mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Odatle, uzev\\v\{s\}i u obzir da za nalazak svih susjednih rje\\v\{s\}enja moramo obi\\'\{c\}i sve ivice triangulacije, zaklju\\v\{c\}ujemo da kona\\v\{c\}na kompleksnost ovakvog nalaska svih susjednih rje\\v\{s\}enja jedne triangulacije iznosi $O(E)$, to jest $O(n)$, gdje je $E$ broj ivica ciljne triangulacije.\
+    Operacija nala\\v\{z\}enja susjednih rje\\v\{s\}enja, kao i operacija izra\\v\{c\}unavanja kvaliteta rje\\v\{s\}enja, je operacija koja se naj\\v\{c\}e\\v\{s\}\\'\{c\}e koristi prilikom pretra\\v\{z\}ivanja usponom. Odatle 	je i vi\\v\{s\}e no po\\v\{z\}eljno da obje operacije posjeduju \\v\{s\}to manju vremensku kompleksnost. Kao i kod prvog uslova, ideja koja stoji iza implementacije ovog koraka je, opet, prirodna. Naime, koristimo ve\\'\{c\} pomenutu \\textit\{edge-flip\} (poglavlje \\ref\{ch:edgeflipdelaunay\}) tehniku. \\\\\
+    No prije nego li nastavimo, uvedimo nekoliko konvencija. Svaka ivica triangulacije, pripada ili ne pripada njenom konveksnom omota\\v\{c\}u. One ivice koje pripadaju konveksnom omota\\v\{c\}u nazovimo \\textit\{vanjskim\}, a preostale \\textit\{unutra\\v\{s\}njim\} ivicama. Zatim, svaka \\textit\{unutra\\v\{s\}nja\} ivica dodiruje\\footnote\{Ivica koja "dodiruje" trougao \\v\{c\}ini jednu stranicu tog trougla.\} ta\\v\{c\}no dva trougla. Dva dodirna trougla mogu formirati konveksni ili nekonveksni \\v\{c\}etverougao zajedno. U slu\\v\{c\}aju da formiraju konveksni \\v\{c\}etverougao, ivicu 	koja ih spaja nazivamo \\textit\{preokretljivom\} (\\textit\{eng. flippable\}), jer takvu ivicu mo\\v\{z\}emo zamijeniti 		suprotnom dijagonalom pomenutog konveksnog \\v\{c\}etverougla.\
+U slu\\v\{c\}aju da je te\\v\{z\}ina 	\\textit\{preokretljive\} ivice ve\\'\{c\}a od te\\v\{z\}ine njene suprotne dijagonale, tada tu ivicu nazivamo \\textit\{popravljivom\} (\\textit\{eng. improvable\}) ivicom.\
+    Uzev\\v\{s\}i u obzir navedene konvencije, primijetimo da je za nalazak svih susjednih rje\\v\{s\}enja dovoljno na\\'\{c\}i sve \\textit\{preokretljive\} ivice. Dok je za nalazak svih susjednih rje\\v\{s\}enja bolje kvalitete, dovoljno na\\'\{c\}i sve \\textit\{popravljive\} ivice. Dakle, iako imamo na\\v\{c\}in za izra\\v\{c\}unavanje 	kvalitete jednog rje\\v\{s\}enja, nije nam potreban prilikom tra\\v\{z\}enja susjednih rje\\v\{s\}enja bolje kvalitete, jer isto mo\\v\{z\}emo izvesti jednostavno ra\\v\{c\}unaju\\'\{c\}i razliku te\\v\{z\}ina \\textit\{preokretljivih\} dijagonala i oduzimaju\\'\{c\}i dobivenu razliku od kvalitete trenutnog rje\\v\{s\}enja.\\\\\
+    Provjeru da li je ivica \\textit\{preokretljiva\} mo\\v\{z\}emo obaviti u vremenu $O(1)$. Naime, dovoljno je 	da za svaku ivicu \\v\{c\}uvamo informaciju o dva trougla kojima pripada, ta\\v\{c\}nije, dovoljno 	je \\v\{c\}uvati informaciju o dvije ta\\v\{c\}ke sa kojima ivica formira dva trougla kojima pripada, 	jer svaka ivica je \\textit\{preokretljiva\} ako i samo ako sije\\v\{c\}e du\\v\{z\} koju formiraju upravo te dvije 	ta\\v\{c\}ke. S obzirom da provjeru da li se dvije du\\v\{z\}i sijeku mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$\\cite\{bergetal\}, to zaklju\\v\{c\}ujemo da test \\textit\{preokretljivosti\} svake ivice mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Odatle, uzev\\v\{s\}i u obzir da za nalazak svih susjednih rje\\v\{s\}enja moramo obi\\'\{c\}i sve ivice triangulacije, zaklju\\v\{c\}ujemo da kona\\v\{c\}na kompleksnost ovakvog nalaska svih susjednih rje\\v\{s\}enja jedne triangulacije iznosi $O(E)$, to jest $O(n)$, gdje je $E$ broj ivica \\v\{z\}eljene triangulacije.\
     \
 \\item \\underline\{Nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja\}\
 \
-	U prvom poglavlju smo se upoznali sa nekoliko sa nekoliko algoritama za nala\\v\{z\}enje 	triangulacije skupa ta\\v\{c\}aka u ravni. Bilo koji od tih algoritama mo\\v\{z\}e poslu\\v\{z\}iti za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja pretra\\v\{z\}ivanja usponom. Me\\dj\{\}utim, prilikom evaluacije 	statisti\\v\{c\}kih rezultata, navedenih u posljednjem poglavlju, ovog i svih algoritama koji 	zahtijevaju postojanje po\\v\{c\}etnog rje\\v\{s\}enja, nije kori\\v\{s\}ten niti jedan od navedenih algoritama za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja. Naime, kori\\v\{s\}tena je varijacija pohlepnog 	algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni, \\v\{c\}iji pseudokod navodimo u nastavku\\footnote\{Razlog zbog kog koristimo upravo navedenu varijaciju pohlepne triangulacije jeste taj \\v\{s\}to se ista ogledno pokazala kao naju\\v\{c\}inkovitija.\}.\
+	U prvom poglavlju smo se upoznali sa nekoliko algoritama za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni. Bilo koji od tih algoritama mo\\v\{z\}e poslu\\v\{z\}iti za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja kod Hill Climbing metode. Me\\dj\{\}utim, prilikom evaluacije statisti\\v\{c\}kih rezultata, navedenih u posljednjem poglavlju, ove i svih metaheuristika koje zahtijevaju postojanje po\\v\{c\}etnog rje\\v\{s\}enja, nije kori\\v\{s\}ten niti jedan od navedenih algoritama za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja. Naime, kori\\v\{s\}tena je varijacija pohlepnog 	algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni, \\v\{c\}iji pseudo-kod navodimo u nastavku\\footnote\{Razlog zbog kog koristimo upravo navedenu varijaciju pohlepne triangulacije jeste taj \\v\{s\}to se ista ogledno pokazala kao naju\\v\{c\}inkovitija.\}.\
 \\end\{itemize\}\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{POHLEPNA-TRIANGULACIJA:\} ($H$ - omota\\v\{c\}, $P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{POHLEPNA-TRIANGULACIJA\}\}\
   \\begin\{algorithmic\}[1]\
-    \\If\{$|H| < 3$ tj. ukoliko je hull zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan\}\
-      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo i samo u slu\\v\{c\}aju kada je POHLEPNA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} $H$ zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo u slu\\v\{c\}aju kada je POHLEPNA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
       \\Return 0\
     \\EndIf\
-  	\\If\{$|H| = 3$ te hull ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka points, tj. ukoliko je hull zapravo validan trougao\}\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} $H$ zapravo validan trougao\}\
       \\State - Izra\\v\{c\}unaj i vrati obim trougla\
     \\EndIf\
     \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
@@ -798,18 +800,19 @@ U slu\\v\{c\}aju da je te\\v\{z\}ina 	\\textit\{preokretljive\} ivice ve\\'\{c\}
 \\end\{algorithm\}\
 \
 ~\\\\\\\\\\\\\
-Navedeni algoritam \\'\{c\}e biti pozvan ta\\v\{c\}no $n-1$ puta nad skupom od $n$ ta\\v\{c\}aka u ravni. Usko grlo vremenske kompleksnosti algoritma le\\v\{z\}i kvadratnoj vremenskoj kompleksnosti koraka 7. Naime, provjera da li je trougao validan, koju izvr\\v\{s\}avamo $n-2$ puta u koraku 7.,  je linearne kompleksnosti u odnosu na broj ta\\v\{c\}aka $n$. Odatle vremenska kompleksnost navedenog algoritma pripada $(n-1)(n-2)O(n)$, to jeste $O(n^3)$.\\\\\
+Navedeni algoritam \\'\{c\}e biti pozvan ta\\v\{c\}no $n-1$ puta nad skupom od $n$ ta\\v\{c\}aka u ravni. Usko grlo vremenske kompleksnosti algoritma le\\v\{z\}i u kvadratnoj vremenskoj kompleksnosti koraka 8. Naime, provjera da li je trougao validan, koju izvr\\v\{s\}avamo $n-2$ puta u koraku 8.,  je linearne kompleksnosti u odnosu na broj ta\\v\{c\}aka $n$. Odatle vremenska kompleksnost navedenog algoritma pripada $(n-1)(n-2)O(n)$, to jeste $O(n^3)$.\\\\\
 \
 Zarad kasnijih potreba, na ovom mjestu navodimo jo\\v\{s\} jednu varijaciju algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni. Naime, radi se o stohasti\\v\{c\}koj triangulaciji skupa ta\\v\{c\}aka u ravni.\
 \
 \\begin\{algorithm\}\
-  \\caption\{\\textbf\{STOHASTICKA-TRIANGULACIJA:\} ($H$ - omota\\v\{c\}, $P$ - skup ta\\v\{c\}aka u ravni)\}\
+  \\caption\{\\textbf\{STOHASTICKA-TRIANGULACIJA\}\}\
   \\begin\{algorithmic\}[1]\
-    \\If\{$|H| < 3$ tj. ukoliko je hull zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan\}\
-      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo i samo u slu\\v\{c\}aju kada je STOHASTICKA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} $H$ zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo u slu\\v\{c\}aju kada je STOHASTICKA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
       \\Return 0\
     \\EndIf\
-  	\\If\{$|H| = 3$ te hull ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka points, tj. ukoliko je hull zapravo validan trougao\}\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} $H$ zapravo validan trougao\}\
       \\State - Izra\\v\{c\}unaj i vrati obim trougla\
     \\EndIf\
     \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
@@ -821,7 +824,7 @@ Zarad kasnijih potreba, na ovom mjestu navodimo jo\\v\{s\} jednu varijaciju algo
   \\begin\{algorithmic\}[1]\
     \\algrestore\{ST\}\
     \\State $VALID = \\emptyset$\
-    \\State - Prona\\'\{c\}i sve ta\\v\{c\}ke $V \\in P$ koje sa odabranom granom formiraju validan trougao i dodati ih u skup $VALID$\
+    \\State - Prona\\'\{c\}i sve ta\\v\{c\}ke $V \\in P$, koje sa odabranom granom formiraju validan trougao i dodati ih u skup $VALID$\
     \\State - Nasumi\\v\{c\}no odabrati ta\\v\{c\}ku $V \\in VALID$\
     \\State s-weight = 0\
     \\State - Formiraj validan trougao sa ta\\v\{c\}kom $V$\
@@ -836,36 +839,36 @@ Zarad kasnijih potreba, na ovom mjestu navodimo jo\\v\{s\} jednu varijaciju algo
 \
 Lahko primije\\'\{c\}ujemo da se navedeni algoritam uop\\'\{c\}e ne razlikuje od navedenog POHLEPNA-TRIANGULACIJA algoritma glede vremenske kompleksnosti.\
 \
-\\section\{Metoda Simuliranog Kaljenja adaptirana MWT problemu\}\
+\\section\{Metoda simuliranog kaljenja adaptirana MWT problemu\}\
 \
-Medota Simuliranog Kaljenja prilago\\dj\{\}ena MWT problemu je tek blago pro\\v\{s\}irenje prethodno navedene metode Pretra\\v\{z\}ivanja Usponom za MWT problem.\
+Medota Simuliranog Kaljenja (\\textit\{eng. Simulated Annealing\}) prilago\\dj\{\}ena za re\\v\{s\}avanje MWT problema je tek blago pro\\v\{s\}irenje prethodno opisanog Hill Climbing algoritma za rje\\v\{s\}avanje MWT problema.\
 \
 \\begin\{algorithm\}\
-  	\\caption\{\\textbf\{MWT-SIMULIRANO-KALJENJE:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}^\{+\}$)\}\
+  	\\caption\{\\textbf\{MWT-SIMULIRANO-KALJENJE:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}_0^\{+\}$)\}\
   	\\begin\{algorithmic\}[1]\
-    	\\State - Prona\\dj\{\}i konveksni omota\\v\{c\} od $P$ ($H$)\
+    	\\State - Prona\\dj\{\}i konveksni omota\\v\{c\} $H$ od $P$\
 		\\State - trenutno-rjesenje = POHLEPNA-TRIANGULACIJA($H$, $P$)\
         \\For\{t = 1 to $\\infty$\}\
         	\\State T = izracunaj-temperaturu(t)\
-            \\If\{$T \\leq 0$\} \\Return trenutno-rjesenje \\EndIf\
+            \\If\{$T = 0$\} \\Return trenutno-rjesenje \\EndIf\
             \\State - Nasumi\\v\{c\}no odaberi rje\\v\{s\}enje susjedno rje\\v\{s\}enju trenutno-rjesenje (susjedno-rjesenje) i izra\\v\{c\}unaj razliku odabranog i trenutnog rje\\v\{s\}enja ($\\Delta$)\
             \\If\{$\\Delta \\leq 0$\}\
             	trenutno-rjesenje = susjedno-rjesenje\
-            \\Else\
-            	$\\,\\,$ trenutno-rjesenje = susjedno-rjesenje (samo sa vjerovatno\\'\{c\}om $e^(\\frac\{-\\Delta\}\{T\})$)\
-                \\algstore\{MWTSA\}\
+            \\algstore\{MWTSA\}\
   \\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
 \\begin\{algorithm\}\
   \\begin\{algorithmic\}[1]\
     \\algrestore\{MWTSA\}\
+            \\Else\
+            	$\\,\\,$ trenutno-rjesenje = susjedno-rjesenje (samo sa vjerovatno\\'\{c\}om $e^(\\frac\{-\\Delta\}\{T\})$)\
             \\EndIf\
         \\EndFor\
 	\\end\{algorithmic\}\
 \\end\{algorithm\}\
 \
-Konveksni omota\\v\{c\} skupa ta\\v\{c\}aka mo\\v\{z\}emo prona\\'\{c\}i koriste\\'\{c\}i jedan od nekolicine poznatih algoritama. Po\\v\{c\}etno rje\\v\{s\}enje nalazimo koriste\\'\{c\}i algoritam pohlepne triangulacije naveden u prethodnom potpoglavlju. Ono \\v\{s\}to ostaje nerazja\\v\{s\}njeno je metoda za nala\\v\{z\}enje susjednog rje\\v\{s\}enja u koraku 7. Naime, koristimo poptuno isti metod za nala\\v\{z\}enje susjednog rje\\v\{s\}enja kao kod stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom iz prethodnog potpoglavlja. Tako\\dj\{\}er, primijetimo da pored susjednog rje\\v\{s\}enja, u koraku 7. nalazimo i razliku ($\\Delta$) kvaliteta susjednog i trenutnog rje\\v\{s\}enja, jer je, prisjetimo se, za nalazak razlike ($\\Delta$) dovljno na\\'\{c\}i razliku te\\v\{z\}ina preokretljivih dijagonala. Na kraju, primijetimo jo\\v\{s\} da je susjedno rje\\v\{s\}enje bolje, \\v\{s\}to je $\\Delta$ manje (tra\\v\{z\}imo rje\\v\{s\}enje \\v\{c\}ija kvaliteta, to jeste zbir te\\v\{z\}ina ivica, je najmanja mogu\\'\{c\}a). Iz tog razloga razliku $\\Delta$ tretiramo druga\\v\{c\}ije, u odnosu na originalni prijedlog algoritma simuliranog kaljenja, u koracima 8. i 9.\
+Konveksni omota\\v\{c\} skupa ta\\v\{c\}aka mo\\v\{z\}emo prona\\'\{c\}i koriste\\'\{c\}i jedan od nekolicine poznatih algoritama. Po\\v\{c\}etno rje\\v\{s\}enje nalazimo koriste\\'\{c\}i algoritam pohlepne triangulacije naveden u prethodnom potpoglavlju. Ono \\v\{s\}to ostaje nerazja\\v\{s\}njeno je metoda za nala\\v\{z\}enje susjednog rje\\v\{s\}enja u koraku 7. Naime, koristimo poptuno isti metod za nala\\v\{z\}enje susjednog rje\\v\{s\}enja kao kod stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom iz prethodnog potpoglavlja. Tako\\dj\{\}er, primijetimo da pored susjednog rje\\v\{s\}enja, u koraku 7. nalazimo i razliku ($\\Delta$) kvaliteta susjednog i trenutnog rje\\v\{s\}enja, jer je, prisjetimo se, za nalazak razlike ($\\Delta$) dovljno na\\'\{c\}i razliku te\\v\{z\}ina preokretljivih dijagonala. Na kraju, primijetimo jo\\v\{s\} da je susjedno rje\\v\{s\}enje bolje, \\v\{s\}to je $\\Delta$ manje (tra\\v\{z\}imo rje\\v\{s\}enje \\v\{c\}ija kvaliteta, to jeste zbir te\\v\{z\}ina ivica, je najmanja mogu\\'\{c\}a). Iz tog razloga, razliku $\\Delta$ tretiramo druga\\v\{c\}ije, u odnosu na originalni prijedlog algoritma simuliranog kaljenja, u koracima 8. i 9.\
 \
 \\begin\{remy\}\
 Detaljni rezultati performanse navedenog algoritma simuliranog kaljenja prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:sa\}.\
@@ -873,15 +876,14 @@ Detaljni rezultati performanse navedenog algoritma simuliranog kaljenja prilago\
 \
 \\chapter\{Inteligencija rojeva\} \\label\{ch:swarm\}\
 \
-Kao i svaka grana Prirodnog Izra\\v\{c\}unavanja, Inteligencija rojeva\\footnote\{U literaturi poznata i kao Inteligencija jata.\} je oblast koja inspiraciju uzima iz prirode, i to ta\\v\{c\}nije, iz pona\\v\{s\}anja rojeva, kao \\v\{s\}to su roj p\\v\{c\}ela, mravi, jata ptica, pa \\v\{c\}ak i iz pona\\v\{s\}anja grupe ljudskih individua.\\\\\
-Primjene algoritama oblasti Inteligencije rojeva su mnogobrojne. Na primjer, vojska Sjedinjenih Ameri\\v\{c\}kih Dr\\v\{z\}ava istra\\v\{z\}uje mogu\\'\{c\}nost primjene istih za upravljanje samovozivim vozilima. Sa druge strane, Evropska Svemirska Agencija razmatra primjenu algoritama Inteligencije rojeva u interferometriji. Zatim, NASA istra\\v\{z\}uje o primjeni istih algoritama za kartografiju planeta. Pored toga, 1992. godine M. Anthony Lewis i George A. Bekey objavljuju rad u kom, pomalo entuzijasti\\v\{c\}no, razmatraju mogu\\'\{c\}nosti kori\\v\{s\}tenja inteligencije rojeva za kontrolu nanobota unutar ljudskog organizma sa ciljem uklanjanja tumora\\cite\{lewisbekey\}. Tako\\dj\{\}er, al-Rifaie i Aber su iskoristili jedan od algoritama ove oblasti za pomo\\'\{c\} nalaska tumora\\cite\{alrifaieaber\}\\cite\{alrifaieetal\}. Na kraju, algoritmi Inteligencije rojeva su na\\v\{s\}li primjenu i u veoma popularnoj oblasti Rudarenja podataka (\\textit\{eng. Data mining\})\\cite\{martensetal\}.\\\\\
-Na\\v\{z\}alost, istra\\v\{z\}ivanje mnogih pomenutih primjena izlazi daleko van opsega na\\v\{s\}eg istra\\v\{z\}ivanja. Fokus ovog rada je ostavljen na tek dvije metaheuristike Inteligencije rojeva. To su redom Optimizacija roja \\v\{c\}estica, \\textit\{eng. Particle Swarm Optimisation\} (u nastavku PSO) i Algoritam umjetne kolonije p\\v\{c\}ela, \\textit\{eng. Artificial Bee Colony Algorithm\} (u nastavku ABC).\
+Kao i svaka grana prirodnog izra\\v\{c\}unavanja (\\textit\{eng. Natural Computing\}), inteligencija rojeva\\footnote\{U literaturi poznata i kao Inteligencija jata.\} (\\textit\{eng. Swarm Intelligence\}) je oblast koja inspiraciju uzima iz prirode, i to ta\\v\{c\}nije, iz pona\\v\{s\}anja rojeva, kao \\v\{s\}to su roj p\\v\{c\}ela, mravi, jata ptica, pa \\v\{c\}ak i iz pona\\v\{s\}anja grupe ljudskih individua.\\\\\
+Primjene algoritama u oblasti inteligencije rojeva su mnogobrojne. Na primjer, vojska Sjedinjenih Ameri\\v\{c\}kih Dr\\v\{z\}ava istra\\v\{z\}uje mogu\\'\{c\}nost primjene istih za upravljanje samovozivim vozilima. Sa druge strane, Evropska Svemirska Agencija razmatra primjenu algoritama inteligencije rojeva u interferometriji. Zatim, NASA istra\\v\{z\}uje o primjeni istih algoritama za kartografiju planeta. Pored toga, 1992. godine M. Anthony Lewis i George A. Bekey objavljuju rad u kom, pomalo entuzijasti\\v\{c\}no, razmatraju mogu\\'\{c\}nosti kori\\v\{s\}tenja inteligencije rojeva za kontrolu nanobota unutar ljudskog organizma sa ciljem uklanjanja tumora \\cite\{lewisbekey\}. Tako\\dj\{\}er, al-Rifaie i Aber su iskoristili jedan od algoritama ove oblasti kao pomo\\'\{c\} pri otkrivanju tumora \\cite\{alrifaieaber\}\\cite\{alrifaieetal\}. Na kraju, algoritmi inteligencije rojeva su na\\v\{s\}li primjenu i u veoma popularnoj oblasti Rudarenja podataka (\\textit\{eng. Data mining\}) \\cite\{martensetal\}.\\\\\
+Na\\v\{z\}alost, istra\\v\{z\}ivanje mnogih pomenutih primjena izlazi daleko van opsega na\\v\{s\}eg istra\\v\{z\}ivanja. Fokus ovog rada je ostavljen na tek dvije metaheuristike inteligencije rojeva. To su redom Optimizacija roja \\v\{c\}estica (\\textit\{eng. Particle Swarm Optimisation, PSO\}) i algoritam umjetne kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony Algorithm, ABC\}).\
 \
 \\section\{Optimizacija roja \\v\{c\}estica\}\\label\{ch:pso\}\
 \
 Proizi\\v\{s\}la iz razvoja simulacija za jatenje riba i ptica oko izvora hrane, optimizacija roja \\v\{c\}estica, je prvi put pomenuta 1995. godine u radu Russell-a Eberhart-a i James-a Kennedy-a\\cite\{kennedyeberhart\}.\\\\\
 Optimizacija roja \\v\{c\}estica je u osnovi vrlo jednostavna metaheuristika. Kao \\v\{s\}to se jato ptica ili riba koncenstri\\v\{s\}e oko izvora hrane, tako se agenti (\\v\{c\}estice) optimizacije roja \\v\{c\}estica koncenstri\\v\{s\}u oko ciljnog rje\\v\{s\}enja, ukoliko je ono poznato, ili oko najkvalitetnijeg na\\dj\{\}enog rje\\v\{s\}enja u suprotnom.\
-\\pagebreak\
 \
 Algoritam optimizacije roja \\v\{c\}estica prati tri globalne varijable:\
 \\begin\{itemize\}\
