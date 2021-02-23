@@ -13,4 +13,4 @@ Aside from metaheuristics, a novel exhaustive search method is implemented for f
 Comming "soon" ... (probably in my old days -- if we ever get there)
 
 # Publishing
-Results of this work were published at [Adjusted Artificial Bee Colony Algorithm for the Minimum Weight Triangulation](https://link.springer.com/chapter/10.1007/978-981-13-0761-4_30)
+Results of this work were published at [Adjusted Artificial Bee Colony Algorithm for the Minimum Weight Triangulation](https://link.springer.com/chapter/10.1007/978-981-13-0761-4_30).
