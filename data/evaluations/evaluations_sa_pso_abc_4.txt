@@ -1,0 +1,85 @@
+1.
+	Instance size: 40
+	SA worst: 2351656.
+	SA mean: 2350028.5.
+	SA best: 2349703.
+	SA standard deviation: 727.840126676.
+
+	PSO worst: 2349703.
+	PSO mean: 2349703.0.
+	PSO best: 2349703.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 2349703.
+	ABC mean: 2349703.0.
+	ABC best: 2349703.
+	ABC standard deviation: 0.0.
+
+2.
+	Instance size: 40
+	SA worst: 2001953.
+	SA mean: 1987393.2.
+	SA best: 1986683.
+	SA standard deviation: 2769.99284476.
+
+	PSO worst: 1988262.
+	PSO mean: 1986788.9.
+	PSO best: 1986683.
+	PSO standard deviation: 349.191862257.
+
+	ABC worst: 1986683.
+	ABC mean: 1986683.0.
+	ABC best: 1986683.
+	ABC standard deviation: 0.0.
+
+3.
+	Instance size: 40
+	SA worst: 2385028.
+	SA mean: 2384878.6666666665.
+	SA best: 2384748.
+	SA standard deviation: 139.68854244.
+
+	PSO worst: 2401029.
+	PSO mean: 2390623.0.
+	PSO best: 2384748.
+	PSO standard deviation: 5666.31808144.
+
+	ABC worst: 2384748.
+	ABC mean: 2384748.0.
+	ABC best: 2384748.
+	ABC standard deviation: 0.0.
+
+4.
+	Instance size: 40
+	SA worst: 2477934.
+	SA mean: 2468960.933333333.
+	SA best: 2468053.
+	SA standard deviation: 2411.98547444.
+
+	PSO worst: 2468053.
+	PSO mean: 2468053.0.
+	PSO best: 2468053.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 2468053.
+	ABC mean: 2468053.0.
+	ABC best: 2468053.
+	ABC standard deviation: 0.0.
+
+5.
+	Instance size: 40
+	SA worst: 2702597.
+	SA mean: 2686754.7666666666.
+	SA best: 2683176.
+	SA standard deviation: 6479.85979624.
+
+	PSO worst: 2683176.
+	PSO mean: 2683176.0.
+	PSO best: 2683176.
+	PSO standard deviation: 0.0.
+
+	ABC worst: 2683176.
+	ABC mean: 2683176.0.
+	ABC best: 2683176.
+	ABC standard deviation: 0.0.
+

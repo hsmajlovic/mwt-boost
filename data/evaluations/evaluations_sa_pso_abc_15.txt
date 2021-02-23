@@ -1,0 +1,60 @@
+1. [Point(x=281, y=-108),Point(x=-132, y=1),Point(x=132, y=1),Point(x=3, y=-100),Point(x=312, y=19),Point(x=-173, y=200),Point(x=-20, y=-4),Point(x=-276, y=327),Point(x=-100, y=-169),Point(x=-166, y=-323),Point(x=-209, y=186),Point(x=1, y=-66),Point(x=-90, y=283),Point(x=-23, y=-83),Point(x=326, y=65)]
+	Number of runs: 50
+	SA worst: 2114203
+	SA mean: 2112450.82
+	SA best: 2111182
+	SA standard deviation: 1491.0402501609403
+	SA average time: 0.2467061710357666s 
+
+	PSO worst: 2111182
+	PSO mean: 2111182.0
+	PSO best: 2111182
+	PSO standard deviation: 0.0
+	PSO average time: 2.149211311340332s 
+
+	ABC worst: 2111182
+	ABC mean: 2111182.0
+	ABC best: 2111182
+	ABC standard deviation: 0.0
+	ABC average time: 4.048850440979004s 
+
+2. [Point(x=228, y=-123),Point(x=25, y=122),Point(x=159, y=-121),Point(x=-205, y=181),Point(x=-36, y=221),Point(x=-291, y=100),Point(x=-170, y=277),Point(x=-291, y=196),Point(x=189, y=-82),Point(x=218, y=220),Point(x=224, y=-294),Point(x=-291, y=304),Point(x=39, y=12),Point(x=-313, y=12),Point(x=-79, y=109)]
+	Number of runs: 50
+	SA worst: 2092213
+	SA mean: 2092213.0
+	SA best: 2092213
+	SA standard deviation: 0.0
+	SA average time: 0.3556820821762085s 
+
+	PSO worst: 2056895
+	PSO mean: 2052965.96
+	PSO best: 2049619
+	PSO standard deviation: 3626.3397135955147
+	PSO average time: 2.743158164024353s 
+
+	ABC worst: 2049619
+	ABC mean: 2049619.0
+	ABC best: 2049619
+	ABC standard deviation: 0.0
+	ABC average time: 3.3903980684280395s 
+
+3. [Point(x=231, y=-129),Point(x=207, y=186),Point(x=226, y=-7),Point(x=251, y=181),Point(x=-85, y=297),Point(x=230, y=17),Point(x=43, y=-122),Point(x=328, y=151),Point(x=121, y=-328),Point(x=-226, y=316),Point(x=-168, y=-268),Point(x=217, y=50),Point(x=176, y=284),Point(x=-99, y=65),Point(x=218, y=-191)]
+	Number of runs: 50
+	SA worst: 2021206
+	SA mean: 1999244.54
+	SA best: 1995367
+	SA standard deviation: 9045.34757808676
+	SA average time: 0.30516952991485596s 
+
+	PSO worst: 1995367
+	PSO mean: 1995367.0
+	PSO best: 1995367
+	PSO standard deviation: 0.0
+	PSO average time: 1.982392520904541s 
+
+	ABC worst: 1995367
+	ABC mean: 1995367.0
+	ABC best: 1995367
+	ABC standard deviation: 0.0
+	ABC average time: 2.7372696828842162s 
+

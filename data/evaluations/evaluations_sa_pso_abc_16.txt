@@ -1,0 +1,20 @@
+2. [Point(x=-172, y=23),Point(x=177, y=301),Point(x=-67, y=-77),Point(x=61, y=-37),Point(x=55, y=328),Point(x=-155, y=-134),Point(x=122, y=73),Point(x=-22, y=290),Point(x=-240, y=-286),Point(x=-22, y=-319),Point(x=-119, y=11),Point(x=54, y=-18),Point(x=-277, y=17),Point(x=308, y=-183),Point(x=327, y=60),Point(x=273, y=64)]
+	Number of runs: 50
+	SA worst: 1712957
+	SA mean: 1702935.92
+	SA best: 1700495
+	SA standard deviation: 2968.3839700416115
+	SA average time: 0.48915390491485594s 
+
+	PSO worst: 1701791
+	PSO mean: 1700520.92
+	PSO best: 1700495
+	PSO standard deviation: 181.44000000000003
+	PSO average time: 2.4193308687210084s 
+
+	ABC worst: 1700495
+	ABC mean: 1700495.0
+	ABC best: 1700495
+	ABC standard deviation: 0.0
+	ABC average time: 3.6498847246170043s 
+

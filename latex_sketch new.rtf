@@ -1,0 +1,1531 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[12pt,twoside]\{report\}\
+\\usepackage\{graphicx\}\
+\\graphicspath\{ \{images/\} \}\
+\
+\\usepackage[croatian]\{babel\}\
+\\usepackage\{amsmath\}\
+\\usepackage\{amssymb\}\
+\\usepackage\{amsthm\}\
+\\usepackage\{accents\}\
+\\usepackage\{hyperref\}\
+\\usepackage\{algpseudocode, algorithm\}\
+\\usepackage\{caption\}\
+\\usepackage\{array\}\
+\\usepackage\{array,booktabs\}\
+\\usepackage\{colortbl\}\
+\\usepackage\{xcolor\}\
+\\usepackage\{multirow\}\
+\\usepackage\{longtable\}\
+\\usepackage[T1]\{fontenc\}\
+\\usepackage\{titlesec, blindtext, color\}\
+\
+\\newcommand\{\\hsp\}\{\\hspace\{20pt\}\}\
+\
+\\definecolor\{Gray\}\{gray\}\{0.85\}\
+\\definecolor\{gray75\}\{gray\}\{0.75\}\
+\
+\\newcolumntype\{P\}[1]\{>\{\\centering\\arraybackslash\}p\{#1\}\}\
+\\newcolumntype\{G\}[1]\{>\{\\centering\\arraybackslash\\columncolor\{Gray\}\}p\{#1\}\}\
+\\newcolumntype\{L\}\{@\{\}>\{\\kern\\tabcolsep\}l<\{\\kern\\tabcolsep\}\}\
+\
+\\setcounter\{chapter\}\{-1\}\
+\
+\\DeclareCaptionFormat\{myformat\}\{#3\}\
+\\captionsetup[algorithm]\{format=myformat\}\
+\
+\\newtheorem\{theorem\}\{Teorema\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{thmy\}\{Teorema\}[section]\
+\\renewcommand*\{\\thethmy\}\{\\thesection.\\Alph\{thmy\}\} % "letter-numbered" theorems\
+\\newenvironment\{theoremx\}\{\\stepcounter\{theorem\}\\begin\{thmy\}\}\{\\end\{thmy\}\}\
+\
+\\newtheorem\{proposition\}\{Propozicija\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{propy\}\{Propozicija\}[section]\
+\\renewcommand*\{\\thepropy\}\{\\thesection.\\Alph\{propy\}\} % "letter-numbered" theorems\
+\\newenvironment\{propositionx\}\{\\stepcounter\{proposition\}\\begin\{propy\}\}\{\\end\{propy\}\}\
+\
+\\newtheorem\{statement\}\{Tvrdnja\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{staty\}\{Tvrdnja\}[section]\
+\\renewcommand*\{\\thepropy\}\{\\thesection.\\Alph\{staty\}\} % "letter-numbered" theorems\
+\\newenvironment\{statementx\}\{\\stepcounter\{statement\}\\begin\{staty\}\}\{\\end\{staty\}\}\
+\
+\\newtheorem\{corollary\}\{Posljedica\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{cory\}\{Posljedica\}[section]\
+\\renewcommand*\{\\thecory\}\{\\thesection.\\Alph\{cory\}\} % "letter-numbered" theorems\
+\\newenvironment\{corollaryx\}\{\\stepcounter\{corollary\}\\begin\{cory\}\}\{\\end\{cory\}\}\
+\
+\\newtheorem\{definition\}\{Definicija\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{defy\}\{Definicija\}[section]\
+\\renewcommand*\{\\thedefy\}\{\\thesection.\\Alph\{defy\}\} % "letter-numbered" theorems\
+\\newenvironment\{definitionx\}\{\\stepcounter\{definition\}\\begin\{defy\}\}\{\\end\{defy\}\}\
+\
+\\newtheorem\{lemma\}\{Lema\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{lemy\}\{Lema\}[section]\
+\\renewcommand*\{\\thelemy\}\{\\thesection.\\Alph\{lemy\}\} % "letter-numbered" theorems\
+\\newenvironment\{lemmax\}\{\\stepcounter\{lemma\}\\begin\{lemy\}\}\{\\end\{lemy\}\}\
+\
+\\newtheorem\{remark\}\{Opaska\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{remy\}\{Opaska\}[section]\
+\\renewcommand*\{\\theremy\}\{\\thesection.\\Alph\{remy\}\} % "letter-numbered" theorems\
+\\newenvironment\{remarkx\}\{\\stepcounter\{remark\}\\begin\{remy\}\}\{\\end\{remy\}\}\
+\
+\\newtheorem\{remarky\}\{Primjedba\}[section] % first theorem in section 1 will be 1.1\
+\\newtheorem\{remyy\}\{Primjedba\}[section]\
+\\renewcommand*\{\\theremyy\}\{\\thesection.\\Alph\{remyy\}\} % "letter-numbered" theorems\
+\\newenvironment\{remarkyx\}\{\\stepcounter\{remarky\}\\begin\{remyy\}\}\{\\end\{remyy\}\}\
+\
+\\titleformat\{\\chapter\}[hang]\{\\Huge\\bfseries\}\{\\thechapter\\hsp\\textcolor\{gray75\}\{|\}\\hsp\}\{0pt\}\{\\Huge\\bfseries\}\
+\
+% \\title\{Primjena heuristi\\v ckih algoritama za rje\\v\{s\}avanje Minimum-Weight Triangulation problema\}\
+\
+\\newenvironment\{changemargin\}[2]\{%\
+\\begin\{list\}\{\}\{%\
+\\setlength\{\\topsep\}\{0pt\}%\
+\\setlength\{\\leftmargin\}\{#1\}%\
+\\setlength\{\\rightmargin\}\{#2\}%\
+\\setlength\{\\listparindent\}\{\\parindent\}%\
+\\setlength\{\\itemindent\}\{\\parindent\}%\
+\\setlength\{\\parsep\}\{\\parskip\}%\
+\}%\
+\\item[]\}\{\\end\{list\}\}\
+\
+\
+\\linespread\{1.7\}\
+\\begin\{document\}\
+\\pagenumbering\{roman\}\
+% \\thispagestyle\{empty\}\
+\{\\linespread\{1.0\}\
+\\begin\{changemargin\}\{-1cm\}\{-3cm\}\
+  \\begin\{titlepage\}\
+      \\begin\{center\}\
+          \\vspace*\{-2cm\}\
+          \\large\{\\sc\{Prirodno-matemati\\v cki fakultet\\\\\
+          Univerzitet u Sarajevu\\\\\
+          Odsjek za matematiku\\\\\}\}\
+\
+          \\vspace\{7cm\}\
+\
+          \{\\Large\{\\sc\{\\textbf\{Primjena heuristi\\v ckih algoritama za rje\\v\{s\}avanje Minimum-Weight Triangulation problema\}\\\\\}\}\}\
+\
+          \\vspace\{1cm\}\
+\
+          \{\\sc\{-- master rad --\}\\\\\}\
+\
+          \\vspace\{6cm\}\
+          \
+          \\begin\{minipage\}\{0.3\\textwidth\}\
+              \\begin\{flushleft\}\
+                  \\large\
+                  \\textit\{Kandidat\}\\\\\
+                  Haris \\textsc\{Smajlovi\\'\{c\}\} % Your name\
+              \\end\{flushleft\}\
+          \\end\{minipage\}\
+          ~\
+          \\begin\{minipage\}\{0.6\\textwidth\}\
+              \\begin\{flushright\}\
+                  \\large\
+                  \\textit\{Mentor\}\\\\\
+                  Doc. dr. Adis \\textsc\{Alihod\\v\{z\}i\\'\{c\}\} % Supervisor's name\
+              \\end\{flushright\}\
+          \\end\{minipage\}\
+          ~\\\\\
+          \\vfill\\vfill\\vfill\\vfill\\hfill\
+          \
+          Sarajevo, 2017\
+\
+      \\end\{center\}\
+  \\end\{titlepage\}\
+\\end\{changemargin\}\}\
+% \\begin\{center\}\
+% \\large\{\\sc\{Univerzitet u Sarajevu\\\\\
+% Prirodno-matemati\\v cki fakultet\\\\\
+% Odsjek za matematiku\\\\\}\}\
+\
+% \\vspace\{1.6cm\}\
+% % \\includegraphics\{logo.jpg\}\
+\
+% \\vspace\{1.2cm\}\
+\
+% % \\Large\{\\textsf\{\\textbf\{Haris Smajlovi\\'\{c\}\}\\\\\}\} \\vspace\{1cm\} \\LARGE\
+\
+%  \\small\{\\textsf\{Mentor: doc. dr. Adis Alihod\\v\{z\}i\\'\{c\}$\\qquad$Kandidat: Haris Smajlovi\\'\{c\}\\\\\}\} \\vspace\{1cm\}\
+% Sarajevo, 2017\
+\
+\
+% \\end\{center\}\
+\
+% \\newpage\
+\\null\
+\\vfill\
+\\begin\{paragraph\}\{\} Ova disertacija je podnesena Vije\\'\{c\}u Prirodno-matemati\\v\{c\}kog fakulteta Univerziteta u Sarajevu, kao zavr\\v\{s\}ni rad drugog ciklusa studija, ra\\dj\{\}en pod mentorstvom doc. dr. Adisa Alihod\\v\{z\}i\\'\{c\}a u postupku stjecanja stru\\v\{c\}nog stepena magistra softverskog in\\v\{z\}injerstva.\
+\\tableofcontents\
+\\end\{paragraph\}\
+\
+\\chapter\{Uvod\}\
+\\label\{ch:abstr\}\
+\\pagenumbering\{arabic\}\
+\
+Iako bi naslov mogao navesti \\v\{c\}itaoca na pomisao da je rad striktno aplikativno algoritamske prirode, to ipak nije u potpunosti tako. Naime, isti se doti\\v\{c\}e jo\\v\{s\} i raznih interesantnih problema iz: kombinatorike, teorije grafova, pa i same kompjuterske geometrije.\\\\\
+U prvom poglavlju ovog rada se upoznajemo sa problemom triangulacije, geometrijskom triangulacijom, te poznatim algoritmima za njeno nala\\v\{z\}enje za dati poligon ili skup ta\\v\{c\}aka u ravni.\
+Tako\\dj\{\}er, u istom poglavlju prezentiramo i jedan novi na\\v\{c\}in trianguliranja skupa ta\\v\{c\}aka u ravni najbr\\v\{z\}e mogu\\'\{c\}e vremenske kompleksnosti $\\Theta(n\\log n)$.\\\\\
+Nakon toga se upoznajemo sa Delaunay triangulacijom i poznatim algoritmima za nala\\v\{z\}enje iste, gdje \\'\{c\}emo se po prvi put u radu susresti sa tehnikom \\textit\{zamjene dijagonala\} (\\textit\{eng. edge-flip\}), koja se najvi\\v\{s\}e koristi u nastavku ovog rada.\
+Na kraju, opisujemo triangulaciju najmanje te\\v\{z\}ine (\\textit\{eng. Minimum-weight triangulation\}), te uvodimo osnovne pojmove, koji su povezani sa njom.\\\\\
+\
+U drugom poglavlju je prezentirana jedna varijacija algoritma iscrpne pretrage za odre\\dj\{\}ivanje triangulacije najmanje te\\v\{z\}ine, te je izvr\\v\{s\}ena verifikacija istog.\\\\\
+\
+U tre\\'\{c\}em poglavlju se govori o instancama nad kojima su testirani algoritmi ovog rada, \\v\{c\}ime se priprema tlo za primjenu metaheuristi\\v\{c\}kih algoritama predstavljenih u \\v\{c\}etvrtom poglavlju ovog rada.\\\\\
+Od metaheuritsti\\v\{c\}kih algoritama je implementirano nekoliko varijacija metaheuristika za pretra\\v\{z\}ivanje usponom, kao \\v\{s\}to su: pohlepno pretra\\v\{z\}ivanje usponom, stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, pretra\\v\{z\}ivanje usponom prvog izbora, te metaheuristika simuliranog kaljenja (\\textit\{eng. Simulated Annealing, SA\}).\\\\\
+\
+Nakon navedenih metaheuristika, u petom poglavlju prezentiramo jo\\v\{s\} dva metaheuristi\\v\{c\}ka algoritma iz oblasti inteligencije rojeva (\\textit\{eng. Swarm Intelligence\}), koja su prilago\\dj\{\}ena za nala\\v\{z\}enje triangulacije najmanje te\\v\{z\}ine. To su: algoritam optimizacije \\v\{c\}estica (\\textit\{eng. Particle Swarm Optimization, PSO\}) i algoritam umjetne kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony, ABC\}).\\\\\
+\
+\\v\{S\}esto poglavlje je posve\\'\{c\}eno nekim pobolj\\v\{s\}anjima prethodno uvedenog metaheuristi\\v\{c\}kog ABC algoritma.\\\\\
+\
+U posljednjem poglavlju prezenitiramo statisti\\v\{c\}e rezultate performansi svih navedenih algoritama za rje\\v\{s\}avanje problema "Minimum-Weight" triangulacije.\
+\
+\\chapter\{Triangulacija najmanje te\\v\{z\}ine\} \
+\
+\\section\{O geometrijskoj triangulaciji ta\\v\{c\}aka u ravni\}\
+\
+Mo\\v\{z\}emo kazati da je pojam triangulacije \\v\{s\}irok. Ukoliko isti upotrijebimo u dru\\v\{s\}tvu psihologa, govorili bismo o jednom od na\\v\{c\}ina interakcije me\\dj\{\}u ljudima, dok bismo u dru\\v\{s\}tvu \\v\{s\}ahista, bili shva\\'\{c\}eni kao poznavaoc popularnog manevra za "odga\\dj\{\}anje" poteza. Isti pojam \\'\{c\}e poprimiti druga\\v\{c\}ije zna\\v\{c\}enje i u dru\\v\{s\}tvu ekonomista, politi\\v\{c\}ara, geodeta, sociologa, in\\v\{z\}enjera i matemati\\v\{c\}ara. Ali tu nije kraj vi\\v\{s\}ezna\\v\{c\}nosti. Naime, ukoliko razgovaramo o pojmu triangulacije sa in\\v\{z\}enjerom telekomunikacija, gotovo sigurno \\'\{c\}emo razgovarati o lociranju mobilnih ure\\dj\{\}aja, dok bismo sa in\\v\{z\}enjerom ra\\v\{c\}unarstva govorili o kompjuterskoj viziji i pronala\\v\{z\}enju ta\\v\{c\}aka u prostoru na osnovu njenih projekcija na odre\\dj\{\}ene ravnine. U matematici se tako\\dj\{\}er susre\\'\{c\}emo sa razli\\v\{c\}itim oblicima istog pojma. Tako triangulaciju razlikujemo u: topologiji, linearnoj algebri, teoriji kategorija, teoriji grafova i geometriji.\
+S obzirom da je triangulacija u geometriji, tj. geometrijska triangulacija, od posebnog zna\\v\{c\}aja u ovom radu, u nastavku joj pridajemo posebnu pa\\v\{z\}nju.\
+\
+\\begin\{defy\}(Geometrijska triangulacija) Podjelu vi\\v\{s\}edimenzionalnog geometrijskog objekta u simplekse\\footnote\{Appendix B\} nazivamo \\textbf\{geometrijskom triangulacijom\}.\
+\\end\{defy\}\
+\
+U zavisnosti od objekta kojeg dijelimo i na\\v\{c\}ina diobe istog, razlikujemo sljede\\'\{c\}e geometrijske triangulacije\\footnote\{Navedene definicije pokrivaju tek neke varijacije geometrijske triangulacije. Lista svih varijacija je ne\\v\{s\}to \\v\{s\}ira.\}.\
+\
+\\begin\{defy\} \\textbf\{Geometrijska triangulacija prostora $\\mathbb\{R\}^n$\} je podjela prostora $\\mathbb\{R\}^n$ na $n$-simplekse, za koju je presjek bilo koja dva susjedna $n$-simpleksa isklju\\v\{c\}ivo $t$-simpleks ($0 \\leq t < n$).\
+\\end\{defy\}\
+\
+\\begin\{defy\} \\textbf\{Geometrijska triangulacija skupa ta\\v\{c\}aka\} je podjela konveksnog omota\\v\{c\}a diskretnog skupa ta\\v\{c\}aka $P \\subset \\mathbb\{R\}^n$ na $n$-simplekse, za koju je presjek bilo koja dva susjedna $n$-simpleksa isklju\\v\{c\}ivo $t$-simpleks ($0 \\leq t < n$), te za koju svaki vrh (\\v\{c\}vor) bilo kojeg $n$-simpleksa pripada skupu $P$.\
+\\end\{defy\}\
+\
+\\begin\{defy\} \\textbf\{Geometrijska triangulacija prostog poligona\}\\footnote\{Ili samo "poligona".\} je podjela poligona $PL$ na trouglove, za koju je presjek bilo koja dva susjedna trougla isklju\\v\{c\}ivo $1$-simpleks (du\\v\{z\}), te za koju svaki vrh bilo kojeg trougla pripada skupu vrhova poligona $PL$.\
+\\end\{defy\}\
+\
+Specijalan slu\\v\{c\}aj geometrijske triangulacija skupa ta\\v\{c\}aka je geometrijska triangulacija skupa ta\\v\{c\}aka u ravni.\
+\
+\\begin\{defy\} \\textbf\{Geometrijska triangulacija skupa ta\\v\{c\}aka u ravni\} je podjela konveksnog omota\\v\{c\}a diskretnog skupa ta\\v\{c\}aka $P \\subset \\mathbb\{R\}^2$ na $2$-simplekse, za koju je presjek bilo koja dva susjedna $2$-simpleksa isklju\\v\{c\}ivo $t$-simpleks ($0 \\leq t < 2$), te za koju svaki vrh (\\v\{c\}vor) bilo kojeg $2$-simpleksa pripada skupu $P$.\\newline\
+To jeste, podjelu konveksnog omota\\v\{c\}a diskretnog skupa ta\\v\{c\}aka $P \\subset \\mathbb\{R\}^2$ na trouglove u $\\mathbb\{R\}^2$, takvu da je presjek bilo koja dva susjedna trougla ili zajedni\\v\{c\}ka du\\v\{z\} ili zajedni\\v\{c\}ki vrh ta dva trougla, te takvu da svaki vrh bilo kojeg trougla pripada skupu $P$, nazivamo \\textbf\{geometrijskom triangulacijom skupa ta\\v\{c\}aka u ravni\}.\
+\\end\{defy\}\
+\
+Problem nala\\v\{z\}enja geometrijske triangulacije skupa ta\\v\{c\}aka u ravni i problem nala\\v\{z\}enja geometrijske triangulacije poligona (u nastavku redom triangulacije skupa ta\\v\{c\}aka i triangulacije poligona) spadaju me\\dj\{\}u najpopularnije probleme iz kompjuterske geometrije\\footnote\{Kompjuterska geometrija (\\textit\{eng. Computational Geometry\}) je grana kompjuterske nauke koja se bavi izu\\v\{c\}avanjem izra\\v\{c\}unljivosti i kompleksnosti problema koji se mogu geometrijski iskazati. S obzirom da izra\\v\{c\}unljivost i kompleksnost nala\\v\{z\}enja triangulacija sa odre\\dj\{\}enim osobinama \\v\{c\}ine sr\\v\{z\} ovog rada, slijedi da istra\\v\{z\}ivanje sprovedeno u ovom radu proisti\\v\{c\}e iz ove oblasti.\}, te im u nastavku pridajemo posebnu pa\\v\{z\}nju.\
+\
+\
+\\section\{Problem nala\\v\{z\}enja triangulacije poligona\}\\label\{ch:polytrians\}\
+\
+\
+David Hilbert je u svojoj knjizi Osnove geometrije \\cite\{hilbert\}, objavljenoj 1899. godine, definirao povr\\v\{s\}inu poligona kao sumu povr\\v\{s\}ina trouglova pomo\\'\{c\}u kojih se poligon mo\\v\{z\}e podijeliti. Nedugo poslije, 1911. godine, prvi\\footnote\{Prvi poznat autoru.\} algoritam za podjelu poligona na trouglove predlo\\v\{z\}io je Lennes. Kako ovo razdoblje bilje\\v\{z\}i prve korake teorije izra\\v\{c\}unljivosti, malo je bilo govora o teoriji kompleksnosti. Tako Lennes ne navodi da njegov algoritam posjeduje veoma prihvatljivu kvadratnu kompleksnost, koja pobje\\dj\{\}uje kubnu kompleksnost Wickham-Jones algoritma za istu svrhu iz 1994. godine.\\\\\
+Pored spomenutih algoritama, algoritam koji \\'\{c\}emo najprije na\\'\{c\}i u \\v\{s\}kolskim ud\\v\{z\}benicima je algoritam "monotonih poligona" \\cite\{gareyetal\}. Kompleksnost ovog algoritma je proporcionalna sa $O(n\\textit\{log\}n)$. Ona se smatrala optimalnom, sve dok Tarjan i van Wyk nisu bolju, $O(n\\log \\log n)$, kompleksnost. Chazelle je nedugo zatim predlo\\v\{z\}io najbolje rje\\v\{s\}enje linearne kompleksnosti \\cite\{chazelle\}. Na\\v\{z\}alost, iako je kompleksnost ovog rje\\v\{s\}enja teorijski najbolja, za njenu implementaciju se tvrdi da je "prili\\v\{c\}no beznade\\v\{z\}na".\\\\\
+Od ranije je poznato da je Hilbert pokrenuo "talas" triangulacije poligona u smislu izra\\v\{c\}unljivosti. Me\\dj\{\}utim, triangulacija poligona je plijenila pa\\v\{z\}nju jo\\v\{s\} i mnogo prije. Tako je Leonhard Euler (1707. g. - 1783. g.) dokazao da je broj razli\\v\{c\}itih triangulacija konveksnog $n$-tougla jednak $C_\{n-2\}$, gdje je $C_n$ Katalanov broj\\footnote\{Iako nazvani po Eug\'e8ne Charles Catalan-u (1814. g. - 1893. g.), Katalanovi brojevi su kori\\v\{s\}teni jo\\v\{s\} i mnogo ranije. Ve\\'\{c\} smo pomenuli da ih je koristio Leonhard Euler. Me\\dj\{\}utim, isti su prona\\dj\{\}eni u djelu mongolskog matemati\\v\{c\}ara Mingantu-a (ili Ming Antu-a ili Minggatu-a u nekim izvorima) \\textit\{The Quick Method for Obtaining the Precise Ratio of Division of a Circle (Ge Yuan Mi Lu Jie Fa)\}. Smatra se da je Mingantu koristio Katalanove brojeve jo\\v\{s\} u samom za\\v\{c\}etku pisanja djela davne 1730. godine. Jedan od primjera Mingantu-ove primjene istih bi bila uoptreba Katalanovog niza za razvoj redova, koji aproksimiraju ili daju egzaktnu vrijednost od $sin(2\\beta)$ i $sin(4\\beta)$ u zavisnosti od $sin(\\beta)$. Katalanov broj, koji se naj\\v\{c\}e\\v\{s\}\\'\{c\}e ozna\\v\{c\}ava kao $C_n$, jednak je $\\displaystyle\\frac\{1\}\{n+1\}\\binom\{2n\}\{n\}$ ili $\\displaystyle\\frac\{\\left(2n\\right)!\}\{\\left(n+1\\right)!n!\}$ ili $\\displaystyle\\prod_\{k=2\}^\{n\}\\frac\{n+k\}\{k\}$. Ono \\v\{s\}to je od posebne va\\v\{z\}nosti za istra\\v\{z\}ivanje sprovedeno u ovom radu, jeste da $C_n$ pripada $O(2^n)$.\}. Ova \\v\{c\}injenica nas po prvi put upoznaje sa veli\\v\{c\}inom prostora pretrage za potrebe triangulacije poligona.\
+\
+\\section\{Problem nala\\v\{z\}enja triangulacije skupa ta\\v\{c\}aka\}\\label\{ch:pointsettrian\}\
+\
+Porediv\\v\{s\}i sa problemom nala\\v\{z\}enja triangulacije poligona, za problem nala\\v\{z\}enja triangulacije skupa ta\\v\{c\}aka postoji znatno manji broj, do sada prona\\dj\{\}enih, algoritama. Naime, autoru su u trenutku pisanja poznata tek dva algoritma. To su redom \\textit\{algoritam dijeljenja trouglova\} i \\textit\{inkrementalni algoritam\}\\cite\{devados\}.\\newline\
+\\textit\{Algoritam dijeljenja trouglova\} je sadr\\v\{z\}an u sljede\\'\{c\}em.\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{ALGORITAM-DIJELJENJA-TROUGLOVA\}\}\
+  \\begin\{algorithmic\}[1]\
+  	\\State - Neka je $P$ zadat skup ta\\v\{c\}aka u ravni\
+    \\State - Prona\\'\{c\}i konveksni omota\\v\{c\} $H$ skupa ta\\v\{c\}aka $P$\
+    \\State - Izvr\\v\{s\}iti triangulaciju prona\\dj\{\}enog konveksnog omota\\v\{c\}a $H$ kao poligona\
+    \\State - Svaku unutra\\v\{s\}nju\\footnotemark ta\\v\{c\}ku konveksnog omota\\v\{c\}a $H$ povezati sa vrhovima najbli\\v\{z\}eg ome\\dj\{\}avaju\\'\{c\}eg trougla\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\\footnotetext\{Za ta\\v\{c\}ku skupa $P$ koja se ne nalazi u skupu ta\\v\{c\}aka konveksnog omota\\v\{c\}a $H$ od $P$ ka\\v\{z\}emo da je unutra\\v\{s\}nja ta\\v\{c\}ka konveksnog omota\\v\{c\}a $H$.\}\
+\
+Konveksni omota\\v\{c\} skupa ta\\v\{c\}aka $P$ je najmanji konveksni poligon koji ome\\dj\{\}uje (ili sadr\\v\{z\}i) sve ta\\v\{c\}ke skupa $P$. Donja granica kompleksnosti problema nala\\v\{z\}enja konveksnog omota\\v\{c\}a skupa ta\\v\{c\}aka iznosi $\\Omega(n\\textit\{log\}n)$,  te postoji nekolicina algoritama koji je dosti\\v\{z\}u. Najpoznatiji bi bio Graham scan algoritam, koji ukoliko su ta\\v\{c\}ke prethodno sortirane po jednoj koordinati ili po uglu u odnosu na neki fiksni vektor, dosti\\v\{z\}e \\v\{c\}ak lienarnu kompleksnost.\\\\\
+\
+Nala\\v\{z\}enje konveksnog omota\\v\{c\}a pomjera donju granicu navedenog algoritma na $\\Omega(n\\textit\{log\}n)$. Triangulacija konveksnog poligona se mo\\v\{z\}e obaviti u linearnom vremenu kao i vezivanje unutra\\v\{s\}njih ta\\v\{c\}aka sa vrhovima ome\\dj\{\}avaju\\'\{c\}ih trouglova\\footnote\{Ukoliko u prethodnom koraku sortiramo sve ta\\v\{c\}ke u odnosu na ugao koji grade sa nenultim vektorom pralelnim sa apscisom i koji polazi iz najdonje ta\\v\{c\}ke (\\v\{s\}to mo\\v\{z\}emo u\\v\{c\}initi u vremenu $O(n\\textit\{log\}n)$), tada prilikom triangulacije poligona (koju mo\\v\{z\}emo izvr\\v\{s\}iti u linearnom vremenu \\textit\{spajaju\\'\{c\}i\} redom, sortirane na prethodno naveden na\\v\{c\}in, ta\\v\{c\}ke konveksnog omota\\v\{c\}a sa ta\\v\{c\}kom najmanje \\textit\{y\} koordinate) mo\\v\{z\}emo za svaki na\\dj\{\}eni trougao prona\\'\{c\}i i sve ta\\v\{c\}ke unutar tog trougla jednostavno uzev\\v\{s\}i porciju ta\\v\{c\}aka u na\\v\{s\}em sortiranom nizu ome\\dj\{\}enu prethodnom i trenutnom ta\\v\{c\}kom konveksnog omota\\v\{c\}a (sa kojim spajamo najdonju ta\\v\{c\}ku) u konstantnom vremenu. Na taj na\\v\{c\}in, kompleksnost posljednjeg koraka (vezivanje unutra\\v\{s\}njih ta\\v\{c\}aka sa respektivnim ome\\dj\{\}avaju\\'\{c\}im trouglovima) ostaje linearna. \\textit\{Edge-case\} ovakvog pristupa su unutra\\v\{s\}nje ta\\v\{c\}ke, \\v\{c\}iji ugao se poklapa sa uglom koji odgovara nekoj ta\\v\{c\}ki u konveksnom omota\\v\{c\}u. Takve ta\\v\{c\}ke trebaju biti referencirane od strane oba trougla (na \\v\{c\}ijoj granici se nalaze) u prethodnom procesu. Me\\dj\{\}utim, lahko se mo\\v\{z\}e pokazati da ovaj \\textit\{edge-case\} ne remeti kompleksnost algoritma.\}. Odatle zaklju\\v\{c\}ujemo da kompleksnost navedenog algoritma pripada $\\Theta(n\\textit\{log\}n)$.\\\\\
+\
+\\textit\{Inkrementalni algoritam\} je sadr\\v\{z\}an u sljede\\'\{c\}em.\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{INKREMENTALNI-ALGORITAM\}\}\
+  \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
+  \\State - Sortirati ta\\v\{c\}ke u $P$ po $x$ koordinati\
+  \\State - Formirati trougao koji \\v\{c\}ine prve tri ta\\v\{c\}ke u sortiranom nizu dodav\\v\{s\}i ih pritome u \\textit\{nepotpunu\} triangulaciju\
+  \\State - Dodavati ta\\v\{c\}ke inkrementalno i vezati ih sa svim do tada dodanim, vidljivim, ta\\v\{c\}kama u nepotpunoj triangulaciji\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{remy\}\
+Nepotpuna triangulacija \\v\{c\}ini sasvim validnu triangulaciju, no ne mora nu\\v\{z\}no pokrivati sve ta\\v\{c\}ke iz skupa koji se treba triangulirati. Dodavanjem bilo koje nove ta\\v\{c\}ke, pro\\v\{s\}iruje se nepotpuna triangulacija, sve dok ista ne pokrije cijeli skup ta\\v\{c\}aka.\
+\\end\{remy\}\
+\
+\\begin\{remy\}\
+Za ta\\v\{c\}ku $A$ nepotpune triangulacije ka\\v\{z\}emo da je \\textbf\{vidljiva\} iz ta\\v\{c\}ke $B$ ukoliko du\\v\{z\} $\\overline\{AB\}$ ne sije\\v\{c\}e niti jednu du\\v\{z\} nepotpune triangulacije.\
+\\end\{remy\}\
+\
+\\begin\{defy\} (\\textit\{Sweepline\} tehnika)\
+Tehnika u kojoj ta\\v\{c\}ke sortiramo po nekoj koordinati, a zatim obilazimo sortiranim redoslijedom (uglavnom obavljaju\\'\{c\}i neku operaciju prilikom obilazaka ta\\v\{c\}aka), nazivamo tehnikom pokretne linije (\\textit\{eng. sweepline technique\}).\
+\\end\{defy\}\
+\
+Poznato je da se sortiranje ta\\v\{c\}aka po $x$ koordinati mo\\v\{z\}e obaviti u vremenu od $O(n\\log n)$. Formiranje trougla kojeg \\v\{c\}ine prve tri ta\\v\{c\}ke mo\\v\{z\}emo izvr\\v\{s\}iti u konstantom vremenu. No posljednji korak inkrementalnog algoritma \\'\{c\}e terminirati u kvadratnom vremenu. Naime, usko grlo dolazi zbog \\v\{c\}injenice da prilikom dodavanja nove ta\\v\{c\}ke, moramo provjeriti mogu\\'\{c\}nost vezivanja iste sa svim do tada dodanim ta\\v\{c\}kama. Odatle kompleksnost posljednjeg koraka iznosi $h((n - 1)n - 6)/2$, \\v\{s\}to pripada $O(hn^2)$, gdje je $h$ kompleksnost provjere vezivanja dvije ta\\v\{c\}ke\\footnote\{Da li je mogu\\'\{c\}e povu\\'\{c\}i du\\v\{z\}, koja ne sije\\v ce niti jednu drugu du\\v\{z\}, izme\\dj\{\}u dvije ta\\v\{c\}ke.\}. Me\\dj\{\}utim, kompleksnost od $h((n - 1)n - 6)/2$  nije najmanja mogu\\'\{c\}a, \\v\{s\}to svjedo\\v\{c\}i rezultat sljede\\'\{c\}ih tvrdnji.\\newline\
+\
+\\begin\{staty\} \\label\{staty:chnewdotupdate\}\
+Ta\\v\{c\}ka novododana nepotpunoj triangulaciji (u navedenom inkrementalnom algoritmu) a\\v\{z\}urira konveksni omota\\v\{c\} do tada dodanih ta\\v\{c\}aka.\
+\\end\{staty\}\
+\
+\\begin\{proof\}\
+Pretpostavimo suprotno. Tada postoji novododana ta\\v\{c\}ka koja ne mijenja konveksni omota\\v\{c\} do tada dodanih ta\\v\{c\}aka. Dakle, novododana ta\\v\{c\}ka se nalazi unutar istog konveksnog omota\\v\{c\}a, \\v\{s\}to dalje implicira da postoji ta\\v\{c\}ka, razli\\v\{c\}ita od novododane i unutar nepotpune triangulacije, \\v\{c\}ija je $x$ koordinata ve\\'\{c\}a od $x$ koordinate novododane ta\\v\{c\}ke. Me\\dj\{\}utim, to se protivi pretpostavci da svaka novododana ta\\v\{c\}ka ima ve\\'\{c\}u ili jednaku $x$ koordinatu svih prethodno dodanih ta\\v\{c\}aka\\footnote\{Pretpostavka proizilazi iz \\v\{c\}injenice da su sve ta\\v\{c\}ke sortirane po $x$ koordinati (prvi korak inkrementalnog algoritma).\}. Do kontradikcije nas je dovela pretpostavka da postoji novododana ta\\v\{c\}ka koja ne a\\v\{z\}urira konveksni omota\\v\{c\} svih do tada dodanih, \\v\{s\}to implicira dokaz tvrdnje.\
+\\end\{proof\}\
+\
+\\begin\{staty\} \\label\{staty:linchupdate\}\
+A\\v\{z\}uriranje konveksnog omota\\v\{c\}a nepotpune triangulacije novododanom ta\\v\{c\}kom je izvr\\v\{s\}ivo u vremenu $O(k)$, gdje je $k$ broj ta\\v\{c\}aka istog konveksnog omota\\v\{c\}a.\
+\\end\{staty\}\
+	\\begin\{proof\}\
+    \
+    Da bismo dokazali ovu tvrdnju, prvo \\'\{c\}emo formulisati i dokazati nekoliko pomo\\'\{c\}nih lema.\
+    \
+	\\begin\{lemy\} \\label\{lem:chmaxangle\}\
+	Neka je $S$ novododana ta\\v\{c\}ka. Neka su $M$ i $N$ ta\\v\{c\}ke nepotpune triangulacije, bez ta\\v\{c\}ke $S$, takve da je ugao $\\measuredangle MSN$ najve\\'\{c\}i mogu\\'\{c\}i. Tada $M$ i $N$ pripadaju konveksnom omota\\v\{c\}u nepotpune triangulacije.\
+	\\end\{lemy\}\
+    \\begin\{proof\}\
+	    Trivijalan.\
+    \\end\{proof\}\
+    \
+    \\begin\{remy\} \\label\{rem:outofindex\}\
+    Kada god govorimo o nizu ta\\v\{c\}aka ($X_1, X_2, \\dots, X_l$) koji predstavlja konveksni omota\\v\{c\}, poligon ili bilo koju drugu cikli\\v\{c\}nu strukturu, podrazumijevamo da su i indeksi ta\\v\{c\}aka cikli\\v\{c\}ne prirode. To jeste da vrijedi $X_\{l+1\} = X_1$, kao i $X_0 = X_l$.\
+    \\end\{remy\}\
+    \
+    \\begin\{lemy\} \\label\{lem:bigeq\}\
+	Neka je $S$ novododana ta\\v\{c\}ka. Neka niz ta\\v\{c\}aka $K_1, K_2, \\dots, K_l, K_\{l+1\}$ \\v\{c\}ini konveksni omota\\v\{c\} do tada dodanih ta\\v\{c\}aka, bez ta\\v\{c\}ke $S$, takav da su $K_i$ i $K_\{i+1\}$, $i = \\overline\{1, l\}$, susjedne.\
+Tada su sljede\\'\{c\}e tvrdnje ekvivalentne:\
+	\\begin\{enumerate\}\
+	\\item Ugao $\\measuredangle K_mSK_n$ je nave\\'\{c\}i mogu\\'\{c\}i ugao.\
+    \\item\
+      \\begin\{enumerate\}\
+      \\item $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) = 0 \\quad\\forall i \\in \\\{1, \\dots, l\\\}\\setminus\\\{m, n\\\}$\
+      \\item $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) \\neq 0 \\quad\\forall i \\in \\\{m, n\\\}$\
+      \\end\{enumerate\}\
+	\\end\{enumerate\}\
+    gdje je $$ori(A, B, C) = \
+    	\\begin\{cases\}\
+    		1,       & \\quad \\text\{ako su ta\\v\{c\}ke A, B i C pozitivne orijentacije\}\\\\\
+    		0,  & \\quad \\text\{ako su ta\\v\{c\}ke A, B i C kolinearne\}\\\\\
+            -1,  & \\quad \\text\{ako su ta\\v\{c\}ke A, B i C negativne orijentacije\}\\\\\
+  		\\end\{cases\}$$\
+	\\end\{lemy\}\
+	\\begin\{proof\}\
+    Pravac $1. \\implies 2.$:\\\\\
+    Na osnovu leme \\ref\{lem:chmaxangle\}, imamo da ta\\v\{c\}ke nepotpune triangulacije sa kojima $S$ zatvara najve\\'\{c\}i mogu\\'\{c\}i ugao pripadaju konveksnom omota\\v\{c\}u. Ukoliko postoji vi\\v\{s\}e takvih ta\\v\{c\}aka, pretpostavimo bez gubljenja op\\v\{s\}tosti da su ta\\v\{c\}ke $K_m$ i $K_n$ najmanje Euklidove udaljenosti od $S$, to jeste du\\v\{z\}i $\\overline\{K_mS\}$ i $\\overline\{K_nS\}$ ne sadr\\v\{z\}e niti jednu ta\\v\{c\}ku iz $\\\{K_1, K_2, \\dots, K_l\\\}\\setminus\\\{K_m, K_n\\\}$. Otuda slijedi da je barem jedna od orijentacija $ori(S, K_m, K_\{m-1\})$ odnosno $ori(S, K_m, K_\{m+1\})$ razli\\v\{c\}ita od nule. Ta\\v\{c\}nije, sljede\\'\{c\}i iskaz je tautologija:\
+    $$(ori(S, K_m, K_\{m-1\}) \\neq 0 \\,\\,\\, \\lor \\,\\,\\, ori(S, K_m, K_\{m+1\}) \\neq 0) \\,\\,\\, \\land$$\
+    $$(ori(S, K_n, K_\{n-1\}) \\neq 0 \\,\\,\\, \\lor \\,\\,\\, ori(S, K_n, K_\{n+1\}) \\neq 0)$$\
+Doka\\v\{z\}imo najprije \\textit\{(b)\}. Pretpostavimo suprotno, to jeste da tvrdnja ne vrijedi za $i = m$ (analogno dokazujemo i za $i = n$). Dakle, neka vrijedi $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$. Ovo dalje povla\\v\{c\}i da je $ori(S, K_m, K_\{m-1\}) \\neq ori(S, K_m, K_\{m+1\})$\\footnote\{Primijetimo da navedena tvrdnja ne vrijedi ukoliko su $K_\{m-1\}$, $K_m$ i $K_\{m+1\}$ kolinearne i ukoliko du\\v\{z\} $\\overline\{SK_m\}$ sadr\\v\{z\}i ta\\v\{c\}no jednu od ta\\v\{c\}aka $K_\{m-1\}$ ili $K_\{m+1\}$. No ovaj slu\\v\{c\}aj smo zaobi\\v\{s\}li na\\v\{c\}inom kojim biramo ta\\v\{c\}ku $K_m$ na kraju.\}, \\v\{s\}to implicira da se ta\\v\{c\}ke $K_\{m-1\}$ i $K_\{m+1\}$ nalaze na razli\\v\{c\}itim poluravnima koje gradi pravac na kom le\\v\{z\}i du\\v\{z\} $\\overline\{SK_m\}$. Odatle je ta\\v\{c\}no jedan od uglova $\\measuredangle K_\{m-1\}SK_n$ ili $\\measuredangle K_\{m+1\}SK_n$ ve\\'\{c\}i od ugla $\\measuredangle K_mSK_n$, \\v\{s\}to je suprotno pretpostavci da je ugao $\\measuredangle K_mSK_n$ najve\\'\{c\}i i time dolazimo do kontradikcije. Do kontradikcije nas je dovela pretpostavka da vrijedi $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$, \\v\{c\}ime je dokazana tvrdnja \\textit\{(b)\}.\\\\\
+Primijetimo da je za dokaz tvrdnje \\textit\{(a)\} dovoljno pokazati da tvrdnja \\textit\{(b)\} vrijedi samo i samo za $i = m$ i $i = n$. Pretpostavimo suprotno. Tada postoji ta\\v\{c\}ka $K_p$ takva da je $ori(S, K_p, K_\{p-1\}) + ori(S, K_p, K_\{p+1\}) \\neq 0$. Dakle, ta\\v\{c\}ke $K_\{p+1\}$ i $K_\{p-1\}$ se nalaze u istoj poluravni koju gradi pravac du\\v\{z\}i $\\overline\{SK_p\}$. Iz osobina konveksnog omota\\v\{c\}a imamo da ugao $\\measuredangle K_\{t-1\}K_tK_\{t+1\}$ obuhvata sve ta\\v\{c\}ke nepotpune triangulacije za svako $K_t$ iz konveksnog omota\\v\{c\}a. Odatle slijedi da ta\\v\{c\}ke $K_m$ i $K_n$ le\\v\{z\}e u istoj poluravni kao i ta\\v\{c\}ke $K_\{p-1\}$ i $K_\{p+1\}$. Ovo dalje zna\\v\{c\}i da je ugao $\\measuredangle K_pSK_n$ najve\\'\{c\}i mogu\\'\{c\}i ugao, \\v\{s\}to je kontradickija sa pretpostavkom.\\\\\
+Time pokauzjemo da i tvrdnja \\textit\{(a)\} vrijedi, te je na taj na\\v\{c\}in ovaj pravac leme dokazan.\\\\\
+Pravac $2. \\implies 1.$:\\\\\
+Iz $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) \\neq 0$ dobijamo da je barem jedna od orijentacija $ori(S, K_m, K_\{m-1\})$ odnosno $ori(S, K_m, K_\{m+1\})$ razli\\v\{c\}ita od nule i to tako da ukoliko su obje razli\\v\{c\}ite od nule, moraju biti jednake. U protivnom bi vrijedilo da je $ori(S, K_m, K_\{m-1\}) + ori(S, K_m, K_\{m+1\}) = 0$.\\\\\
+Na osnovu osobina konveksnog omota\\v\{c\}a jasno je da ugao $\\measuredangle K_\{m-1\}K_mK_\{m+1\}$ obuhvata sve ta\\v\{c\}ke nepotpune triangulacije.\
+Uzev\\v\{s\}i u obzir posljednje dvije tvrdnje zaklju\\v\{c\}ujemo da se sve ta\\v\{c\}ke nepotpune triangulacije (pa i $K_n$) nalaze u istoj poluravni koju ome\\dj\{\}uje du\\v\{z\} $\\overline\{SK_m\}$. Analogno zaklju\\v\{c\}ujemo i za ta\\v\{c\}ku $K_n$.\\\\\
+Na osnovu napisanog slijedi da ugao $\\measuredangle K_mSK_n$ obuhvata sve ta\\v\{c\}ke nepotpune triangulacije, te je time i najve\\'\{c\}i mogu\\'\{c\}i ugao. Ovim je lema u potpunosti dokazana.\
+	\\end\{proof\}\
+\
+	\\begin\{lemy\} \\label\{lem:chupdate\}\
+	Neka niz ta\\v\{c\}aka $K_1, K_2, \\dots, K_l$ \\v\{c\}ini konveksni omota\\v\{c\} do tada dodanih ta\\v\{c\}aka, bez ta\\v\{c\}ke $S$, takav da su $K_i$ i $K_\{i+1\}$, $i = \\overline\{1, l\}$, susjedne. Tada a\\v\{z\}urirani konveksni omota\\v\{c\} poprima oblik $(\\dots, K_\{m-1\}, K_m, S, K_n, K_\{n+1\}, \\dots)$, pri \\v\{c\}emu ta\\v\{c\}ke nepotpune triangulacije $K_m$ i $K_n$ sa ta\\v\{c\}kom $S$ grade najve\\'\{c\}i mogu\\'\{c\}i ugao $\\measuredangle K_mSK_n$, za $m,n \\in \\\{1, 2, \\dots, l\\\}$.\
+	\\end\{lemy\}\
+	\\begin\{proof\}\
+    Pretpostavimo, bez gubljenja op\\v\{s\}tosti, da je konveksni omota\\v\{c\} pozitivne orijentacije\\footnote\{Ukoliko su bilo koje tri susjedne ta\\v\{c\}ke konveksnog omota\\v\{c\}a pozitivne (negativne) orijentacije, ka\\v\{z\}emo da je konveksni omota\\v\{c\} pozitivne (negativne) orijentacije. Primijetimo da konveksni omota\\v\{c\} mora biti pozitivne ili negativne orijentacije.\}, te da je $m < n$. S obzirom da ta\\v\{c\}ka $S$ ima najve\\'\{c\}u $x$-koordinatu, te da je na osnovu leme \\ref\{lem:chmaxangle\}, ugao $\\measuredangle K_mSK_n$ najve\\'\{c\}i mogu\\'\{c\}i ugao, slijedi da ugao $\\measuredangle K_mSK_n$ obuhvata sve ta\\v\{c\}ke nepotpune triangulacije. Na osnovu ovoga i osobina konveksnog omota\\v\{c\}a, slijedi da ta\\v\{c\}ka $S$ pripada konveksnom omota\\v\{c\}u svih do tada dodanih ta\\v\{c\}aka. Dalje, vrijedi da je orijentacija $ori(K_\{i-1\}, K_i, S)$ negativna, za svako $i = \\overline\{m+1, n\}$. Naime, koriste\\'\{c\}i pretpostavku da je konveksni omota\\v\{c\} pozitivne orijentacije, te da je $m < n$ i da je ugao $\\measuredangle K_mSK_n$ najve\\'\{c\}i mogu\\'\{c\}i ugao, lahko se pokazuje da je $ori(S, K_m, K_\{m+1\})$ negativna. Otuda dobijamo da je orijentacija $ori(K_m, K_\{m+1\}, S)$ negativna, odakle se dalje na osnovu definicije orijentacije mo\\v\{z\}e zaklju\\v\{c\}iti da je $ori(S, K_\{m+1\}, K_m)$ pozitivna. Dalje, iz iskaza $(ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) = 0$ za svako $i \\in \\\{1, \\dots, l\\\}\\setminus\\\{m, n\\\})$ leme \\ref\{lem:bigeq\}, uz \\v\{c\}injenicu da je $ori(S, K_i, K_\{i+1\}) \\neq 0$ za sve $i$ iz $[m,n)$ i $ori(S, K_i, K_\{i-1\}) \\neq 0$ za sve $i$ iz $(m,n]$, imamo da je $ori(S, K_\{m+1\}, K_m) \\neq ori(S, K_\{m+1\}, K_\{m+2\})$. Odatle je i $ori(S, K_\{m+1\}, K_\{m+2\})$ negativna pa samim tim i $ori(K_\{m+1\}, K_\{m+2\}, S)$. Analogno pokazujemo i za sve ostale orijentacije $ori(K_i, K_\{i+1\}, S)$, $i = \\overline\{m+2,n-1\}$. No, kako je konveksni omota\\v\{c\} po pretpostavci uvijek pozitivne orijentacije, dobijamo da niti jedna od orijentacija $ori(K_\{i-1\}, K_i, K_\{i+1\})$, $i = \\overline\{1, l\}$, ne smije biti negativna. Odatle ta\\v\{c\}ke $K_\{m+1\}, K_\{m+2\}, \\dots, K_n$ ne pripadaju konveksnom omota\\v\{c\}u skupu ta\\v\{c\}aka nepotpune triangulacije koji uklju\\v\{c\}uje i ta\\v\{c\}ku $S$. Kako je ta\\v\{c\}ka $S$, zapravo ta\\v\{c\}ka konveksnog omota\\v\{c\}a, susjedna ta\\v\{c\}kama $K_m$ i $K_n$\\footnote\{Ponovo pretpostavljamo da u slu\\v\{c\}aju postojanja vi\\v\{s\}e ta\\v\{c\}aka koje sa $S$ grade najve\\'\{c\}i mogu\\'\{c\}i ugao, biramo one ta\\v\{c\}ke \\v\{c\}ija je Euklidova udaljenost od $S$ najmanja.\}, dobijamo da niz $K_m$, $S$, $K_n$ le\\v\{z\}i u a\\v\{z\}uriranom konveksnom omota\\v\{c\}u. Time je lema dokazana.\
+    \\end\{proof\}\
+    \
+    \\begin\{cory\} \\label\{cor:chupdate\}\
+    Za a\\v\{z\}uriranje konveksnog omota\\v\{c\}a nepotpune triangulacije novododanom ta\\v\{c\}kom $S$, dovoljno je na\\'\{c\}i ta\\v\{c\}ke konveksnog omota\\v\{c\}a $K_m$ i $K_n$ za koje vrijedi $ori(S, K_i, K_\{i-1\}) = ori(S, K_i, K_\{i+1\})$, za $i \\in \\\{m, n\\\}$.\
+    \\end\{cory\}\
+    \\begin\{proof\}\
+    Pretpostavimo da je $ori(S, K_i, K_\{i-1\}) + ori(S, K_i, K_\{i+1\}) \\neq 0$, $i \\in \\\{m, n\\\}$\\footnote\{U slu\\v\{c\}aju da je $ori(S, K_m, K_\{m-1\}) = ori(S, K_m, K_\{m+1\}) = 0$, ta\\v\{c\}ku $K_m$ zamjenjuje ta\\v\{c\}ka $K_\{m+1\}$. Tako\\dj\{\}er, ako vrijedi $ori(S, K_n, K_\{n-1\}) = ori(S, K_n, K_\{n+1\}) = 0$, tada ta\\v\{c\}ku $K_n$ zamjenjuje ta\\v\{c\}ka $K_\{n-1\}$ u formiranju najve\\'\{c\}eg mogu\\'\{c\}eg ugla.\}. Odatle, na osnovu leme \\ref\{lem:bigeq\} vrijedi da je ugao $\\measuredangle K_mSK_n$ najve\\'\{c\}i ugao, pa iz rezultata leme \\ref\{lem:chupdate\} direktno slijedi i dokaz posljedice.\
+    \\end\{proof\}\
+\
+Kako provjeru orijentacije tri ta\\v\{c\}ke u ravni mo\\v\{z\}emo izvr\\v\{s\}iti u konstantnom vremenu\\footnote\{Za ta\\v\{c\}ke $A(A_x, A_y)$, $B(B_x, B_y)$, $C(C_x, C_y)$, dovoljno je da izra\\v\{c\}unamo vrijednost izraza: $sign((B_x - A_x)(C_y - A_y) - (B_y - A_y)(C_x - A_x))$\}, slijedi da ta\\v\{c\}ke $K_m$ i $K_n$ (Posljedica \\ref\{cor:chupdate\}) mo\\v\{z\}emo odrediti u vremenu $O(k)$, gdje je $k$ broj ta\\v\{c\}aka konveksnog omota\\v\{c\}a do tada dodanih ta\\v\{c\}aka.\
+\\end\{proof\}\
+\
+\\begin\{staty\} \\label\{staty:chtodotconn\}\
+Neka je $S$ novododana ta\\v\{c\}ka. Neka niz ta\\v\{c\}aka $K_1, K_2, \\dots, K_l, K_\{l+1\}$ \\v\{c\}ini konveksni omota\\v\{c\} do tada dodanih ta\\v\{c\}aka, bez ta\\v\{c\}ke $S$, takav da su $K_i$ i $K_\{i+1\}$, $i=\\overline\{1, l\}$ susjedne. Neka su ta\\v\{c\}ke $K_m$ i $K_n$, $m,n \\in \\\{1, l\\\}$, takve da je ugao $\\measuredangle K_mSK_n$ najve\\'\{c\}i mogu\\'\{c\}i ugao. Tada su isklju\\v\{c\}ivo ta\\v\{c\}ke $K_m, K_\{m+1\}, \\dots, K_n$ spojive sa ta\\v\{c\}kom $S$.\
+\\end\{staty\}\
+\\begin\{proof\}\
+Na osnovu leme \\ref\{lem:chmaxangle\} znamo da ta\\v\{c\}ke nepotpune triangulacije sa kojima $S$ zatvara najve\\'\{c\}i mogu\\'\{c\}i ugao pripadaju konveksnom omota\\v\{c\}u nepotpune triangulacije.\
+Bez umanjenja op\\v\{s\}tosti mo\\v\{z\}emo pretpostaviti da je konveksni omota\\v\{c\} pozitivne orijentacije. Doka\\v\{z\}imo najprije da su ta\\v\{c\}ke $K_m$, $K_\{m+1\}$, \\dots, $K_n$ spojive sa $S$. Pretpostavimo suprotno. Tada postoji ta\\v\{c\}ka $K_p$ ($p \\in \\\{m, \\dots, n\\\}$) koja nije spojiva sa ta\\v\{c\}kom S. Odatle postoji segment $\\overline\{MN\}$ koji sije\\v\{c\}e $\\overline\{K_pS\}$ \\v\{s\}to zna\\v\{c\}i da je bar jedna orijentacija $ori(K_\{p-1\}, K_p, M)$ ili $ori(K_\{p-1\}, K_p, M)$ negativna, \\v\{s\}to se protivi osobini konveksnog omota\\v\{c\}a da sve $ori(K_\{p-1\}, K_p, P)$, za svako $P$ iz skupa svih ta\\v\{c\}aka u ravni, moraju biti iste orijentacije kao konveksni omota\\v\{c\} ili jednake nuli. Dalje, ispucana linija\\footnote\{Niz linijskih segmenata $\\overline\{X_1X_2\}$, $\\overline\{X_2X_3\}$, $\\dots$, $\\overline\{X_\{n-1\}X_n\}$ nazivamo ispucanom linijom $X_1X_2\\dots X_\{n-1\}X_n$.\} $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ je ujedno ivica konveksnog omota\\v\{c\}a i linija koja razdvaja sve ta\\v\{c\}ke nepotpune triangulacije od ta\\v\{c\}ke $S$\\footnote\{Sve ta\\v\{c\}ke dodajemo inkrementalno, po\\v\{c\}ev\\v\{s\}i od one sa najmanjom $x$-koordinatom, pa sve do one sa najve\\'\{c\}om $x$-koordinatom. Tako\\dj\{\}er, prethodno smo pokazali da je svaka ta\\v\{c\}ka ispucane linije $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ vidljiva iz S. Odatle mo\\v\{z\}emo zaklju\\v\{c\}iti da ispucana linija $K_mK_\{m+1\}\\dots K_\{n-1\}K_n$ razdvaja $S$ od svih ostalih ta\\v\{c\}aka nepotpune triangulacije.\}. Odatle mo\\v\{z\}emo zaklju\\v\{c\}iti da ni jedna od ta\\v\{c\}aka $\\\{K_1, K_2, \\dots, K_l\\\}\\setminus\\\{K_m, K_\{m+1\}, \\dots, K_n\\\}$ nije vidljiva iz $S$. Stoga zaklju\\v\{c\}ujemo da su jedine spojive ta\\v\{c\}ke sa ta\\v\{c\}kom $S$ upravo ta\\v\{c\}ke $K_m, K_\{m+1\}, \\dots, K_n$, \\v\{c\}ime je tvrdnja dokazana.\
+\\end\{proof\}\
+\
+\\begin\{cory\} \\label\{cor:incalgcmplxty\}\
+Vremenska kompleksnost inkrementalnog algoritma pripada $max(O(kn), O(n\\log n))$, gdje je $k \\leq n$.\
+\\end\{cory\}\
+\\begin\{proof\}\
+Prvi korak inkrementalnog algoritma zahtijeva sortiranje po $x$-koordinati te pomijera donju granicu vremenske kompleksnosti na $\\Omega(n\\log n)$. Drugi korak mo\\v\{z\}emo izvr\\v\{s\}iti u konstantom vremenu, dok tre\\'\{c\}i korak ponavljamo $n-3$ puta i pri svakoj iteraciji nalazimo ta\\v\{c\}ke nepotpune triangulacije spojive sa ta\\v\{c\}kom dodanoj u toj iteraciji. Na osnovu tvrdnji \\ref\{staty:chnewdotupdate\}, \\ref\{staty:linchupdate\} i \\ref\{staty:chtodotconn\}, problem nala\\v\{z\}enja ta\\v\{c\}aka spojivih sa novododanom ta\\v\{c\}kom se reducira na problem nala\\v\{z\}enja dviju ta\\v\{c\}ki nepotpune triangulacije $M$ i $N$ takvih da je ugao $\\measuredangle MSN$ najve\\'\{c\}i mogu\\'\{c\}i. S obzirom da orijentaciju tri ta\\v\{c\}ke mo\\v\{z\}emo izra\\v\{c\}unati u konstantom vremenu kao i spajanje dviju ta\\v\{c\}ki\\footnote\{Dovoljno je a\\v\{z\}urirati susjedne ta\\v\{c\}ke (koje mo\\v\{z\}emo tretirati kao zasebne (ra\\v\{c\}unarske) objekte) dviju ta\\v\{c\}ki koje spajamo.\}, te uzev\\v\{s\}i u obzir rezultat tvrdnje \\ref\{staty:linchupdate\}, vremenska kompleksnost nala\\v\{z\}enja spojivih ta\\v\{c\}aka i a\\v\{z\}uriranja konveksnog omota\\v\{c\}a unutar jedne iteracije tre\\'\{c\}eg koraka algoritma se svodi na $O(k')$, gdje je $k'$ broj ta\\v\{c\}aka konveksnog omota\\v\{c\}a nepotpune triangulacije u toj iteraciji. Odatle vremenska kompleksnost tre\\'\{c\}eg koraka iznosi $(n-3)O(k) = O(kn)$, gdje je $k$ broj ta\\v\{c\}aka najbrojnijeg konveksnog omota\\v\{c\}a\\footnote\{Najbrojniji konveksni omota\\v\{c\} predstavlja omota\\v\{c\} iz one iteracije tre\\'\{c\}eg koraka algoritma u kojoj on ima najvi\\v\{s\}e ta\\v\{c\}aka.\}, odakle proizilazi i dokaz posljedice.\
+\\end\{proof\} \
+\\pagebreak\
+Posmatrajmo sada sljede\\'\{c\}i problem.\\\\\
+\\textit\{Prona\\'\{c\}i triangulaciju skupa ta\\v\{c\}aka u ravni takvu da je najmanji ugao unutar triangulacije maksimiziran.\}\\footnote\{Ovako definisana triangulacija je poznata kao \\textbf\{Delaunay triangulacija\}.\}\
+\
+Inkrementalni algoritam je invarijantan. Dakle, uvijek \\'\{c\}e konstruisati istu triangulaciju za dati skup ta\\v\{c\}aka. Invarijantnost algoritma dijeljenja trouglova zavisi od invarijantosti upotrijebljenog algoritma za pronala\\v\{z\}enje triangulacije poligona, kao i od invarijantnosti poretka unutra\\v\{s\}njih ta\\v\{c\}aka u posljednjem koraku algoritma. Zatim, u prethodnom poglavlju smo govorili o eksponencijalnom broju razli\\v\{c\}itih triangulacija konveksnog $n$-tougla, \\v\{s\}to ostavlja mogu\\'\{c\}nost da i broj triangulacija skupa ta\\v\{c\}aka tako\\dj\{\}er bude eksponencijalan. Dok algoritam dijeljenja trougla sa svojom varijantno\\v\{s\}\\'\{c\}u ostavlja tra\\v\{c\}ak nade za "poga\\dj\{\}anje" ovako definisane triangulacije, inkrementalni algoritam je prili\\v\{c\}no beznade\\v\{z\}an. U svakom slu\\v\{c\}aju, ova dva pristupa su neprihvatljiva. Stoga pribjegavamo drugim metodama, s kojima \\'\{c\}emo se djelomi\\v\{c\}no upoznati u narednom poglavlju. Tako\\dj\{\}er, treba pomenuti da motivacija za nove metode ne dolazi samo od potrebe za nala\\v\{z\}enje Delaunay triangulacije. Postoje razne \\textit\{uslovne\} triangulacije, \\v\{s\}to pokazuje tabela u nastavku.\
+\
+\\begin\{table\}\
+\\label\{tab:constrainttrians\}\
+\\centering\
+\\captionof\{table\}\{Uslovne triangulacije i vremena najbr\\v\{z\}ih poznatih algoritama za nala\\v\{z\}enje istih. Najpoznatije dvije varijacije bi bile \\textit\{Delaunay triangulacija\} i \\textit\{Minimum-weight triangulacija\}.\} \\label\{tab:triangulacije\}\
+\\begin\{tabular\}\{ |P\{3cm\}|P\{3cm\}|P\{3cm\}|P\{3cm\}| \}\
+  \\hline\
+   \\rowcolor\{white\}[0pt][0pt] $\\,$ & $\\,$ & \\sc\{minimiziraj\} & \\sc\{maksimiziraj\} \\\\\
+  \\hline\
+  \\multirow\{4\}\{*\}\{\\sc\{ugao\}\} & \\multirow\{3\}\{*\}\{\\sc\{najmanji\}\} & \\multirow\{3\}\{*\}\{-\} & $O(n\\log n)$ (Delaunay triangulacija) \\\\\\cline\{2-4\}\
+   & \\sc\{najve\\'\{c\}i\} & $O(n^2 \\log n)$\\cite\{edelsbrunneretal\}\\cite\{bernetal\} & - \\\\\
+  \\hline\
+  \\multirow\{2\}\{*\}\{\\sc\{povr\\v\{s\}ina\}\} & \\sc\{najmanja\} & $O(n^2)$\\cite\{chazelleetal\} & $O(n^2 \\log n)$\\cite\{vassilev\} \\\\\\cline\{2-4\}\
+   & \\sc\{najve\\'\{c\}a\} & $O(n^2 \\log n)$\\cite\{vassilev\} & - \\\\\
+  \\hline\
+  \\multirow\{2\}\{*\}\{\\sc\{stepen\}\} & \\multirow\{2\}\{*\}\{\\sc\{najve\\'\{c\}i\}\} & NP-kompletan za stepen 7\\cite\{jansen\} & \\multirow\{2\}\{*\}\{-\} \\\\\
+  \\hline\
+  \\sc\{ekscentricitet\} & \\sc\{najve\\'\{c\}i\} & $O(n^\{3\})$\\cite\{bernetal\} & - \\\\\
+  \\hline\
+  \\multirow\{6\}\{*\}\{\\sc\{du\\v\{z\}ina ivice\}\} & \\multirow\{3\}\{*\}\{\\sc\{najmanja\}\} & $O(n \\log n)$ (Algoritam dvije najbli\\v\{z\}e ta\\v\{c\}ke) & NP-kompletan\\cite\{fekete\}\\\\\
+  \\cline\{2-4\}\
+   & \\sc\{najve\\'\{c\}a\} & $O(n^\{2\})$\\cite\{edelsbrunnertan\} & $O(n\\log n)$\\\\\
+  \\cline\{2-4\}\
+   & \\multirow\{2\}\{*\}\{\\sc\{suma\}\} & NP-te\\v\{z\}ak (MWT) & \\multirow\{2\}\{*\}\{-\}\\\\\
+  \\hline\
+  \\sc\{visina\} & \\sc\{najmanja\} & - & $O(n^2 \\log n)$\\cite\{bernetal\} \\\\\
+  \\hline\
+  \\sc\{gradient\} & \\sc\{najve\\'\{c\}i\} & $O(n^3)$\\cite\{bernetal\} & - \\\\\
+  \\hline\
+\\end\{tabular\}\
+\\end\{table\} \
+\\pagebreak\
+\
+\\section\{Veza izme\\dj\{\}u triangulacije skupa ta\\v\{c\}aka i triangulacije poligona\}\
+\
+Problem nala\\v\{z\}enja triangulacije skupa ta\\v\{c\}aka u ravni i problem nala\\v\{z\}enja triangulacije poligona su usko povezani. O tome govori sljede\\'\{c\}i teorem.\
+\
+\\begin\{thmy\} \\label\{th:triconn\} Problem triangulacije skupa ta\\v\{c\}aka se mo\\v\{z\}e reducirati na problem triangulacije poligona.\
+\\end\{thmy\}\
+\\begin\{proof\}\
+	\
+   Da bismo dokazali ovaj teorem, najprije \\'\{c\}emo dokazati nekoliko pomo\\'\{c\}nih lema.\
+\
+  \\begin\{lemy\} \\label\{lem:sweeppolych\}\
+  \\textit\{Sweep\} poligon\\footnote\{Prost poligon konstruisan sortiraju\\'\{c\}i sve ta\\v\{c\}ke $M \\in P$ u ravni u odnosu na ugao koji zatvara du\\v\{z\} $\\overline\{MN\}$ sa apscisom, gdje je $N$ ta\\v\{c\}ka sa najmanjom $y$-koordinatom. Ukoliko za dvije ta\\v\{c\}ke, odgovaraju\\'\{c\}e du\\v\{z\}i zatvaraju isti ugao, prednost pri sortiranju ima ona ta\\v\{c\}ka koja je bli\\v\{z\}a ta\\v\{c\}ki $N$. (\\textit\{Napomena:\} Dovoljno je da ta\\v\{c\}ka $N$ bude ivi\\v\{c\}na, sa najmanjom ili najve\\'\{c\}om $x$ ili $y$ koordinatom. Me\\dj\{\}utim, u slu\\v\{c\}aju odabira one ta\\v\{c\}ke sa najmanjom ili najve\\'\{c\}om $x$-koordinatom, referentni ugao po kom se vr\\v\{s\}i sortiranje se gradi sa ordinatom umjesto apscisom.)\} $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ je jednak konveksnom omota\\v\{c\}u $H$, skupa ta\\v\{c\}aka $P$, ako i samo ako vrijedi $H = P$.\
+  \\end\{lemy\}\
+  \\begin\{proof\}\
+  Trivijalan.\
+  \\end\{proof\}\
+  \
+  \\begin\{lemy\} \\label\{lem:sweeppolydiv\}\
+  \\textit\{Sweep\} poligon $SL$ konstruisan nad skupom ta\\v\{c\}aka $P$ dijeli konveksni omota\\v\{c\} $H$, skupa ta\\v\{c\}aka $P$, $(H \\neq P)$ na dva ili vi\\v\{s\}e poligona.\
+  \\end\{lemy\}\
+  \\begin\{proof\}\
+  Pretpostavimo suprotno, to jeste da \\textit\{sweep\} poligon $PL$ ne dijeli konveksni omota\\v\{c\} $H$ od $P$ na dva ili vi\\v\{s\}e poligona. Razlikujemo samo dva slu\\v\{c\}aja za ovakav scenarij.\\\\\
+  Prvi slu\\v\{c\}aj u kom postoji ta\\v\{c\}ka $M \\in P$ takva da $M \\notin PL$ i $M \\notin H$. U tom slu\\v\{c\}aju, na osnovu definicije \\textit\{sweep\} poligona, $PL$ ne mo\\v\{z\}e biti prosti poligon od $P$. Dakle u ovom slu\\v\{c\}aju dolazimo do kontradikcije.\\\\\
+  Preostaje jedino slu\\v\{c\}aj gdje je prosti poligon $PL$ jednak konveksnom omota\\v\{c\}u $H$. Odatle na osnovu leme $1.4.A$ slijedi da je $H = P$ \\v\{s\}to je suprotno uslovu leme $(H \\neq P)$, te time ponovo dolazimo do kontradikcije.\
+Do kontradikcije nas je dovela pretpostavka da sweep poligon $PL$, konstruisan nad skupom ta\\v\{c\}aka $P$, ne dijeli konveksni omota\\v\{c\} $H$, skupa ta\\v\{c\}aka $P$, na dva ili vi\\v\{s\}e poligona, pa je trebamo odbaciti. Time je dokaz leme kompletiran.\
+\\end\{proof\}\
+\
+Leme \\ref\{lem:sweeppolych\} i \\ref\{lem:sweeppolydiv\} uzrokuju sljede\\'\{c\}u posljedicu.\
+\
+\\begin\{cory\}\\label\{cory:polydiv\}\
+Svaki skup ta\\v\{c\}aka $P$ se mo\\v\{z\}e podijeliti na jedan ili vi\\v\{s\}e (prostih) poligona.\
+\\end\{cory\}\
+\\begin\{proof\}\
+Na osnovu leme \\ref\{lem:sweeppolych\} zaklju\\v\{c\}ujemo da skup $P$ formira jedan i samo jedan poligon, koji odgovara konveksnom omota\\v\{c\}u $H$ skupa $P$, ukoliko je $H = P$, te da je u suprotnom, na osnovu leme \\ref\{lem:sweeppolydiv\}, dovoljno konstruisati \\textit\{sweep\} poligon i konveksni omota\\v\{c\} skupa ta\\v\{c\}aka $P$ za podjelu istog na dva ili vi\\v\{s\}e poligona.\
+\\end\{proof\}\
+\
+Uz rezultat posljedice \\ref\{cory:polydiv\}, dovoljno je jo\\v\{s\} dokazati da triangulacije poligona nastalih podjelom skupa ta\\v\{c\}aka $P$ \\v\{c\}ine jednu triangulaciju skupa ta\\v\{c\}aka $P$.\\\\\
+Pretpostavimo suprotno, to jeste da postoje dva poligona \\v\{c\}ije triangulacije ne \\v\{c\}ine jednu triangulaciju unije ta dva poligona. Tada postoji netriangulirani $n$-tougao $K$ u uniji ta dva poligona. $N$-tougao $K$ se ne mo\\v\{z\}e nalaziti u jednom ili drugom poligonu isklju\\v\{c\}ivo, jer bi u tom slu\\v\{c\}aju bile naru\\v\{s\}ene pretpostavke o trianguliranosti jednog ili drugog poligona.\\\\\
+Dakle $K$ se mora nalaziti na dodirnoj liniji dva poligona (time tako\\dj\{\}er zaklju\\v\{c\}ujemo da se dva poligona moraju dodirivati). No, u tom slu\\v\{c\}aju bi dodirna linija poligona morala biti sa prekidom, te bi time ivi\\v\{c\}ne linije dva poligona imale prekid, \\v\{s\}to se ni u kom slu\\v\{c\}aju ne smije desiti.\\\\\
+Posljednja kontradikcija implicira dokaz na\\v\{s\}eg teorema.\
+\\end\{proof\}\
+\
+\\begin\{remyy\} \\label\{rem:newtrialg\}\
+Kroz dokaz teorema \\ref\{th:triconn\} je demonstriran jo\\v\{s\} jedan algoritam za triangulaciju skupa ta\\v\{c\}aka, \\v\{c\}iji je pseudo-kod dat ispod.\
+\\end\{remyy\}\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{ALGORITAM-PODJELE-NA-POLIGONE\}\}\
+  \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
+  \\State - Izvr\\v\{s\}i podjelu skupa ta\\v\{c\}aka $P$ na poligone\
+  \\State - Izvr\\v\{s\}i triangulaciju svakog na\\dj\{\}enog poligona koriste\\'\{c\}i jedan od algoritama navedenih u poglavlju  \\ref\{ch:polytrians\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+Rezultat posljedice \\ref\{cory:polydiv\} omogu\\'\{c\}ava da se drugi korak algoritma izvr\\v\{s\}i u vremenu $O(n\\log n)$. Zaista, u rezultatu posljedice tvrdimo da je za podjelu skupa ta\\v\{c\}aka na poligone, dovoljno na\\'\{c\}i konveksni omota\\v\{c\} i \\textit\{sweep\} poligon tog skupa ta\\v\{c\}aka. Ranije smo pokazali da je nala\\v\{z\}enje obje navedene konstrukcije izvr\\v\{s\}ivo u vremenu $\\Theta (n\\log n)$.\\\\\
+\
+Dalje, primijetimo da vremenska kompleksnost tre\\'\{c\}eg koraka pripada $O(n + k + k')$\\cite\{chazelle\}, gdje je $k$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim nadjenim poligonima, dok je $k'$ broj ta\\v\{c\}aka \\textit\{sweep\} poligona koje su sadr\\v\{z\}ane i u drugim na\\dj\{\}enim poligonima i konveksnom omota\\v\{c\}u. Uzmemo li u obzir da je $k \\leq n$ i $k' < n$, navedena kompleksnost se svodi na $O(n)$. Otuda, vremenska kompleksnost navedenog algoritma za triangulaciju skupa ta\\v\{c\}aka iznosi $\\Theta (n\\log n)$.\
+\
+\\section\{Delaunay triangulacija\}\
+\
+Triangulacija koja maksimizira najmanji ugao svih trouglova svih triangulacija skupa ta\\v\{c\}aka $P$ se naziva \\textbf\{Delaunay triangulacijom\} skupa ta\\v\{c\}aka $P$.\
+\
+\\begin\{remy\}\
+Delaunay triangulacija se mo\\v\{z\}e generalizirati i za $n$-dimenzionalni prostor.\
+\\end\{remy\}\
+\
+U nastavku navodimo osobine ove triangulacije bez dokaza.\
+\
+\\begin\{enumerate\}\
+\\item Opisana kru\\v\{z\}nica bilo kojeg trougla Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sadr\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju.\
+\\item Ukoliko kru\\v\{z\}nica koja prolazi kroz dvije ta\\v\{c\}ke, $A$ i $B$, Delaunay triangulacije $T$, skupa ta\\v\{c\}aka $P$, ne sadr\\v\{z\}i niti jednu ta\\v\{c\}ku skupa $P$ kao unutra\\v\{s\}nju ta\\v\{c\}ku, onda du\\v\{z\} koja spaja $A$ i $B$ pripada triangulaciji $T$.\
+\\item Graf najbli\\v\{z\}ih susjeda\\footnote\{Graf najbli\\v\{z\}ih susjeda skupa $P$ sa\\v\{c\}injenog od $n$ objekata u nekom metri\\v\{c\}kom prostoru (npr. skupa ta\\v\{c\}aka u ravni sa definisanom Euklidovom udaljeno\\v\{s\}\\'\{c\}u) je usmjereni graf, \\v\{c\}iji skup \\v\{c\}vorova odgovara skupu $P$ i \\v\{c\}iji je skup grana popunjen usmjerenim granama iz $p$ u $q$ \\textbf\{akko\} je $q$ najbli\\v\{z\}i susjed od $p$ (tj. udaljenost objekta $p$ do objekta $q$ nije ve\\'\{c\}a od udaljenosti objekta $p$ do bilo kojeg drugog objekta iz $P$).\} je podgraf Delaunay triangulacije.\
+\\item Delaunay triangulacija je geometrijski \\textit\{spanner\}\\cite\{narasimhanmichiel\}.\
+\\item Delaunay triangulacija skupa ta\\v\{c\}aka $P$ je dualni graf\\footnote\{Dualni graf planarnog grafa $G$ je graf \\v\{c\}iji \\v\{c\}vorovi odgovaraju oblastima (regionima) grafa $G$. Dva \\v\{c\}vora dualnog grafa su povezana ako i samo ako se dva odgovaraju\\'\{c\}a regiona iz $G$ dodiruju granom iz $G$.\} Voronoi dijagrama\\footnote\{Voronoi dijagram, nazvan po Georgy-u Voronoi-u je podjela ravni na regije u odnosu na neki zadani skup ta\\v\{c\}aka sa definisanom udaljeno\\v\{s\}\\'\{c\}u nad istim. Zadani skup ta\\v\{c\}aka se naziva jo\\v\{s\} i skup generatora. Svakoj ta\\v\{c\}ki (generatoru) odgovara regija (poligon) sa\\v\{c\}injena od svih ta\\v\{c\}aka ravni, koje su bli\\v\{z\}e tom generatoru, nego bilo kom drugom generatoru u zadanom skupu generatora.\} skupa ta\\v\{c\}aka $P$.\
+\\end\{enumerate\}\
+\
+Postoje tek \\v\{c\}etiri poznata algoritma za nala\\v\{z\}enje Delaunay triangulacije. To su redom algoritam zamjene dijagonala (\\textit\{diagonal flip\} ili \\textit\{edge flip\} algoritam),  inkrementalni algoritam, "zavadi pa vladaj" algoritam (\\textit\{divide and conquer\}) i \\textit\{sweephull\} algoritam.\
+\
+\\subsection\{Algoritam zamjene dijagonala\}\
+\
+Neka trouglovi $\\triangle ABC$ i $\\triangle BCD$ \\v\{c\}ine triangulaciju konveksnog \\v\{c\}etverougla $\\square ABCD$, koja ne zadovoljava uslove Delaunay triangulacije. Na primjer, opisana kru\\v\{z\}nica oko torugla $\\triangle ABC$ sadr\\v\{z\}i ta\\v\{c\}ku $D$. Tada trouglovi $\\triangle ABD$ i $\\triangle ACD$ \\v\{c\}ine Delaunay triangulaciju\\cite\{hurtadoetal\}.\\\\\
+Intuitivno, ukoliko triangulacija konveksnog \\v\{c\}etverougla nije Delaunay (ne zadovoljava uslove Delaunay triangulacije), tada zamjena dijagonala\\footnote\{Brisanje trenutne dijagonale (npr. $\\overline\{AC\}$) i dodavanje druge ($\\overline\{BD\}$).\} \\v\{c\}etverougla rezultira Delaunay  triangulacijom istog.\\\\\
+Ovakva tehnika zamjene dijagonala se naziva \\textit\{edge-flip\} tehnikom. Navedena tehnika \\v\{c\}ini sr\\v\{z\} algoritma zamjene dijagonala (\\textit\{eng. edge-flip algorithm\}) za nala\\v\{z\}enje Delaunay triangulacije. Pseudo-kod algoritma je dat ispod.\\\\\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{EDGE-FLIP-DELAUNAY\}\}\
+  \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
+  \\State - Prona\\'\{c\}i bilo kakvu triangulaciju skupa ta\\v\{c\}aka $P$\
+  \\State - Mijenjati dijagonale konveksnih \\v\{c\}etverouglova \\v\{c\}ije triangulacije ne zadovoljavaju Delaunay uslove, sve dok takvi \\v\{c\}etverouglovi postoje.\\cite\{lawson\}\\cite\{lawsonC\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+Ono \\v\{s\}to je izrazito vrijedno pomena, glede \\textit\{edge-flip\} tehnike, jeste rezultat do kojeg je do\\v\{s\}ao C.L.Lawson u svom radu \\textit\{Transforming triangulations\} \\cite\{lawson\}, a to je da za svake dvije triangulacije skupa ta\\v\{c\}aka $P$ vrijedi da se jedna mo\\v\{z\}e transformisati u drugu koriste\\'\{c\}i isklju\\v\{c\}ivo \\textit\{edge-flip\} tehniku. \\\\\
+Drugim rije\\v\{c\}ima, prostor pretrage svih mogu\\'\{c\}ih triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka se mo\\v\{z\}e iscrpiti koriste\\'\{c\}i isklju\\v\{c\}ivo \\textit\{edge-flip\} tehinku, po\\v\{c\}ev\\v\{s\}i od bilo koje triangulacije.\
+\
+\\subsection\{Inkrementalni algoritam\}\
+\
+Sli\\v\{c\}an inkrementalnom algoritmu navedenom u poglavlju \\ref\{ch:pointsettrian\}, inkrementalni algoritam za nala\\v\{z\}enje Delaunay triangulacije se sastoji od sljede\\'\{c\}eg.\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{INKREMENTALNI-DELAUNAY\}\}\
+  \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
+  \\State - Instanciraj skup obra\\dj\{\}enih ta\\v\{c\}aka $D$, to jeste nepotpunu Delaunay triangulaciju, na prazan skup \\Comment\{Triangulaciju mo\\v\{z\}emo \\v\{c\}uvati kao skup ta\\v\{c\}aka, a ta\\v\{c\}ke kao objekte koji \\v\{c\}uvaju informaciju o sopstvenim koordinatama u ravni i listi ta\\v\{c\}aka sa kojim se ve\\v\{z\}e.\}\
+  \\ForAll\{$p \\in P$\}\
+      \\State - Dodaj $p$ u skup do sada obra\\dj\{\}enih ta\\v\{c\}aka $D$\
+      \\State - Prona\\dj\{\}i trougao u kom se nalazi novododana ta\\v\{c\}ka $p$\
+      \\State - Pove\\v\{z\}i ta\\v\{c\}ku sa vrhovima trougla\
+      \\State - Koriste\\'\{c\}i \\textit\{edge-flip\} tehniku iz potpoglavlja \\ref\{ch:edgeflipdelaunay\}, po\\v\{c\}ev\\v\{s\}i od susjednih trouglova, prona\\dj\{\}i Delaunay triangulaciju od $D$.\
+  \\EndFor\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+Usko se grlo navedenog algoritma u pogledu vremenske kompleksnosti nalazi u linijama 5. i 7. Dakle nala\\v\{z\}enje trougla u kom se nalazi novododana ta\\v\{c\}ka i vr\\v\{s\}enje \\textit\{edge-flip\} algoritma na novoj triangulaciji.\\\\\
+Primijetimo da u najgorem slu\\v\{c\}aju, obje operacije terminiraju u linearnom vremenu, \\v\{s\}to dovodi do kvadratne kompleksnosti cjelokupnog algoritma.\\\\\
+No, Guibas, Knuth i Sharir, u svom radu \\textit\{Randomized incremental construction of Delaunay and Voronoi diagrams\}\\cite\{guibasetal\} iz 1992. godine, pokazuju da ukoliko odabir novododane ta\\v\{c\}ke u liniji 3. i 4. gore navedenog algoritma vr\\v\{s\}imo nasumi\\v\{c\}no, tada se prosje\\v\{c\}na kompleksnost linije 7. svodi na $O(1)$.\\\\\
+Tako\\dj\{\}er, de Berg i ostali u svojoj knjizi \\textit\{Computational Geometry: Algorithms and Applications\} \\cite\{bergetal\} navode na\\v\{c\}in kojim se korak 5. mo\\v\{z\}e ubrzati do $O(\\log n)$.\\\\\
+Time se kompleksnost cjelokupnog algoritma svodi na $O(n\\log n)$.\
+\
+Tako\\dj\{\}er, ne\\v\{s\}to druga\\v\{c\}iji inkrementalni pristup istom problemu su ponudili Bowyer i Watson u svom poznatom \\textit\{Bowyer-Watson\} algoritmu \\cite\{bowyer\}\\cite\{watson\}, \\v\{c\}ija kompleksnost (izuzev nekih degenerisanih slu\\v\{c\}ajeva gdje algoritam dose\\v\{z\}e kvadratnu kompleksnost) iznosi $O(n\\log n)$.\
+\
+\\subsection\{\\textit\{Divide and conquer\} algoritam\}\
+\
+Najprije predlo\\v\{z\}en od strane Lee-a i Schachter-a, a zatim pobolj\\v\{s\}an od strane Guibas-a i Stolfi-a, a potom i Dwyer-a, \\textit\{zavadi pa vladaj\} algoritam predstavlja najbr\\v\{z\}i poznati algoritam za nala\\v\{z\}enje Delaunay triangulacije.\
+\
+Algoritam se sastoji od sljede\\'\{c\}eg.\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{DIVIDE-AND-CONQUER-DELAUNAY\}\}\
+  \\begin\{algorithmic\}[1]\
+  \\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni\
+  \\If\{$|P| = 1$\} \\Return \\EndIf\
+  \\State - Podijeli ravan u kojoj se nalazi skup ta\\v\{c\}aka na dvije poluravni tako da obje poluravni sadr\\v\{z\}e po bar jednu ta\\v\{c\}ku iz $P$\
+  \\State - Izvr\\v\{s\}i DIVIDE-AND-CONQUER-DELAUNAY rekurzivno nad skupom ta\\v\{c\}aka u prvoj, a zatim i nad skupom ta\\v\{c\}aka u drugoj dobivenoj poluravni\
+  \\State - Spoji triangulacije u prvoj i drugoj poluravni u jednu tako da su Delaunay uslovi o\\v\{c\}uvani\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+U svom radu \\textit\{Improving Worst-Case Optimal Delaunay Triangulation Algorithms\}\\cite\{leach\} iz 1992. godine, Leach navodi elegantno rje\\v\{s\}enje za posljednji korak algoritma, izvodivo u linearnom vremenu. Odatle, ukoliko skup ta\\v\{c\}aka dijelimo na dva pribli\\v\{z\}no jednaka dijela pri svakoj podjeli, cjelokupna kompleksnost algoritma se svodi na $O(n\\log n)$.\
+\
+Treba pomenuti jo\\v\{s\} i to da za odre\\dj\{\}ene skupove ta\\v\{c\}aka, kao \\v\{s\}to su, na primjer, skupovi ta\\v\{c\}aka generisani uniformnom distribucijom, te dobrim odabirom linija podjele ravni, se o\\v\{c\}ekivano vrijeme izvr\\v\{s\}avanja mo\\v\{z\}e smanjiti na $O(n\\log\\log n)$.\
+\
+\\subsection\{\\textit\{Sweephull\} algoritam\}\
+\
+\\textit\{Sweephull\} algoritam je nadgradnja \\textit\{edge-flip\} algoritma u smislu da predla\\v\{z\}e nala\\v\{z\}enje po\\v\{c\}etne triangulacije skupa ta\\v\{c\}aka potpuno istom metodologijom kao u inkrementalnom algoritmu iz poglavlja \\ref\{ch:pointsettrian\}, s tim da se umjesto kori\\v\{s\}tenja sweepline tehnike za obilazak ta\\v\{c\}aka sada koristi \\textit\{sweephull\}\\footnote\{Kao i kod sweepline tehnike, ta\\v\{c\}ke obilazimo po sortiranom redoslijedu, s tim da umjesto sortiranja po nekoj koordinati, vr\\v\{s\}imo sortiranje po Euklidskoj udaljenosti od neke fiksirane, stvarne ili imaginarne, ta\\v\{c\}ke $X$. U slu\\v\{c\}aju da se radi o stvarnoj ta\\v\{c\}ki $X$, tada je ona prva u nizu sortiranih ta\\v\{c\}aka.\} tehnika. Na ovaj na\\v\{c\}in bi se, naime, trebao minimizirati broj preokretanja ivica potrebnih za nalazak Delaunay triangulacije \\cite\{sinclair\}. Sinclair \\cite\{sinclair\} bez dokaza navodi da je kompleksnost navedenog algoritma jednaka $O(n\\log n)$, \\v\{s\}to ostavlja prostor (i potrebu) za detaljnu analizu navedenog algoritma. No to, na\\v\{z\}alost, izlazi iz opsega ovoga rada.\
+\
+\\section\{Triangulacija najmanje te\\v\{z\}ine\}\
+\
+Triangulacija skupa ta\\v\{c\}aka $P$ \\v\{c\}iji je zbir du\\v\{z\}ina ivica najmanji mogu\\'\{c\}i se naziva \\textbf\{triangulacija najmanje te\\v\{z\}ine\} (\\textit\{eng. Minimum-weight triangulation\}, u nastavku MWT) skupa ta\\v\{c\}aka $P$.\
+\
+\\begin\{remy\}\
+MWT se mo\\v\{z\}e generalizirati i za $n$-dimenzionalni prostor.\
+\\end\{remy\}\
+\
+Prvi put zabilje\\v\{z\}ena 1970. godine u radu \\textit\{Automatische Interpolation von Isolinien bei willk\'fcrlich verteilten St\'fctzpunkten\}\\cite\{duppeetal\} prilikom govora o trianguliranju neregularnih mre\\v\{z\}nih modela terena\\footnote\{Reprezentacija geolo\\v\{s\}kog tla ili dna mora. Uglavnom predstavljena skupom trodimenzionalnih ta\\v\{c\}aka i triangulacijom projekcija tih ta\\v\{c\}aka na tlocrtnu ravan.\}, MWT se poistovje\\'\{c\}ivala sa Delaunay triangulacijom \\cite\{shamoshoey\}, sve do 1977. godine kada Lloyd \\cite\{Lloyd\}, a zatim tri godine kasnije i Kirkpatrick \\cite\{Kirkpatrick\}, pokazuje da Delaunay triangulacija ne mora nu\\v\{z\}no minimizirati zbir du\\v\{z\}ina stranica.\\\\\
+No, ono \\v\{s\}to je najinteresantnije glede MWT problema je \\v\{c\}injenica da je bio jedan od najdu\\v\{z\}e stoje\\'\{c\}ih otvorenih problema kompjuteske geometrije, u kontekstu vremenske kompleksnosti. Naime, iako je jo\\v\{s\} 1979. godine naveden u listi otvorenih problema u knjizi Garey-a i Johnson-a o NP-kompletnosti \\cite\{gareyjohnson\}, tek je 2008. godine pokazano da MWT pripada klasi NP-te\\v\{s\}kih problema u poznatom radu Mulzera i Rotea \\cite\{mulzerrote\}.\\\\\
+Neovisno o istra\\v\{z\}ivanju kompleksnosti, koje su okon\\v\{c\}ali Mulzer i Rote, implementirana je nekolicina algoritama koji nude pribli\\v\{z\}no ili heuristi\\v\{c\}ko rje\\v\{s\}enje za MWT problem. Po\\v\{c\}ev\\v\{s\}i od heuristi\\v\{c\}kih algoritama zasnovanih na minimalnom razapinjaju\\'\{c\}em stablu grafa \\cite\{xuzhou\}, preko adaptiranih geneti\\v\{c\}kih algoritama \\cite\{qinetal\}, zatim algoritama koji nalaze skeleton (ili neki drugi planarni podgraf du\\v\{z\}i\\footnote\{Graf, \\v\{c\}ije su grane, isklju\\v\{c\}ivo, du\\v\{z\}i.\}) minimalne te\\v\{z\}inske triangulacije i isti koriste za nala\\v\{z\}enje egzaktnog rje\\v\{s\}enja nekih specifi\\v\{c\}nih slu\\v\{c\}ajeva MWT problema ili aproksimativnog ili heuristi\\v\{c\}kog rje\\v\{s\}enja generalnog problema dvodimenzionalne triangulacije najmanje te\\v\{z\}ine \\cite\{lenhartliotta\}\\cite\{bellevilleetal\}\\cite\{dickersonmontague\}, do paraleliziranih aproksimativnih algoritama \\cite\{gudmundsson\} i hill climbing algoritama \\cite\{dickersonetal\}.\\\\\
+Nakon dokaza Mulzer-a i Rote-a, pojavljuju se i dva algoritma iz oblasti inteligencije rojeva, ta\\v\{c\}nije dvije implementacije algoritma mravlje kolonije (\\textit\{eng. Ant Colony Optimisation, ACO\}) \\cite\{jahanietal\}\\cite\{penalveretal\}, kao i jedna implementacija linearnog programa za MWT problem \\cite\{yousefiyoung\}.\
+\
+\\section\{Neke primjene triangulacije minimalne te\\v\{z\}ine\}\
+\
+\\begin\{itemize\}\
+\\item Konstruisanje neregularnih mre\\v\{z\}nih modela terena\
+\\item Rekonstruisanje trodimenzionalnih objekata iz dvodimenzionalnih kontura (medicinski snimci) \\cite\{wangaggarwal\}\\cite\{barequetsharir\}\
+\\item Numeri\\v\{c\}ke aproksimacije bivarijantnih podataka \\cite\{xuzhou\}\
+\\item Interpolacija funkcija sa dvije promjenljive \\cite\{Lloyd\}\
+\\end\{itemize\}\
+\
+\
+\\chapter\{Algoritam iscrpne pretrage\} \\label\{ch:es\}\
+\
+Algoritam iscrpne pretrage podrazumijeva obilazak svih mogu\\'\{c\}ih rje\\v\{s\}enja prostora pretrage nekog problema\\footnote\{Postoje paradigme, kao \\v\{s\}to je Branch and Bound paradigma, koje mogu skratiti neophodno vrijeme za obilazak prostora pretrage.\}, sve dok se ne prona\\dj\{\}e rje\\v\{s\}enje sa tra\\v\{z\}enom osobinom. Optimizacioni problemi nerijetko zahtijevaju obilazak cijelog prostora pretrage, prije pronalaska optimalnog rje\\v\{s\}enja. Odatle je ovaj algoritam \\v\{c\}esto neprakti\\v\{c\}an u smislu vremena izvr\\v\{s\}avanja, no za potrebe ovog rada je prijeko potreban. S toga u nastavku dajemo kratak osvrt na algoritam iscrpne pretrage za nala\\v\{z\}enje triangulacije datog skupa ta\\v\{c\}aka u ravni koja ima najmanju te\\v\{z\}inu.\\\\\
+Za potrebe implementacije \\'\{c\}emo omogu\\'\{c\}iti da algoritam, pored skupa ta\\v\{c\}aka, tako\\dj\{\}er, prima i konveksni omota\\v\{c\} istih, kao ulazni parametar. Konveksni omota\\v\{c\} mo\\v\{z\}emo prona\\'\{c\}i neposredno prije izvr\\v\{s\}avanja iscrpne pretrage, koriste\\'\{c\}i neki od algoritama za nala\\v\{z\}enje istih, pomenutih u prethodnom poglavlju.\\pagebreak\
+\
+\\begin\{remy\}\
+Algoritam je rekurzivne prirode, a omota\\v\{c\}, kao ulazni parametar, je nu\\v\{z\}no konveksan samo pri inicijelnom pozivu algoritma. Stoga u algoritmu ne vr\\v\{s\}imo restrikciju termina "omota\\v\{c\}" na "konveksni omota\\v\{c\}", ve\\'\{c\} isti ostavljamo u njegovom op\\'\{c\}enitijem obliku.\
+\\end\{remy\}\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{MWT-ISCRPNA-PRETRAGA\}\}\
+  \\begin\{algorithmic\}[1]\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} akko je MWT-ISCRPNA-PRETRAGA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+      \\Return 0\
+    \\EndIf\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} zapravo validan trougao\\footnotemark\}\
+      \\State - Izra\\v\{c\}unaj i vrati obim trougla\
+    \\EndIf\
+    \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
+    \\State $VALID = \\emptyset$\
+    \\State - Prona\\dj\{\}i sve ta\\v\{c\}ke $V \\in P$ koje sa odabranom granom $E$ formiraju validan trougao i sa\\v\{c\}uvaj ih unutar skupa $VALID$\
+    \\State minimum-weight = $\\infty$\
+    \\algstore\{MWTES\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\\footnotetext\{Validan trougao je trougao koji, osim tri ta\\v\{c\}ke koje ga formiraju, ne sadr\\v\{z\}i niti jednu drugu ta\\v\{c\}ku iz zadanog skupa ta\\v\{c\}aka u ravni, te ne sije\\v\{c\}e niti jednu drugu ivicu triangulacije u kojoj se nalazi.\}\
+\
+\\begin\{algorithm\}\
+  \\begin\{algorithmic\}[1]\
+  	\\algrestore\{MWTES\}\
+    \\ForAll\{$p \\in VALID$\}\
+    	\\State minimum-weight-kandidat = 0\
+        \\State - Formiraj validan trougao sa ta\\v\{c\}kom $p$\
+        \\State - Formiraj novi-omotac brisanjem ivice $E$ i dodavanjem novoformiranih ivica omota\\v\{c\}u $H$. U slu\\v\{c\}aju da novoformirane ivice razbijaju $H$ na dva nova omota\\v\{c\}a (slu\\v\{c\}aj kada je $p \\in H$ i ne postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $p$ i $E$), formiraj dva nova omota\\v\{c\}a, novi-omotac-l i novi-omotac-d.\
+    \\If\{$p \\in H$ i postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $p$ i $E$\}\
+    	\\State Dodaj du\\v\{z\}inu du\\v\{z\}i omota\\v\{c\}a koja spaja $V$ i $E$ na minimum-weight-kandidat\
+    \\EndIf\
+    \\State Saberi du\\v\{z\}inu od $E$ sa rezultatom MWT-ISCRPNA-PRETRAGA(novi-omotac,$\\,\\,P$) ili sa MWT-ISCRPNA-PRETRAGA(novi-omotac-l, $P$) + MWT-ISCRPNA-PRETRAGA(novi-omotac-d, $P$) u slu\\v\{c\}aju postojanja dva nova omota\\v\{c\}a i dodaj dobivenu vrijednost na minimum-weight-kandidat.\
+    \\If\{minimum-weight-kandidat $<$ minimum-weight\}\\\\\
+    	$\\qquad$minimum-weight = minimum-weight-kandidat\
+    \\EndIf\
+    \\EndFor \\\\\
+    \\Return minimum-weight\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{remy\}\\label\{rem:newhull\}\
+Omota\\v\{c\}i: novi-omotac, novi-omotac-l i novi-omotac-d navedenog algoritma se moraju sastojati od bar tri ta\\v\{c\}ke.\
+\\end\{remy\}\
+\
+\\begin\{lemy\}\\label\{lem:facesno\}\
+Broj validnih trouglova triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) i iznosi $2n - 2 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
+\\end\{lemy\}\
+\\begin\{proof\} Poznato je da je svaki region (lice) triangulacije, osim vanjskog (neograni\\v\{c\}enog), zapravo validan trougao \\cite\{nayn\}. Svaka grana (ivica) dodiruje ta\\v\{c\}no dva lica triangulacije. Tako\\dj\{\}er, svako lice je dodirnuto ta\\v\{c\}no tri puta, osim vanjskog (neograni\\v\{c\}enog), koje je dodirnuto ta\\v\{c\}no $b$ puta, gdje je $b$ broj grana omota\\v\{c\}a triangulacije. Odakle, ukoliko je $E$ broj svih ivica triangulacije, a $F$ broj svih lica iste, iz prve tvrdnje zaklju\\v\{c\}ujemo da je ukupan broj dodira jednak $2E$, dok iz druge zaklju\\v\{c\}ujemo da je isti broj jednak $3(F - 1) + b$. Dakle vrijedi da je $2E = 3(F - 1) + b$, to jeste, $E = (3(F - 1) + b)/2$.\\\\\
+Uvr\\v\{s\}tavanjem posljednje relacije u Eulerovu formulu $n + F - E = 2$, dobijamo: $n + F - 2 = 3(F - 1) + b)/2 \\implies 2n = F + 1 + b \\implies F = 2n - 1 - b$. Dakle, postoji ukupno $2n - 1 - b$ lica, odakle, uzev\\v\{s\}i u obzir da je jeddno lice vanjsko (neograni\\v\{c\}eno), dobijamo da je broj trouglova jednak $2n - 2 - b$, \\v\{s\}to je i trebalo dokazati.\
+\\end\{proof\}\
+\
+\\begin\{cory\}\\label\{cor:facesno\}\
+Broj ivica triangulacije skupa $P$ od $n$ ta\\v\{c\}aka u ravni ovisi isklju\\v\{c\}ivo od konstrukcije omota\\v\{c\}a (ne nu\\v\{z\}no konveksnog) i iznosi $3n - 3 - b$, gdje je $b$ broj ivica omota\\v\{c\}a.\
+\\end\{cory\}\
+\\begin\{proof\}\
+Uvrstimo rezultat dobiven prilikom sprovo\\dj\{\}enja dokaza prethodne leme, $2E = 3(F - 1) + b$, to jeste, $F = (2E - b)/3 + 1$, u Eulerovu formulu $n + F - E = 2$. Dobijamo, $n + (2E - b)/3 + 1 - E = 2 \\implies 3n - E - b = 3 \\implies E = 3n - 3 - b$.\
+\\end\{proof\}\
+\
+U nastavku sprovedimo verifikacjiu navedenog algoritma metodom matemati\\v\{c\}ke indukcije.\
+S obzirom da je skup ta\\v\{c\}aka $P$ isti tokom cijelog izvr\\v\{s\}avanja algoritma, to matemati\\v\{c\}ku indukciju mo\\v\{z\}emo vr\\v\{s\}iti nad parametrom $H$ (omota\\v\{c\}em). Tako\\dj\{\}er, uzev\\v\{s\}i u obzir opasku \\ref\{rem:newhull\}, za bazu indukcije mo\\v\{z\}emo uzeti prazan omota\\v\{c\} kog formiraju tri ta\\v\{c\}ke ($|H| = 3$), to jeste, jedan validan trougao.\
+\
+\\begin\{enumerate\}\
+\\item Omota\\v\{c\} $H$ formira jedan validan trougao unutar skupa ta\\v\{c\}aka $P$. U ovom slu\\v\{c\}aju MWT-ISCRPNA-PRETRAGA($H$, $P$) zavr\\v\{s\}ava nakon linije 5. i zaista, vra\\'\{c\}a te\\v\{z\}inu triangulacije najmanje te\\v\{z\}ine za taj trougao.\
+\\item Na osnovu leme \\ref\{lem:facesno\} zaklju\\v\{c\}ujemo da je broj trouglova konstantan za bilo koju triangulaciju nekog fiksiranog skupa ta\\v\{c\}aka. Pretpostavimo da za svaki omota\\v\{c\} $H$, koji formira $f$ ili manje validnih trouglova, unutar skupa ta\\v\{c\}aka $P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H$, $P$) nalazi i vra\\'\{c\}a te\\v\{z\}inu triangulacije najmanje te\\v\{z\}ine omota\\v\{c\}a $H$, unutar skupa ta\\v\{c\}aka $P$.\
+\\item Doka\\v\{z\}imo da za svaki omota\\v\{c\} $H\'92$ koji formira $f + 1$ ($f > 1$) validnih trouglova unutar skupa 	ta\\v\{c\}aka 	$P$, vrijedi da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) nalazi i vra\\'\{c\}a te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije omota\\v\{c\}a $H\'92$, unutar skupa ta\\v\{c\}aka $P$. Primijetimo da za bilo koju ivicu $E$ omota\\v\{c\}a $H\'92$ vrijedi da je te\\v\{z\}ina minimalne te\\v\{z\}inske triangulacije jednaka $|E|$ + $min_\{V \\in VALID\}$($h$ + \\textit\{SUB-MWT\}($V$)), gdje je $h$ du\\v\{z\}ina du\\v\{z\}i $E_1$ omota\\v\{c\}a $H\'92$, koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a nula u suprotnom. Dalje, \\textit\{SUB-MWT\}($V$) odgovara te\\v\{z\}in minimum te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka unutar omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$\\footnote\{Izbacivanjem trougla $\\triangle H_iH_jV$, kojeg formiraju ta\\v\{c\}ke $H_i$, $H_j$ i $V$, iz omota\\v\{c\}a $H_1, H_2, \\dots, H_l$, rezultira fromiranjem ili jednog novog omota\\v\{c\}a $H_1, H_2, \\dots, H_\{i-1\}, H_i, V, H_j, H_\{j+1\}, \\dots, H_l$ ili u slu\\v\{c\}aju da $V \\in \{H_1, \\dots, H_l\}$, dva nova omota\\v\{c\}a, redom, $H_k, H_\{k+1\}, \\dots, H_1, H_2, \\dots, H_i$ i $H_j, H_\{j+1\}, \\dots, H_\{k-1\}, H_k$, gjde $H_k$ odgovara ta\\v\{c\}ki $V$.\}. Analiziraju\\'\{c\}i linije 7. - 23. algoritma MWT-ISCRPNA-PRETRAGA, mo\\v\{z\}emo zaklju\\v\{c\}iti da za odabranu du\\v\{z\} $E$ ulaznog omota\\v\{c\}a, algoritam vra\\'\{c\}a $|E|$ + $min_\{V \\in VALID\}$($h$ + SUB-MWT-ISCRPNA-PRETRAGA($V$)), gdje je $h$ du\\v\{z\}ina du\\v\{z\}i $E_1$ ulaznog omota\\v\{c\}a koja ve\\v\{z\}e ta\\v\{c\}ku $v$ sa ivicom $E$, ako ovako definisana du\\v\{z\} $E_1$ postoji, a nula u suprotnom. Tako\\dj\{\}er vrijedi da je SUB-MWT-ISCRPNA-PRETRAGA($V$) = MWT-ISCRPNA-PRETRAGA($H_1\'92$, $P$) + MWT-ISCRPNA-PRETRAGA($H_2\'92$, $P$), ako izbacivanje trougla $\\triangle H_EVH_E'$ iz $H\'92$, gdje je $\\overline\{H_EH_E'\}=E$, dijeli $H\'92$ na dva omota\\v\{c\}a i MWT-ISCRPNA-PRETRAGA($H_0\'92$, $P$), u suprotnom, gdje su $H_0\'92$, $H_1\'92$ i $H_2\'92$ omota\\v\{c\}i koji mogu nastati izbacivanjem trougla $\\triangle H_EVH_E'$ iz $H\'92$. Broj trouglova koje formira $H_0\'92$ nad $P$ je jednak broju trouglova koje formira $H\'92$ nad $P$ umanjen za 1, to jeste, $f + 1 - 1 = f$. Tako\\dj\{\}er, ukoliko je $k$, takvo da je $0 < k < f + 1$, broj trouglova koje formira omota\\v\{c\} $H_1\'92$ nad $P$, tada je broj trouglova koje formira $H_2\'92$ nad $P$ manji ili jednak $f - k$. Odatle, na osnovu pretpostavke 2. zaklju\\v\{c\}ujemo da SUB-MWT-ISCRPNA-PRETRAGA(V) odgovara te\\v\{z\}ini minimalne te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka unutar omota\\v\{c\}a (jednog ili vi\\v\{s\}e) koji se formira izbacivanjem trougla kojeg formiraju ta\\v\{c\}ka $v$ i ivica $E$ iz $H\'92$. Time smo pokazali da MWT-ISCRPNA-PRETRAGA($H\'92$, $P$) zaista vra\\'\{c\}a te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije skupa ta\\v\{c\}aka $P$, omota\\v\{c\}a $H\'92$.\
+\\end\{enumerate\}\
+\
+Induktivni koraci 1., 2. i 3. impliciraju verifikaciju na\\v\{s\}eg algoritma iscrpne pretrage.\
+\
+\\begin\{remy\}\
+Navedeni algoritam mo\\v\{z\}emo lahko prilagoditi tako da zaista nalazi minimalnu te\\v\{z\}insku triangulaciju, a ne samo njenu te\\v\{z\}inu. No, za na\\v\{s\}e potrebe je dovoljno da vra\\'\{c\}a samo te\\v\{z\}inu.\
+\\end\{remy\}\
+\
+Dakle, uvidjeli smo da navedeni algoritam zaista nalazi te\\v\{z\}inu minimalne te\\v\{z\}inske triangulacije zadanog skupa ta\\v\{c\}aka $P$ u ravni. Me\\dj\{\}utim, ovakva implementacija je krajnje neprihvatljiva, ne samo za prakti\\v\{c\}ne, nego i za istra\\v\{z\}iva\\v\{c\}ke potrebe. Naime, eksperimentalna analiza vremenske kompleksnosti je pokazala da vremenska kompleksnost ovakve implementacije iznosi aproksimativno $O(4^n)$, gdje je $n$ broj ta\\v\{c\}aka zadanih u ravni\\footnote\{Detaljna analiza vremenske kompleksnosti je ote\\v\{z\}ana zbog varijantosti broja triangulacija u odnosu na polo\\v\{z\}aj ta\\v\{c\}aka u ravni.\}. No dobra vijest je da se ova kompleksnost mo\\v\{z\}e umanjiti. Ve\\'\{c\} smo pomenuli mogu\\'\{c\}nost implementacije \\textit\{Branch and Bound\} paradigme u neke algoritme iscrpne pretrage. Na\\v\{s\} algoritam tako\\dj\{\}er podlije\\v\{z\}e toj mogu\\'\{c\}nosti. Naime, mo\\v\{z\}emo \\v\{c\}uvati informaciju o te\\v\{z\}ini najboljeg rje\\v\{s\}enja na\\dj\{\}enog u toku izvr\\v\{s\}avanja algoritma, kao i o te\\v\{z\}ini trenutnog rje\\v\{s\}enja u svakom trenutku izvr\\v\{s\}avanja i prekinuti rekurzivni poziv \\v\{c\}im te\\v\{z\}ina trenutnog rje\\v\{s\}enja prekora\\v\{c\}i te\\v\{z\}inu najboljeg. Performanse ovakvog algoritma mo\\v\{z\}emo dodatno pobolj\\v\{s\}ati ukoliko prije izvr\\v\{s\}avanja istog, prona\\dj\{\}emo neku kvalitetnu triangulaciju (u smislu te\\v\{z\}ine), te njenu te\\v\{z\}inu budemo tretirali kao najbolju mogu\\'\{c\}u, dok eventualno ne na\\dj\{\}emo jo\\v\{s\} bolju tokom izvr\\v\{s\}avanja iscrpne pretrage.\
+Branch and Bound paradigma je, \\v\{s\}to zbog efikasnosti, \\v\{s\}to zbog jednostavnosti, jedna od najpopularnijih metoda za ubrzavanje iscrpne pretrage. Me\\dj\{\}utim, tu se ne\\'\{c\}emo zaustaviti.\
+Primijetimo sljede\\'\{c\}e. Neka je omota\\v\{c\} $H$ sa\\v\{c\}injen od niz ta\\v\{c\}aka $H_1, H_2, \\dots, H_k$. Zatim, neka du\\v\{z\} $E$, odabrana u koraku 7. navedenog algoritma iscrpne pretrage, odgovara du\\v\{z\}i $\\overline\{H_iH_j\}$ omota\\v\{c\}a. Neka je $\\\{V_1, V_2, \\dots, V_l\\\}$ skup svih ta\\v\{c\}aka sa kojima $\\overline\{H_iH_j\}$ formira validan trougao (ta\\v\{c\}ke na\\dj\{\}ene u koraku 9. navedenog algoritma iscrpne pretrage). Tada je skup ta\\v\{c\}aka ogra\\dj\{\}en omota\\v\{c\}em $H_\{i-1\}, V_1, V_2, \\dots, V_l, H_\{j+1\}, H_\{j+2\}, \\dots, H_\{i-2\}$ sadr\\v\{z\}an u svakom omota\\v\{c\}u $H_T$, koji je formiran izbacivanjem trougla kojeg gradi du\\v\{z\} $\\overline\{H_iH_j\}$ sa ta\\v\{c\}kom $V_t$, $t = \\overline\{1,l\}$. Odatle, zaklju\\v\{c\}ujemo da se na\\v\{s\}i rekurzivni potproblemi preklapaju.\
+I tako, preklapanjem rekurzivnih potproblema se javlja mogu\\'\{c\}nost upotrebe memoizacije ili jo\\v\{s\} bolje, mogu\\'\{c\}nost implementacije navedenog algoritma iscrpne pretrage dinami\\v\{c\}kim programiranjem.\
+\
+\\begin\{remy\}\
+Primijetimo da se mo\\v\{z\}e desiti da je $H_\{i-1\} = V_1$, kao i da je $H_\{j+1\} = V_l$. Zatim, da se zajedni\\v\{c\}ki omota\\v\{c\} ne mo\\v\{z\}e formirati zbog malog broja ta\\v\{c\}aka, kao i da zajedni\\v\{c\}ki omota\\v\{c\} nije cjelovit, nego, naprotiv, sastavljen od vi\\v\{s\}e omota\\v\{c\}a. Sve ove slu\\v\{c\}ajeve mo\\v\{z\}emo zanemariti bez gubljenja op\\v\{s\}tosti.\
+\\end\{remy\}\
+\
+Eksperimentalna analiza je pokazla da koriste\\'\{c\}i memoizaciju za ubrzanje rekurzije na\\v\{s\}eg algoritma iscrpne pretrage, njegovu vremensku kompleksnost mo\\v\{z\}emo reducirati na, aproksimativno, $O(1.6 ^ n)$, gdje je $n$ broj ta\\v\{c\}aka u ravni.\\\\\
+\
+U trenutku pisanja ovog rada, najbr\\v\{z\}i algoritam iscrpne pretrage za nala\\v\{z\}enje minimalne te\\v\{z\}inske triangulacije koristi upravo metodu dinami\\v\{c\}kog programiranja i dose\\v\{z\}e subeksponencijalnu kompleksnost $2^\{O(\\sqrt\{n\}\\log n)\}$. Radi se o algoritmu kojeg je 1998. godine predstavio prof. Lingas u svom radu \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}\\cite\{lingas\}.\
+\
+\\begin\{remy\}\
+Detaljni rezultati performanse algoritma predstavljenog u ovom poglavlju su dati u tabeli \\ref\{tab:es\}\
+\\end\{remy\}\
+\
+\
+\\chapter\{Generisanje instanci\} \\label\{ch:instances\}\
+\
+Iako je MWT posljednjih trideset godina relativno popularan problem, malo je igdje (ili krajnje povr\\v\{s\}no) kazano o testnim instancama skupa ta\\v\{c\}aka nad kojima su evaluirani razni algoritmi za rje\\v\{s\}avanje ovog problema. Tako da smo tu, uglavnom, prepu\\v\{s\}teni sami sebi. Stoga izdvojimo pasus ili dva da ka\\v\{z\}emo ne\\v\{s\}to o instancama skupa ta\\v\{c\}aka u ravni nad kojim smo testirali performanse opisanih algoritama.\
+\
+\\begin\{itemize\}\
+\\item Sve instance su generisane koriste\\'\{c\}i isklju\\v\{c\}ivo ili uniformnu ili normalnu distribuciju.\
+\\item Instance sadr\\v\{z\}e od 15 do 160 ta\\v\{c\}aka. (Najve\\'\{c\}i broj ta\\v\{c\}aka koji je na\\v\{s\} algoritam iscrpne pretrage mogao evaluirati u razumnom vremenu je 23.)\
+\\item Koordinate ta\\v\{c\}aka su ili iz raspona [-333, 333] ili iz raspona [0, 1000].\
+\\item Koordinate ta\\v\{c\}aka su ili isklju\\v\{c\}ivo cjelobrojne ili isklju\\v\{c\}ivo racionalne.\
+\\end\{itemize\}\
+\
+Ogledno se pokazalo da, osim broja ta\\v\{c\}aka, niti jedan od navedenih parametara ne uti\\v\{c\}e zna\\v\{c\}ajno na performanse primijenjenih algoritama.\
+\
+\
+\\chapter\{Metaheuristi\\v\{c\}ki algoritmi\} \\label\{ch:heuristics\}\
+\
+Metaheuristi\\v\{c\}ki algoritmi\\cite\{gloversorensen\} \\v\{c\}ine sr\\v\{z\} ovog rada. Stoga naredna tri poglavlja posve\\'\{c\}ujemo isklju\\v\{c\}ivo ovoj temi.\
+Po\\v\{c\}injemo sa popularnom varijacijom lokalne pretrage, metodom pretra\\v\{z\}ivanja usponom (\\textit\{eng. Hill Climbing\}), a zatim nastavljamo sa jednako poznatom metaheuristikom, Simulirano Kaljenje (\\textit\{eng. Simulated Annealing, SA\}). No prije nego prezenitiramo na\\v\{s\}e adaptacije navedenih metoda na MWT problem, recimo generalno ne\\v\{s\}to vi\\v\{s\}e o navedenim metaheuristikama.\
+\
+\
+\\section\{Pretra\\v\{z\}ivanje usponom\} \\label\{ch:hc\}\
+\
+Pretra\\v\{z\}ivanje usponom je optimizaciona metoda koja se zasniva na pretra\\v\{z\}ivanju prostora rje\\v\{s\}enja nekog problema\\footnote\{Pretra\\v\{z\}ivanje prostora rje\\v\{s\}enja odre\\dj\{\}enog problema ili drugim rije\\v\{c\}ima lokalna pretraga (\\textit\{eng. Local Search\}) je popularna optimizaciona tehnika koja se sastoji u sljede\\'\{c\}em. Najprije je potrebno prona\\'\{c\}i jedno, bilo koje (dakle ne nu\\v\{z\}no optimalno) rje\\v\{s\}enje problema. Zatim se na proizvoljan na\\v\{c\}in vr\\v\{s\}i obilazak rje\\v\{s\}enja oko prona\\dj\{\}enog (po\\v\{c\}etnog rje\\v\{s\}enja), te se na taj na\\v\{c\}in inkrementalno pretra\\v\{z\}uje prostor rje\\v\{s\}enja datog problema u nadi pronalaska \\v\{s\}to kvalitetnijeg rje\\v\{s\}enja. Detaljnije o lokalnoj pretrazi se mo\\v\{z\}e na\\'\{c\}i u Appendix-u C ovog rada.\}, na na\\v\{c\}in da svako sljede\\'\{c\}e na\\dj\{\}eno rje\\v\{s\}enje (tokom pretrage) mora biti iste ili bolje (ili striktno bolje) kvalitete od prethodnog rje\\v\{s\}enja. Kao i za svaki algoritam iz porodice algoritama lokalne pretrage, tri uslova su potrebna i dovoljna za implementaciju ove metode, odnosno Hill Climbing algoritma. To su redom:\
+\
+\\begin\{itemize\}\
+\\item Postojanje na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete bilo kojeg rje\\v\{s\}enja iz prostora pretrage;\
+\\item Postojanje na\\v\{c\}ina nala\\v\{z\}enja susjednih rje\\v\{s\}enja bilo kojeg rje\\v\{s\}enja iz prostora pretrage;\
+\\item Postojanje na\\v\{c\}ina za nala\\v\{z\}enje barem jednog rje\\v\{s\}enja unutar prostora pretrage.\
+\\end\{itemize\}\
+\
+U\\v\{c\}inkovitost Hill Climbing algoritma ovisi o u\\v\{c\}inkovitosti sve tri navedene operacije i to ponajvi\\v\{s\}e o u\\v\{c\}inkovitosti prve dvije.\\\\\
+\
+U zavisnosti od na\\v\{c\}ina na koji nalazimo susjedna rje\\v\{s\}enja, razlikujemo tri varijacije pretra\\v\{z\}ivanja usponom:\
+\
+\\begin\{itemize\}\
+\\item Pretra\\v\{z\}ivanje usponom prvog izbora (\\textit\{eng. First choice Hill Climbing\});\
+\\item Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom (\\textit\{eng. Stochastic Hill Climbing\});\
+\\item Pohlepno pretra\\v\{z\}ivanje usponom (\\textit\{eng. Greedy Hill Climbing\}).\
+\\end\{itemize\}\
+\
+Kao i svaki algoritam iz porodice metaheuristika za potrebe lokalne pretrage, Hill Climbing algoritam po\\v\{c\}inje pretragu prostora rje\\v\{s\}nja od po\\v\{c\}etnog rje\\v\{s\}enja (rje\\v\{s\}enja \\v\{c\}ije postojanje smo naveli kao eliminatoran uslov za mogu\\'\{c\}nost izvr\\v\{s\}avanja lokalne pretrage).\\\\\
+\\textbf\{Pretra\\v\{z\}ivanje usponom prvog izbora\} nastavlja pretragu prostora na na\\v\{c\}in da obilazi susjedna rje\\v\{s\}enja po\\v\{c\}etnog rje\\v\{s\}enja, sve dok ne prona\\dj\{\}e prvo rje\\v\{s\}enje bolje kvalitete od tog rje\\v\{s\}enja.\\\\\
+\\textbf\{Stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom\} nastavlja pretragu obilaziv\\v\{s\}i sva susjedna rje\\v\{s\}enja, te bira nasumi\\v\{c\}no jedno od na\\dj\{\}enih rje\\v\{s\}enja koje je boljeg kvaliteta od trenutnog.\\\\\
+\\textbf\{Pohlepno pretra\\v\{z\}ivanje usponom\} nastavlja pretragu obilaze\\'\{c\}i sva susjedna rje\\v\{s\}enja, kao i stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom, te me\\dj\{\}u na\\dj\{\}enim rje\\v\{s\}enjima bira ono najbolje kvalitete. Nakon odabira narednog rje\\v\{s\}enja, svaki od navedenih algoritama ponavlja istu proceduru nad odabranim rje\\v\{s\}enjem. Proces se nastavlja sve dok me\\dj\{\}u susjednim rje\\v\{s\}enjima postoji rje\\v\{s\}enje boljeg kvaliteta. U slu\\v\{c\}aju da ne postoji rje\\v\{s\}enje boljeg kvaliteta me\\dj\{\}u susjednim rje\\v\{s\}enjima, algoritam zavr\\v\{s\}ava sa najboljim prona\\dj\{\}enim lokalnim optimumom\\footnote\{Appendix C\}.\
+\
+\\section\{Simulirano kaljenje\}\
+\
+Hill Climbing metoda, kao takva, nalazi najbli\\v\{z\}i (ili jedan od najbli\\v\{z\}ih) lokalni optimum, koji mo\\v\{z\}e ali ne mora nu\\v\{z\}no biti i globalni optimum. S druge strane, ukoliko bismo susjedna rje\\v\{s\}enja birali nasumi\\v\{c\}no prilikom svake iteracije algoritma lokalne pretrage\\footnote\{Ovakav algoritam lokalne pretrage se naziva "nasumi\\v\{c\}na \\v\{s\}etnja" (\\textit\{eng. Random walk\}).\}, eventualni obilazak globalnog optimuma bi bio zagarantovan. No, problem nasumi\\v\{c\}ne \\v\{s\}etnje je \\v\{s\}to je ona nerijetko neu\\v\{c\}inkovita i prakti\\v\{c\}no beskorisna.\\\\\
+Algoritam koji kombinuje pretra\\v\{z\}ivanje usponom i nasumi\\v\{c\}nu \\v\{s\}etnju se naziva Simulirano Kaljenje (\\textit\{eng. Simulated Annealing\}). Naime, ideja ove metode je vrlo jednostavna. Po\\v\{c\}injemo lokalnu pretragu od po\\v\{c\}etnog rje\\v\{s\}enja, kao i ina\\v\{c\}e. Zatim nasumi\\v\{c\}no biramo neko (bilo koje) susjedno rje\\v\{s\}enje i ukoliko je ono bolje kvalitete, ponavljamo isti proces (nastavljamo pretragu) nad novoodabranim rje\\v\{s\}enjem. Me\\dj\{\}utim, ukoliko odabrano rje\\v\{s\}enje nije bolje kvalitete, ostavlja se mogu\\'\{c\}nost da sa odre\\dj\{\}enom vjerovatno\\'\{c\}om to rje\\v\{s\}enje ipak bude izabrano kao sljede\\'\{c\}e rje\\v\{s\}enje (rje\\v\{s\}enje od kojeg nastavljamo pretragu) lokalne ptretrage.\\\\\
+Ideja je da pomenuta vjerovatno\\'\{c\}a, kojom biramo rje\\v\{s\}enje slabije kvalitete, bude na po\\v\{c\}etku velika, te da se smanjuje u svakoj narednoj iteraciji algoritma.\
+\\pagebreak\
+\
+\\begin\{algorithm\}\
+  	\\caption\{\\textbf\{SIMULIRANO-KALJENJE\\cite\{russellnorvig\}:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}_0^\{+\}$)\}\
+  	\\begin\{algorithmic\}[1]\
+		\\State - Prona\\dj\{\}i jedno (bilo koje) rje\\v\{s\}enje od $P$ (trenutno-rjesenje)\
+        \\For\{t = 1 to $\\infty$\}\
+        	\\State T = izracunaj-temperaturu(t)\
+            \\If\{$T = 0$\} \\Return trenutno-rjesenje \\EndIf\
+            \\State - Nasumi\\v\{c\}no odaberi rje\\v\{s\}enje susjedno rje\\v\{s\}enju trenutno-rjesenje (susjedno-rjesenje)\
+            \\State $\\Delta$ = susjedno-rjesenje.KVALITETA - trenutno-rjesenje.KVALITETA\\footnotemark\
+            \\If\{$\\Delta \\geq 0$\}\
+            	trenutno-rjesenje = susjedno-rjesenje\
+            \\Else\
+            	$\\,\\,$trenutno-rjesenje = susjedno-rjesenje (samo sa vjerovatno\\'\{c\}om $e^\{\\frac\{\\Delta\}\{T\}\}$)\
+            \\EndIf\
+        \\EndFor\
+	\\end\{algorithmic\}\
+\\end\{algorithm\}\
+\\footnotetext\{Zarad lak\\v\{s\}e interpretacije algoritma, uzmimo da je rje\\v\{s\}enje A bolje kvalitete od rje\\v\{s\}enja B \\textbf\{akko\} je vrijednost koja odgovara kvaliteti rje\\v\{s\}enja A (A.KVALITETA) ve\\'\{c\}a od vrijednosti koja odgovara kvaliteti rje\\v\{s\}enja B (B.KVALITETA).\}\
+\
+Funkcija \\textit\{izracunaj-temperaturu\} je proizvoljna opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}^\{+\}$, koja se \\v\{c\}esto a\\v\{z\}urira kroz ogled sa ciljem pronalaska \\v\{s\}to boljeg rje\\v\{s\}enja u \\v\{s\}to kra\\'\{c\}em vremenu.\
+\
+Dakle $T$ opada kroz izvr\\v\{s\}avanje algoritma. Tako\\dj\{\}er, vjerovatno\\'\{c\}a $e^\{\\frac\{\\Delta\}\{T\}\}$ opada zajedno sa $T$, s obzirom da je $\\Delta < 0$ kada je susjedno rje\\v\{s\}enje lo\\v\{s\}ije kvalitete, pa samim tim i frekvencija prelazaka na susjedna rje\\v\{s\}enja lo\\v\{s\}ije kvalitete opada kroz izvr\\v\{s\}avanje algoritma.\\\\\
+Simulirano kaljenje je prvi put iskori\\v\{s\}teno 1980-te godine za potrebe optimiziranja VLSI procesa\\footnote\{Very-large-scale integration (VLSI) je proces sastavljanja integrisanog kola kombinovanjem na hiljade tranzistora u jedan \\v\{c\}ip.\}. Inspiracija za pisanje ovog algoritma crpi korijene iz prirodne pojave koju izaziva proces kaljenja metala ili stakla u kojem se metal ili staklo zagrijava na visoku temperaturu, te se polahko hladi, te tim procesom ja\\v\{c\}a.\
+\
+\\section\{Metoda pretra\\v\{z\}ivanja usponom adaptirana za rje\\v\{s\}avanje MWT problema\} \\label\{ch:mwthc\}\
+\
+Kazali smo da su ta\\v\{c\}no tri uslova potrebna i dovoljna za implementaciju metode pretra\\v\{z\}ivanja usponom nad bilo kojim problemom. No, pored pukog postojanja svakog od navedena tri uslova, ili svake od navedene tri operacije, vrlo je va\\v\{z\}no da iste budu efikasne u kontekstu vremena izvr\\v\{s\}avanja. U nastavku navodimo ideje iskori\\v\{s\}tene za implementaciju sva tri pomenuta uslova.\\pagebreak\
+\
+\\begin\{itemize\}\
+  \\item \\underline\{Izra\\v\{c\}unavanje kvalitete jednog rje\\v\{s\}enja.\}\
+  \
+    Ideja koja stoji iza implementacije ovog uslova za MWT problem je prirodna.\
+    Ta\\v\{c\}nije, ista proizilazi iz same definicije problema. Naime, za nalazak kvalitete jednog 	rje\\v\{s\}enja je dovoljno sabrati sve te\\v\{z\}ine triangulacije istog\\footnote\{Primijetimo da se u navedenom kontekstu triangulacija mo\\v\{z\}e poistovijetiti sa rje\\v\{s\}enjem. Dakle, jedna triangulacija skupa ta\\v\{c\}aka jeste jedno rje\\v\{s\}enje navedenog problema nad istim skupom ta\\v\{c\}aka i obrnuto.\}. Te\\v\{z\}ine triangulacije mogu 	biti bilo kakve, ali naj\\v\{c\}e\\v\{s\}\\'\{c\}e odgovaraju nekoj metrici (npr. Euklidskoj). Ipak, ponajvi\\v\{s\}e 	zbog jednostavnosti, udaljenost izme\\dj\{\}u dvije ta\\v\{c\}ke u ravni se nerijetko (pa i u ovom radu), bez umanjenja op\\'\{c\}enitosti, ra\\v\{c\}una kao kvadratna Euklidska udaljenost\\footnote\{Primijetimo da kvadratna Euklidova udaljenost nije metrika, jer ne zadovoljava nejednakost trougla.\}.\\\\\
+      Vremenska kompleksnost navedenog na\\v\{c\}ina izra\\v\{c\}unavanja kvalitete rje\\v\{s\}enja (triangulacije) skupa od $n$ ta\\v\{c\}aka u ravni iznosi $O(E)$, gdje je $E$ broj ivica tra\\v\{z\}ene triangulacije, \\v\{s\}to dalje, na osnovu posljedice \\ref\{cor:facesno\} odgovara $O(3n - 3 - b)$, gdje je $b$ broj ivica omota\\v\{c\}a triangulacije, \\v\{s\}to kona\\v\{c\}no odgovara $O(n)$.\
+\
+\\item \\underline\{Nala\\v\{z\}enje susjednih rje\\v\{s\}enja\}\
+  \
+    Operacija nala\\v\{z\}enja susjednih rje\\v\{s\}enja, kao i operacija izra\\v\{c\}unavanja kvaliteta rje\\v\{s\}enja, je operacija koja se naj\\v\{c\}e\\v\{s\}\\'\{c\}e koristi prilikom pretra\\v\{z\}ivanja usponom. Odatle 	je i vi\\v\{s\}e no po\\v\{z\}eljno da obje operacije posjeduju \\v\{s\}to manju vremensku kompleksnost. Kao i kod prvog uslova, ideja koja stoji iza implementacije ovog koraka je, opet, prirodna. Naime, koristimo ve\\'\{c\} pomenutu \\textit\{edge-flip\} (poglavlje \\ref\{ch:edgeflipdelaunay\}) tehniku. \\\\\
+    No prije nego li nastavimo, uvedimo nekoliko konvencija. Svaka ivica triangulacije, pripada ili ne pripada njenom konveksnom omota\\v\{c\}u. One ivice koje pripadaju konveksnom omota\\v\{c\}u nazovimo \\textit\{vanjskim\}, a preostale \\textit\{unutra\\v\{s\}njim\} ivicama. Zatim, svaka \\textit\{unutra\\v\{s\}nja\} ivica dodiruje\\footnote\{Ivica koja "dodiruje" trougao \\v\{c\}ini jednu stranicu tog trougla.\} ta\\v\{c\}no dva trougla. Dva dodirna trougla mogu formirati konveksni ili nekonveksni \\v\{c\}etverougao zajedno. U slu\\v\{c\}aju da formiraju konveksni \\v\{c\}etverougao, ivicu 	koja ih spaja nazivamo \\textit\{preokretljivom\} (\\textit\{eng. flippable\}), jer takvu ivicu mo\\v\{z\}emo zamijeniti 		suprotnom dijagonalom pomenutog konveksnog \\v\{c\}etverougla.\
+U slu\\v\{c\}aju da je te\\v\{z\}ina 	\\textit\{preokretljive\} ivice ve\\'\{c\}a od te\\v\{z\}ine njene suprotne dijagonale, tada tu ivicu nazivamo \\textit\{popravljivom\} (\\textit\{eng. improvable\}) ivicom.\
+    Uzev\\v\{s\}i u obzir navedene konvencije, primijetimo da je za nalazak svih susjednih rje\\v\{s\}enja dovoljno na\\'\{c\}i sve \\textit\{preokretljive\} ivice. Dok je za nalazak svih susjednih rje\\v\{s\}enja bolje kvalitete, dovoljno na\\'\{c\}i sve \\textit\{popravljive\} ivice. Dakle, iako imamo na\\v\{c\}in za izra\\v\{c\}unavanje 	kvalitete jednog rje\\v\{s\}enja, nije nam potreban prilikom tra\\v\{z\}enja susjednih rje\\v\{s\}enja bolje kvalitete, jer isto mo\\v\{z\}emo izvesti jednostavno ra\\v\{c\}unaju\\'\{c\}i razliku te\\v\{z\}ina \\textit\{preokretljivih\} dijagonala i oduzimaju\\'\{c\}i dobivenu razliku od kvalitete trenutnog rje\\v\{s\}enja.\\\\\
+    Provjeru da li je ivica \\textit\{preokretljiva\} mo\\v\{z\}emo obaviti u vremenu $O(1)$. Naime, dovoljno je 	da za svaku ivicu \\v\{c\}uvamo informaciju o dva trougla kojima pripada, ta\\v\{c\}nije, dovoljno 	je \\v\{c\}uvati informaciju o dvije ta\\v\{c\}ke sa kojima ivica formira dva trougla kojima pripada, 	jer svaka ivica je \\textit\{preokretljiva\} ako i samo ako sije\\v\{c\}e du\\v\{z\} koju formiraju upravo te dvije 	ta\\v\{c\}ke. S obzirom da provjeru da li se dvije du\\v\{z\}i sijeku mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$\\cite\{bergetal\}, to zaklju\\v\{c\}ujemo da test \\textit\{preokretljivosti\} svake ivice mo\\v\{z\}emo izvr\\v\{s\}iti u vremenu $O(1)$. Odatle, uzev\\v\{s\}i u obzir da za nalazak svih susjednih rje\\v\{s\}enja moramo obi\\'\{c\}i sve ivice triangulacije, zaklju\\v\{c\}ujemo da kona\\v\{c\}na kompleksnost ovakvog nalaska svih susjednih rje\\v\{s\}enja jedne triangulacije iznosi $O(E)$, to jest $O(n)$, gdje je $E$ broj ivica \\v\{z\}eljene triangulacije.\
+    \
+\\item \\underline\{Nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja\}\
+\
+	U prvom poglavlju smo se upoznali sa nekoliko algoritama za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni. Bilo koji od tih algoritama mo\\v\{z\}e poslu\\v\{z\}iti za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja kod Hill Climbing metode. Me\\dj\{\}utim, prilikom evaluacije statisti\\v\{c\}kih rezultata, navedenih u posljednjem poglavlju, ove i svih metaheuristika koje zahtijevaju postojanje po\\v\{c\}etnog rje\\v\{s\}enja, nije kori\\v\{s\}ten niti jedan od navedenih algoritama za nala\\v\{z\}enje po\\v\{c\}etnog rje\\v\{s\}enja. Naime, kori\\v\{s\}tena je varijacija pohlepnog 	algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni, \\v\{c\}iji pseudo-kod navodimo u nastavku\\footnote\{Razlog zbog kog koristimo upravo navedenu varijaciju pohlepne triangulacije jeste taj \\v\{s\}to se ista ogledno pokazala kao naju\\v\{c\}inkovitija.\}.\
+\\end\{itemize\}\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{POHLEPNA-TRIANGULACIJA\}\}\
+  \\begin\{algorithmic\}[1]\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} $H$ zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo u slu\\v\{c\}aju kada je POHLEPNA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+      \\Return 0\
+    \\EndIf\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} $H$ zapravo validan trougao\}\
+      \\State - Izra\\v\{c\}unaj i vrati obim trougla\
+    \\EndIf\
+    \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
+    \\State - Prona\\'\{c\}i ta\\v\{c\}ku $V \\in P$ koja sa odabranom granom formira validan trougao najmanjeg obima\
+    \\State g-weight = 0\
+    \\State - Formiraj validan trougao sa ta\\v\{c\}kom $V$\
+    \\algstore\{GT\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{algorithm\}\
+  \\begin\{algorithmic\}[1]\
+    \\algrestore\{GT\}\
+    \\State - Formiraj novi-omotac brisanjem ivice $E$ i dodavanjem novoformiranih ivica omota\\v\{c\}u $H$. U slu\\v\{c\}aju da novoformirane ivice razbijaju $H$ na dva nova omota\\v\{c\}a (slu\\v\{c\}aj kada je $V \\in H$ i ne postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $V$ i $E$), formiraj dva nova omota\\v\{c\}a, novi-omotac-l i novi-omotac-d.\
+    \\If\{$V \\in H$ i postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $V$ i $E$\}\
+    \\State Dodati du\\v\{z\}inu du\\v\{z\}i omota\\v\{c\}a koja spaja $V$ i $E$ na g-weight\
+    \\EndIf\
+    \\State Saberi du\\v\{z\}inu od $E$ sa rezultatom POHLEPNA-TRIANGULACIJA(novi-omotac,$\\,\\,P$) ili sa POHLEPNA-TRIANGULACIJA(novi-omotac-l,$\\,\\,P$) + POHLEPNA-TRIANGULACIJA(novi-omotac-d,$\\,\\,P$) u slu\\v\{c\}aju postojanja dva nova omota\\v\{c\}a i dodaj dobivenu vrijednost na g-weight.\\\\\
+    \\Return g-weight\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+~\\\\\\\\\\\\\
+Navedeni algoritam \\'\{c\}e biti pozvan ta\\v\{c\}no $n-1$ puta nad skupom od $n$ ta\\v\{c\}aka u ravni. Usko grlo vremenske kompleksnosti algoritma le\\v\{z\}i u kvadratnoj vremenskoj kompleksnosti koraka 8. Naime, provjera da li je trougao validan, koju izvr\\v\{s\}avamo $n-2$ puta u koraku 8.,  je linearne kompleksnosti u odnosu na broj ta\\v\{c\}aka $n$. Odatle vremenska kompleksnost navedenog algoritma pripada $(n-1)(n-2)O(n)$, to jeste $O(n^3)$.\\\\\
+\
+Zarad kasnijih potreba, na ovom mjestu navodimo jo\\v\{s\} jednu varijaciju algoritma za nala\\v\{z\}enje triangulacije skupa ta\\v\{c\}aka u ravni. Naime, radi se o stohasti\\v\{c\}koj triangulaciji skupa ta\\v\{c\}aka u ravni.\
+\
+\\begin\{algorithm\}\
+  \\caption\{\\textbf\{STOHASTICKA-TRIANGULACIJA\}\}\
+  \\begin\{algorithmic\}[1]\
+  	\\State - Neka je $P$ zadati skup ta\\v\{c\}aka u ravni, a $H$ njegov omota\\v\{c\}\
+    \\If\{$|H| < 3$, tj. ukoliko je omota\\v\{c\} $H$ zapravo du\\v\{z\}, ta\\v\{c\}ka ili prazan skup\}\
+      \\Comment\{Ovaj slu\\v\{c\}aj je mogu\\'\{c\} samo u slu\\v\{c\}aju kada je STOHASTICKA-TRIANGULACIJA inicijelno pozvan nad omota\\v\{c\}em veli\\v\{c\}ine manje od tri ta\\v\{c\}ke.\}\
+      \\Return 0\
+    \\EndIf\
+  	\\If\{$|H| = 3$, te omota\\v\{c\} $H$ ne okru\\v\{z\}uje niti jednu ta\\v\{c\}ku iz skupa ta\\v\{c\}aka $P$, tj. ukoliko je omota\\v\{c\} $H$ zapravo validan trougao\}\
+      \\State - Izra\\v\{c\}unaj i vrati obim trougla\
+    \\EndIf\
+    \\State - Nasumi\\v\{c\}no odabrati ivicu $E$ omota\\v\{c\}a $H$\
+    \\algstore\{ST\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{algorithm\}\
+  \\begin\{algorithmic\}[1]\
+    \\algrestore\{ST\}\
+    \\State $VALID = \\emptyset$\
+    \\State - Prona\\'\{c\}i sve ta\\v\{c\}ke $V \\in P$, koje sa odabranom granom formiraju validan trougao i dodati ih u skup $VALID$\
+    \\State - Nasumi\\v\{c\}no odabrati ta\\v\{c\}ku $V \\in VALID$\
+    \\State s-weight = 0\
+    \\State - Formiraj validan trougao sa ta\\v\{c\}kom $V$\
+    \\State - Formiraj novi-omotac brisanjem ivice $E$ i dodavanjem novoformiranih ivica omota\\v\{c\}u $H$. U slu\\v\{c\}aju da novoformirane ivice razbijaju $H$ na dva nova omota\\v\{c\}a (slu\\v\{c\}aj kada je $V \\in H$ i ne postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $V$ i $E$), formiraj dva nova omota\\v\{c\}a, novi-omotac-l i novi-omotac-d.\
+    \\If\{$V \\in H$ i postoji du\\v\{z\} u omota\\v\{c\}u $H$ koja ve\\v\{z\}e $V$ i $E$\}\
+    \\State Dodati du\\v\{z\}inu du\\v\{z\}i omota\\v\{c\}a koja spaja $V$ i $E$ na s-weight\
+    \\EndIf\
+    \\State Saberi du\\v\{z\}inu od $E$ sa rezultatom STOHASTICKA-TRIANGULACIJA(novi-omotac,$\\,\\,P$) ili sa STOHASTICKA-TRIANGULACIJA(novi-omotac-l,$\\,\\,P$) + STOHASTICKA-TRIANGULACIJA(novi-omotac-d,$\\,\\,P$) u slu\\v\{c\}aju postojanja dva nova omota\\v\{c\}a i dodaj dobivenu vrijednost na s-weight.\\\\\
+    \\Return s-weight\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+Lahko primije\\'\{c\}ujemo da se navedeni algoritam uop\\'\{c\}e ne razlikuje od navedenog POHLEPNA-TRIANGULACIJA algoritma glede vremenske kompleksnosti.\
+\
+\\section\{Metoda simuliranog kaljenja adaptirana MWT problemu\}\
+\
+Medota Simuliranog Kaljenja (\\textit\{eng. Simulated Annealing\}) prilago\\dj\{\}ena za re\\v\{s\}avanje MWT problema je tek blago pro\\v\{s\}irenje prethodno opisanog Hill Climbing algoritma za rje\\v\{s\}avanje MWT problema.\
+\
+\\begin\{algorithm\}\
+  	\\caption\{\\textbf\{MWT-SIMULIRANO-KALJENJE:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, izracunaj-temperaturu - opadaju\\'\{c\}a funkcija iz $\\mathbb\{N\}$ u $\\mathbb\{R\}_0^\{+\}$)\}\
+  	\\begin\{algorithmic\}[1]\
+    	\\State - Prona\\dj\{\}i konveksni omota\\v\{c\} $H$ od $P$\
+		\\State - trenutno-rjesenje = POHLEPNA-TRIANGULACIJA($H$, $P$)\
+        \\For\{t = 1 to $\\infty$\}\
+        	\\State T = izracunaj-temperaturu(t)\
+            \\If\{$T = 0$\} \\Return trenutno-rjesenje \\EndIf\
+            \\State - Nasumi\\v\{c\}no odaberi rje\\v\{s\}enje susjedno rje\\v\{s\}enju trenutno-rjesenje (susjedno-rjesenje) i izra\\v\{c\}unaj razliku odabranog i trenutnog rje\\v\{s\}enja ($\\Delta$)\
+            \\If\{$\\Delta \\leq 0$\}\
+            	trenutno-rjesenje = susjedno-rjesenje\
+            \\algstore\{MWTSA\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{algorithm\}\
+  \\begin\{algorithmic\}[1]\
+    \\algrestore\{MWTSA\}\
+            \\Else\
+            	$\\,\\,$ trenutno-rjesenje = susjedno-rjesenje (samo sa vjerovatno\\'\{c\}om $e^(\\frac\{-\\Delta\}\{T\})$)\
+            \\EndIf\
+        \\EndFor\
+	\\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+Konveksni omota\\v\{c\} skupa ta\\v\{c\}aka mo\\v\{z\}emo prona\\'\{c\}i koriste\\'\{c\}i jedan od nekolicine poznatih algoritama. Po\\v\{c\}etno rje\\v\{s\}enje nalazimo koriste\\'\{c\}i algoritam pohlepne triangulacije naveden u prethodnom potpoglavlju. Ono \\v\{s\}to ostaje nerazja\\v\{s\}njeno je metoda za nala\\v\{z\}enje susjednog rje\\v\{s\}enja u koraku 7. Naime, koristimo poptuno isti metod za nala\\v\{z\}enje susjednog rje\\v\{s\}enja kao kod stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom iz prethodnog potpoglavlja. Tako\\dj\{\}er, primijetimo da pored susjednog rje\\v\{s\}enja, u koraku 7. nalazimo i razliku ($\\Delta$) kvaliteta susjednog i trenutnog rje\\v\{s\}enja, jer je, prisjetimo se, za nalazak razlike ($\\Delta$) dovljno na\\'\{c\}i razliku te\\v\{z\}ina preokretljivih dijagonala. Na kraju, primijetimo jo\\v\{s\} da je susjedno rje\\v\{s\}enje bolje, \\v\{s\}to je $\\Delta$ manje (tra\\v\{z\}imo rje\\v\{s\}enje \\v\{c\}ija kvaliteta, to jeste zbir te\\v\{z\}ina ivica, je najmanja mogu\\'\{c\}a). Iz tog razloga, razliku $\\Delta$ tretiramo druga\\v\{c\}ije, u odnosu na originalni prijedlog algoritma simuliranog kaljenja, u koracima 8. i 9.\
+\
+\\begin\{remy\}\
+Detaljni rezultati performanse navedenog algoritma simuliranog kaljenja prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:sa\}.\
+\\end\{remy\}\
+\
+\\chapter\{Inteligencija rojeva\} \\label\{ch:swarm\}\
+\
+Kao i svaka grana prirodnog izra\\v\{c\}unavanja (\\textit\{eng. Natural Computing\}), inteligencija rojeva\\footnote\{U literaturi poznata i kao Inteligencija jata.\} (\\textit\{eng. Swarm Intelligence\}) je oblast koja inspiraciju uzima iz prirode, i to ta\\v\{c\}nije, iz pona\\v\{s\}anja rojeva, kao \\v\{s\}to su roj p\\v\{c\}ela, mravi, jata ptica, pa \\v\{c\}ak i iz pona\\v\{s\}anja grupe ljudskih individua.\\\\\
+Primjene algoritama u oblasti inteligencije rojeva su mnogobrojne. Na primjer, vojska Sjedinjenih Ameri\\v\{c\}kih Dr\\v\{z\}ava istra\\v\{z\}uje mogu\\'\{c\}nost primjene istih za upravljanje samovozivim vozilima. Sa druge strane, Evropska Svemirska Agencija razmatra primjenu algoritama inteligencije rojeva u interferometriji. Zatim, NASA istra\\v\{z\}uje o primjeni istih algoritama za kartografiju planeta. Pored toga, 1992. godine M. Anthony Lewis i George A. Bekey objavljuju rad u kom, pomalo entuzijasti\\v\{c\}no, razmatraju mogu\\'\{c\}nosti kori\\v\{s\}tenja inteligencije rojeva za kontrolu nanobota unutar ljudskog organizma sa ciljem uklanjanja tumora \\cite\{lewisbekey\}. Tako\\dj\{\}er, al-Rifaie i Aber su iskoristili jedan od algoritama ove oblasti kao pomo\\'\{c\} pri otkrivanju tumora \\cite\{alrifaieaber\}\\cite\{alrifaieetal\}. Na kraju, algoritmi inteligencije rojeva su na\\v\{s\}li primjenu i u veoma popularnoj oblasti Rudarenja podataka (\\textit\{eng. Data mining\}) \\cite\{martensetal\}.\\\\\
+Na\\v\{z\}alost, istra\\v\{z\}ivanje mnogih pomenutih primjena izlazi daleko van opsega na\\v\{s\}eg istra\\v\{z\}ivanja. Fokus ovog rada je ostavljen na tek dvije metaheuristike inteligencije rojeva. To su redom Optimizacija roja \\v\{c\}estica (\\textit\{eng. Particle Swarm Optimisation, PSO\}) i algoritam umjetne kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony Algorithm, ABC\}).\
+\
+\\section\{Optimizacija roja \\v\{c\}estica\}\\label\{ch:pso\}\
+\
+Proizi\\v\{s\}la iz razvoja simulacija za kretanje jata riba i ptica oko izvora hrane, optimizacija roja \\v\{c\}estica, je prvi put pomenuta 1995. godine u radu Russell-a Eberhart-a i James-a Kennedy-a\\cite\{kennedyeberhart\}.\\\\\
+Optimizacija roja \\v\{c\}estica je u osnovi vrlo jednostavna metaheuristika. Kao \\v\{s\}to se jato ptica ili riba koncenstri\\v\{s\}e oko izvora hrane, tako se agenti (\\v\{c\}estice) optimizacije roja \\v\{c\}estica koncenstri\\v\{s\}u oko ciljnog rje\\v\{s\}enja, ukoliko je ono poznato, ili oko najkvalitetnijeg na\\dj\{\}enog rje\\v\{s\}enja u suprotnom.\
+\
+Algoritam optimizacije roja \\v\{c\}estica prati tri globalne varijable:\
+\\begin\{itemize\}\
+\\item Ciljna vrijednost ili uslov;\
+\\item Globalni optimum (gBest);\
+\\item Uslov zaustavljanja algoritma.\
+\\end\{itemize\}\
+\\pagebreak\
+\
+Zatim, svaka \\v\{c\}estica, tokom izvrs\\v\{s\}avanja algoritma, prati informaciju o sljede\\'\{c\}em:\
+\\begin\{itemize\}\
+\\item Jedno rje\\v\{s\}enje iz prostora rje\\v\{s\}enja (trenutno rje\\v\{s\}enje koje odgovara tom agentu/\\v\{c\}estici);\
+\\item "Brzinu", vrijednost koja pokazuje koliko je to rje\\v\{s\}enje promjenjljivo;\
+\\item Najkvalitetnije rje\\v\{s\}enje koje je \\v\{c\}estica (do tog trenutka) zabilje\\v\{z\}ila (pBest).\
+\\end\{itemize\}\
+\
+\\v\{S\}to je \\v\{c\}estica dalja od ciljnog, ili najboljeg prona\\dj\{\}enog rje\\v\{s\}enja, to je njena brzina ve\\'\{c\}a (ili, \\v\{s\}to je ptica dalja od izvora hrane, to joj je potrebna ve\\'\{c\}a brzina da sustigne jato nego pticama bli\\v\{z\}im istom izvoru).\
+\
+\\begin\{algorithm\}\
+  	\\caption\{\\textbf\{PSO:\} ($P$ - problem \\v\{c\}iji prostor rje\\v\{s\}enja obilazimo, broj-agenata - broj agenata/\\v\{c\}estica koje \\'\{c\}e algoritam pratiti)\}\
+  	\\begin\{algorithmic\}[1]\
+    	\\State - Instanciraj agente ($AGENTI$) i postavi gBest na $\\infty$, kao i pBest svakog instanciranog agenta\
+		\\While\{Odre\\dj\{\}eni uslov zaustavljanja nije zadovoljen\}\
+          \\ForAll\{$agent \\in AGENTI$\}\
+              \\State - Izra\\v\{c\}unaj kvalitet rje\\v\{s\}enja kojem $agent$ odgovara\
+              \\If\{kvalitet $agenta$ bolji od njegovog najkvalitetnijeg rje\\v\{s\}enja (pBest)\}\
+              \\algstore\{MWTPSO\}\
+  \\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\begin\{algorithm\}\
+  \\begin\{algorithmic\}[1]\
+    \\algrestore\{MWTPSO\}\
+                \\State - Postavi novi kvalitet kao najkvalitetnije rje\\v\{s\}enje agenta (pBest)\
+              \\EndIf\
+              \\If\{pBest $agent$-a bolji od globalnog optimuma (gBest)\}\
+              	\\State gBest = pBest\
+              \\EndIf\
+          \\EndFor\
+          \\ForAll\{$agent \\in AGENTI$\}\
+              \\State - Izra\\v\{c\}unaj brzinu $agent$-a\
+              \\State - Koriste\\'\{c\}i brzinu $agent$-a i globalni optimum izvr\\v\{s\}i prelazak agenta sa trenutnog rje\\v\{s\}enja na neko susjedno rje\\v\{s\}enje\
+          \\EndFor\
+        \\EndWhile\
+	\\end\{algorithmic\}\
+\\end\{algorithm\}\
+\
+\\section\{Algoritam umjetne kolonije p\\v\{c\}ela\} \\label\{ch:abc\}\
+Iako se algoritam umjetne kolonije p\\v\{c\}ela (\\textit\{eng. Artificial Bee Colony, ABC\}) naj\\v\{c\}e\\v\{s\}\\'\{c\}e implementira nad problemima kontinualnog prostora rje\\v\{s\}enja, u ovom poglavlju opisujemo generalni pristup istog, koji je primjenjiv i na probleme sa diskretnim prostorom rje\\v\{s\}enja (kao \\v\{s\}to je problem minimalne te\\v\{z\}inske triangulacije).\\\\\
+Algoritam umjetne kolonije p\\v\{c\}ela je metaheuristi\\v\{c\}ki algoritam u oblasti inteligencije rojeva predlo\\v\{z\}en 2005. godine u radu \\textit\{An Idea based on Honey Bee Swarm for Numerical Optimization\} \\cite\{karaboga\}. Dakle, radi se o jo\\v\{s\} jednom algoritmu ispirisanom pona\\v\{s\}enjem rojeva, i to, u ovom slu\\v\{c\}aju, rojeva p\\v\{c\}ela. \\v\{C\}etiri glavne faze karakteri\\v\{s\}u algoritam kolonije p\\v\{c\}ela. To su: \\textbf\{Inicijelna faza\}, \\textbf\{Faza uposlenih p\\v\{c\}ela\}, \\textbf\{Faza p\\v\{c\}ela tra\\v\{z\}ilica\} i \\textbf\{Faza p\\v\{c\}ela skauta\}\\footnote\{Uposlene p\\v\{c\}ele, p\\v\{c\}ele tra\\v\{z\}ilice i p\\v\{c\}ele skauti su zapravo razli\\v\{c\}iti inteligentni agenti.\} koje se izvr\\v\{s\}avaju sljede\\'\{c\}im redom:\
+\
+\
+\\begin\{algorithm\}\
+  	\\caption\{\\textbf\{ABC\}\}\
+  	\\begin\{algorithmic\}[1]\
+    	\\State - Inicijelna faza\
+        \\Repeat\
+          \\State - Faza uposlenih p\\v\{c\}ela\
+          \\State - Faza p\\v\{c\}ela tra\\v\{z\}ilica\
+          \\State - Faza p\\v\{c\}ela skauta\
+        \\Until\{odre\\dj\{\}eni uslov zaustavljanja zadovoljen\}\
+	\\end\{algorithmic\}\
+\\end\{algorithm\}\
+\\pagebreak\
+\\textit\{Inicijelna faza:\} Tokom ove faze generiramo skup nausmi\\v\{c\}nih rje\\v\{s\}enja. S obzirom da ABC, kao i svaki drugi populacijski algoritam\\footnote\{Vi\\v\{s\}eagentni algoritam. Algoritam koji paralelno prati pona\\v\{s\}anje dva ili vi\\v\{s\}e inteligentnih agenata.\}, vodi ra\\v\{c\}una o cijeloj jednoj populaciji rje\\v\{s\}enja tokom svog vremena izvr\\v\{s\}avanja, potrebno je generirati skup po\\v\{c\}etnih rje\\v\{s\}enja.\
+\
+\\textit\{Faza uposlenih p\\v\{c\}ela:\} Svako rje\\v\{s\}enje, u trenutnoj populaciji, se tretira kao izvor hrane i svakom izvoru hrane je pridru\\v\{z\}ena ta\\v\{c\}no jedna \\textit\{uposlena p\\v\{c\}ela\}. Zatim, svaka uposlena p\\v\{c\}ela vr\\v\{s\}i lokalnu pretragu oko trenutnog izvora hrane i prelazi na izvor bolje kvalitete, ukoliko je to mogu\\'\{c\}e. Drugim rije\\v\{c\}ima, oko svakog rje\\v\{s\}enja populacije se izvr\\v\{s\}ava neka varijacija heuristike  pretra\\v\{z\}ivanja usponom\\footnote\{Iako je preporu\\v\{c\}eno da to bude varijacija stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom, treba pomenuti da to ne mora biti pretra\\v\{z\}ivanje usponom uop\\v\{s\}te, nego bilo koja varijacija lokalne pretrage.\}.\
+\
+\\textit\{Faza p\\v\{c\}ela tra\\v\{z\}ilica:\} Za svaku uposlenu p\\v\{c\}elu postoji ta\\v\{c\}no jedna p\\v\{c\}ela tra\\v\{z\}ilica koja, sa odre\\dj\{\}enom vjerovatno\\'\{c\}om, naj\\v\{c\}e\\v\{s\}\\'\{c\}e $$P = \\frac\{kvaliteta_i\}\{\\sum_j kvaliteta_j\}$$ gdje $kvaliteta_i$ odgovara kvaliteti $i$-te uposlene p\\v\{c\}ele, vr\\v\{s\}i jo\\v\{s\} jedno dodatno pretra\\v\{z\}ivanje usponom oko izvora hrane (rje\\v\{s\}enja), koji odgovara $i$-toj uposlenoj p\\v\{c\}eli.\
+\
+\\textit\{Faza p\\v\{c\}ela skauta:\} Za svaku uposlenu p\\v\{c\}elu koja nije napustila svoj izvor hrane odre\\dj\{\}en broj\\footnote\{Navedeni broj iteracija je jedan od eksternih parametara algoritma (koji se naj\\v\{c\}e\\v\{s\}\\'\{c\}e zove "limit"). Eksterni parametar algoritma je parametar koji je odre\\dj\{\}en prije izvr\\v\{s\}avanja istog algoritma, a kojeg taj algoritam koristi tokom svog izvr\\v\{s\}avanja. Primijetimo da je u slu\\v\{c\}aju kori\\v\{s\}tenja pretra\\v\{z\}ivanja usponom kao sredstva za obilazak izvora hrane uposlenih p\\v\{c\}ela i p\\v\{c\}ela tra\\v\{z\}ilica, dovoljno (a nerijetko i po\\v\{z\}eljno) da ovaj parametar bude jednak 1.\} iteracija, se aktivira jedna skaut p\\v\{c\}ela, koja nasumi\\v\{c\}no nalazi novi izvor hrane i preuzima ulogu prethodno pomenute uposlene p\\v\{c\}ele. To zna\\v\{c\}i da ukoliko se rje\\v\{s\}enje nekog agenta uposlene p\\v\{c\}ele ne promijeni za unaprijed odre\\dj\{\}en broj iteracija, biva zamijenjeno potpuno novim, nasumi\\v\{c\}no generiranim rje\\v\{s\}enjem.\\\\\
+Tokom cijelog procesa pratimo jo\\v\{s\} i vrijednost jeddnog rje\\v\{s\}enja (do tada) najbolje kvalitete.\
+\
+\\section\{Optimizacija roja \\v\{c\}estica adaptirana MWT problemu\}\
+Opi\\v\{s\}imo adaptaciju PSO algoritma na MWT problem kroz pseudokod iz \\ref\{ch:pso\}, korak po korak.\\\\\
+\
+Korak 1.: \\textit\{Instanciraj agente\}.\\\\\
+Iako bismo se mogli okoristiti algoritmom STOHASTICKA-TRIANGULACIJA iz poglavlja \\ref\{ch:mwthc\} za nalazak proizvoljnog broja razli\\v\{c\}itih, nasumi\\v\{c\}nih triangulacija, ne\\'\{c\}emo se odlu\\v\{c\}iti za taj korak. Naime, navedeni algoritam svojom kubnom vremenskom kompleksno\\v\{s\}\\'\{c\}u znatno usporava cjelokupni algoritam optimizacije roja \\v\{c\}estica. Eksperimentalna analiza je pokazala da se sli\\v\{c\}an rezultat mo\\v\{z\}e posti\\'\{c\}i na mnogo br\\v\{z\}i na\\v\{c\}in. Naime, dovoljno je da prona\\dj\{\}emo tek jednu triangulaciju, koriste\\'\{c\}i bilo koji od algoritama za nala\\v\{z\}enje jedne triangulacije navedenih u prethodnim poglavljima. Zatim, kopiramo tu istu triangulaciju onoliko puta koliko \\v\{z\}elimo da pro\\v\{s\}irimo po\\v\{c\}etnu populaciju (svakom agentu pridru\\v\{z\}imo po jednu kopiju), te u svakoj triangulaciji, nasumi\\v\{c\}nim odabirom preokretljive ivice, preokrenemo istu i taj proces (odabira i preokretanja nasumi\\v\{c\}ne preokretljive ivice) ponovimo proizvoljan broj puta\\footnote\{Bitno je spomenuti da nam ovdje ide u prilog rezultat C.L.Lawson-a koji glasi: Svaka triangulacija odre\\dj\{\}enog skupa ta\\v\{c\}aka u ravni se mo\\v\{z\}e transformisati u bilo koju drugu triangulaciju upotrebom tehnike preokretanja ivica \\cite\{lawson\}.\}. \\v\{S\}to je broj preokreta ivica ve\\'\{c\}i, to je pokrivenost prostora pretrage \\v\{s\}ira.\\\\\
+\
+Korak 2.: Zbog jednostavnosti, odlu\\v\{c\}imo se da algoritam zaustavljamo nakon unaprijed odre\\dj\{\}enog broja iteracija. Dakle, ne trebamo brinuti o uslovu zaustavljanja algoritma.\\\\\
+\
+Koraci 3. - 12.: Trivijalno. Kvalitetu rje\\v\{s\}enja (korak 4.) nalazimo sabiraju\\'\{c\}i te\\v\{z\}ine svih ivica triangulacije.\\\\\
+\
+Korak 13.: Brzinu agenta ra\\v\{c\}unamo po preporuci M. Clerc-a \\cite\{clerc\} na sljede\\'\{c\}i na\\v\{c\}in:\
+$$brzina = U[0, 1)(faktor\\_ucenja\\_1(pBest - trenutna\\_kvaliteta) + $$ $$faktor\\_ucenja\\_2(gBest - trenutna\\_kvaliteta))$$ gdje su:\
+\\begin\{itemize\}\
+  \\item U[0, 1) - nasumi\\v\{c\}na realna vrijednost dobijena uniformnom distribucijom iz poluzatvorenog intervala [0, 1);\
+  \\item faktor\\_ucenja\\_1, faktor\\_ucenja\\_2 - Eksterni fiksni parametri algoritma (zadani prije 	po\\v\{c\}etka izvr\\v\{s\}avanja istog). Naj\\v\{c\}e\\v\{s\}\\'\{c\}e iz zatvorenog intervala [0, 4];\
+  \\item pBest - Najbolji rezultat koji je agent zabilje\\v\{z\}io tokom izvr\\v\{s\}avanja algoritma;\
+  \\item trenutna\\_kvaliteta - Kvaliteta rje\\v\{s\}enja koje odgovara agentu u momentu izra\\v\{c\}unavanja brzine;\
+  \\item gBest - Najbolje rje\\v\{s\}enje zabilje\\v\{z\}eno od strane svih agenata (trenutni globalni optimum).\
+\\end\{itemize\}\
+\
+Korak 14. - 16.: Prelazak agenta sa trenutnog rje\\v\{s\}enja na susjedno rje\\v\{s\}enje, vr\\v\{s\}imo preokretanjem one ivice \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet trenutnog rje\\v\{s\}enja za vrijednost prethodno izra\\v\{c\}unate brzine agenta. Naravno, malo je vjerojatno da u trenutnom rje\\v\{s\}enju postoji ivica \\v\{c\}ije preokretanje \\'\{c\}e promijeniti kvalitet rje\\v\{s\}enja ta\\v\{c\}no onoliko kolika je vrijednost izra\\v\{c\}unate brzine. Stoga, biramo i preokre\\'\{c\}emo onu ivicu, \\v\{c\}iji preokret \\'\{c\}e rezultirati u promjeni kvalitete rje\\v\{s\}enja, takvoj da ona bude \\v\{s\}to bli\\v\{z\}a vrijednosti za izra\\v\{c\}unatu brzinu agenta.\\\\\
+\
+\\begin\{remy\}\
+Detaljni rezultati performanse navedenog PSO algoritma prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:pso\}.\
+\\end\{remy\}\
+\
+\\section\{Algoritam umjetne kolonije p\\v\{c\}ela adaptiran MWT problemu\}\
+\
+Objasnimo redom adaptaciju \\v\{c\}etiri navedena koraka, koji \\v\{c\}ine ABC algoritam primijenjen na rje\\v\{s\}avanje MWT problema. Inicijelna faza zahtijeva generisanje po\\v\{c\}etne populacije rje\\v\{s\}enja. Kao \\v\{s\}to je to bio slu\\v\{c\}aj i sa adaptacijom PSO algoritma na isti problem, po\\v\{c\}etnu populaciju generiramo ne\\v\{s\}to druga\\v\{c\}ije. Naime, ponovo generiramo samo jednu triangulaciju, koriste\\'\{c\}i jedan od algoritama navedenih u prethodnom poglavlju. No, za razliku od inicijelnog koraka, prilago\\dj\{\}enog PSO algoritma, istu triangulaciju pridru\\v\{z\}ujemo svim agentima (uposlenim p\\v\{c\}elama).\\\\\
+Sada, pu\\v\{s\}tamo uposlene p\\v\{c\}ele da paralelno i sekvencionalno\\footnote\{Sekvencionalno u smislu da u svakoj iteraciji algoritma, svaki agent/p\\v\{c\}ela izvr\\v\{s\}i jedan i samo jedan prelazak na susjedno rje\\v\{s\}enje (to jeste, jedan i samo jedan korak pretra\\v\{z\}ivanja usponom).\} vr\\v\{s\}e stohasti\\v\{c\}ko pretra\\v\{z\}ivanje usponom u \\ref\{ch:hc\} i \\ref\{ch:mwthc\}. Time pokrivamo Fazu uposlenih p\\v\{c\}ela.\\\\\
+\
+Faza p\\v\{c\}ela tra\\v\{z\}ilica se ne razlikuje mnogo od prethodne faze. Sa vjerovatno\\'\{c\}om navedenom u potpoglavlju \\ref\{ch:abc\} izvr\\v\{s\}avamo jo\\v\{s\} jedan dodatni korak stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom nad rje\\v\{s\}enjem svake uposlene p\\v\{c\}ele. Tako\\dj\{\}er, u ovom koraku pratimo i bilje\\v\{z\}imo kvalitetu najboljeg prona\\dj\{\}enog rje\\v\{s\}enja.\\\\\
+\
+Sve uposlene p\\v\{c\}ele \\'\{c\}e evenutalno dose\\'\{c\}i svoj lokalni optimum. Tu na snagu dolazi Faza p\\v\{c\}ela skauta. Tokom ove faze dozvoljavamo svim uposlenim p\\v\{c\}elama koje su dosegle svoj lokalni optimum da "lutaju" odre\\dj\{\}eni broj koraka. Na\\v\{c\}in na koji simuliramo navedeno lutanje smo ve\\'\{c\} vidjeli. Naime, radi se o nasumi\\v\{c\}nom kretanju kroz prostor rje\\v\{s\}enja navedenom u inicijelnoj fazi PSO algoritma. Dakle, radi se o nasumi\\v\{c\}nom preokretanju preokretljivih ivica odre\\dj\{\}eni broj puta za odabranog agenta\\footnote\{Primijetimo da na ovaj na\\v\{c\}in implementiramo ranije pomenutu "Nasumi\\v\{c\}nu \\v\{s\}etnju" kroz prostor rje\\v\{s\}enja (\\textit\{eng. Random walk\}).\}. Na taj na\\v\{c\}in dozvoljavamo agentu, kako da pobolj\\v\{s\}a, tako i da pogor\\v\{s\}a svoje trenutno rje\\v\{s\}enje. Koliko dugo \\'\{c\}e agent (p\\v\{c\}ela skaut) lutati, to jeste, koliko preokretanja ivica treba izvr\\v\{s\}iti, odre\\dj\{\}eno je fiksnim, eksternim parametrom.\
+\
+\\begin\{remy\}\
+Detaljni rezultati performanse navedenog ABC algoritma prilago\\dj\{\}enog MWT problemu su dati u tabeli \\ref\{tab:abc\}.\
+\\end\{remy\}\
+                        \
+\\chapter\{Pobolj\\v\{s\}ani algoritam umjetne kolonije p\\v\{c\}ela za rje\\v\{s\}avanje MWT problema\} \\label\{ch:iabc\}\
+ABC algoritam prilago\\dj\{\}en MWT problemu, iz prethodnog poglavlja, mo\\v\{z\}e se dodatno pobolj\\v\{s\}ati. Radi se o jednoj minornoj izmjeni u fazi p\\v\{c\}ela tra\\v\{z\}ilica, koju izdvajamo u posebno poglavlje iz razloga \\v\{s\}to ista dovodi do odstupanja od nativne procedure ABC algoritma.\
+Naime, umjesto obavljanja samo jedne iteracije stohasti\\v\{c\}kog pretra\\v\{z\}ivanja usponom za odabranu uposlenu p\\v\{c\}elu, pu\\v\{s\}tamo agenta da nastavi izvr\\v\{s\}avanje pretra\\v\{z\}ivanja usponom, sve dok ne dosegne svoj lokalni optimum.\\\\\
+Detaljni rezultati performanse navedenog, pobolj\\v\{s\}anog ABC algoritma za MWT problemu su dati u tabeli \\ref\{tab:iabc\}.\
+\
+\\chapter\{Statisti\\v\{c\}ki rezultati\} \\label\{ch:stats\}\
+\
+Zbog nedostatka dovoljno jakih ma\\v\{s\}ina za evaluaciju algoritma iscrpne pretrage, ograni\\v\{c\}eni smo na detaljnu statisti\\v\{c\}ku analizu nad instancama veli\\v\{c\}ine od tek 15, 16, 17, 18, 19, 20, 21, 22, i 23 ta\\v\{c\}ke.\\\\\
+S obzirom da nismo uspjeli prona\\'\{c\}i nikakve predlo\\v\{z\}ene testne instance, kao ni prijedloge za generiranje istih, generiramo nove, nasumi\\v\{c\}ne, instance ta\\v\{c\}aka (kao \\v\{s\}to je pomenuto u poglavlju \\ref\{ch:instances\}).\\\\\
+\
+No, nedostatak komputacijske snage za testiranje algoritma iscrpne pretrage nas ne sprje\\v\{c\}ava da ostale algoritme testiramo na ve\\'\{c\}im instancama. S toga, algoritme koji su se pokazali kao najbolji, kao \\v\{s\}to su: PSO, ABC i Pobolj\\v\{s\}ani ABC, izvr\\v\{s\}avamo jo\\v\{s\} i na instancama od 40, 80, 120, 160 ta\\v\{c\}aka.\\\\\
+Svaka instanca je labelisana sa RI-$k$-$i$, gdje $k$ ozna\\v\{c\}ava broj ta\\v\{c\}aka u $i$-toj instanci.\\\\\
+\
+Koordinate ta\\v\{c\}aka, instanci veli\\v\{c\}ine od 15 do 23, uniformno su distribuirane iz zatvorenog intervala [-333, 333], dok su iste, za instance veli\\v\{c\}ine 40, 80, 120 i 160, uniformno distribuirane iz zatvorenog intervala [0, 1000].\
+Zbog jednostavnosti, svaka instanca je generirana tako da se niti jedna ta\\v\{c\}ka ne poklapa\\footnote\{Nema iste koordinate.\}.\
+Svi algoritmi su implementirani u programskom jeziku Python (v3). Evaluacije algoritma iscrpne pretrage su proceusirane na Intel Core i7-3770K @3.5GHz procesoru, na ma\\v\{s\}ini od 16GB RAM memorije i operativnim sistemom Windows 10 x64, dok su svi ostali algoritmi procesuirani na \\v\{c\}etverojezgrenom Intel Core i7 @2.2 GHz procesoru, na ma\\v\{s\}ini od 16 GB RAM memorije i operativnim sistemom macOS 10.12.6.\\\\\
+\
+Svaki populacijski algoritam (PSO, ABC, Unaprije\\dj\{\}eni ABC) terminira nakon $N\\times G$ operacija \\footnote\{Jedna operacija odgovara jednoj promjeni rje\\v\{s\}enja (ukoliko je ista mogu\\'\{c\}a) odgovaraju\\'\{c\}eg algoritma lokalne pretrage.\}, gdje je $N$ veli\\v\{c\}ina populacije, a $G$ broj generacija izvr\\v\{s\}avanja algoritma. Zatim, svaki algoritam je izvr\\v\{s\}en 50 puta nad svakom instancom ta\\v\{c\}aka za instance od 15 do 23 ta\\v\{c\}aka i 30 puta za instance od 40, 80, 120, 160 ta\\v\{c\}aka. Veli\\v\{c\}ina populacije za ABC i Unaprije\\dj\{\}eni ABC je $N=13$ p\\v\{c\}ela (agenata), dok za PSO isti broj iznosi $N=33$ \\v\{c\}estica.\
+Vrijednost "limit" parametra u Fazi p\\v\{c\}ela skauta oba ABC algoritma je jednak 1. Parametri u\\v\{c\}enja PSO algoritma su postavljeni (oba) na 2.0, a "brzina" svake \\v\{c\}estice je postavljena na nulu na po\\v\{c\}etku izvr\\v\{s\}avanja PSO algoritma. Na kraju, pomenimo jo\\v\{s\} i da je broj generacija za ABC, PSO i Unaprije\\dj\{\}eni ABC fiksiran na $G=33$.\\\\\
+\
+ Inicijelna temperatura algoritma Simuliranog Kaljenja je postavljena na $T_0=1.0$ i ista se u svakoj iteraciji smanjuje $\\alpha$ puta, gdje je $\\alpha=U[0.85, 0.99]$, a $U[a, b]$ nasumi\\v\{c\}no (uniformno) odabrana vrijednost iz zatvorenog intervala [a, b]. Zatim, isti algoritam terminira nakon \\v\{s\}to ne uspije promijeniti rje\\v\{s\}enje za jedan obilazak svih ivica odgovaraju\\'\{c\}e triangulacije.\\\\\
+ \
+ Za instance RI-15-* do RI-23-*, najlo\\v\{s\}ija, srednja i najbolja na\\dj\{\}ena kvaliteta (kao i standardna devijacija) algoritma Simuliranog Kaljenja, PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma su predstavljene u tabelama \\ref\{tab:sa\}, \\ref\{tab:pso\} i \\ref\{tab:iabc\} i iste mogu biti upore\\dj\{\}ene sa njihovim optimalnim vrijednostima iz tabele \\ref\{tab:es\}.\
+  Kao \\v\{s\}to mo\\v\{z\}emo vidjeti u tabelama \\ref\{tab:es\} i \\ref\{tab:iabc\}, Unaprije\\dj\{\}eni ABC uspijeva na\\'\{c\}i optimum u gotovo svakom izvr\\v\{s\}avanju.\
+  Tako\\dj\{\}er, za sve instance, Unaprije\\dj\{\}eni ABC nalazi optimum mnogo br\\v\{z\}e od algoritma iscrpne pretrage (tabela \\ref\{tab:es\}).\\\\\
+  Primijetimo jo\\v\{s\} da se algoritam Simuliranog Kaljenja zaglavljuje u lokalnim optimumima (RI-15-3, RI-17-2, and RI-18- 5), \\v\{s\}to je rijedak slu\\v\{c\}aj kod PSO algoritma i Unaprije\\dj\{\}enog ABC algoritma.\
+  Me\\dj\{\}utim, Unaprije\\dj\{\}eni ABC je daleko najstabilniji.\
+  \
+Na kraju, evaluiramo i prezentiramo \\textit\{Theil index\}\\footnote\{Appendix A.\} statistiku koja nam daje uvid u diverzitet kvaliteta agenata svakog navedenog populacijskog algoritma.\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Algoritam iscrpne pretrage \\textit\{vs\} Unaprije\\dj\{\}eni ABC (vremena izvr\\v\{s\}avanja)\}\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 27.39 & 0.83 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-2 & 1909236 & 16.26 & 0.75 \\\\ \
+    	RI-15-3 & 2049619 & 20.32 & 0.73 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-15-4 & 1549159 & 19.40 & 0.79 \\\\\
+        RI-15-5 & 1995367 & 17.11 & 0.74 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 59.25 & 0.74 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-16-2 & 1702863 & 66.13 & 0.79 \\\\\
+        RI-16-3 & 1700495 & 59.36 & 0.78 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-4 & 1463510 & 41.09 & 0.77 \\\\\
+        RI-16-5 & 2055712 & 32.89 & 0.87 \\\\\
+        \\hline\
+        RI-17-1 & 15762801 & 101.26 & 0.85 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-17-2 & 1416507 & 206.64 & 0.87 \\\\\
+        RI-17-3 & 2326401 & 181.81 & 0.90 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 131.35 & 0.87 \\\\\
+        RI-17-5 & 1550093 & 122.44 & 0.81 \\\\\
+        \\hline\
+        RI-18-1 & 2275043 & 240.71 & 1.07 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-18-2 & 2696259 & 326.56 & 1.12 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
+        \\hline\
+        RI-18-3 & 2023911 & 408.30 & 1.07 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-4 & 1806271 & 290.33 & 1.03 \\\\\
+        RI-18-5 & 1656804 & 147.41 & 1.02 \\\\\
+        \\hline\
+        RI-19-1 & 2006489 & 614.85 & 0.96 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-19-2 & 1797201 & 401.56 & 1.14 \\\\\
+        RI-19-3 & 1777187 & 360.84 & 1.09 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-4 & 1641380 & 263.18 & 1.04 \\\\\
+        RI-19-5 & 1685899 & 685.72 & 1.06 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 709.00 & 1.09 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-20-2 & 1537246 & 892.15 & 0.94 \\\\\
+        RI-20-3 & 1993018 & 1570.29 & 1.21 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1039.40 & 1.14 \\\\\
+        RI-20-5 & 2329993 & 1716.42 & 1.21 \\\\\
+        \\hline\
+        RI-21-1 & 2022009 & 912.20 & 1.27 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-21-2 & 2473327 & 3226.62 & 1.25 \\\\\
+        RI-21-3 & 2113566 & 6737.32 & 1.51 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-21-4 & 1381651 & 2281.67 & 1.25 \\\\\
+        RI-21-5 & 2348732 & 5508.41 & 1.26 \\\\\
+        \\hline\
+        RI-22-1 & 2246770 & 7446.92 & 1.25 \\\\\
+   		\\bottomrule\
+    	\\hline\
+  	\\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{2\}\{c\}\{\\emph\{Algoritam iscrpne pretrage\}\} & \\emph\{Unaprije\\dj\{\}eni ABC\} \\\\\
+        							 & \\emph\{Optimum\} & \\emph\{Vrijeme (s)\}& \\emph\{Prosje\\v\{c\}no vrijeme (s)\}  \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-22-2 & 1820994 & 3626.20 & 1.38 \\\\\
+        RI-22-3 & 1755667 & 4961.50 & 1.33 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-22-4 & 2068914 & 7846.59 & 1.37 \\\\\
+        RI-22-5 & 2291740 & 11868.93 & 1.37 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 13573.40 & 1.44 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-2 & 1890912 & 4254.22 & 1.34 \\\\\
+        RI-23-3 & 2515459 & 33332.45 & 1.46 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-23-4 & 2347326 & 21125.10 & 1.36 \\\\\
+        RI-23-5 & 2252239 & 8613.89 & 1.46 \\\\\
+        \\bottomrule\
+    	\\hline\
+  	\\end\{tabular\}\
+  \\label\{tab:es\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Prosje\\v\{c\}ni rezultat, najbolji rezultat i standardna devijacija algoritma Simuliranog Kaljenja u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2114203 & 2111182 & 1251 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2092213 & 2092213 & 0 \\\\\
+        RI-15-5 & 2034210 & 1995367 & 10308 \\\\\
+        \\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Algoritam Simuliranog Kaljenja\}\} \\\\\
+        							 & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+        RI-16-1 & 1559225 & 1546841 & 2426 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1712957 & 1700495 & 3191 \\\\\
+        \\hline\
+        RI-17-3 & 2332225 & 2326401 & 1732 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1732083 & 1714096 & 3240 \\\\\
+        \\hline\
+    	RI-18-2 & 2703399 & 2696259 & 3271 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1756330 & 1755344 & 491 \\\\\
+        \\hline\
+    	RI-19-2 & 1804804 & 1797201 & 2920 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1781739 & 1777187 & 2156 \\\\\
+        RI-19-4 & 1645661 & 1641380 & 2054 \\\\\
+        \\hline\
+        RI-20-1 & 2248547 & 2185726 & 9824 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1756094 & 1744241 & 1659 \\\\\
+        RI-20-5 & 2343195 & 2329993 & 5468 \\\\\
+    	\\hline\
+        RI-21-5 & 2357454 & 2348732 & 2366 \\\\\
+        \\hline\
+        RI-22-4 & 2081143 & 2068914 & 2672 \\\\\
+        \\hline\
+        RI-23-1 & 1652834 & 1644823 & 3204 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2285596 & 2252239 & 8243 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:sa\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija PSO algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2056895 & 2052665 & 2049619 & 3580 \\\\\
+        RI-15-5 & 1995367 & 1995367 & 1995367 & 0 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 1546841 & 1546841 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1701791 & 1700598 & 1700495 & 351 \\\\\
+        \\hline\
+        RI-17-3 & 2326401 & 2326401 & 2326401 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 1714096 & 1714096 & 0 \\\\\
+        \\hline\
+    	RI-18-2 & 2696259 & 2696259 & 2696259 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1656804 & 1656804 & 1656804 & 0 \\\\\
+        \\hline\
+    	RI-19-2 & 1797201 & 1797201 & 1797201 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1777187 & 1777187 & 1777187 & 0 \\\\\
+        RI-19-4 & 1641380 & 1641380 & 1641380 & 0 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 2185726 & 2185726 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1744241 & 1744241 & 0 \\\\\
+        RI-20-5 & 2329993 & 2329993 & 2329993 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+        RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
+        \\hline\
+        RI-22-4 & 2075512 & 2074265 & 2068914 & 2540 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 1644823 & 1644823 & 0 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2252239 & 2252239 & 2252239 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:pso\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat i standardna devijacija Unaprije\\dj\{\}enog ABC algoritma u 50 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+  		RI-15-1 & 2111182 & 2111182 & 2111182 & 0 \\\\	 \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-15-3 & 2049619 & 2049619 & 2049619 & 0 \\\\\
+        RI-15-5 & 1995367 & 1995367 & 1995367 & 0 \\\\\
+        \\hline\
+        RI-16-1 & 1546841 & 1546841 & 1546841 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-16-3 & 1700495 & 1700495 & 1700495 & 0 \\\\\
+        \\hline\
+        RI-17-3 & 2326401 & 2326401 & 2326401 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-17-4 & 1714096 & 1714096 & 1714096 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{3\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rezultat\} & \\emph\{Prosje\\v\{c\}ni rezultat\} & \\emph\{Najbolji rezultat\}& \\emph\{SD\}  \\\\\
+        \\hline\
+    	RI-18-2 & 2696259 & 2696259 & 2696259 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-18-5 & 1656804 & 1656804 & 1656804 & 0 \\\\\
+        \\hline\
+    	RI-19-2 & 1797201 & 1797201 & 1797201 & 0 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-19-3 & 1777187 & 1777187 & 1777187 & 0 \\\\\
+        RI-19-4 & 1641380 & 1641380 & 1641380 & 0 \\\\\
+        \\hline\
+        RI-20-1 & 2185726 & 2185726 & 2185726 & 0 \\\\ \
+        \\rowcolor\{black!20\}[0pt][0pt] RI-20-4 & 1744241 & 1744241 & 1744241 & 0 \\\\\
+        RI-20-5 & 2329993 & 2329993 & 2329993 & 0 \\\\\
+        \\hline\
+        RI-21-5 & 2348732 & 2348732 & 2348732 & 0 \\\\\
+        \\hline\
+        RI-22-4 & 2075512 & 2069309 & 2068914 & 1566 \\\\\
+        \\hline\
+        RI-23-1 & 1644823 & 1644823 & 1644823 & 0 \\\\ \
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-23-5 & 2252239 & 2252239 & 2252239 & 0 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:iabc\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja PSO algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 3981324 & 3981181 & 3981057 & 133 & 3.31 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 5708486 & 5708486 & 5708486 & 0 & 3.69 \\\\\
+        RI-40-3 & 5707203 & 5705169 & 5705099 & 377 & 3.51 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 5578716 & 5537424 & 5532297 & 9065 & 3.44 \\\\\
+        RI-40-5 & 4793477 & 4791469 & 4791246 & 669 & 3.32 \\\\\
+        \\hline\
+  		RI-80-1 & 6376539 & 6321510 & 6258646 & 31688 & 7.29 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 8535545 & 8501302 & 8468874 & 17588 & 7.52 \\\\\
+        RI-80-3 & 6978545 & 6907133 & 6851719 & 30899 & 7.81 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6302636 & 6242295 & 6154369 & 36517 & 7.43 \\\\\
+        RI-80-5 & 7652398 & 7556331 & 7464114 & 38971 & 7.71 \\\\\
+        \\hline\
+  		RI-120-1 & 6608676 & 6552933 & 6462899 & 32283 & 11.63 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6397590 & 6351684 & 6312444 & 19752 & 11.58 \\\\\
+        RI-120-3 & 6631213 & 6588347 & 6547914 & 17688 & 11.69 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 7692539 & 7648538 & 7551011 & 30130 & 11.61 \\\\\
+        RI-120-5 & 6043758 & 6002853 & 5954341 & 20846 & 11.92 \\\\\
+        \\hline\
+  		RI-160-1 & 6434766 & 6350615 & 6305173 & 26765 & 16.78 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{PSO algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 7306872 & 7265242 & 7217500 & 24216 & 15.36 \\\\\
+        RI-160-3 & 5836311 & 5777325 & 5735756 & 19735 & 16.06 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 9258723 & 9160906 & 8932837 & 67998 & 15.60 \\\\\
+        RI-160-5 & 6973926 & 6938585 & 6901351 & 16289 & 15.02 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:pso\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 4431309 & 4357694 & 4267981 & 43137 & 1.34 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 6012489 & 5977853 & 5912515 & 28820 & 1.48 \\\\\
+        RI-40-3 & 6109987 & 6059299 & 5935755 & 37652 & 1.43 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 6112672 & 6043598 & 5974049 & 35465 & 1.41 \\\\\
+        RI-40-5 & 5361920 & 5287964 & 5204055 & 49702 & 1.36 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-80-1 & 6756000 & 6716741 & 6649771 & 31206 & 3.02 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 9029694 & 8975418 & 8854342 & 45308 & 3.13 \\\\\
+        RI-80-3 & 7582315 & 7513996 & 7427765 & 35789 & 3.14 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6518032 & 6495705 & 6442912 & 21009 & 3.04 \\\\\
+        RI-80-5 & 8164600 & 8083242 & 8009757 & 43017 & 3.15 \\\\\
+        \\hline\
+  		RI-120-1 & 7001153 & 6942420 & 6842448 & 48300 & 4.74 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6777435 & 6731189 & 6648524 & 30795 & 4.76 \\\\\
+        RI-120-3 & 6755798 & 6737654 & 6706967 & 10844 & 4.79 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 8015857 & 7989688 & 7901942 & 25750 & 4.80 \\\\\
+        RI-120-5 & 6329087 & 6300477 & 6243130 & 26206 & 4.86 \\\\\
+        \\hline\
+  		RI-160-1 & 6715016 & 6674444 & 6592204 & 30995 & 7.02 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 7551925 & 7527883 & 7489792 & 17335 & 6.31 \\\\\
+        RI-160-3 & 5976318 & 5958676 & 5915469 & 13482 & 6.33 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 9457551 & 9440930 & 9407090 & 14671 & 6.34 \\\\\
+        RI-160-5 & 7103540 & 7085397 & 7044421 & 14169 & 6.22 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:abc\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji rezultat, standardna devijacija i vrijeme izvr\\v\{s\}avanja Unaprije\\dj\{\}enog ABC algoritma u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranim instancama.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-40-1 & 3981057 & 3981057 & 3981057 & 0 & 2.78 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-40-2 & 5708486 & 5708486 & 5708486 & 0 & 3.01 \\\\\
+        RI-40-3 & 5705099 & 5705099 & 5705099 & 0 & 3.10 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-40-4 & 5613929 & 5541323 & 5532297 & 14319 & 3.01 \\\\\
+        RI-40-5 & 4791246 & 4791246 & 4791246 & 0 & 2.88 \\\\\
+        \\hline\
+  		RI-80-1 & 6116131 & 6095063 & 6081237 & 7835 & 7.81 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-80-2 & 8459368 & 8439889 & 8416290 & 10896 & 7.41 \\\\\
+        RI-80-3 & 6739977 & 6738582 & 6737427 & 1248 & 7.80 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-80-4 & 6119128 & 6113305 & 6107287 & 4565 & 7.31 \\\\\
+        RI-80-5 & 7260296 & 7259629 & 7251518 & 1982 & 8.08 \\\\\
+        \\hline\
+  		RI-120-1 & 6299156 & 6282351 & 6280828 & 4151 & 13.49 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-120-2 & 6071076 & 6063776 & 6059606 & 3667 & 13.20 \\\\\
+        RI-120-3 & 6263254 & 6257688 & 6252986 & 2633 & 13.43 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-120-4 & 7380240 & 7350536 & 7296294 & 19483 & 13.33 \\\\\
+        RI-120-5 & 5853560 & 5835380 & 5829316 & 6011 & 13.04 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+  	\\begin\{tabular\}\{@\{\} l L L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Unaprije\\dj\{\}eni ABC algoritam\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji rez.\} & \\emph\{Prosje\\v\{c\}ni rez.\} & \\emph\{Najbolji rez.\}& \\emph\{SD\} & \\emph\{Vrijeme (s)\} \\\\\
+        \\hline\
+  		RI-160-1 & 5954060 & 5938211 & 5924450 & 6793 & 23.23 \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-2 & 6914570 & 6900078 & 6874677 & 7690 & 19.95 \\\\\
+        RI-160-3 & 5452882 & 5449796 & 5446910 & 1231 & 20.07 \\\\\
+        \\rowcolor\{black!20\}[0pt][0pt] RI-160-4 & 8853168 & 8667264 & 8620112 & 62554 & 20.33 \\\\\
+        RI-160-5 & 6568570 & 6557988 & 6547808 & 3976 & 19.76 \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:iabc\}\
+\\end\{table\}\
+\
+\\begin\{table\}\
+	\\centering\
+    \\captionof\{table\}\{Najlo\\v\{s\}iji, prosje\\v\{c\}ni i najbolji Theil indeks i standardna devijacija istog za PSO, ABC i Unaprije\\dj\{\}eni ABC algoritam u 30 izvr\\v\{s\}avanja nad nasumi\\v\{c\}no generiranom instancom od 160 ta\\v\{c\}aka.\}\
+  	\\begin\{tabular\}\{@\{\} l L L L @\{\} >\{\\kern\\tabcolsep\}l @\{\}\}    \\toprule\
+      	\\multirow\{2\}\{*\}\{\\emph\{Generirana instanca\}\} & \\multicolumn\{4\}\{c\}\{\\emph\{Theil indeksi (Appendix A)\}\} \\\\\
+        							 & \\emph\{Najlo\\v\{s\}iji t-idx.\} & \\emph\{Prosje\\v\{c\}ni t-idx.\} & \\emph\{Najbolji t-idx.\}& \\emph\{SD\} \\\\\
+        \\hline\
+  		RI-160-6 (PSO) & $3.61 \\times 10^\{-6\}$ & $6.42 \\times 10^\{-7\}$ & $1.81 \\times 10^\{-7\}$ & $6.54 \\times 10^\{-7\}$ \\\\\
+    	\\rowcolor\{black!20\}[0pt][0pt] RI-160-6 (ABC) & $0.000673$ & $0.000256$ & $0.000117$ & $0.000114$ \\\\\
+        RI-160-6 (UABC) & $8.17 \\times 10^\{-6\}$ & $4.61 \\times 10^\{-6\}$ & $1.80 \\times 10^\{-6\}$ & $1.79 \\times 10^\{-6\}$ \\\\\
+        \\bottomrule\
+    	\\hline\
+        \\end\{tabular\}\
+  	\\label\{tab:tidx\}\
+\\end\{table\}\
+\
+\
+\\chapter\{Dodaci\} \\label\{ch:appendixes\}\
+\
+\\section\{Appendix A: Theil indeks\}\
+Theil indeks je statistika koja se primarno koristila za mjerenje ekonomske nejednakosti me\\dj\{\}u ljudima kao i drugih ekonomskih fenomena.\
+Mo\\v\{z\}e predstavljati mjeru redundancije, nedostatak razli\\v\{c\}itosti, izolaciju, segregaciju, razne nejednakosti, i druge sli\\v\{c\}ne statistike. Predlo\\v\{z\}ena je od strane Henri Theil-a, stru\\v\{c\}njaka ekonometrije sa \\textit\{Erasmus University Rotterdam\}-a.\\\\\
+Pored navedenih aplikacija u ekonomiji, Theil indeks nalazi primjenu i u drugim oblastima, kao \\v\{s\}to je mjerenje performansi sistema navodnjavanja \\cite\{rajansampath\}, te mjerenja raznih pokazatelja u kompjuterskim naukama \\cite\{serebrenikvandenbrand\}.\\\\\
+\
+Za populaciju od $N$ agenata kvalitete (ili neke druge karakteristike) $x$, takvih da je $x_i$ kvaliteta (karakteristika) agenta $i$, $i = \\overline\{1, N\}$, odgovaraju\\'\{c\}i Theil indeks se ra\\v\{c\}una kao:\
+\
+$$\\displaystyle T_\{T\}=\{\\frac\{1\}\{N\}\}\\sum _\{i=1\}^\{N\}\\,\{\\frac\{x_\{i\}\}\{\\mu\}\}\\ln \\left(\{\\frac \{x_\{i\}\}\{\\mu \}\}\\right)$$\
+\
+gdje je $\\displaystyle \\mu$ srednja vrijednost kvaliteta (karakterisika):\
+\
+$$\\displaystyle \\mu =\\frac \{1\}\{N\}\\sum _\{i=1\}^\{N\}x_\{i\}$$\
+\
+\\section\{Appendix B: N-simpleks\}\
+\
+Intuitivno, N-simpleks je generalizacija trougla ili tetraedra na odgovoraju\\v\{c\}u $n$-dimenzionalnu geometrijsku strukturu.\
+Preciznije, $k$-simpleks bi bio $k$-dimenzionalni politop i to, ta\\v\{c\}nije, konveksni omota\\v\{c\} svojih  $k+1$ ta\\v\{c\}aka.\
+Formalno, neka su ta\\v\{c\}ke $\\displaystyle u_\{0\},\\dots ,u_\{k\}\\in \\mathbb \{R\} ^\{k\}$ afino nezavisne, \\v\{s\}to zna\\v\{c\}i da su $\\displaystyle u_\{1\}-u_\{0\},\\dots ,u_\{k\}-u_\{0\}$ linearno nezavisne. Tada skup\
+\
+$$\\displaystyle C=\\left\\\{\\theta _\{0\}u_\{0\}+\\dots +\\theta _\{k\}u_\{k\}~\{\\bigg |\}~\\sum _\{i=0\}^\{k\}\\theta _\{i\}=1 \\,\\, \\land \\,\\, \\theta _\{i\}\\geq 0 \\,\\, \\forall \\,i\\right\\\}$$\
+\
+\\v\{c\}ini $k$-simpleks datih ta\\v\{c\}aka.\\\\\
+\
+Dakle, $2$-simpleks odgovara trouglu u ravni, $3$-simpleks odgovara tetraedru, $4$-simpleks odgovara pentakoronu (hiperpiramidi) i tako dalje.\\\\\
+Ta\\v\{c\}ka se smatra $0$-simpleksom, a linijski segment $1$-simpleksom.\\\\\
+Simpleks se jo\\v\{s\} definira kao najmanji konveksni skup koji sadr\\v\{z\}i date ta\\v\{c\}ke.\\\\\
+\
+Pravilan simpleks\\cite\{elte\} je simpleks koji odgovara pravilnom politopu.\
+\
+\\section\{Appendix C: Lokalna pretraga\}\
+\
+Ve\\'\{c\}ina problema se mo\\v\{z\}e formulisati u kontekstu prostora pretrage (ili prostora svih rje\\v\{s\}enja) i ciljnog rje\\v\{s\}enja datog problema.\
+Na primjer, za problem trgova\\v\{c\}kog putnika, prostor pretrage bi bili svi mogu\\'\{c\}i ciklusi za zadani graf, dok bi ciljno rje\\v\{s\}enje odgovaralo onom ciklusu koji je najkra\\'\{c\}i.\\\\\
+\
+Algoritam lokalne pretrage zahtijeva poznavanje barem jednog (bilo kojeg) rje\\v\{s\}enja iz prostora pretrage iz kojeg nastavlja iterativno obila\\v\{z\}enje susjednih rje\\v\{s\}enja.\
+Naravno, ovo je izvr\\v\{s\}ivo tek ukoliko postoji na\\v\{c\}in za nala\\v\{z\}enje (obila\\v\{z\}enje) susjednih (ili bar jednog susjednog) rje\\v\{s\}enja.\
+Na primjer, susjedno rje\\v\{s\}enje jednog rje\\v\{s\}enja (ili u ovom slu\\v\{c\}aju jedne interpretacije) SAT problema, bilo bi rje\\v\{s\}enje (interpretacija) koje se od istog razlikuje po samo jednoj varijabli.\\\\\
+\
+Primijetimo da je za algoritam lokalne pretrage dovoljno da "vidi" (nalazi) barem jedno susjedno rje\\v\{s\}enje trenutnog rje\\v\{s\}enja koje obilazi. Odatle i dobija ime "lokalna" pretraga, jer u svakoj iteraciji (uglavnom) obuhvata tek mali dio cijelog prostora pretrage.\\\\\
+Kada pri izboru susjednih rje\\v\{s\}enja vr\\v\{s\}imo restrikciju na odabir samo onih rje\\v\{s\}enja bolje kvalitete, tada govorimo o varijaciji lokalne pretrage, koja se zove Pretra\\v\{z\}ivanje usponom.\\\\\
+Ukoliko tokom pretra\\v\{z\}ivanja usponom nismo u mogu\\'\{c\}nosti da na\\dj\{\}emo rje\\v\{s\}enje bolje ili iste kvalitete (to jeste, sva susjeda rje\\v\{s\}enja su isklju\\v\{c\}ivo lo\\v\{s\}ije kvalitete), ka\\v\{z\}emo da je algoritam dostigao lokalni optimum.\
+Postoje razni na\\v\{c\}ini za izlazak iz lokalnih optimuma\\footnote\{Nerijetko se javlja potreba za izlaskom iz lokalnog optimuma, jer ne mora nu\\v\{z\}no zna\\v\{c\}iti da je lokalni optimum ujedno i globalni optimum.\}. Neki od njih su ponu\\dj\{\}eni u varijacijama metaheuristike Lokalne pretrage, kao \\v\{s\}to su "Random restart" pretra\\v\{z\}ivanje usponom ili pak simulirano kaljenje.\\\\\
+\
+Algoritam lokalne pretrage se mo\\v\{z\}e zavr\\v\{s\}iti nakon prethodno odre\\dj\{\}enog broja izvr\\v\{s\}enih iteracija ili nakon \\v\{s\}to trenutno rje\\v\{s\}enje ne uspijeva biti promijenjeno nakon, prethodno, odre\\dj\{\}enog broja koraka.\\\\\
+Na kraju, ova metaheuristika spada u "anytime" algoritme. Dakle, ista vra\\'\{c\}a validno, ne nu\\v\{z\}no optimalno, rje\\v\{s\}enje u bilo kom trenutku zaustavljanja.\
+\
+ \\addcontentsline\{toc\}\{chapter\}\{Bibliografija\}\
+    \\bibliography\{...\}\
+\\begin\{thebibliography\}\{plain\}\
+ \\bibitem\{hilbert\}    D. Hilbert, \\textit\{Grundlagen der Geometrie\}, B.G. Teubner, Leipzig, 1899.\
+ \\bibitem\{gareyetal\} M. R. Garey, D. S. Johnson, F. P. Preparata, and R. E. Tarjan. \\textit\{Triangulating a simple polygon\}. Inform. Process. Lett., 7:175\'96179, 1978.\
+ \\bibitem\{devados\} S. L. Devadoss, J. O'Rourke, \\textit\{Discrete and Computational Geometry\}. ISBN: 9780691145532\
+ \\bibitem\{hurtadoetal\} Hurtado, F.; M. Noy; J. Urrutia (1999).\\textit\{Flipping Edges in Triangulations\}.Discrete \\& Computational Geometry.22(3). pp.333\'96346.\
+ \\bibitem\{lawson\} C. L. Lawson. \\textit\{Transforming triangulations\}. Discrete Math., 3:365\'96372, 1972.\
+ \\bibitem\{lawsonC\} C. L. Lawson. \\textit\{Software for C\}. In J. R. Rice, editor, Math. Software III, pages 161\'96194. Academic Press, New York, 1977.\
+ \\bibitem\{guibasetal\} L. J. Guibas, D. Knuth, M. Sharir, (1992).\\textit\{Randomized incremental construction of Delaunay and Voronoi diagrams\}. Algorithmica.7: 381\'96413.doi:10.1007/BF01758770\
+ \\bibitem\{bergetal\} M. de Berg, C. Otfried, M. van Kreveld, M. Overmars (2008). \\textit\{Computational Geometry: Algorithms and Applications\}. Springer-Verlag.ISBN978-3-540-77973-5.\
+ \\bibitem\{bowyer\} A. Bowyer, (1981). \\textit\{Computing Dirichlet tessellations\}. Comput. J.24(2): 162\'96166.doi:10.1093/comjnl/24.2.162.\
+ \\bibitem\{watson\} D. F. Watson, (1981). \\textit\{Computing then-dimensional Delaunay tessellation with application to Voronoi polytopes\}. Comput. J.24(2): 167\'96172.doi:10.1093/comjnl/24.2.167\
+ \\bibitem\{leach\} Leach, G. (June 1992). \\textit\{Improving Worst-Case Optimal Delaunay Triangulation Algorithms\}. CiteSeerX10.1.1.56.2323\uc0\u8239 \
+ \\bibitem\{sinclair\} \\url\{http://www.s-hull.org/paper/s_hull.pdf\} (\\textit\{S-hull: a fast radial sweep-hull routine for Delaunay triangulation\} D. A. Sinclair david@s-hull.org Cambridge, UK)\
+ \\bibitem\{duppeetal\} D\'fcppe, R. D.; Gottschalk, H. J. (1970), \\textit\{Automatische Interpolation von Isolinien bei willk\'fcrlich verteilten St\'fctzpunkten\}, Allgemeine Vermessungs-Nachrichten,77: 423\'96426\
+ \\bibitem\{shamoshoey\} Shamos, M. I.; Hoey, D. J. (1975), \\textit\{Closest-point problems\},Proc. 16th IEEE Symposium on Foundations of Computer Science(PDF), pp.151\'96162.\
+ \\bibitem\{Lloyd\} Lloyd, E. (1977), \\textit\{On triangulations of a set of points in the plane\}, Proc. 18th IEEE Symposium on Foundations of Computer Science, pp.228\'96240.\
+ \\bibitem\{Kirkpatrick\} Kirkpatrick, David G.(1980), \\textit\{A note on Delaunay and optimal triangulations\}, Information Processing Letters,10(3): 127\'96128,MR566856,doi:10.1016/0020-0190(80)90062-9\
+ \\bibitem\{gareyjohnson\} Garey, M. R.; Johnson, D. S.(1979), \\textit\{Computers and Intractability: A Guide to the Theory of NP-Completeness\}, San Francisco, Calif.:\
+ \\bibitem\{mulzerrote\} Mulzer, Wolfgang; Rote, G\'fcnter (2008), \\textit\{Minimum-weight triangulation is NP-hard\}, Journal of the ACM,55(2), Article A11,arXiv:cs.CG/0601002\uc0\u8239 ,doi:10.1145/1346330.1346336.\
+ \\bibitem\{xuzhou\} Y. Xu, D. Zhou, \\textit\{Improved heuristics for the minimum weight triangulation problem\}, Acta Mathematicae Applicatae Sinica, Vol. 11 No. 4 (1995)\
+ \\bibitem\{qinetal\} A Genetic algorithm for Minimum Weight Triangulation, IEEE (1997) 0-7803-3949-5/97\
+ \\bibitem\{lenhartliotta\} W. Lenhart, G. Liotta, \\textit\{The drawability problem for minimum weight triangulations, Theoretical Computer Science 270 (2002) 261-286\}\
+ \\bibitem\{bellevilleetal\} P. Belleville, M. Keil, M. McAllister, J. Snoeyink \\textit\{On Computing Edges That Are In All Minimum-Weight Triangulations\}	Proc. 12th Ann. ACM Symp. on Computational Geometry\
+ \\bibitem\{dickersonmontague\} M. T. Dickerson, M.H. Montague \\textit\{A (usually?) connected subgraph of the minimum weight triangulation\}, Proceeding (SCG '96) Proceedings of the twelfth annual symposium on Computational geometry\
+Pages 204-213 (1996)\
+ \\bibitem\{gudmundsson\} J. Gudmundsson, C. Levcopoulos, \\textit\{A Parallel Approximation Algorithm for Minimum Weight Triangulation\}, Springer-Verlag Berlin Heidelberg 1998\
+ \\bibitem\{dickersonetal\} M. T. Dickerson, S. A. McElfresh, M. Montague \\textit\{New algorithms and empirical findings on minimum weight triangulation heuristics\}  Proceeding\
+(SCG '95) Proceedings of the eleventh annual symposium on Computational geometry\
+Pages 238-247 (1995)\
+ \\bibitem\{jahanietal\} M. Jahani, B.S. Bigham, A. Askari \\textit\{An Ant Colony Algorithm for the Minimum Weight Triangulation\} (2010) International Conference on Computational Science and Its Applications 10.1109/ICCSA.2010.38\
+ \\bibitem\{penalveretal\} Hern\'e1ndez Pe\'f1alver, Gregorio; Dorz\'e1n, M. Gisela; Gagliardi, Edilma Olinda; Leguizam\'f3n, Guillermo \\textit\{Using ACO metaheuristic for MWT problem\} In: "2011 IEEE International Conference on Services Computing", july, 4-9, 2011, Washington, DC, USA. ISBN 978-0-7695-4462-5.\
+  \\bibitem\{yousefiyoung\} Arman Yousefi, Neal E. Young \\textit\{On a Linear Program for Minimum-Weight Triangulation\}, SIAM Journal on Computing 43(1):25-51(2014), 10.1137/120887928\
+, arXiv:1111.5305 [cs.CG]\
+ \\bibitem\{wangaggarwal\} Y.F. Wang and J.K. Aggarwal, \\textit\{Surface recon- struction and representation of 3-D scenes\}. Pattern Recognition 19 (1986) 197-207.\
+ \\bibitem\{barequetsharir\} G. Barequet and M. Sharir, \\textit\{Piecewisdinearpolation between polygonal slices\}. Proceedings of the Tenth Annual Symposium on Computational Geometry (1994) 93\'96102.\
+ \\bibitem\{nayn\} Tac Nayn \\url\{https://math.stackexchange.com/users/33907/tac-nayn\}, \\textit\{Number of triangles in a triangulation\}, URL (version: 2015-01-09): \\url\{https://math.stackexchange.com/q/1097813\}\
+ \\bibitem\{lingas\} Lingas, Andrzej (1998), \\textit\{Subexponential-time algorithms for minimum weight triangulations and related problems\}, Proceedings of the 10th Canadian Conference on Computational Geometry (CCCG'98)\
+ \\bibitem\{russellnorvig\} S. Russell, P. Norvig, \\textit\{Artificial Intelligence: A Modern Approach: Third Edition\}, Prentice Hall, (2009)\
+ \\bibitem\{lewisbekey\} Lewis, M. Anthony; Bekey, George A. \\textit\{The Behavioral Self-Organization of Nanorobots Using Local Rules\}. Proceedings of the 1992 IEEE/RSJ International Conference on Intelligent Robots and Systems.\
+ \\bibitem\{alrifaieaber\} al-Rifaie, M.M.; Aber, A. \\textit\{Identifying metastasis in bone scans with Stochastic Diffusion Search\}. Proc. IEEE Information Technology in Medicine and Education, ITME.2012: 519\'96523.\
+ \\bibitem\{alrifaieetal\} al-Rifaie, Mohammad Majid, Ahmed Aber, and Ahmed Majid Oudah. \\textit\{Utilising Stochastic Diffusion Search to identify metastasis in bone scans and microcalcifications on mammographs.\} In Bioinformatics and Biomedicine Workshops (BIBMW), 2012 IEEE International Conference on, pp. 280-287. IEEE, 2012.\
+ \\bibitem\{martensetal\} Martens, D.; Baesens, B.; Fawcett, T. (2011). \\textit\{Editorial Survey: Swarm Intelligence for Data Mining\}. Machine Learning.82(1): 1\'9642.doi:10.1007/s10994-010-5216-5.\
+ \\bibitem\{kennedyeberhart\} Kennedy, J.; Eberhart, R. (1995). \\textit\{Particle Swarm Optimization\}. Proceedings of IEEE International Conference on Neural Networks.IV. pp.1942\'961948.doi:10.1109/ICNN.1995.488968.\
+ \\bibitem\{karaboga\} D. Karaboga, \\textit\{An Idea based on Honey Bee Swarm for Numerical Optimization\}, Technical Report-TR06, Erciyes University, Engineering Faculty, Computer Engineering Department, 2005.\
+ \\bibitem\{clerc\} Clerc, M. (2012). \\textit\{Standard Particle Swarm Optimisation\}. HAL open access archive.\
+ \\bibitem\{edelsbrunneretal\} Edelsbrunner, Herbert; Tan, Tiow Seng; Waupotitsch, Roman (1990). \\textit\{An $O(n^2 \\log n)$ time algorithm for the MinMax angle triangulation\}. Proceedings of the sixth annual symposium on Computational geometry. SCG '90. ACM. pp. 44\'9652. ISBN 0-89791-362-0. doi:10.1145/98524.98535.\
+ \\bibitem\{bernetal\} Bern, M.; Edelsbrunner, H.; Eppstein, D.; Mitchell, S.; Tan, T. S. (1993), \\textit\{Edge insertion for optimal triangulations\}, Discrete and Computational Geometry, 10 (1): 47\'9665, MR 1215322, doi:10.1007/BF02573962\
+ \\bibitem\{chazelleetal\} Chazelle, Bernard; Guibas, Leo J.; Lee, D. T. (1985). \\textit\{The power of geometric duality\}. BIT. BIT Computer Science and Numerical Mathematics. 25 (1): 76\'9690. ISSN 0006-3835. doi:10.1007/BF01934990.\
+ \\bibitem\{vassilev\} Vassilev, Tzvetalin Simeonov (2005). \\textit\{Optimal Area Triangulation\} (Ph.D.). University of Saskatchewan, Saskatoon.\
+ \\bibitem\{jansen\} Jansen, Klaus (1992). \\textit\{The Complexity of the Min-max Degree Triangulation Problem\}. 9th European Workshop on Computational Geometry. pp. 40\'9643.\
+ \\bibitem\{fekete\} Fekete, S\'e1ndor P. (2012). \\textit\{The Complexity of MaxMin Length Triangulation\}. arXiv:1208.0202v1\uc0\u8239 Freely accessible.\
+ \\bibitem\{edelsbrunnertan\} Edelsbrunner, Herbert; Tan, Tiow Seng (1991). \\textit\{A quadratic time algorithm for the minmax length triangulation\}. 32nd Annual Symposium on Foundations of Computer Science. pp. 414\'96423. ISBN 0-8186-2445-0. doi:10.1109/SFCS.1991.185400.\
+ \\bibitem\{chazelle\} B. Chazelle, \\textit\{Triangulating a Simple Polygon in Linear Time\}. Discrete Comput. Geom. 6: 485-524 (1991).\
+ \\bibitem\{narasimhanmichiel\} Narasimhan, Giri; Smid, Michiel (2007), \\textit\{Geometric Spanner Networks\}, Cambridge University Press, ISBN 0-521-81513-4.\
+ \\bibitem\{rajansampath\} Rajan K. Sampath. \\textit\{Equity Measures for Irrigation Performance Evaluation.\} Water International, 13(1), 1988.\
+ \\bibitem\{serebrenikvandenbrand\} A. Serebrenik, M. van den Brand. \\textit\{Theil index for aggregation of software metrics values.\} 26th IEEE International Conference on Software Maintenance. IEEE Computer Society.\
+ \\bibitem\{elte\} Elte, E. L. (1912), \\textit\{The Semiregular Polytopes of the Hyperspaces\}, Groningen: University of Groningen Chapter IV, five dimensional semiregular polytope\
+ \\bibitem\{gloversorensen\} Fred Glover and Kenneth S\'f6rensen (2015) \\textit\{Metaheuristics.\} Scholarpedia, 10(4):6532.\
+\\end\{thebibliography\}\
+\
+\\end\{document\}\
+}

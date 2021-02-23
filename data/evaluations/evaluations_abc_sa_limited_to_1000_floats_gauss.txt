@@ -1,0 +1,24 @@
+1. [Point(x=224, y=-440),Point(x=-381, y=81),Point(x=44, y=309),Point(x=-379, y=328),Point(x=-130, y=466),Point(x=-432, y=351),Point(x=129, y=-167),Point(x=-151, y=-195),Point(x=116, y=27),Point(x=-378, y=406),Point(x=82, y=246),Point(x=396, y=-476),Point(x=-438, y=-479),Point(x=408, y=366),Point(x=64, y=-267)]
+	Instance size: 15
+	Number of runs: 50
+	Optimal Weight: 6224376.
+	Time lapsed for exhaustive search: 10.180243015289307s
+
+	SA worst: 9157052
+	SA mean: 6933110.0
+	SA best: 6224376
+	SA standard deviation: 828171.3520225148
+	SA average time: 0.061761150360107424s 
+
+	PSO worst: 6224376
+	PSO mean: 6224376.0
+	PSO best: 6224376
+	PSO standard deviation: 0.0
+	PSO average time: 1.1598097848892213s 
+
+	ABC worst: 6224376
+	ABC mean: 6224376.0
+	ABC best: 6224376
+	ABC standard deviation: 0.0
+	ABC average time: 0.7845581340789795s 
+

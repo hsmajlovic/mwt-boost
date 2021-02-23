@@ -1,0 +1,23 @@
+1. [Point(x=82, y=39),Point(x=-329, y=57),Point(x=-87, y=271),Point(x=282, y=70),Point(x=223, y=-243),Point(x=150, y=96),Point(x=311, y=-210),Point(x=104, y=92),Point(x=-323, y=-137),Point(x=15, y=332),Point(x=95, y=264),Point(x=-57, y=-177),Point(x=87, y=24),Point(x=-120, y=283),Point(x=202, y=330),Point(x=-110, y=-257),Point(x=215, y=-165),Point(x=-119, y=1),Point(x=-161, y=-274),Point(x=308, y=193),Point(x=-207, y=-65),Point(x=-292, y=-107),Point(x=-189, y=224)]
+	Instance size: 23
+	Number of runs: 50
+	Optimal Weight: 2044147.
+	Time lapsed for exhaustive search: 4681.2926659584045s
+
+	SA worst: 2050794
+	SA mean: 2046406.98
+	SA best: 2044147
+	SA standard deviation: 3148.7422027851057
+	SA average time: 0.4200775098800659s 
+
+	PSO worst: 2044147
+	PSO mean: 2044147.0
+	PSO best: 2044147
+	PSO standard deviation: 0.0
+	PSO average time: 1.6840432214736938s 
+
+	ABC worst: 2044147
+	ABC mean: 2044147.0
+	ABC best: 2044147
+	ABC standard deviation: 0.0
+	ABC average time: 38.82157253742218s
