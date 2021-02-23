@@ -1,5 +1,5 @@
 # mwt-boost
-MWTBoost provides a cross comparison of several metaheuristics all applied to the same problem of finding a [minimum-weight triangulation](https://en.wikipedia.org/wiki/Minimum-weight_triangulation).
+MWTBoost provides a cross comparison of several metaheuristics all applied to the same problem of finding a [minimum-weight triangulation](https://en.wikipedia.org/wiki/Minimum-weight_triangulation) of a point set.
 
 Metaheuristics applied:
 - Hill climbing (first choice, greedy choice and random choice)
