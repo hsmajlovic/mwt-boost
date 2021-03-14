@@ -1,4 +1,4 @@
-# mwt-boost
+# MWTBoost - A set of heuristics for finding a minimum weight triangulation
 MWTBoost provides a cross comparison of several metaheuristics all applied to the same problem of finding a [minimum-weight triangulation](https://en.wikipedia.org/wiki/Minimum-weight_triangulation) of a point set.
 
 Metaheuristics applied:
@@ -7,7 +7,7 @@ Metaheuristics applied:
 - Particle swarm optimization
 - Artificial bee colony algorithm
 
-Aside from metaheuristics, a novel exhaustive search method is implemented for finding all possible triangulations of a pointset.
+Aside from metaheuristics, an exhaustive search method is provided for finding all possible triangulations of a pointset.
 
 # Testing
 Comming "soon" ... (probably in my old days -- if we ever get there)
